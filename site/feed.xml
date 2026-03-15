@@ -1,0 +1,23 @@
+---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Frontier Threads</title>
+    <link>{{ '/' | absolute_url }}</link>
+    <description>Daily newsletter on science, technology, markets, world affairs, and ideas.</description>
+    <language>en-us</language>
+    {% assign issues = site.issues | sort: 'issue_date' | reverse %}
+    {% for issue in issues %}
+    <item>
+      <title>{{ issue.display_date | xml_escape }}</title>
+      <link>{{ issue.url | absolute_url }}</link>
+      <guid>{{ issue.url | absolute_url }}</guid>
+      <pubDate>{{ issue.issue_date | date_to_rfc822 }}</pubDate>
+      <description>{{ issue.summary | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

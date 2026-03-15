@@ -1,0 +1,31 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+<section class="landing-hero">
+  <p class="issue-kicker">Search</p>
+  <h1>Search the newsletter archive.</h1>
+  <p class="landing-copy">Use keywords for topics, people, companies, fields, papers, or places and jump straight into matching issues.</p>
+</section>
+
+<section class="search-panel search-panel--page">
+  <div class="card-kicker">Keyword Search</div>
+  <h2>Find relevant issues quickly</h2>
+  <div class="filter-controls">
+    <select id="newsletter-sort-select" class="filter-select">
+      <option value="relevance">Best match</option>
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+      <option value="title">Title A-Z</option>
+      <option value="reading">Longest read</option>
+    </select>
+    <select id="newsletter-category-select" class="filter-select">
+      <option value="">All categories</option>
+    </select>
+    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+  </div>
+  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Enter your search term...">
+  <div id="newsletter-search-status" class="search-status"></div>
+  <div id="newsletter-search-results" class="search-results"></div>
+</section>

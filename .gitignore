@@ -4,3 +4,7 @@ scripts/__pycache__/
 output/launchd.log
 output/launchd.err
 .DS_Store
+.bundle/
+vendor/bundle/
+site/_site/
+site/.jekyll-cache/

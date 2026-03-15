@@ -6,24 +6,69 @@
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.description | escape }}">
   <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <script>
+    (function () {
+      const key = "mm-theme";
+      const saved = localStorage.getItem(key);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mode = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.themeMode = mode;
+    })();
+  </script>
 </head>
-<body>
+<body id="top">
+  {% assign latest_issue = site.issues | sort: 'issue_date' | reverse | first %}
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}">Current Issue</a>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark mode" title="Toggle theme">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__label">Theme</span>
+        </button>
+        <a href="{% if latest_issue %}{{ latest_issue.url | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">Current Issue</a>
         <a href="{{ '/archive/' | relative_url }}">Archive</a>
+        <a href="{{ '/search/' | relative_url }}">Search</a>
       </nav>
     </header>
     <main class="page-content">
       {{ content }}
     </main>
+    <footer class="page-footer">
+      <div class="page-footer-follow">
+        <ul class="social-icons">
+          <li><strong>Newsletter</strong></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+          <li><a href="{{ '/sitemap/' | relative_url }}">Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="page-footer-copyright">&copy; {{ 'now' | date: '%Y' }} Frontier Threads. Powered by Jekyll.</div>
+    </footer>
   </div>
   <script>
-    window.frontierThreadsConfig = {{
-      baseUrl: {{ site.baseurl | jsonify }}
-    }};
+    window.frontierThreadsConfig = {
+      baseUrl: "{{ site.baseurl }}"
+    };
+  </script>
+  <script>
+    (function () {
+      const key = "mm-theme";
+
+      function apply(mode) {
+        document.documentElement.dataset.themeMode = mode;
+        localStorage.setItem(key, mode);
+        window.dispatchEvent(new CustomEvent("themechange", { detail: { mode } }));
+      }
+
+      window.toggleTheme = function () {
+        const current = document.documentElement.dataset.themeMode === "dark" ? "dark" : "light";
+        apply(current === "light" ? "dark" : "light");
+      };
+
+      const saved = localStorage.getItem(key);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      apply(saved || (prefersDark ? "dark" : "light"));
+    })();
   </script>
   <script src="{{ '/assets/search.js' | relative_url }}"></script>
 </body>

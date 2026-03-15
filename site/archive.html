@@ -12,19 +12,55 @@ permalink: /archive/
 
 <section class="search-panel">
   <div class="card-kicker">Keyword Search</div>
+  <div class="filter-controls">
+    <select id="newsletter-sort-select" class="filter-select">
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+      <option value="title">Title A-Z</option>
+      <option value="reading">Longest read</option>
+    </select>
+    <select id="newsletter-category-select" class="filter-select">
+      <option value="">All categories</option>
+    </select>
+    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+  </div>
   <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search all archived issues">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
 
 <section class="archive-preview">
-  <div class="card-kicker">All Issues</div>
-  <div class="archive-list" id="newsletter-archive-list">
+  <section class="home-carousel-section">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">All Issues</p>
+      <h2>Browse the full run</h2>
+    </div>
+    <div class="home-carousel-section__actions">
+      <div class="carousel-controls">
+        <button type="button" class="carousel-controls__button" data-carousel-prev="archive-issues" aria-label="Previous">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="carousel-controls__button" data-carousel-next="archive-issues" aria-label="Next">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-carousel archive-list" data-carousel-track="archive-issues" id="newsletter-archive-list">
     {% for issue in issues %}
-    <article class="archive-item" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}">
-      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+    <article class="archive-item carousel-card" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}" data-category="{{ issue.primary_category | escape }}" data-tags="{{ issue.tags | join: ',' | escape }}" data-reading-time="{{ issue.reading_time }}" data-title="{{ issue.title | escape }}">
+      <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
+      <div class="card-tags">
+        {% for tag in issue.tags limit: 4 %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
     </article>
     {% endfor %}
   </div>
+  </section>
 </section>

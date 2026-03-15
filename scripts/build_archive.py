@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ISSUES_DIR = ROOT / "issues" / "daily"
 SITE_DIR = ROOT / "site"
+PERSONAL_SITE_ASSETS = ROOT.parent / "PersonalWebsite" / "PersonalSite" / "assets" / "images"
 
 
 CONFIG_YML = """title: Frontier Threads
@@ -42,24 +43,69 @@ DEFAULT_LAYOUT = """<!doctype html>
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.summary | default: site.description | escape }}">
   <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+  <script>
+    (function () {
+      const key = "mm-theme";
+      const saved = localStorage.getItem(key);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mode = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.themeMode = mode;
+    })();
+  </script>
 </head>
-<body>
+<body id="top">
+  {% assign latest_issue = site.issues | sort: 'issue_date' | reverse | first %}
   <div class="site-shell">
     <header class="site-header">
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
       <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}">Current Issue</a>
+        <button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle light and dark mode" title="Toggle theme">
+          <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+          <span class="theme-toggle__label">Theme</span>
+        </button>
+        <a href="{% if latest_issue %}{{ latest_issue.url | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">Current Issue</a>
         <a href="{{ '/archive/' | relative_url }}">Archive</a>
+        <a href="{{ '/search/' | relative_url }}">Search</a>
       </nav>
     </header>
     <main class="page-content">
       {{ content }}
     </main>
+    <footer class="page-footer">
+      <div class="page-footer-follow">
+        <ul class="social-icons">
+          <li><strong>Newsletter</strong></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></li>
+          <li><a href="{{ '/sitemap/' | relative_url }}">Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="page-footer-copyright">&copy; {{ 'now' | date: '%Y' }} Frontier Threads. Powered by Jekyll.</div>
+    </footer>
   </div>
   <script>
-    window.frontierThreadsConfig = {{
-      baseUrl: {{ site.baseurl | jsonify }}
-    }};
+    window.frontierThreadsConfig = {
+      baseUrl: "{{ site.baseurl }}"
+    };
+  </script>
+  <script>
+    (function () {
+      const key = "mm-theme";
+
+      function apply(mode) {
+        document.documentElement.dataset.themeMode = mode;
+        localStorage.setItem(key, mode);
+        window.dispatchEvent(new CustomEvent("themechange", { detail: { mode } }));
+      }
+
+      window.toggleTheme = function () {
+        const current = document.documentElement.dataset.themeMode === "dark" ? "dark" : "light";
+        apply(current === "light" ? "dark" : "light");
+      };
+
+      const saved = localStorage.getItem(key);
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      apply(saved || (prefersDark ? "dark" : "light"));
+    })();
   </script>
   <script src="{{ '/assets/search.js' | relative_url }}"></script>
 </body>
@@ -71,17 +117,36 @@ ISSUE_LAYOUT = """---
 layout: default
 ---
 <article class="issue-page">
-  <div class="issue-hero">
-    <p class="issue-kicker">Daily Issue</p>
-    <h1>{{ page.display_date }}</h1>
-    <p class="issue-summary">{{ page.summary }}</p>
-    <div class="issue-actions">
-      <a class="button" href="{{ '/archive/' | relative_url }}">Browse archive</a>
-      <a class="button button-secondary" href="{{ '/search.json' | relative_url }}">Search index</a>
+  <div class="shell newsletter-shell">
+    <div class="masthead">
+      <p class="eyebrow">Frontier Threads</p>
+      <h1>{{ page.title }}</h1>
+      <p>Science, technology, policy, and ideas worth your attention on {{ page.display_date }}.</p>
+      <div class="issue-meta-bar">
+        <span class="meta-pill">{{ page.display_date }}</span>
+        <span class="meta-pill">{{ page.display_time }}</span>
+        <span class="meta-pill">{{ page.reading_time }} min read</span>
+      </div>
+      <div class="taxonomy-row">
+        {% if page.categories and page.categories.size > 0 %}
+        {% for category in page.categories %}
+        <span class="taxonomy-chip taxonomy-chip--category">{{ category }}</span>
+        {% endfor %}
+        {% endif %}
+        {% if page.tags and page.tags.size > 0 %}
+        {% for tag in page.tags %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+        {% endif %}
+      </div>
     </div>
-  </div>
-  <div class="issue-content">
-    {{ content }}
+    <div class="content issue-content">
+      {{ content }}
+    </div>
+    <div class="footer">
+      <p>Browse the archive or use search to revisit previous editions.</p>
+      <p><a class="back-to-top" href="#top">Return to top</a></p>
+    </div>
   </div>
 </article>
 """
@@ -94,42 +159,164 @@ permalink: /
 ---
 {% assign latest = site.issues | sort: 'issue_date' | reverse | first %}
 {% assign recent = site.issues | sort: 'issue_date' | reverse %}
-<section class="landing-hero">
-  <p class="issue-kicker">Frontier Threads</p>
-  <h1>The current newsletter, plus a searchable archive.</h1>
-  <p class="landing-copy">Read the latest issue first, then jump into older editions by date or keyword.</p>
-</section>
-
-{% if latest %}
-<section class="current-issue-card">
-  <div class="card-kicker">Latest Issue</div>
-  <h2><a href="{{ latest.url | relative_url }}">{{ latest.display_date }}</a></h2>
-  <p>{{ latest.summary }}</p>
-  <div class="issue-actions">
-    <a class="button" href="{{ latest.url | relative_url }}">Read current issue</a>
-    <a class="button button-secondary" href="{{ '/archive/' | relative_url }}">Open archive</a>
+<section class="hero-banner" style="background-image: url('{{ '/assets/images/newsletter-hero.jpg' | relative_url }}');">
+  <div class="hero-banner__overlay"></div>
+  <div class="hero-banner__content">
+    <p class="issue-kicker">Frontier Threads</p>
+    <h1>The day’s reading, with a long memory.</h1>
+    <p class="landing-copy">Welcome to Frontier Threads: a daily briefing across science, technology, ideas, markets, and world events, built to be read in the moment and revisited later.</p>
   </div>
 </section>
-{% endif %}
 
-<section class="search-panel">
-  <div class="card-kicker">Archive Search</div>
-  <h2>Find past coverage fast</h2>
-  <p>Search by topic, section, person, research area, country, or company.</p>
+<section class="search-panel search-panel--top">
+  <div class="card-kicker">🔎 Newsletter Search</div>
+  <h2>Start anywhere in the archive</h2>
+  <p>Look up topics, papers, researchers, companies, technologies, regions, and recurring themes across past editions.</p>
   <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search past newsletters by keyword">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
 
+<section class="pin-section">
+  <section class="home-carousel-section">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">Pinned</p>
+      <h2>Start with the essentials</h2>
+      <p class="home-carousel-section__lede">The fastest ways into the project: today’s issue, the full archive, and the live feed.</p>
+    </div>
+    <div class="home-carousel-section__actions">
+      <div class="carousel-controls">
+        <button type="button" class="carousel-controls__button" data-carousel-prev="pinned-cards" aria-label="Previous">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="carousel-controls__button" data-carousel-next="pinned-cards" aria-label="Next">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-carousel" data-carousel-track="pinned-cards">
+    {% if latest %}
+    <article class="feature-card carousel-card">
+      <div class="search-section">{{ latest.primary_category | default: 'Current Issue' }}</div>
+      <h3><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h3>
+      <p class="card-meta">{{ latest.display_date }} · {{ latest.display_time }} · {{ latest.reading_time }} min read</p>
+      <p>{{ latest.summary }}</p>
+      <div class="card-tags">
+        {% for tag in latest.tags limit: 3 %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </article>
+    {% endif %}
+    <article class="feature-card carousel-card">
+      <div class="search-section">Archive</div>
+      <h3><a href="{{ '/archive/' | relative_url }}">Browse all editions</a></h3>
+      <p>Scan recent and older issues in one place and jump into specific dates quickly.</p>
+    </article>
+    <article class="feature-card carousel-card">
+      <div class="search-section">RSS Feed</div>
+      <h3><a href="{{ '/feed.xml' | relative_url }}">Subscribe by RSS</a></h3>
+      <p>Use your preferred reader to follow each new issue as it lands in the archive.</p>
+    </article>
+  </div>
+  </section>
+</section>
+
 <section class="archive-preview">
-  <div class="card-kicker">Recent Issues</div>
-  <div class="archive-list">
-    {% for issue in recent limit: 12 %}
-    <article class="archive-item">
-      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+  <section class="home-carousel-section">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">Featured Issues</p>
+      <h2>Reopen the strongest recent editions</h2>
+      <p class="home-carousel-section__lede">A few recent editions worth reopening, especially if you want the broader pattern rather than just today’s snapshot.</p>
+    </div>
+    <div class="home-carousel-section__actions">
+      <a class="home-carousel-section__see-all" href="{{ '/archive/' | relative_url }}">See all issues</a>
+      <div class="carousel-controls">
+        <button type="button" class="carousel-controls__button" data-carousel-prev="featured-issues" aria-label="Previous">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="carousel-controls__button" data-carousel-next="featured-issues" aria-label="Next">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-carousel archive-list" data-carousel-track="featured-issues">
+    {% for issue in recent limit: 6 %}
+    <article class="archive-item carousel-card">
+      <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
+      <div class="card-tags">
+        {% for tag in issue.tags limit: 3 %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
     </article>
     {% endfor %}
+  </div>
+  </section>
+</section>
+
+<section class="discovery-section">
+  <section class="home-carousel-section">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">Discovery</p>
+      <h2>Use the archive as a map of questions</h2>
+      <p class="home-carousel-section__lede">The archive is most useful when you treat it less like a stack of posts and more like a map of recurring questions.</p>
+    </div>
+    <div class="home-carousel-section__actions">
+      <div class="carousel-controls">
+        <button type="button" class="carousel-controls__button" data-carousel-prev="discovery-cards" aria-label="Previous">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="carousel-controls__button" data-carousel-next="discovery-cards" aria-label="Next">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-carousel" data-carousel-track="discovery-cards">
+    <article class="feature-card carousel-card">
+      <div class="search-section">Research Watch</div>
+      <h3>Track papers and conceptual shifts over time</h3>
+      <p>Revisit quantum foundations, AI, mathematics, and scientific computing as continuing threads rather than isolated stories.</p>
+    </article>
+    <article class="feature-card carousel-card">
+      <div class="search-section">Markets &amp; Economy</div>
+      <h3>Read market moves in a wider context</h3>
+      <p>Each issue pairs the market board with macro data and investment themes, so the archive becomes a running notebook on the technology cycle.</p>
+    </article>
+    <article class="feature-card carousel-card">
+      <div class="search-section">World News</div>
+      <h3>Keep global events in the same frame as research</h3>
+      <p>Geopolitics, institutions, and science policy stay close to technical developments instead of being split into separate reading universes.</p>
+    </article>
+    <article class="feature-card carousel-card">
+      <div class="search-section">Tools</div>
+      <h3>Rediscover platforms, APIs, and workflows</h3>
+      <p>Search past editions to recover useful open-source projects, company offerings, data sources, and research infrastructure.</p>
+    </article>
+  </div>
+  </section>
+</section>
+
+<section class="rss-section">
+  <div class="rss-card">
+    <div>
+      <div class="card-kicker">Subscribe</div>
+      <h2>Follow the newsletter like a publication stream</h2>
+      <p>Use the RSS feed if you want each new issue to appear in a reader alongside journals, blogs, and other sources you already track.</p>
+    </div>
+    <div class="issue-actions">
+      <a class="button" href="{{ '/feed.xml' | relative_url }}">Open RSS feed</a>
+      <a class="button button-secondary" href="{{ '/search/' | relative_url }}">Search newsletters</a>
+    </div>
   </div>
 </section>
 """
@@ -149,16 +336,158 @@ permalink: /archive/
 
 <section class="search-panel">
   <div class="card-kicker">Keyword Search</div>
+  <div class="filter-controls">
+    <select id="newsletter-sort-select" class="filter-select">
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+      <option value="title">Title A-Z</option>
+      <option value="reading">Longest read</option>
+    </select>
+    <select id="newsletter-category-select" class="filter-select">
+      <option value="">All categories</option>
+    </select>
+    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+  </div>
   <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search all archived issues">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
 
 <section class="archive-preview">
-  <div class="card-kicker">All Issues</div>
-  <div class="archive-list" id="newsletter-archive-list">
+  <section class="home-carousel-section">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">All Issues</p>
+      <h2>Browse the full run</h2>
+    </div>
+    <div class="home-carousel-section__actions">
+      <div class="carousel-controls">
+        <button type="button" class="carousel-controls__button" data-carousel-prev="archive-issues" aria-label="Previous">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button type="button" class="carousel-controls__button" data-carousel-next="archive-issues" aria-label="Next">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-carousel archive-list" data-carousel-track="archive-issues" id="newsletter-archive-list">
     {% for issue in issues %}
-    <article class="archive-item" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}">
+    <article class="archive-item carousel-card" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}" data-category="{{ issue.primary_category | escape }}" data-tags="{{ issue.tags | join: ',' | escape }}" data-reading-time="{{ issue.reading_time }}" data-title="{{ issue.title | escape }}">
+      <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
+      <p>{{ issue.summary }}</p>
+      <div class="card-tags">
+        {% for tag in issue.tags limit: 4 %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  </section>
+</section>
+"""
+
+
+SEARCH_PAGE = """---
+layout: default
+title: Search
+permalink: /search/
+---
+<section class="landing-hero">
+  <p class="issue-kicker">Search</p>
+  <h1>Search the newsletter archive.</h1>
+  <p class="landing-copy">Use keywords for topics, people, companies, fields, papers, or places and jump straight into matching issues.</p>
+</section>
+
+<section class="search-panel search-panel--page">
+  <div class="card-kicker">Keyword Search</div>
+  <h2>Find relevant issues quickly</h2>
+  <div class="filter-controls">
+    <select id="newsletter-sort-select" class="filter-select">
+      <option value="relevance">Best match</option>
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+      <option value="title">Title A-Z</option>
+      <option value="reading">Longest read</option>
+    </select>
+    <select id="newsletter-category-select" class="filter-select">
+      <option value="">All categories</option>
+    </select>
+    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+  </div>
+  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Enter your search term...">
+  <div id="newsletter-search-status" class="search-status"></div>
+  <div id="newsletter-search-results" class="search-results"></div>
+</section>
+"""
+
+FEED_XML = """---
+layout: null
+permalink: /feed.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Frontier Threads</title>
+    <link>{{ '/' | absolute_url }}</link>
+    <description>Daily newsletter on science, technology, markets, world affairs, and ideas.</description>
+    <language>en-us</language>
+    {% assign issues = site.issues | sort: 'issue_date' | reverse %}
+    {% for issue in issues %}
+    <item>
+      <title>{{ issue.display_date | xml_escape }}</title>
+      <link>{{ issue.url | absolute_url }}</link>
+      <guid>{{ issue.url | absolute_url }}</guid>
+      <pubDate>{{ issue.issue_date | date_to_rfc822 }}</pubDate>
+      <description>{{ issue.summary | xml_escape }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
+"""
+
+SITEMAP_PAGE = """---
+layout: default
+title: Sitemap
+permalink: /sitemap/
+---
+{% assign issues = site.issues | sort: 'issue_date' | reverse %}
+<section class="landing-hero">
+  <p class="issue-kicker">Sitemap</p>
+  <h1>Everything in one place.</h1>
+  <p class="landing-copy">Use this page to jump between the homepage, archive tools, subscription endpoints, and past issues.</p>
+</section>
+
+<section class="archive-preview">
+  <div class="card-kicker">Core Pages</div>
+  <div class="archive-list">
+    <article class="archive-item">
+      <h3><a href="{{ '/' | relative_url }}">Current Issue</a></h3>
+      <p>The homepage with discovery panels, featured issues, and archive search.</p>
+    </article>
+    <article class="archive-item">
+      <h3><a href="{{ '/archive/' | relative_url }}">Archive</a></h3>
+      <p>Browse all newsletter editions in date order.</p>
+    </article>
+    <article class="archive-item">
+      <h3><a href="{{ '/search/' | relative_url }}">Search</a></h3>
+      <p>Run full-text keyword searches across the newsletter archive.</p>
+    </article>
+    <article class="archive-item">
+      <h3><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></h3>
+      <p>Subscribe in any feed reader for new issues.</p>
+    </article>
+  </div>
+</section>
+
+<section class="archive-preview">
+  <div class="card-kicker">Issues</div>
+  <div class="archive-list">
+    {% for issue in issues %}
+    <article class="archive-item">
       <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
       <p>{{ issue.summary }}</p>
     </article>
@@ -169,7 +498,7 @@ permalink: /archive/
 
 
 SITE_CSS = """
-:root {
+html[data-theme-mode="light"] {
   color-scheme: light dark;
   --bg: linear-gradient(180deg, #fffaf5 0%, #f8fafc 48%, #eef2f7 100%);
   --panel: rgba(255, 255, 255, 0.92);
@@ -180,9 +509,79 @@ SITE_CSS = """
   --accent: #f97316;
   --accent-2: #0ea5e9;
   --shadow: rgba(15, 23, 42, 0.1);
+  --masthead-bg:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(37, 30, 34, 0.985), rgba(50, 44, 49, 0.97));
+  --masthead-border: rgba(249, 115, 22, 0.38);
+  --masthead-copy: rgba(241, 245, 249, 0.9);
+  --section-card-bg: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.94));
+  --markets-card-bg: linear-gradient(180deg, rgba(255,247,237,0.95), rgba(255,255,255,0.92));
+  --market-panel-bg: linear-gradient(180deg, rgba(255,247,217,0.78), rgba(255,253,246,0.88));
+  --econ-panel-bg: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(248,250,252,0.84));
+  --market-tile-bg: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(248,250,252,0.94));
+  --investment-bg: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,247,237,0.92));
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --lede-color: #243041;
+  --success: #15803d;
+  --danger: #dc2626;
+}
+html[data-theme-mode="dark"] {
+  color-scheme: dark light;
+  --bg: linear-gradient(180deg, #111827 0%, #0f172a 55%, #020617 100%);
+  --panel: rgba(15, 23, 42, 0.82);
+  --panel-strong: rgba(15, 23, 42, 0.9);
+  --ink: #f8fafc;
+  --muted: #cbd5e1;
+  --line: rgba(148, 163, 184, 0.18);
+  --accent: #fb923c;
+  --accent-2: #38bdf8;
+  --shadow: rgba(2, 6, 23, 0.35);
+  --masthead-bg:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.14), transparent 30%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.94));
+  --masthead-border: rgba(148, 163, 184, 0.24);
+  --masthead-copy: rgba(226, 232, 240, 0.86);
+  --section-card-bg: linear-gradient(180deg, rgba(15,23,42,0.84), rgba(15,23,42,0.74));
+  --markets-card-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.86));
+  --market-panel-bg: linear-gradient(180deg, rgba(30,41,59,0.86), rgba(15,23,42,0.84));
+  --econ-panel-bg: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(15,23,42,0.74));
+  --market-tile-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.9));
+  --investment-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.86));
+  --accent-soft: rgba(249, 115, 22, 0.14);
+  --lede-color: #e2e8f0;
+  --success: #4ade80;
+  --danger: #fb7185;
+}
+html:not([data-theme-mode]) {
+  color-scheme: light dark;
+  --bg: linear-gradient(180deg, #fffaf5 0%, #f8fafc 48%, #eef2f7 100%);
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+  --ink: #0f172a;
+  --muted: #475569;
+  --line: rgba(148, 163, 184, 0.24);
+  --accent: #f97316;
+  --accent-2: #0ea5e9;
+  --shadow: rgba(15, 23, 42, 0.1);
+  --masthead-bg:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(37, 30, 34, 0.985), rgba(50, 44, 49, 0.97));
+  --masthead-border: rgba(249, 115, 22, 0.38);
+  --masthead-copy: rgba(241, 245, 249, 0.9);
+  --section-card-bg: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.94));
+  --markets-card-bg: linear-gradient(180deg, rgba(255,247,237,0.95), rgba(255,255,255,0.92));
+  --market-panel-bg: linear-gradient(180deg, rgba(255,247,217,0.78), rgba(255,253,246,0.88));
+  --econ-panel-bg: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(248,250,252,0.84));
+  --market-tile-bg: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(248,250,252,0.94));
+  --investment-bg: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,247,237,0.92));
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --lede-color: #243041;
+  --success: #15803d;
+  --danger: #dc2626;
 }
 @media (prefers-color-scheme: dark) {
-  :root {
+  html:not([data-theme-mode]) {
+    color-scheme: dark light;
     --bg: linear-gradient(180deg, #111827 0%, #0f172a 55%, #020617 100%);
     --panel: rgba(15, 23, 42, 0.82);
     --panel-strong: rgba(15, 23, 42, 0.9);
@@ -192,6 +591,21 @@ SITE_CSS = """
     --accent: #fb923c;
     --accent-2: #38bdf8;
     --shadow: rgba(2, 6, 23, 0.35);
+    --masthead-bg:
+      radial-gradient(circle at top right, rgba(249, 115, 22, 0.14), transparent 30%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.94));
+    --masthead-border: rgba(148, 163, 184, 0.24);
+    --masthead-copy: rgba(226, 232, 240, 0.86);
+    --section-card-bg: linear-gradient(180deg, rgba(15,23,42,0.84), rgba(15,23,42,0.74));
+    --markets-card-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.86));
+    --market-panel-bg: linear-gradient(180deg, rgba(30,41,59,0.86), rgba(15,23,42,0.84));
+    --econ-panel-bg: linear-gradient(180deg, rgba(15,23,42,0.82), rgba(15,23,42,0.74));
+    --market-tile-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.9));
+    --investment-bg: linear-gradient(180deg, rgba(30,41,59,0.92), rgba(15,23,42,0.86));
+    --accent-soft: rgba(249, 115, 22, 0.14);
+    --lede-color: #e2e8f0;
+    --success: #4ade80;
+    --danger: #fb7185;
   }
 }
 * { box-sizing: border-box; }
@@ -200,6 +614,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  overflow-x: clip;
 }
 a { color: var(--accent-2); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -226,12 +641,359 @@ a:hover { text-decoration: underline; }
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  align-items: center;
 }
 .site-nav a {
   color: var(--muted);
   font-weight: 600;
 }
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  color: var(--ink);
+}
+.theme-toggle__icon {
+  font-size: 0.95rem;
+}
+.page-footer {
+  margin-top: 24px;
+  padding: 22px 20px 28px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px var(--shadow);
+}
+.page-footer-follow .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.page-footer-follow .social-icons a {
+  color: var(--muted);
+  font-weight: 600;
+}
+.page-footer-copyright {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
 .page-content { display: grid; gap: 16px; }
+.page-content,
+.pin-section,
+.archive-preview,
+.discovery-section,
+.home-carousel-section,
+.home-carousel {
+  max-width: 100%;
+  min-width: 0;
+}
+.hero-banner,
+.footer-banner {
+  position: relative;
+  min-height: 340px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background-color: #0f172a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 16px 36px var(--shadow);
+}
+.hero-banner__overlay,
+.footer-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.46)),
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.24), transparent 34%);
+}
+.hero-banner__content,
+.footer-banner__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  align-content: end;
+  min-height: 340px;
+  padding: 28px;
+  color: #f8fafc;
+}
+.hero-banner .card-kicker,
+.footer-banner .card-kicker {
+  margin-bottom: 0;
+  color: #fdba74;
+}
+.hero-banner h1,
+.footer-banner h2 {
+  margin: 0;
+  max-width: 12ch;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+.hero-banner h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+.footer-banner h2 {
+  font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+}
+.hero-banner p,
+.footer-banner p {
+  margin: 0;
+  max-width: 60ch;
+  color: rgba(241, 245, 249, 0.9);
+}
+.search-panel--top,
+.pin-section,
+.discovery-section,
+.featured-section,
+.rss-section {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px var(--shadow);
+  padding: 24px;
+}
+.search-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.filter-select,
+.filter-input {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  color: var(--ink);
+  font: inherit;
+}
+.filter-select {
+  min-width: 180px;
+}
+.filter-input {
+  flex: 1 1 220px;
+}
+.home-carousel-section {
+  margin: 1rem 0;
+}
+.home-carousel-section__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 0.7rem;
+}
+.home-carousel-section__header h2 {
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.section-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.home-carousel-section__lede {
+  margin: 0.65rem 0 0 0;
+  max-width: 48rem;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.5;
+}
+.home-carousel-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.home-carousel-section__see-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(128, 128, 128, 0.05);
+  color: inherit !important;
+  text-decoration: none !important;
+  font-weight: 700;
+}
+.carousel-controls {
+  display: inline-flex;
+  gap: 0.45rem;
+}
+.carousel-controls__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  cursor: pointer;
+}
+.search-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.18), rgba(14, 165, 233, 0.18));
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.home-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(18rem, 26rem);
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+.home-carousel::-webkit-scrollbar {
+  height: 0.55rem;
+}
+.home-carousel::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.38);
+  border-radius: 999px;
+}
+.carousel-card {
+  scroll-snap-align: start;
+  min-height: 100%;
+}
+.feature-card,
+.pin-card,
+.rss-card {
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 10px 22px var(--shadow);
+  height: 100%;
+}
+.pin-card::before,
+.feature-card::before,
+.rss-card::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(14, 165, 233, 0.72));
+}
+.feature-card h3,
+.pin-card h3,
+.rss-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.feature-card p,
+.pin-card p,
+.rss-card p,
+.section-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+.card-meta {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.card-tags,
+.taxonomy-row,
+.issue-meta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.taxonomy-chip,
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.taxonomy-chip--category,
+.meta-pill {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(14, 165, 233, 0.12));
+}
+.section-copy {
+  max-width: 70ch;
+}
+.rss-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 22px 22px 20px;
+}
+.rss-card__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.rss-section .issue-actions {
+  margin-top: 0;
+}
+.footer-banner__text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.footer-banner__author {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fdba74;
+}
 .landing-hero,
 .search-panel,
 .archive-preview,
@@ -322,6 +1084,10 @@ a:hover { text-decoration: underline; }
   margin: 8px 0 0;
   color: var(--muted);
 }
+.archive-item .card-tags,
+.search-result .card-tags {
+  margin-top: 12px;
+}
 .search-input {
   width: 100%;
   margin-top: 16px;
@@ -333,6 +1099,9 @@ a:hover { text-decoration: underline; }
   color: var(--ink);
   font: inherit;
 }
+html[data-theme-mode="dark"] .search-input {
+  background: rgba(15, 23, 42, 0.7);
+}
 @media (prefers-color-scheme: dark) {
   .search-input { background: rgba(15, 23, 42, 0.7); }
 }
@@ -340,6 +1109,16 @@ a:hover { text-decoration: underline; }
   margin-top: 10px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+.search-result-snippet {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.search-hit {
+  color: var(--ink);
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 45%, rgba(249, 115, 22, 0.22) 45%);
 }
 .search-section {
   margin-top: 6px;
@@ -350,21 +1129,426 @@ a:hover { text-decoration: underline; }
   text-transform: uppercase;
 }
 .issue-page { display: grid; gap: 16px; }
-.issue-content .shell {
-  max-width: none;
-  margin: 0;
+.issue-page {
+  padding: 6px 0 2px;
 }
-.issue-content .masthead {
+.shell {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.newsletter-shell {
+  width: 100%;
+}
+.masthead {
+  background: var(--masthead-bg);
+  color: #f8fafc;
+  border: 1px solid var(--masthead-border);
+  border-radius: 28px;
+  padding: 32px 32px 24px;
+  box-shadow: 0 18px 40px rgba(24, 33, 47, 0.16);
+}
+.eyebrow {
+  margin: 0 0 10px;
+  font: 700 12px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.masthead h1 {
   margin: 0;
+  font-size: 42px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #f8fafc;
+}
+.masthead p {
+  margin: 12px 0 0;
+  color: var(--masthead-copy);
+  font-size: 17px;
+  max-width: 680px;
+}
+.masthead .taxonomy-chip,
+.masthead .meta-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+}
+.content {
+  margin-top: 16px;
+}
+.issue-page .issue-content {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+.title {
+  display: none;
+}
+.section-card {
+  background: var(--section-card-bg);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 24px 26px;
+  margin: 14px 0;
+  box-shadow: 0 10px 24px var(--shadow);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+.section-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(14, 165, 233, 0.7), transparent 85%);
+  opacity: 0.9;
+}
+.section-title {
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--accent);
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.section-card--markets-economy {
+  background: var(--markets-card-bg);
+  border-color: rgba(249, 115, 22, 0.30);
+}
+.story-title {
+  margin: 24px 0 10px;
+  font-size: 26px;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+.story-title:first-of-type {
+  margin-top: 8px;
+}
+.story-title::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(14, 165, 233, 0.7));
+  opacity: 0.85;
+}
+.issue-page p {
+  margin: 12px 0;
+  font-size: 16px;
+}
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+.meta-link {
+  margin-top: 14px;
+}
+.link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.92), rgba(99, 102, 241, 0.9));
+  color: #eff6ff !important;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+.link-chip::after {
+  content: "↗";
+  font-size: 12px;
+  opacity: 0.9;
+}
+.lede {
+  margin: 0;
+  font-size: 17px;
+  color: var(--lede-color);
+}
+.issue-page ul {
+  margin: 10px 0 16px 22px;
+  padding: 0;
+}
+.issue-page li {
+  margin: 8px 0;
+}
+.market-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  margin-top: 10px;
+}
+.market-panel,
+.econ-panel {
+  background: var(--market-panel-bg);
+  border: 1px solid rgba(249, 115, 22, 0.30);
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.econ-panel {
+  background: var(--econ-panel-bg);
+  border-color: var(--line);
+}
+.panel-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.92), rgba(99, 102, 241, 0.9));
+  color: #eff6ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.market-tile {
+  background: var(--market-tile-bg);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 10px 11px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+.market-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), rgba(14, 165, 233, 0.72));
+  opacity: 0.9;
+}
+.stat-label {
+  margin: 4px 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.stat-value {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.stat-detail {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  opacity: 0.92;
+}
+.stat-detail.up { color: var(--success); }
+.stat-detail.down { color: var(--danger); }
+.econ-grid {
+  display: grid;
+  gap: 10px;
+}
+.econ-row {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+}
+.econ-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), rgba(14, 165, 233, 0.7));
+}
+.investment-card {
+  margin-top: 16px;
+  padding: 16px 18px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(249, 115, 22, 0.30);
+  background: var(--investment-bg);
+  box-shadow: 0 10px 22px var(--shadow);
+}
+.investment-card .story-title {
+  margin-top: 0;
+}
+.investment-copy {
+  margin: 10px 0;
+}
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.brief-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+}
+.brief-card::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  bottom: -24px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(249,115,22,0) 72%);
+  background: radial-gradient(circle, var(--accent-soft) 0%, rgba(249,115,22,0) 72%);
+}
+blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  background: rgba(249, 115, 22, 0.12);
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  font-size: 18px;
+}
+.feature-image {
+  margin: 16px 0 18px;
+}
+.feature-image img {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 30px var(--shadow);
+}
+.feature-image figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+.footer {
+  color: var(--muted);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 10px 6px 0;
+  text-align: center;
+}
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 18px var(--shadow);
+}
+.back-to-top:hover {
+  text-decoration: none;
+  filter: brightness(1.02);
 }
 @media (max-width: 760px) {
   .site-header { flex-direction: column; align-items: flex-start; }
   .site-shell { padding-inline: 10px; }
+  .filter-controls {
+    flex-direction: column;
+  }
+  .filter-select,
+  .filter-input {
+    width: 100%;
+  }
+  .hero-banner,
+  .footer-banner,
+  .hero-banner__content,
+  .footer-banner__content {
+    min-height: 280px;
+  }
+  .hero-banner__content,
+  .footer-banner__content {
+    padding: 22px 18px;
+  }
+  .search-panel--top,
+  .pin-section,
+  .discovery-section,
+  .featured-section,
+  .rss-section {
+    padding: 20px;
+  }
+  .home-carousel,
+  .rss-card {
+    grid-template-columns: 1fr;
+  }
+  .home-carousel {
+    grid-auto-columns: 88%;
+  }
+  .rss-card__actions {
+    justify-content: flex-start;
+  }
+  .page-footer {
+    padding: 18px 16px 22px;
+  }
   .landing-hero,
   .search-panel,
   .archive-preview,
   .current-issue-card,
   .issue-hero { padding: 20px; }
+  .masthead {
+    padding: 26px 20px 22px;
+    border-radius: 18px;
+  }
+  .masthead h1 {
+    font-size: 31px;
+  }
+  .masthead p {
+    font-size: 16px;
+  }
+  .section-card {
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+  .story-title {
+    font-size: 22px;
+  }
+  .issue-page p {
+    font-size: 16px;
+  }
+  .market-wrap,
+  .market-grid,
+  .brief-grid {
+    grid-template-columns: 1fr;
+  }
+  .market-panel,
+  .econ-panel,
+  .market-tile,
+  .brief-card,
+  .econ-row {
+    border-radius: 16px;
+  }
 }
 """
 
@@ -373,53 +1557,251 @@ SEARCH_JS = """(function () {
   const input = document.getElementById('newsletter-search-input');
   const results = document.getElementById('newsletter-search-results');
   const status = document.getElementById('newsletter-search-status');
+  const categorySelect = document.getElementById('newsletter-category-select');
+  const sortSelect = document.getElementById('newsletter-sort-select');
+  const tagInput = document.getElementById('newsletter-tag-input');
+  const archiveList = document.getElementById('newsletter-archive-list');
   if (!input || !results || !status) return;
 
   const baseUrl = (window.frontierThreadsConfig && window.frontierThreadsConfig.baseUrl) || '';
   const searchUrl = `${baseUrl}/search.json`;
   let items = [];
+  let bootstrapped = false;
 
-  function render(matches, query) {
-    if (!query) {
+  function escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function readParams() {
+    const url = new URL(window.location.href);
+    return {
+      q: url.searchParams.get('q') || '',
+      category: url.searchParams.get('category') || '',
+      tag: url.searchParams.get('tag') || '',
+      sort: url.searchParams.get('sort') || '',
+    };
+  }
+
+  function writeParams() {
+    const url = new URL(window.location.href);
+    const params = {
+      q: input.value.trim(),
+      category: categorySelect ? categorySelect.value : '',
+      tag: tagInput ? tagInput.value.trim() : '',
+      sort: sortSelect ? sortSelect.value : '',
+    };
+    Object.entries(params).forEach(([key, value]) => {
+      if (value) {
+        url.searchParams.set(key, value);
+      } else {
+        url.searchParams.delete(key);
+      }
+    });
+    window.history.replaceState({}, '', url.toString());
+  }
+
+  function snippetFor(item, terms) {
+    const haystack = item.search_text || '';
+    const lower = haystack.toLowerCase();
+    let index = -1;
+    for (const term of terms) {
+      index = lower.indexOf(term);
+      if (index !== -1) break;
+    }
+    if (index === -1) return '';
+    const start = Math.max(0, index - 70);
+    const end = Math.min(haystack.length, index + 170);
+    let snippet = haystack.slice(start, end).trim();
+    if (start > 0) snippet = `...${snippet}`;
+    if (end < haystack.length) snippet = `${snippet}...`;
+    let rendered = escapeHtml(snippet);
+    for (const term of terms) {
+      const pattern = new RegExp(term.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&'), 'ig');
+      rendered = rendered.replace(pattern, (match) => `<span class="search-hit">${match}</span>`);
+    }
+    return rendered;
+  }
+
+  function metaLine(item) {
+    if (item.kind === 'page') {
+      return item.primary_category || 'Site';
+    }
+    return `${item.display_date} · ${item.display_time} · ${item.reading_time} min read`;
+  }
+
+  function chips(item) {
+    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
+    const category = item.primary_category ? `<span class="taxonomy-chip taxonomy-chip--category">${escapeHtml(item.primary_category)}</span>` : '';
+    return `<div class="card-tags">${category}${tags.map((tag) => `<span class="taxonomy-chip">${escapeHtml(tag)}</span>`).join('')}</div>`;
+  }
+
+  function renderResults(matches, query, terms) {
+    const hasFilters = query || (categorySelect && categorySelect.value) || (tagInput && tagInput.value.trim());
+    if (!hasFilters) {
       results.innerHTML = '';
-      status.textContent = 'Type to search all archived issues.';
+      status.textContent = `Search ${items.length} indexed pages and issues.`;
       return;
     }
-
-    status.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'} for "${query}".`;
+    status.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'}.`;
     results.innerHTML = matches.slice(0, 50).map((item) => {
+      const snippet = snippetFor(item, terms);
       return `
         <article class="search-result">
-          <div class="search-section">${item.date}</div>
-          <h3><a href="${baseUrl}${item.url}">${item.display_date}</a></h3>
-          <p>${item.summary}</p>
+          <div class="search-section">${escapeHtml(item.primary_category || item.date)}</div>
+          <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
+          <p class="card-meta">${escapeHtml(metaLine(item))}</p>
+          <p>${escapeHtml(item.summary)}</p>
+          ${chips(item)}
+          ${snippet ? `<div class="search-result-snippet">${snippet}</div>` : ''}
         </article>
       `;
     }).join('');
   }
 
-  function search(query) {
-    const normalized = query.trim().toLowerCase();
-    if (!normalized) {
-      render([], '');
-      return;
+  function renderArchive(matches) {
+    if (!archiveList) return;
+    archiveList.innerHTML = matches.filter((item) => item.kind === 'issue').map((item) => `
+      <article class="archive-item" data-date="${escapeHtml(item.date)}" data-category="${escapeHtml(item.primary_category || '')}" data-tags="${escapeHtml((item.tags || []).join(','))}" data-reading-time="${escapeHtml(item.reading_time)}" data-title="${escapeHtml(item.title)}">
+        <div class="search-section">${escapeHtml(item.primary_category || 'Issue')}</div>
+        <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
+        <p class="card-meta">${escapeHtml(metaLine(item))}</p>
+        <p>${escapeHtml(item.summary)}</p>
+        ${chips(item)}
+      </article>
+    `).join('');
+  }
+
+  function sortMatches(matches) {
+    const sortValue = sortSelect ? sortSelect.value : (archiveList ? 'newest' : 'relevance');
+    const sorted = matches.slice();
+    if (sortValue === 'title') {
+      sorted.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortValue === 'oldest') {
+      sorted.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+    } else if (sortValue === 'reading') {
+      sorted.sort((a, b) => (b.reading_time || 0) - (a.reading_time || 0) || (b.date || '').localeCompare(a.date || ''));
+    } else if (sortValue === 'newest') {
+      sorted.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    } else {
+      sorted.sort((a, b) => (b.score || 0) - (a.score || 0) || (b.date || '').localeCompare(a.date || ''));
     }
-    const matches = items.filter((item) => item.search_text.toLowerCase().includes(normalized));
-    render(matches, normalized);
+    return sorted;
+  }
+
+  function filterItems() {
+    const query = input.value.trim().toLowerCase().replace(/\\s+/g, ' ');
+    const terms = query ? query.split(' ').filter(Boolean) : [];
+    const selectedCategory = categorySelect ? categorySelect.value.toLowerCase() : '';
+    const tagTerm = tagInput ? tagInput.value.trim().toLowerCase() : '';
+    const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
+
+    const matches = pool.map((item) => {
+      const title = (item.title || '').toLowerCase();
+      const summary = (item.summary || '').toLowerCase();
+      const text = (item.search_text || '').toLowerCase();
+      const categories = (item.categories || []).map((value) => value.toLowerCase());
+      const tags = (item.tags || []).map((value) => value.toLowerCase());
+      if (selectedCategory && !categories.includes(selectedCategory) && (item.primary_category || '').toLowerCase() !== selectedCategory) {
+        return null;
+      }
+      if (tagTerm && !tags.some((tag) => tag.includes(tagTerm))) {
+        return null;
+      }
+
+      let score = 0;
+      if (terms.length) {
+        let matched = 0;
+        for (const term of terms) {
+          let termScore = 0;
+          if (title.includes(term)) termScore += 10;
+          if (summary.includes(term)) termScore += 6;
+          if (tags.some((tag) => tag.includes(term))) termScore += 5;
+          if (categories.some((category) => category.includes(term))) termScore += 4;
+          if (text.includes(term)) termScore += 2;
+          if (termScore > 0) matched += 1;
+          score += termScore;
+        }
+        if (!score) return null;
+        if (matched === terms.length) score += 20;
+      } else {
+        score = 1;
+      }
+
+      return { ...item, score };
+    }).filter(Boolean);
+
+    const sorted = sortMatches(matches);
+    renderResults(sorted, query, terms);
+    renderArchive(sorted);
+  }
+
+  function populateControls() {
+    const categories = Array.from(new Set(items.flatMap((item) => item.categories || []))).sort();
+    if (categorySelect) {
+      const selected = categorySelect.value;
+      categorySelect.innerHTML = '<option value=\"\">All categories</option>' + categories.map((category) => `<option value=\"${escapeHtml(category)}\">${escapeHtml(category)}</option>`).join('');
+      categorySelect.value = categories.includes(selected) ? selected : selected || '';
+    }
+  }
+
+  function applyInitialState() {
+    const params = readParams();
+    if (params.q) input.value = params.q;
+    if (tagInput && params.tag) tagInput.value = params.tag;
+    if (sortSelect && params.sort) sortSelect.value = params.sort;
+    if (categorySelect && params.category) categorySelect.value = params.category;
+    bootstrapped = true;
+    filterItems();
   }
 
   fetch(searchUrl)
     .then((response) => response.json())
     .then((data) => {
       items = Array.isArray(data) ? data : [];
-      status.textContent = `Search ${items.length} archived issue${items.length === 1 ? '' : 's'}.`;
+      populateControls();
+      applyInitialState();
     })
     .catch(() => {
       status.textContent = 'Search index failed to load.';
     });
 
-  input.addEventListener('input', function () {
-    search(input.value);
+  [input, categorySelect, sortSelect, tagInput].forEach((element) => {
+    if (!element) return;
+    element.addEventListener('input', function () {
+      if (bootstrapped) writeParams();
+      filterItems();
+    });
+    element.addEventListener('change', function () {
+      if (bootstrapped) writeParams();
+      filterItems();
+    });
+  });
+
+  function scrollCarousel(id, direction) {
+    const track = document.querySelector(`[data-carousel-track="${id}"]`);
+    if (!track) {
+      return;
+    }
+    const step = Math.max(track.clientWidth * 0.82, 280);
+    track.scrollBy({ left: direction * step, behavior: 'smooth' });
+  }
+
+  document.addEventListener('click', function (event) {
+    const prev = event.target.closest('[data-carousel-prev]');
+    const next = event.target.closest('[data-carousel-next]');
+
+    if (prev) {
+      scrollCarousel(prev.getAttribute('data-carousel-prev'), -1);
+    }
+
+    if (next) {
+      scrollCarousel(next.getAttribute('data-carousel-next'), 1);
+    }
   });
 })();"""
 
@@ -445,9 +1827,28 @@ def yaml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"')
 
 
-def extract_metadata(markdown_text: str, issue_date: dt.date, sender) -> dict[str, str]:
-    lines = markdown_text.splitlines()
-    summary = ""
+THEME_KEYWORDS: list[tuple[str, str, tuple[str, ...]]] = [
+    ("Quantum Foundations", "Physics", ("quantum", "contextuality", "loop quantum", "quantum gravity", "relativity", "spacetime")),
+    ("AI Research", "AI & Computing", ("ai", "language model", "llm", "agent", "machine learning", "deep learning", "openai")),
+    ("Research Tools", "AI & Computing", ("tool", "dataset", "api", "framework", "open-source", "mcp", "workflow", "infrastructure")),
+    ("Markets", "Markets & Economy", ("market", "stocks", "treasury", "inflation", "fed", "economy", "gdp", "cpi", "bitcoin", "oil")),
+    ("World Affairs", "World Affairs", ("geopolitic", "conflict", "diplom", "trade", "united nations", "humanitarian", "security")),
+    ("Biomedicine", "Life Sciences", ("biology", "medicine", "health", "neuroscience", "brain", "aging", "clinical", "genome")),
+    ("Engineering", "Technology & Engineering", ("engineering", "robotics", "materials", "semiconductor", "grid", "infrastructure", "manufacturing")),
+    ("Mathematics", "Mathematics & Ideas", ("mathematics", "math", "theorem", "proof", "infinity", "geometry")),
+    ("Philosophy", "Mathematics & Ideas", ("philosophy", "epistemology", "truth", "consciousness", "knowledge")),
+]
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def yaml_list(values: list[str]) -> str:
+    return "[" + ", ".join(f'"{yaml_escape(value)}"' for value in values) + "]"
+
+
+def clean_summary(lines: list[str]) -> str:
     for line in lines:
         stripped = line.strip()
         if not stripped:
@@ -456,19 +1857,84 @@ def extract_metadata(markdown_text: str, issue_date: dt.date, sender) -> dict[st
             continue
         if stripped.startswith("### ") and "The day's" in stripped:
             continue
-        summary = stripped
-        break
-    if not summary:
-        summary = "Daily newsletter covering science, technology, world affairs, and ideas."
+        return stripped
+    return "Daily newsletter covering science, technology, world affairs, and ideas."
+
+
+def estimate_reading_time(text: str) -> int:
+    words = len(re.findall(r"\w+", text))
+    return max(1, (words + 219) // 220)
+
+
+def detect_themes(text: str) -> list[tuple[str, str, int]]:
+    normalized = text.lower()
+    scored: list[tuple[str, str, int]] = []
+    for label, category, keywords in THEME_KEYWORDS:
+        score = sum(normalized.count(keyword) for keyword in keywords)
+        if score > 0:
+            scored.append((label, category, score))
+    return sorted(scored, key=lambda item: (-item[2], item[0]))
+
+
+def issue_title_from_themes(themes: list[tuple[str, str, int]], summary: str) -> str:
+    labels = [label for label, _, _ in themes[:3]]
+    if labels:
+        if len(labels) == 1:
+            return labels[0]
+        if len(labels) == 2:
+            return f"{labels[0]} and {labels[1]}"
+        return f"{labels[0]}, {labels[1]}, and {labels[2]}"
+    sentence = summary.split(".")[0].strip()
+    if len(sentence) > 70:
+        sentence = sentence[:67].rstrip() + "..."
+    return sentence or "Daily Briefing"
+
+
+def format_display_time(timestamp: dt.datetime) -> str:
+    return timestamp.strftime("%b %d, %Y · %I:%M %p").replace(" 0", " ")
+
+
+def split_display_time(timestamp: dt.datetime) -> tuple[str, str]:
+    return (
+        timestamp.strftime("%B %d, %Y"),
+        timestamp.strftime("%I:%M %p").lstrip("0"),
+    )
+
+
+def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, sender) -> dict[str, str]:
+    lines = markdown_text.splitlines()
+    summary = clean_summary(lines)
+    search_text = plain_text(markdown_text)
+    themes = detect_themes(search_text)
+    tags = [label for label, _, _ in themes[:6]]
+    categories = []
+    for _, category, _ in themes:
+        if category not in categories:
+            categories.append(category)
+        if len(categories) == 3:
+            break
+    if not categories:
+        categories = ["Science & Technology"]
+    title = issue_title_from_themes(themes, summary)
+    published_at = dt.datetime.fromtimestamp(issue_path.stat().st_mtime)
+    display_date, display_time = split_display_time(published_at)
+    reading_time = estimate_reading_time(search_text)
     content_html = sender.blocks_to_html(sender.markdown_to_blocks(markdown_text))
     return {
-        "title": "Frontier Threads",
-        "display_date": issue_date.strftime("%B %d, %Y"),
+        "title": title,
+        "display_date": display_date,
+        "display_time": display_time,
         "issue_date": issue_date.isoformat(),
+        "published_at": published_at.isoformat(timespec="minutes"),
+        "published_label": format_display_time(published_at),
+        "reading_time": str(reading_time),
         "summary": summary,
         "content_html": content_html,
-        "search_text": plain_text(markdown_text),
+        "search_text": search_text,
         "url": f"/issues/{issue_date.isoformat()}/",
+        "tags": tags,
+        "categories": categories,
+        "primary_category": categories[0],
     }
 
 
@@ -479,6 +1945,13 @@ def issue_document(entry: dict[str, str]) -> str:
         f'title: "{yaml_escape(entry["title"])}"\n'
         f'issue_date: "{entry["issue_date"]}"\n'
         f'display_date: "{yaml_escape(entry["display_date"])}"\n'
+        f'display_time: "{yaml_escape(entry["display_time"])}"\n'
+        f'published_at: "{yaml_escape(entry["published_at"])}"\n'
+        f'published_label: "{yaml_escape(entry["published_label"])}"\n'
+        f'reading_time: {entry["reading_time"]}\n'
+        f'primary_category: "{yaml_escape(entry["primary_category"])}"\n'
+        f"categories: {yaml_list(entry['categories'])}\n"
+        f"tags: {yaml_list(entry['tags'])}\n"
         f'summary: "{yaml_escape(entry["summary"])}"\n'
         f'permalink: "{entry["url"]}"\n'
         "---\n"
@@ -491,18 +1964,106 @@ def write_text(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 
+def copy_reference_images() -> None:
+    images_dir = SITE_DIR / "assets" / "images"
+    images_dir.mkdir(parents=True, exist_ok=True)
+    mapping = {
+        PERSONAL_SITE_ASSETS / "M57_JwstKong_960.JPG": images_dir / "newsletter-hero.jpg",
+        PERSONAL_SITE_ASSETS / "Crab_MultiChandra_960.JPG": images_dir / "newsletter-footer.jpg",
+    }
+    for source, destination in mapping.items():
+        if source.exists():
+            shutil.copy2(source, destination)
+
+
 def build_search_index(entries: list[dict[str, str]]) -> str:
     payload = [
         {
             "date": entry["issue_date"],
             "display_date": entry["display_date"],
+            "display_time": entry["display_time"],
+            "published_label": entry["published_label"],
+            "published_at": entry["published_at"],
             "title": entry["title"],
             "summary": entry["summary"],
             "url": entry["url"],
             "search_text": entry["search_text"],
+            "reading_time": int(entry["reading_time"]),
+            "tags": entry["tags"],
+            "categories": entry["categories"],
+            "primary_category": entry["primary_category"],
+            "kind": "issue",
         }
         for entry in sorted(entries, key=lambda item: item["issue_date"], reverse=True)
     ]
+    payload.extend(
+        [
+            {
+                "date": "site",
+                "display_date": "Homepage",
+                "title": "Frontier Threads homepage",
+                "summary": "Current issue landing page with pinned items, featured issues, discovery panels, and top-level newsletter search.",
+                "url": "/",
+                "search_text": "homepage current issue pinned featured issues discovery rss newsletter search archive frontier threads",
+                "display_time": "",
+                "published_label": "Site page",
+                "published_at": "",
+                "reading_time": 1,
+                "tags": ["homepage", "archive", "search"],
+                "categories": ["Site"],
+                "primary_category": "Site",
+                "kind": "page",
+            },
+            {
+                "date": "site",
+                "display_date": "Archive",
+                "title": "Frontier Threads archive",
+                "summary": "Full list of archived newsletter issues with browser-side search access.",
+                "url": "/archive/",
+                "search_text": "archive browse issues newsletter dates search frontier threads",
+                "display_time": "",
+                "published_label": "Site page",
+                "published_at": "",
+                "reading_time": 1,
+                "tags": ["archive", "issues", "browse"],
+                "categories": ["Site"],
+                "primary_category": "Site",
+                "kind": "page",
+            },
+            {
+                "date": "site",
+                "display_date": "Search",
+                "title": "Frontier Threads search",
+                "summary": "Dedicated full-text search page for the newsletter archive and site navigation.",
+                "url": "/search/",
+                "search_text": "search full text keyword archive newsletters site frontier threads",
+                "display_time": "",
+                "published_label": "Site page",
+                "published_at": "",
+                "reading_time": 1,
+                "tags": ["search", "keyword", "archive"],
+                "categories": ["Site"],
+                "primary_category": "Site",
+                "kind": "page",
+            },
+            {
+                "date": "site",
+                "display_date": "Sitemap",
+                "title": "Frontier Threads sitemap",
+                "summary": "Jump page for the homepage, archive, search, RSS feed, and every published issue.",
+                "url": "/sitemap/",
+                "search_text": "sitemap pages current issue archive search rss feed issues frontier threads",
+                "display_time": "",
+                "published_label": "Site page",
+                "published_at": "",
+                "reading_time": 1,
+                "tags": ["sitemap", "navigation", "rss"],
+                "categories": ["Site"],
+                "primary_category": "Site",
+                "kind": "page",
+            },
+        ]
+    )
     return json.dumps(payload, indent=2)
 
 
@@ -514,12 +2075,13 @@ def main() -> None:
     if SITE_DIR.exists():
         shutil.rmtree(SITE_DIR)
     SITE_DIR.mkdir(parents=True, exist_ok=True)
+    copy_reference_images()
 
     entries: list[dict[str, str]] = []
     for issue_path in sorted(ISSUES_DIR.glob("*-daily-newsletter.md")):
         issue_date = dt.date.fromisoformat(issue_path.name[:10])
         markdown_text = issue_path.read_text(encoding="utf-8")
-        entry = extract_metadata(markdown_text, issue_date, sender)
+        entry = extract_metadata(markdown_text, issue_date, issue_path, sender)
         entries.append(entry)
         write_text(SITE_DIR / "_issues" / f"{issue_date.isoformat()}.md", issue_document(entry))
 
@@ -528,6 +2090,9 @@ def main() -> None:
     write_text(SITE_DIR / "_layouts" / "issue.html", ISSUE_LAYOUT)
     write_text(SITE_DIR / "index.html", HOME_PAGE)
     write_text(SITE_DIR / "archive.html", ARCHIVE_PAGE)
+    write_text(SITE_DIR / "search.html", SEARCH_PAGE)
+    write_text(SITE_DIR / "feed.xml", FEED_XML)
+    write_text(SITE_DIR / "sitemap.html", SITEMAP_PAGE)
     write_text(SITE_DIR / "assets" / "site.css", SITE_CSS.strip() + "\n")
     write_text(SITE_DIR / "assets" / "search.js", SEARCH_JS.strip() + "\n")
     write_text(SITE_DIR / "search.json", build_search_index(entries))
