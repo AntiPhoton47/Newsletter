@@ -1,0 +1,476 @@
+# Frontier Threads
+
+## YYYY-MM-DD
+
+### The day's most interesting developments in science, technology, and ideas
+
+Write a 2-4 sentence editorial overview of the day's main themes. Focus on what connects the strongest stories rather than listing headlines.
+
+## Quick Hits
+
+- **Markets & Economy:** One-sentence summary.
+- **Need To Know:** One-sentence summary.
+- **Research Watch:** One-sentence summary.
+- **World News:** One-sentence summary.
+- **Philosophy:** One-sentence summary.
+- **Biology:** One-sentence summary.
+- **Psychology and Neuroscience:** One-sentence summary.
+- **Health and Medicine:** One-sentence summary.
+- **Sociology and Anthropology:** One-sentence summary.
+- **Technology:** One-sentence summary.
+- **Robotics:** One-sentence summary.
+- **AI:** One-sentence summary.
+- **Engineering:** One-sentence summary.
+- **Mathematics:** One-sentence summary.
+- **Historical Discoveries:** One-sentence summary.
+- **Archaeology:** One-sentence summary.
+- **Tools You Can Use:** One-sentence summary.
+
+## Markets & Economy
+
+- **S&P 500 (SPY):** value, move.
+- **NASDAQ-100 (QQQ):** value, move.
+- **DOW (DIA):** value, move.
+- **Europe (VGK):** value, move.
+- **Japan (EWJ):** value, move.
+- **China (MCHI):** value, move.
+- **India (INDA):** value, move.
+- **China large-cap (FXI):** value, move.
+- **Bitcoin:** value, move.
+- **Ethereum:** value, move.
+- **Gold (GLD):** value, move.
+- **Oil proxy (USO):** value, move.
+- **Company mover 1:** value, move.
+- **Company mover 2:** value, move.
+- **Company mover 3:** value, move.
+- **Company mover 4:** value, move.
+- **US CPI:** short summary. Source: [Source label](https://example.com)
+- **US labor market:** short summary. Source: [Source label](https://example.com)
+- **Euro area inflation:** short summary. Source: [Source label](https://example.com)
+- **Euro area growth:** short summary. Source: [Source label](https://example.com)
+- **ECB stance:** short summary. Source: [Source label](https://example.com)
+- **Japan:** short summary. Source: [Source label](https://example.com)
+- **Global backdrop:** short summary. Source: [Source label](https://example.com)
+
+### Upcoming Investment Opportunities
+
+Write 1-2 short paragraphs naming actual companies or sectors worth watching, with a brief rationale. Keep it analytical and avoid explicit financial advice language.
+
+## Need To Know
+
+### Main headline
+
+**Source:** Source name
+
+Write 2-4 short paragraphs.
+
+**Why it matters**
+- Point one.
+- Point two.
+- Point three.
+
+**Key idea:** One sentence.
+
+**Link:** [Read at Source](https://example.com)
+
+## Research Watch
+
+### Story headline
+
+**Source:** Source name
+
+Write 2-3 short paragraphs.
+
+**Why it matters**
+- Point one.
+- Point two.
+
+**Key idea:** One sentence.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 2-3 short paragraphs.
+
+**Why it matters**
+- Point one.
+- Point two.
+
+**Key idea:** One sentence.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## World News
+
+### Story headline
+
+**Source:** Source name
+
+Write 2-3 short paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 2-3 short paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Philosophy
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Biology
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Psychology and Neuroscience
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Health and Medicine
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Sociology and Anthropology
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Technology
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Robotics
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## AI
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Engineering
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Mathematics
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Historical Discoveries
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Archaeology
+
+### Story headline
+
+**Source:** Source name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Story headline
+
+**Source:** Source name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Tools You Can Use
+
+### Tool name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Tool name
+
+Write 1-2 paragraphs.
+
+**Link:** [Read at Source](https://example.com)
+
+### Tool name
+
+Write 1 paragraph.
+
+**Link:** [Read at Source](https://example.com)
+
+### Short Takes
+
+- Concise distinct item. [Source](https://example.com)
+- Concise distinct item. [Source](https://example.com)
+
+## Entertainment
+
+### Movies
+
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+
+### Books
+
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+
+### TV Shows
+
+- **Title** premieres on date. One-sentence why it matters. [Source](https://example.com)
+- **Title** premieres on date. One-sentence why it matters. [Source](https://example.com)
+
+### Video Games
+
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
+
+### Concerts
+
+- **Event / Artist** on date. One-sentence why it matters. [Source](https://example.com)
+- **Event / Artist** on date. One-sentence why it matters. [Source](https://example.com)
+
+## Travel
+
+### Cool Place To Visit
+
+![Alt text for destination image](https://example.com/image.jpg)
+
+**Destination name** in one short paragraph. [Source](https://example.com)
+
+## Idea Of The Day
+
+### Concept title
+
+Write 1-2 short paragraphs that explain the concept clearly and concisely.

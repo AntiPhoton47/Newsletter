@@ -1,0 +1,148 @@
+# Story Selection Criteria
+
+This file defines how stories should be selected, ranked, and curated for the daily newsletter.
+
+## Reader Profile
+
+The newsletter is written for a technically sophisticated reader with strong interest in:
+
+- physics, especially quantum foundations, quantum gravity, and relativity
+- quantum information, contextuality, and the conceptual structure of quantum theory
+- artificial intelligence and machine learning
+- philosophy of science and epistemology
+- advanced mathematics
+- scientific computing, software tooling, and research infrastructure
+- emerging technologies
+- global science policy and major research developments
+
+The reader values:
+
+- conceptual depth over headline novelty
+- early signals before topics become mainstream
+- interdisciplinary connections
+- research tools, datasets, platforms, and infrastructure
+- writing that is analytically clear and low on hype
+
+## Core Selection Questions
+
+Every candidate story should be evaluated against the following questions:
+
+1. `Relevance`
+   Does this align with the reader's domains of interest or with adjacent areas the reader is likely to care about?
+
+2. `Impact`
+   Will this materially affect research, technology, policy, markets, or public understanding?
+
+3. `Conceptual Payoff`
+   Does it reveal an important idea, mechanism, or framework rather than only reporting an event?
+
+4. `Novelty`
+   Is this genuinely new, or just another iteration of an already familiar narrative?
+
+5. `Durability`
+   Will this still matter after the immediate news cycle passes?
+
+6. `Source Quality`
+   Is the item backed by a strong primary source, reputable institution, or high-quality reporting outlet?
+
+7. `Specificity`
+   Can the story be tied to a concrete result, release, event, paper, policy decision, or product?
+
+8. `Portfolio Value`
+   Does this add something the issue does not already have, or is it redundant with stronger items?
+
+## Tailoring Rules
+
+The following biases should be applied when choosing between otherwise comparable stories:
+
+### Prefer
+
+- stories that change how a field thinks, not just what it knows
+- stories that reveal a useful mechanism, theorem, formal structure, or experimental technique
+- stories that connect multiple sections of the newsletter
+- stories that introduce or improve tools researchers can actually use
+- stories that affect scientific capacity: funding, compute, labs, instrumentation, standards, regulation, infrastructure
+- stories that clarify an active intellectual dispute
+- stories with strong implications for physics, AI, mathematics, or philosophy of science
+
+### Deprioritize
+
+- low-signal incremental updates
+- vague "AI will change everything" stories without a concrete method or deployment context
+- consumer-tech product churn unless it has infrastructure or research significance
+- culture-war framing
+- stories that are mostly attention-driven rather than insight-driven
+- repeated stories that add little beyond a previously covered version
+
+## Section-Level Guidance
+
+### Need To Know
+- Reserve for the single most consequential or intellectually rich story in the issue.
+- Preference should go to stories with strong conceptual depth and broad relevance.
+
+### Research Watch
+- Emphasize primary papers, formal advances, or major experimental results.
+- Strong fit for quantum foundations, quantum gravity, AI for science, mathematics, and new theoretical proposals.
+
+### World News
+- Include geopolitical, policy, conflict, trade, and humanitarian developments that materially shape research, technology, or global stability.
+- Prefer structural consequences over sensational framing.
+
+### Philosophy
+- Favor philosophy of science, epistemology, agency, explanation, and responsibility.
+- Prefer pieces that connect back to active scientific or technological developments.
+
+### Biology / Health and Medicine / Psychology and Neuroscience
+- Prefer mechanistic and conceptually clarifying work over broad observational claims.
+- Strong preference for stories with methodological or explanatory payoff.
+
+### Technology / Robotics / AI / Engineering / Tools
+- Prioritize infrastructure, toolchains, interoperability, compute, manufacturing, deployment, and scientifically useful platforms.
+- Prefer what can be used, measured, or built over branding-heavy announcements.
+
+### Mathematics / Historical Discoveries / Archaeology
+- Emphasize conceptual structure, intellectual history, and discoveries that reshape interpretation rather than just extend a timeline or dataset.
+
+### Entertainment / Travel
+- These sections are lighter in tone, but should still be selective, concrete, and current.
+- Prefer actual releases, events, and places rather than vague trends.
+
+## Main Story vs Short Take
+
+Use a `main entry` when:
+
+- the story has strong conceptual payoff
+- it materially changes a field, workflow, or policy environment
+- it can sustain a compact but meaningful explanation
+
+Use a `short take` when:
+
+- the story is useful but secondary
+- it adds breadth without needing a full write-up
+- it is time-sensitive, incremental, or mostly illustrative
+
+Short takes must:
+
+- be different from the section's main entries
+- remain source-backed
+- stay concise
+
+## Balancing an Issue
+
+A strong issue should include:
+
+- at least one story with deep scientific or conceptual significance
+- at least one story about tools or infrastructure
+- at least one story about policy, geopolitics, or macro conditions
+- a mix of immediate developments and slower-moving structural themes
+- enough range to feel broad, but not so much repetition that sections blur together
+
+## Decision Heuristic
+
+If two stories are similarly newsworthy, prefer the one that:
+
+1. better matches the reader's core interests
+2. has higher conceptual density
+3. has stronger long-term relevance
+4. comes from a stronger source
+5. improves the balance of the issue
