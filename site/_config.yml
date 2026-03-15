@@ -1,0 +1,15 @@
+title: Frontier Threads
+description: Daily newsletter archive for science, technology, world affairs, and ideas.
+baseurl: ""
+url: ""
+markdown: kramdown
+highlighter: rouge
+collections:
+  issues:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "issues"
+    values:
+      layout: issue

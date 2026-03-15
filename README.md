@@ -7,7 +7,7 @@ This folder contains a local daily newsletter pipeline:
 - optionally have an OpenAI model polish the draft into a read-ready issue
 - optionally have a second OpenAI model review the issue for release readiness
 - render it to a styled HTML email
-- build a static archive site for GitHub Pages
+- build a Jekyll archive site for GitHub Pages
 - send it through any SMTP provider
 - schedule it on macOS with `launchd`
 
@@ -23,10 +23,10 @@ This folder contains a local daily newsletter pipeline:
 - `scripts/review_issue.py`: runs quality checks on generated issues before send
 - `scripts/ai_review_issue.py`: uses OpenAI to score and gate the issue for automatic delivery
 - `scripts/openai_pipeline.py`: shared OpenAI API and AI-config helpers
-- `scripts/build_archive.py`: builds static archive pages into `site/`
+- `scripts/build_archive.py`: builds a Jekyll source tree for the archive into `site/`
 - `scripts/run_daily_pipeline.py`: runs fetch, generate, render, archive, and optional send
 - `output`: generated HTML previews
-- `site`: generated static archive for GitHub Pages
+- `site`: generated Jekyll site source for GitHub Pages
 - `launchd/com.munga.newsletter.daily.plist`: example scheduler job
 - `.github/workflows/publish-newsletter-site.yml`: optional GitHub Pages publishing workflow
 - `.env.example`: SMTP configuration template
@@ -83,7 +83,7 @@ The sample job runs every day at 07:30 local time. It now calls the full pipelin
 - `scripts/ai_generate_issue.py` upgrades that draft into a more readable issue when `OPENAI_API_KEY` is configured.
 - `scripts/review_issue.py` blocks the pipeline when low-quality feed artifacts or obvious placeholders remain in the draft.
 - `scripts/ai_review_issue.py` adds an editorial release gate and can block automatic delivery if the issue is not ready.
-- `scripts/build_archive.py` builds a static archive suitable for GitHub Pages from all issues in `issues/daily`.
+- `scripts/build_archive.py` builds a Jekyll archive with a current-issue landing page, browseable archive, and client-side keyword search.
 - `scripts/run_daily_pipeline.py` is the one-command daily automation entry point.
 - the daily pipeline now fails closed: if review checks detect low-quality artifacts, the draft is generated but preview/build/send are blocked until the issue is fixed
 - if `NEWSLETTER_REQUIRE_AI=true`, the pipeline also fails closed when the AI editorial layer is unavailable

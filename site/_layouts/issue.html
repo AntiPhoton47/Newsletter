@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="issue-page">
+  <div class="issue-hero">
+    <p class="issue-kicker">Daily Issue</p>
+    <h1>{{ page.display_date }}</h1>
+    <p class="issue-summary">{{ page.summary }}</p>
+    <div class="issue-actions">
+      <a class="button" href="{{ '/archive/' | relative_url }}">Browse archive</a>
+      <a class="button button-secondary" href="{{ '/search.json' | relative_url }}">Search index</a>
+    </div>
+  </div>
+  <div class="issue-content">
+    {{ content }}
+  </div>
+</article>

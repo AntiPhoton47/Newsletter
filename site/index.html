@@ -1,24 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frontier Threads Archive</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 900px; margin: 0 auto; padding: 32px 18px; background: #f8fafc; color: #0f172a; }
-    h1 { margin-bottom: 10px; }
-    ul { padding-left: 18px; }
-    li { margin: 10px 0; }
-    span { color: #475569; margin-left: 8px; }
-    a { color: #0ea5e9; text-decoration: none; }
-  </style>
-</head>
-<body>
-  <h1>Frontier Threads Archive</h1>
-  <p>Published daily issues.</p>
-  <ul>
-    <li><a href="issues/2026-03-16/index.html">2026-03-16</a> <span>Upcoming Investment Opportunities</span></li>
-<li><a href="issues/2026-03-15/index.html">2026-03-15</a> <span>Upcoming Investment Opportunities</span></li>
-  </ul>
-</body>
-</html>
+---
+layout: default
+title: Current Issue
+permalink: /
+---
+{% assign latest = site.issues | sort: 'issue_date' | reverse | first %}
+{% assign recent = site.issues | sort: 'issue_date' | reverse %}
+<section class="landing-hero">
+  <p class="issue-kicker">Frontier Threads</p>
+  <h1>The current newsletter, plus a searchable archive.</h1>
+  <p class="landing-copy">Read the latest issue first, then jump into older editions by date or keyword.</p>
+</section>
+
+{% if latest %}
+<section class="current-issue-card">
+  <div class="card-kicker">Latest Issue</div>
+  <h2><a href="{{ latest.url | relative_url }}">{{ latest.display_date }}</a></h2>
+  <p>{{ latest.summary }}</p>
+  <div class="issue-actions">
+    <a class="button" href="{{ latest.url | relative_url }}">Read current issue</a>
+    <a class="button button-secondary" href="{{ '/archive/' | relative_url }}">Open archive</a>
+  </div>
+</section>
+{% endif %}
+
+<section class="search-panel">
+  <div class="card-kicker">Archive Search</div>
+  <h2>Find past coverage fast</h2>
+  <p>Search by topic, section, person, research area, country, or company.</p>
+  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search past newsletters by keyword">
+  <div id="newsletter-search-status" class="search-status"></div>
+  <div id="newsletter-search-results" class="search-results"></div>
+</section>
+
+<section class="archive-preview">
+  <div class="card-kicker">Recent Issues</div>
+  <div class="archive-list">
+    {% for issue in recent limit: 12 %}
+    <article class="archive-item">
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+      <p>{{ issue.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>

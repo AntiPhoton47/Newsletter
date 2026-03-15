@@ -18,14 +18,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Build archive
         run: python3 scripts/build_archive.py
+      - name: Build Jekyll site
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./site
+          destination: ./_site
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: ./_site
 
   deploy:
     environment:

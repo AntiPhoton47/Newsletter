@@ -1,0 +1,30 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+---
+{% assign issues = site.issues | sort: 'issue_date' | reverse %}
+<section class="landing-hero">
+  <p class="issue-kicker">Archive</p>
+  <h1>Browse and search every issue.</h1>
+  <p class="landing-copy">The archive is filterable in the browser and backed by a generated keyword index.</p>
+</section>
+
+<section class="search-panel">
+  <div class="card-kicker">Keyword Search</div>
+  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search all archived issues">
+  <div id="newsletter-search-status" class="search-status"></div>
+  <div id="newsletter-search-results" class="search-results"></div>
+</section>
+
+<section class="archive-preview">
+  <div class="card-kicker">All Issues</div>
+  <div class="archive-list" id="newsletter-archive-list">
+    {% for issue in issues %}
+    <article class="archive-item" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}">
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+      <p>{{ issue.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
