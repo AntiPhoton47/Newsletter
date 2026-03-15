@@ -6,6 +6,7 @@ import argparse
 import datetime as dt
 import importlib.util
 import json
+import os
 import re
 import shutil
 from pathlib import Path
@@ -17,10 +18,11 @@ SITE_DIR = ROOT / "site"
 PERSONAL_SITE_ASSETS = ROOT.parent / "PersonalWebsite" / "PersonalSite" / "assets" / "images"
 
 
-CONFIG_YML = """title: Frontier Threads
+def config_yml(baseurl: str = "", site_url: str = "") -> str:
+    return f"""title: Frontier Threads
 description: Daily newsletter archive for science, technology, world affairs, and ideas.
-baseurl: ""
-url: ""
+baseurl: "{baseurl}"
+url: "{site_url}"
 markdown: kramdown
 highlighter: rouge
 collections:
@@ -2072,6 +2074,14 @@ def main() -> None:
     parser.parse_args()
 
     sender = load_sender_module()
+    baseurl = os.environ.get("NEWSLETTER_BASEURL", "").strip()
+    if baseurl == "/":
+        baseurl = ""
+    elif baseurl:
+        baseurl = "/" + baseurl.strip("/")
+    site_url = os.environ.get("NEWSLETTER_SITE_URL", "").strip().rstrip("/")
+    if baseurl and site_url.endswith(baseurl):
+        site_url = site_url[: -len(baseurl)].rstrip("/")
     if SITE_DIR.exists():
         shutil.rmtree(SITE_DIR)
     SITE_DIR.mkdir(parents=True, exist_ok=True)
@@ -2085,7 +2095,7 @@ def main() -> None:
         entries.append(entry)
         write_text(SITE_DIR / "_issues" / f"{issue_date.isoformat()}.md", issue_document(entry))
 
-    write_text(SITE_DIR / "_config.yml", CONFIG_YML)
+    write_text(SITE_DIR / "_config.yml", config_yml(baseurl=baseurl, site_url=site_url))
     write_text(SITE_DIR / "_layouts" / "default.html", DEFAULT_LAYOUT)
     write_text(SITE_DIR / "_layouts" / "issue.html", ISSUE_LAYOUT)
     write_text(SITE_DIR / "index.html", HOME_PAGE)

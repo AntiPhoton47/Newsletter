@@ -18,11 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/configure-pages@v5
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Build archive
+        env:
+          NEWSLETTER_BASEURL: ${{ steps.pages.outputs.base_path }}
+          NEWSLETTER_SITE_URL: ${{ steps.pages.outputs.base_url }}
         run: python3 scripts/build_archive.py
       - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
