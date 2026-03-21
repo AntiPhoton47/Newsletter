@@ -1,0 +1,96 @@
+name: Generate Newsletter
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_date:
+        description: "Issue date in YYYY-MM-DD format. Leave blank for today."
+        required: false
+        type: string
+      send_email:
+        description: "Send the email after generation"
+        required: true
+        default: false
+        type: boolean
+  repository_dispatch:
+    types:
+      - run-newsletter
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve inputs
+        id: inputs
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            ISSUE_DATE="${{ github.event.client_payload.issue_date }}"
+            SEND_EMAIL="${{ github.event.client_payload.send_email }}"
+          else
+            ISSUE_DATE="${{ inputs.issue_date }}"
+            SEND_EMAIL="${{ inputs.send_email }}"
+          fi
+
+          if [ -z "$ISSUE_DATE" ]; then
+            ISSUE_DATE="$(date -u +%F)"
+          fi
+
+          if [ "$SEND_EMAIL" = "true" ]; then
+            SEND_FLAG="--send"
+          else
+            SEND_FLAG=""
+          fi
+
+          echo "issue_date=$ISSUE_DATE" >> "$GITHUB_OUTPUT"
+          echo "send_flag=$SEND_FLAG" >> "$GITHUB_OUTPUT"
+
+      - name: Generate newsletter
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NEWSLETTER_USE_AI: ${{ secrets.NEWSLETTER_USE_AI || 'true' }}
+          NEWSLETTER_REQUIRE_AI: ${{ secrets.NEWSLETTER_REQUIRE_AI || 'false' }}
+          NEWSLETTER_OPENAI_BASE_URL: ${{ secrets.NEWSLETTER_OPENAI_BASE_URL }}
+          NEWSLETTER_OPENAI_DRAFT_MODEL: ${{ secrets.NEWSLETTER_OPENAI_DRAFT_MODEL }}
+          NEWSLETTER_OPENAI_REVIEW_MODEL: ${{ secrets.NEWSLETTER_OPENAI_REVIEW_MODEL }}
+          NEWSLETTER_AI_REVIEW_MIN_SCORE: ${{ secrets.NEWSLETTER_AI_REVIEW_MIN_SCORE }}
+          NEWSLETTER_SMTP_HOST: ${{ secrets.NEWSLETTER_SMTP_HOST }}
+          NEWSLETTER_SMTP_PORT: ${{ secrets.NEWSLETTER_SMTP_PORT }}
+          NEWSLETTER_SMTP_SECURITY: ${{ secrets.NEWSLETTER_SMTP_SECURITY }}
+          NEWSLETTER_SMTP_USERNAME: ${{ secrets.NEWSLETTER_SMTP_USERNAME }}
+          NEWSLETTER_SMTP_PASSWORD: ${{ secrets.NEWSLETTER_SMTP_PASSWORD }}
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM }}
+          NEWSLETTER_TO: ${{ secrets.NEWSLETTER_TO }}
+          NEWSLETTER_SUBJECT_PREFIX: ${{ secrets.NEWSLETTER_SUBJECT_PREFIX }}
+          NEWSLETTER_EDITORIAL_PROFILE_PATH: config/newsletter_profile.json
+          NEWSLETTER_BASEURL: ${{ steps.pages.outputs.base_path }}
+          NEWSLETTER_SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          python3 scripts/newsletter_command.py run --date "${{ steps.inputs.outputs.issue_date }}" ${{ steps.inputs.outputs.send_flag }}
+
+      - name: Commit and push generated newsletter
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add issues/daily output site data scripts config README.md .env.example
+          git commit -m "Generate newsletter for ${{ steps.inputs.outputs.issue_date }}"
+          git push

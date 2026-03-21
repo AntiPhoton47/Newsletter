@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import re
 from pathlib import Path
 
@@ -16,6 +17,8 @@ ISSUES_DIR = ROOT / "issues" / "daily"
 CANDIDATES_DIR = ROOT / "data" / "candidates"
 SELECTION_CRITERIA_PATH = ROOT / "selection_criteria.md"
 AI_DRAFTS_DIR = ROOT / "data" / "ai_drafts"
+DEFAULT_PROFILE_PATH = ROOT / "config" / "newsletter_profile.json"
+BENCHMARK_ISSUE_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
 
 REQUIRED_HEADINGS = [
     "## Quick Hits",
@@ -82,7 +85,26 @@ def summarize_candidates(data: dict) -> str:
     return "\n".join(lines).strip()
 
 
+def load_editorial_profile() -> str:
+    path = Path(os.environ.get("NEWSLETTER_EDITORIAL_PROFILE_PATH", str(DEFAULT_PROFILE_PATH))).expanduser()
+    if not path.exists():
+        return ""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return path.read_text(encoding="utf-8")
+    return json.dumps(payload, indent=2)
+
+
+def load_benchmark_issue() -> str:
+    if not BENCHMARK_ISSUE_PATH.exists():
+        return ""
+    return BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8")
+
+
 def build_prompt(issue_date: dt.date, current_draft: str, candidates: dict, selection_criteria: str) -> str:
+    editorial_profile = load_editorial_profile()
+    benchmark_issue = load_benchmark_issue()
     return f"""You are the final editorial pass for a daily email newsletter called Frontier Threads.
 
 Goal:
@@ -101,6 +123,9 @@ Editorial requirements:
 - Keep source links as labeled Markdown links.
 - Preserve the date `{issue_date.isoformat()}`.
 - Preserve the Markets & Economy section exactly as authoritative data.
+- Match or exceed the level of detail, explanatory depth, and editorial coherence of the benchmark issue when the source material supports it.
+- Do not collapse strong sections into thin summaries if the benchmark shows a more developed treatment is possible.
+- Aim for compact but substantive section entries: the benchmark issue is the standard for richness, not the minimum draft.
 
 Validation requirements:
 - Include every required section exactly once.
@@ -109,6 +134,12 @@ Validation requirements:
 
 Selection rubric:
 {selection_criteria}
+
+Editorial profile:
+{editorial_profile or "Use the current Frontier Threads defaults."}
+
+Benchmark issue to match or beat in detail and quality:
+{benchmark_issue or "Benchmark issue unavailable."}
 
 Candidate pool:
 {summarize_candidates(candidates)}

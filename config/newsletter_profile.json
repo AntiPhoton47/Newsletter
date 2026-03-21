@@ -1,0 +1,34 @@
+{
+  "name": "Frontier Threads Default",
+  "audience": "A technically sophisticated reader interested in physics, quantum information, AI, mathematics, scientific software, markets, world affairs, philosophy of science, and emerging technology.",
+  "tone": [
+    "Intellectually curious",
+    "Technically literate",
+    "Concise but insightful",
+    "Analytical and low-bias"
+  ],
+  "priorities": [
+    "Prefer major research, science-policy, AI, technology, and world-events developments with durable significance.",
+    "Favor primary sources and strong science journalism over commentary-heavy reporting.",
+    "Emphasize interdisciplinary connections, conceptual payoff, and tools that are useful to researchers or developers.",
+    "Avoid hype, partisan framing, and generic headline summaries."
+  ],
+  "format": [
+    "Produce the newsletter in the established Frontier Threads Markdown structure.",
+    "Keep Quick Hits concise and representative of the strongest sections.",
+    "Keep markets authoritative and data-backed.",
+    "Keep links labeled and avoid raw URLs in prose.",
+    "Target at least the explanatory depth and editorial polish of the March 15, 2026 benchmark issue."
+  ],
+  "automation_defaults": {
+    "overwrite": true,
+    "send_email": false,
+    "git_commit": false,
+    "git_push": false
+  },
+  "quality_policy": {
+    "require_ai": true,
+    "minimum_review_score": 90,
+    "benchmark_issue": "issues/daily/2026-03-15-daily-newsletter.md"
+  }
+}

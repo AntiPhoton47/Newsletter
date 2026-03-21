@@ -8,46 +8,46 @@ This issue was generated from the configured source pipeline and is intended as 
 
 ## Quick Hits
 
-- **Need To Know:** Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciarán | npj Climate and Atmospheric Science.
+- **Need To Know:** Universal dynamics and microwave control of programmable resonant electro-optic frequency combs.
 - **Research Watch:** Quantum foundations for quantum technologies in the International Year of Quantum (2025).
-- **World News:** Geopolitical Conflicts, Economic Uncertainty Darkening Sustainable Development Prospects, Officials Warn, as Second Committee Takes Up Regional Commissions.
+- **World News:** World Economic Outlook Update, January 2026: Global Economy: Steady amid Divergent Forces; World Economic Outlook 2026/003.
 - **Philosophy:** In a post-truth world truth-seeking is more important than ever | Jason Baehr.
 - **Biology:** Nonlinear dynamics of multi-omics profiles during human aging.
-- **Psychology and Neuroscience:** The effects of a second pregnancy on women’s brain structure and function.
-- **Health and Medicine:** An overview of clinical decision support systems: benefits, risks, and strategies for success | npj Digital Medicine.
-- **Sociology and Anthropology:** The interplay of time and space in human behavior: a sociological perspective on the TSCH model.
-- **Technology:** Safety of a large language model-based clinical decision support system in African primary healthcare.
-- **Robotics:** ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications.
-- **AI:** langchain-ai/langchain: The agent engineering platform.
-- **Engineering:** Safety of a large language model-based clinical decision support system in African primary healthcare.
-- **Mathematics:** A New Bridge Links the Strange Math of Infinity to Computer Science.
-- **Historical Discoveries:** The Pompeiian ‘Blue Room’: in situ detection and economic estimation of Egyptian blue pigment in an ancient domestic sacrarium | npj Heritage Science.
+- **Psychology and Neuroscience:** The effect of ChatGPT on students’ learning performance, learning perception, and higher-order thinking: insights from a meta-analysis | Humanities and Social Sciences Communications.
+- **Health and Medicine:** From tool to teammate in a randomized controlled trial of clinician-AI collaborative workflows for diagnosis.
+- **Sociology and Anthropology:** Correction: The interplay of time and space in human behavior: a sociological perspective on the TSCH model.
+- **Technology:** UK bets big on homegrown fusion and quantum — can it lead the world?.
+- **Robotics:** A robot operating system framework for using large language models in embodied AI.
+- **AI:** agent0ai/agent-zero: Agent Zero AI framework.
+- **Engineering:** Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images.
+- **Mathematics:** How Many Numbers Exist? Infinity Proof Moves Math Closer to an Answer..
+- **Historical Discoveries:** A 6000-year-long genomic transect from the Bogotá Altiplano reveals multiple genetic shifts in the demographic history of Colombia.
 - **Archaeology:** A sedimentary ancient DNA perspective on human and carnivore persistence through the Late Pleistocene in El Mirón Cave, Spain.
 - **Tools You Can Use:** Building MCP servers for ChatGPT Apps and API integrations.
 
 ## Markets & Economy
 
-- **S&P 500 (SPY):** 662.29, down 1.50%.
-- **NASDAQ-100 (QQQ):** 593.72, down 1.01%.
-- **DOW (DIA):** 466.41, down 1.86%.
-- **Europe (VGK):** 82.16, down 2.48%.
-- **Japan (EWJ):** 83.36, down 1.66%.
-- **China (MCHI):** 57.78, up 1.87%.
-- **India (INDA):** 48.06, down 3.86%.
-- **China large-cap (FXI):** 36.24, up 1.17%.
-- **Bitcoin:** 71754.45, up 2.21%.
-- **Ethereum:** 2118.03, up 3.24%.
-- **Gold (GLD):** 460.84, down 2.68%.
-- **Oil proxy (USO):** 119.89, up 10.22%.
-- **NVIDIA (NVDA):** 180.25, up 1.37%.
-- **Tesla (TSLA):** 391.20, down 1.39%.
-- **Palantir (PLTR):** 150.95, down 3.95%.
-- **ARM Holdings (ARM):** 115.75, up 1.20%.
+- **S&P 500 (SPY):** 648.57, down 2.07%.
+- **NASDAQ-100 (QQQ):** 582.06, down 1.96%.
+- **DOW (DIA):** 455.89, down 2.26%.
+- **Europe (VGK):** 79.18, down 3.63%.
+- **Japan (EWJ):** 81.20, down 2.59%.
+- **China (MCHI):** 55.21, down 4.45%.
+- **India (INDA):** 46.59, down 3.06%.
+- **China large-cap (FXI):** 35.16, down 2.98%.
+- **Bitcoin:** 70360.34, down 4.82%.
+- **Ethereum:** 2150.14, down 7.24%.
+- **Gold (GLD):** 413.38, down 10.30%.
+- **Oil proxy (USO):** 121.43, up 1.28%.
+- **NVIDIA (NVDA):** 172.70, down 4.19%.
+- **Tesla (TSLA):** 367.96, down 5.94%.
+- **Palantir (PLTR):** 150.68, down 0.18%.
+- **ARM Holdings (ARM):** 132.35, up 14.34%.
 - **US CPI (YoY):** 2.7% as of Feb. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
 - **US unemployment rate:** 4.4% as of Feb. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
 - **Fed funds rate:** 3.64% as of Feb. 2026. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
-- **US 10-year Treasury:** 4.27% latest daily close on Mar. 12, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
-- **Brent crude:** $94.35/barrel latest daily print on Mar. 09, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
+- **US 10-year Treasury:** 4.25% latest daily close on Mar. 19, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
+- **Brent crude:** $101.04/barrel latest daily print on Mar. 16, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
 
 ### Upcoming Investment Opportunities
 
@@ -55,11 +55,11 @@ Watch **NVIDIA**, **Broadcom**, **Micron**, and **Vertiv** for continued AI-infr
 
 ## Need To Know
 
-### Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciarán | npj Climate and Atmospheric Science
+### Universal dynamics and microwave control of programmable resonant electro-optic frequency combs
 
 **Source:** Nature
 
-Do AI models produce better weather forecasts than physics-based models? A quantitative evaluation case study of Storm Ciarán | npj Climate and Atmospheric Science  Nature
+Universal dynamics and microwave control of programmable resonant electro-optic frequency combs  Nature
 
 **Link:** [Read at Nature](https://www.nature.com/)
 
@@ -69,46 +69,46 @@ Do AI models produce better weather forecasts than physics-based models? A quant
 
 **Source:** arXiv
 
-[2603.04630] Quantum foundations for quantum technologies in the International Year of Quantum (2025)  arXiv
+Quantum foundations for quantum technologies in the International Year of Quantum (2025)  arXiv
 
 **Link:** [Read at arXiv](https://arxiv.org/)
 
-### Quantum foundations for quantum technologies in the International Year of Quantum (2025)
+### The Steep Price of No Hair in Thiemann Regularized Loop Quantum Cosmology
 
 **Source:** arXiv
 
-Quantum foundations for quantum technologies in the International Year of Quantum (2025)  arXiv
+The Steep Price of No Hair in Thiemann Regularized Loop Quantum Cosmology  arXiv
 
 **Link:** [Read at arXiv](https://arxiv.org/)
 
 ### Short Takes
 
-- **Quantum Geometry Effects in Quantum Field Theory: Hamiltonian constraint Generates Gravity-Matter Entanglement:** Quantum Geometry Effects in Quantum Field Theory: Hamiltonian constraint Generates Gravity-Matter Entanglement  arXiv [Source: arXiv](https://arxiv.org/)
 - **Cosmology in Loop Quantum Gravity: symmetry reduction preserving gauge degrees of freedom:** Cosmology in Loop Quantum Gravity: symmetry reduction preserving gauge degrees of freedom  arXiv [Source: arXiv](https://arxiv.org/)
+- **Quantum contextuality with mixed states of 1D symmetry-protected topological order:** [2603.13626] Quantum contextuality with mixed states of 1D symmetry-protected topological order  arXiv [Source: arXiv](https://arxiv.org/)
 
 ## World News
 
-### Geopolitical Conflicts, Economic Uncertainty Darkening Sustainable Development Prospects, Officials Warn, as Second Committee Takes Up Regional Commissions
+### World Economic Outlook Update, January 2026: Global Economy: Steady amid Divergent Forces; World Economic Outlook 2026/003
 
-**Source:** Welcome to the United Nations
+**Source:** International Monetary Fund | IMF
 
-Geopolitical Conflicts, Economic Uncertainty Darkening Sustainable Development Prospects, Officials Warn, as Second Committee Takes Up Regional Commissions  Welcome to the United Nations
+World Economic Outlook Update, January 2026: Global Economy: Steady amid Divergent Forces; World Economic Outlook 2026/003  International Monetary Fund | IMF
 
-**Link:** [Read at Welcome to the United Nations](https://www.un.org/)
+**Link:** [Read at International Monetary Fund | IMF](https://www.imf.org/)
 
-### Trump downplays importance of Russia reportedly sharing intel with Iran to help it hit US targets
+### Analysis: Iran war becomes a contest of who can take the most pain
 
 **Source:** AP News
 
-Trump downplays importance of Russia reportedly sharing intel with Iran to help it hit US targets  AP News
+Analysis: Iran war becomes a contest of who can take the most pain  AP News
 
 **Link:** [Read at AP News](https://apnews.com/)
 
 ### Short Takes
 
-- **Xi pledges more Gaza aid and talks trade at summit with Arab leaders:** Xi pledges more Gaza aid and talks trade at summit with Arab leaders  AP News [Source: AP News](https://apnews.com/)
-- **Speech: Geopolitics and its Impact on Global Trade and the Dollar:** Speech: Geopolitics and its Impact on Global Trade and the Dollar  International Monetary Fund | IMF [Source: International Monetary Fund | IMF](https://www.imf.org/)
-- **The Impact of Geopolitical Conflicts on Trade, Growth, and Innovation:** The Impact of Geopolitical Conflicts on Trade, Growth, and Innovation  International Monetary Fund | IMF [Source: International Monetary Fund | IMF](https://www.imf.org/)
+- **Colombia seeks a US sanctions exemption to invest in Venezuelan energy projects:** Colombia seeks a US sanctions exemption to invest in Venezuelan energy projects  AP News [Source: AP News](https://apnews.com/)
+- **Paraguay becomes final South American country to approve Mercosur-European Union trade deal:** Paraguay becomes final South American country to approve Mercosur-European Union trade deal  AP News [Source: AP News](https://apnews.com/)
+- **Spain: Staff Concluding Statement of the 2026 Article IV Mission:** Spain: Staff Concluding Statement of the 2026 Article IV Mission  International Monetary Fund | IMF [Source: International Monetary Fund | IMF](https://www.imf.org/)
 
 ## Philosophy
 
@@ -138,142 +138,142 @@ Nonlinear dynamics of multi-omics profiles during human aging  Nature
 ### Short Takes
 
 - **Highly accurate protein structure prediction with AlphaFold:** Highly accurate protein structure prediction with AlphaFold  Nature [Source: Nature](https://www.nature.com/)
-- **Volume 651 Issue 8105, 12 March 2026:** Volume 651 Issue 8105, 12 March 2026  Nature [Source: Nature](https://www.nature.com/)
+- **Biotech building from a venture capitalist perspective:** Biotech building from a venture capitalist perspective  Nature [Source: Nature](https://www.nature.com/)
 
 ## Psychology and Neuroscience
 
-### The effects of a second pregnancy on women’s brain structure and function
+### The effect of ChatGPT on students’ learning performance, learning perception, and higher-order thinking: insights from a meta-analysis | Humanities and Social Sciences Communications
 
 **Source:** Nature
 
-The effects of a second pregnancy on women’s brain structure and function  Nature
+The effect of ChatGPT on students’ learning performance, learning perception, and higher-order thinking: insights from a meta-analysis | Humanities and Social Sciences Communications  Nature
 
 **Link:** [Read at Nature](https://www.nature.com/)
 
 ### Short Takes
 
-- **The free-energy principle: a unified brain theory?:** The free-energy principle: a unified brain theory?  Nature [Source: Nature](https://www.nature.com/)
-- **Neuronal wiring diagram of an adult brain:** Neuronal wiring diagram of an adult brain  Nature [Source: Nature](https://www.nature.com/)
+- **Organization of neuropeptide systems in the human brain:** Organization of neuropeptide systems in the human brain  Nature [Source: Nature](https://www.nature.com/)
+- **Cognitive neuroscience - Latest research and news:** Cognitive neuroscience [Source: Nature](https://www.nature.com/)
 
 ## Health and Medicine
 
-### An overview of clinical decision support systems: benefits, risks, and strategies for success | npj Digital Medicine
+### From tool to teammate in a randomized controlled trial of clinician-AI collaborative workflows for diagnosis
 
 **Source:** Nature
 
-An overview of clinical decision support systems: benefits, risks, and strategies for success | npj Digital Medicine  Nature
+From tool to teammate in a randomized controlled trial of clinician-AI collaborative workflows for diagnosis  Nature
 
 **Link:** [Read at Nature](https://www.nature.com/)
 
 ### Short Takes
 
-- **Large language model diagnostic assistance for physicians in a lower-middle-income country: a randomized controlled trial:** Large language model diagnostic assistance for physicians in a lower-middle-income country: a randomized controlled trial  Nature [Source: Nature](https://www.nature.com/)
-- **ChatGPT Health performance in a structured test of triage recommendations:** ChatGPT Health performance in a structured test of triage recommendations  Nature [Source: Nature](https://www.nature.com/)
+- **Reliability of LLMs as medical assistants for the general public: a randomized preregistered study:** Reliability of LLMs as medical assistants for the general public: a randomized preregistered study  Nature [Source: Nature](https://www.nature.com/)
+- **An agentic system for rare disease diagnosis with traceable reasoning:** An agentic system for rare disease diagnosis with traceable reasoning  Nature [Source: Nature](https://www.nature.com/)
 
 ## Sociology and Anthropology
 
-### The interplay of time and space in human behavior: a sociological perspective on the TSCH model
+### Correction: The interplay of time and space in human behavior: a sociological perspective on the TSCH model
 
 **Source:** Nature
 
-The interplay of time and space in human behavior: a sociological perspective on the TSCH model  Nature
+Correction: The interplay of time and space in human behavior: a sociological perspective on the TSCH model  Nature
 
 **Link:** [Read at Nature](https://www.nature.com/)
 
 ### Short Takes
 
+- **The interplay of time and space in human behavior: a sociological perspective on the TSCH model:** The interplay of time and space in human behavior: a sociological perspective on the TSCH model  Nature [Source: Nature](https://www.nature.com/)
 - **Human Behavior CFP | Human Behavior Call For Papers:** Human Behavior CFP | Human Behavior Call For Papers  Nature [Source: Nature](https://www.nature.com/)
-- **What Cargo Cult Rituals Reveal About Human Nature:** What Cargo Cult Rituals Reveal About Human Nature  SAPIENS – Anthropology Magazine [Source: SAPIENS – Anthropology Magazine](https://www.sapiens.org/)
 
 ## Technology
 
-### Safety of a large language model-based clinical decision support system in African primary healthcare
+### UK bets big on homegrown fusion and quantum — can it lead the world?
 
 **Source:** Nature
 
-Safety of a large language model-based clinical decision support system in African primary healthcare  Nature
+UK bets big on homegrown fusion and quantum — can it lead the world?  Nature
 
 **Link:** [Read at Nature](https://www.nature.com/)
 
 ### Short Takes
 
-- **GPU-accelerated city-scale urban flood forecasting for real-time decision-making:** GPU-accelerated city-scale urban flood forecasting for real-time decision-making  Nature [Source: Nature](https://www.nature.com/)
 - **Highly accurate ab initio gene annotation with ANNEVO:** Highly accurate ab initio gene annotation with ANNEVO  Nature [Source: Nature](https://www.nature.com/)
+- **Calls for papers | Scientific Reports:** Calls for papers | Scientific Reports  Nature [Source: Nature](https://www.nature.com/)
 
 ## Robotics
 
-### ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications
+### A robot operating system framework for using large language models in embodied AI
 
-**Source:** ieeexplore.ieee.org
+**Source:** Nature
 
-ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications  ieeexplore.ieee.org
+A robot operating system framework for using large language models in embodied AI  Nature
 
-
+**Link:** [Read at Nature](https://www.nature.com/)
 
 ### Short Takes
 
+- **ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications:** ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications  ieeexplore.ieee.org
 - **Real-Time Social Presence Modulation of Embodied AI-based Robots: An Audio-Centric Approach:** Real-Time Social Presence Modulation of Embodied AI-based Robots: An Audio-Centric Approach  ieeexplore.ieee.org
-- **Embodied AI: Bridging Simulation and Reality in Robotics:** Embodied AI: Bridging Simulation and Reality in Robotics  ieeexplore.ieee.org
 
 ## AI
 
-### langchain-ai/langchain: The agent engineering platform
+### agent0ai/agent-zero: Agent Zero AI framework
 
 **Source:** GitHub
 
-langchain-ai/langchain: The agent engineering platform  GitHub
+agent0ai/agent-zero: Agent Zero AI framework  GitHub
 
 **Link:** [Read at GitHub](https://github.com/)
 
 ### Short Takes
 
-- **agent0ai/agent-zero: Agent Zero AI framework:** agent0ai/agent-zero: Agent Zero AI framework  GitHub [Source: GitHub](https://github.com/)
+- **BrainBlend-AI/atomic-agents: Building AI agents, atomically:** BrainBlend-AI/atomic-agents: Building AI agents, atomically  GitHub [Source: GitHub](https://github.com/)
 - **Agent2Agent (A2A) Protocol:** Agent2Agent (A2A) Protocol  GitHub [Source: GitHub](https://github.com/)
 
 ## Engineering
 
-### Safety of a large language model-based clinical decision support system in African primary healthcare
+### Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images
 
-**Source:** Nature
+**Source:** ieeexplore.ieee.org
 
-Safety of a large language model-based clinical decision support system in African primary healthcare  Nature
+Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images  ieeexplore.ieee.org
 
-**Link:** [Read at Nature](https://www.nature.com/)
+
 
 ### Short Takes
 
-- **Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images:** Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images …
+- **The silent impact of underground climate change on civil infrastructure | Communications Engineering:** The silent impact of underground climate change on civil infrastructure | Communications Engineering  Nature [Source: Nature](https://www.nature.com/)
 - **IEEE Is the Global Community for Technology Professionals:** IEEE Is the Global Community for Technology Professionals  IEEE [Source: IEEE](https://www.ieee.org/)
 
 ## Mathematics
 
-### A New Bridge Links the Strange Math of Infinity to Computer Science
+### How Many Numbers Exist? Infinity Proof Moves Math Closer to an Answer.
 
 **Source:** Quanta Magazine
 
-A New Bridge Links the Strange Math of Infinity to Computer Science  Quanta Magazine
+How Many Numbers Exist? Infinity Proof Moves Math Closer to an Answer.  Quanta Magazine
 
 **Link:** [Read at Quanta Magazine](https://www.quantamagazine.org/)
 
 ### Short Takes
 
-- **Can the Most Abstract Math Make the World a Better Place?:** Can the Most Abstract Math Make the World a Better Place?  Quanta Magazine [Source: Quanta Magazine](https://www.quantamagazine.org/)
-- **New Strides Made on Deceptively Simple ‘Lonely Runner’ Problem:** New Strides Made on Deceptively Simple ‘Lonely Runner’ Problem  Quanta Magazine [Source: Quanta Magazine](https://www.quantamagazine.org/)
+- **The Math That Explains Why Bell Curves Are Everywhere:** The Math That Explains Why Bell Curves Are Everywhere  Quanta Magazine [Source: Quanta Magazine](https://www.quantamagazine.org/)
+- **Carlo Rovelli’s Radical Perspective on Reality:** Carlo Rovelli’s Radical Perspective on Reality  Quanta Magazine [Source: Quanta Magazine](https://www.quantamagazine.org/)
 
 ## Historical Discoveries
 
-### The Pompeiian ‘Blue Room’: in situ detection and economic estimation of Egyptian blue pigment in an ancient domestic sacrarium | npj Heritage Science
+### A 6000-year-long genomic transect from the Bogotá Altiplano reveals multiple genetic shifts in the demographic history of Colombia
 
-**Source:** Nature
+**Source:** Science | AAAS
 
-The Pompeiian ‘Blue Room’: in situ detection and economic estimation of Egyptian blue pigment in an ancient domestic sacrarium | npj Heritage Science  Nature
+A 6000-year-long genomic transect from the Bogotá Altiplano reveals multiple genetic shifts in the demographic history of Colombia  Science | AAAS
 
-**Link:** [Read at Nature](https://www.nature.com/)
+**Link:** [Read at Science | AAAS](https://www.science.org/)
 
 ### Short Takes
 
-- **Relic of long-vanished ice sheet holds clues to ancient climate:** Relic of long-vanished ice sheet holds clues to ancient climate  Science | AAAS [Source: Science | AAAS](https://www.science.org/)
-- **Nitrogen, Ammonia, and the Strait of Hormuz:** Nitrogen, Ammonia, and the Strait of Hormuz  Science | AAAS [Source: Science | AAAS](https://www.science.org/)
+- **Ground penetrating radar observations of ancient large-scale deltaic structures in Jezero crater, Mars:** Ground penetrating radar observations of ancient large-scale deltaic structures in Jezero crater, Mars  Science | AAAS [Source: Science | AAAS](https://www.science.org/)
+- **Ancient DNA connects large-scale migration with the spread of Slavs:** Ancient DNA connects large-scale migration with the spread of Slavs  Nature [Source: Nature](https://www.nature.com/)
 
 ## Archaeology
 
@@ -294,59 +294,59 @@ A sedimentary ancient DNA perspective on human and carnivore persistence through
 
 ### Building MCP servers for ChatGPT Apps and API integrations
 
-**Source:** OpenAI
+**Source:** OpenAI Developers
 
-Building MCP servers for ChatGPT Apps and API integrations  OpenAI
+Building MCP servers for ChatGPT Apps and API integrations  OpenAI Developers
 
-**Link:** [Read at OpenAI](https://openai.com/)
 
-### punkpeye/awesome-mcp-servers: A collection of MCP servers.
 
-**Source:** GitHub
+### Build your MCP server – Apps SDK
 
-punkpeye/awesome-mcp-servers: A collection of MCP servers.  GitHub
+**Source:** OpenAI Developers
 
-**Link:** [Read at GitHub](https://github.com/)
+Build your MCP server – Apps SDK  OpenAI Developers
+
+
 
 ### Short Takes
 
+- **punkpeye/awesome-mcp-servers: A collection of MCP servers.:** punkpeye/awesome-mcp-servers: A collection of MCP servers.  GitHub [Source: GitHub](https://github.com/)
 - **modelcontextprotocol/servers: Model Context Protocol Servers:** modelcontextprotocol/servers: Model Context Protocol Servers  GitHub [Source: GitHub](https://github.com/)
-- **Build your MCP server:** Build your MCP server  OpenAI [Source: OpenAI](https://openai.com/)
 
 ## Entertainment
 
 ### Movies
 
-- **From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year:** From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year  Variety [Source: Variety](https://variety.com/)
-- **We reveal our favourite 33 books, films, games and TV to escape with:** We reveal our favourite 33 books, films, games and TV to escape with  New Scientist [Source: New Scientist](https://www.newscientist.com/)
+- **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
+- **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ### Books
 
-- **From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year:** From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year  Variety [Source: Variety](https://variety.com/)
-- **We reveal our favourite 33 books, films, games and TV to escape with:** We reveal our favourite 33 books, films, games and TV to escape with  New Scientist [Source: New Scientist](https://www.newscientist.com/)
+- **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
+- **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ### TV Shows
 
-- **From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year:** From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year  Variety [Source: Variety](https://variety.com/)
-- **We reveal our favourite 33 books, films, games and TV to escape with:** We reveal our favourite 33 books, films, games and TV to escape with  New Scientist [Source: New Scientist](https://www.newscientist.com/)
+- **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
+- **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ### Video Games
 
-- **From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year:** From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year  Variety [Source: Variety](https://variety.com/)
-- **We reveal our favourite 33 books, films, games and TV to escape with:** We reveal our favourite 33 books, films, games and TV to escape with  New Scientist [Source: New Scientist](https://www.newscientist.com/)
+- **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
+- **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ### Concerts
 
-- **From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year:** From 'Wuthering Heights' to 'Project Hail Mary': The Best Books Hitting Your Screens This Year  Variety [Source: Variety](https://variety.com/)
-- **We reveal our favourite 33 books, films, games and TV to escape with:** We reveal our favourite 33 books, films, games and TV to escape with  New Scientist [Source: New Scientist](https://www.newscientist.com/)
+- **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
+- **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ## Travel
 
 ### Cool Place To Visit
 
-**Best Places To Visit in May in the USA & Abroad (2026)**
+**I’ve Been a Digital Nomad for Over 7 Years—These Are My 5 Favorite Remote Work Destinations**
 
-Best Places To Visit in May in the USA & Abroad (2026)  Going [Source: Going](https://www.going.com/)
+I’ve Been a Digital Nomad for Over 7 Years—These Are My 5 Favorite Remote Work Destinations  Travel + Leisure
 
 ## Idea Of The Day
 

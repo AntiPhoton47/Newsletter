@@ -15,13 +15,14 @@ ISSUES_DIR = ROOT / "issues" / "daily"
 REPORTS_DIR = ROOT / "data" / "ai_reviews"
 SELECTION_CRITERIA_PATH = ROOT / "selection_criteria.md"
 SOURCES_PATH = ROOT / "sources.md"
+BENCHMARK_ISSUE_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
 
 
 def issue_path_for(issue_date: dt.date) -> Path:
     return ISSUES_DIR / f"{issue_date.isoformat()}-daily-newsletter.md"
 
 
-def build_prompt(issue_date: dt.date, issue_text: str, selection_criteria: str, sources_text: str) -> str:
+def build_prompt(issue_date: dt.date, issue_text: str, selection_criteria: str, sources_text: str, benchmark_issue: str) -> str:
     return f"""You are the release editor for Frontier Threads, a daily science, technology, world affairs, and ideas newsletter.
 
 Review the following newsletter draft for publication readiness.
@@ -34,6 +35,7 @@ Evaluate on:
 - internal consistency
 - tone neutrality and avoidance of unnecessary political or social bias
 - whether this is good enough for the user to wake up and read without manual cleanup
+- whether the level of detail, explanatory substance, and editorial polish is at least on par with the benchmark March 15, 2026 issue
 
 Scoring:
 - overall_score: integer 0-100
@@ -63,6 +65,9 @@ Selection criteria:
 
 Source registry:
 {sources_text}
+
+Benchmark issue:
+{benchmark_issue}
 
 Issue draft:
 {issue_text}
@@ -104,7 +109,8 @@ def main() -> None:
     issue_text = issue_path.read_text(encoding="utf-8")
     selection_criteria = SELECTION_CRITERIA_PATH.read_text(encoding="utf-8")
     sources_text = SOURCES_PATH.read_text(encoding="utf-8")
-    prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text)
+    benchmark_issue = BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8") if BENCHMARK_ISSUE_PATH.exists() else ""
+    prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text, benchmark_issue)
     raw_report = call_openai_json(prompt, review_model())
     report = validate_report(raw_report)
     report["date"] = issue_date.isoformat()
