@@ -15,12 +15,6 @@ on:
   repository_dispatch:
     types:
       - run-newsletter
-  schedule:
-    - cron: "35 6 * * *"
-
-concurrency:
-  group: generate-newsletter
-  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -69,11 +63,11 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           NEWSLETTER_USE_AI: ${{ secrets.NEWSLETTER_USE_AI || 'true' }}
-          NEWSLETTER_REQUIRE_AI: ${{ secrets.NEWSLETTER_REQUIRE_AI || 'true' }}
+          NEWSLETTER_REQUIRE_AI: ${{ secrets.NEWSLETTER_REQUIRE_AI || 'false' }}
           NEWSLETTER_OPENAI_BASE_URL: ${{ secrets.NEWSLETTER_OPENAI_BASE_URL }}
           NEWSLETTER_OPENAI_DRAFT_MODEL: ${{ secrets.NEWSLETTER_OPENAI_DRAFT_MODEL }}
           NEWSLETTER_OPENAI_REVIEW_MODEL: ${{ secrets.NEWSLETTER_OPENAI_REVIEW_MODEL }}
-          NEWSLETTER_AI_REVIEW_MIN_SCORE: ${{ secrets.NEWSLETTER_AI_REVIEW_MIN_SCORE || '90' }}
+          NEWSLETTER_AI_REVIEW_MIN_SCORE: ${{ secrets.NEWSLETTER_AI_REVIEW_MIN_SCORE }}
           NEWSLETTER_SMTP_HOST: ${{ secrets.NEWSLETTER_SMTP_HOST }}
           NEWSLETTER_SMTP_PORT: ${{ secrets.NEWSLETTER_SMTP_PORT }}
           NEWSLETTER_SMTP_SECURITY: ${{ secrets.NEWSLETTER_SMTP_SECURITY }}

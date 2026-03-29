@@ -71,19 +71,12 @@ If you want a single command that fetches sources, generates the issue, rebuilds
 python3 scripts/newsletter_command.py run
 ```
 
-By default, the profile in `config/newsletter_profile.json` now assumes:
-- overwrite the current day's issue
-- keep email sending off unless requested
-- commit the generated changes
-- push the result to GitHub
-
 Useful variants:
 
 ```bash
 python3 scripts/newsletter_command.py run --send
 python3 scripts/newsletter_command.py run --date 2026-03-21 --send
 python3 scripts/newsletter_command.py run --send --git-commit --git-push
-python3 scripts/newsletter_command.py run --no-overwrite
 ```
 
 That last form is the closest to the full remote-trigger workflow:
@@ -143,19 +136,6 @@ That means your phone interaction can be as small as:
 - tap `Run workflow` in GitHub, or
 - trigger one saved shortcut / HTTP request
 
-## Daily schedule on GitHub
-
-The workflow [generate-newsletter.yml](/Users/munga/PycharmProjects/Newsletter/.github/workflows/generate-newsletter.yml) now also runs automatically every day at `06:35 UTC`.
-
-Recommended repository secrets for production quality:
-- `OPENAI_API_KEY`
-- `NEWSLETTER_USE_AI=true`
-- `NEWSLETTER_REQUIRE_AI=true`
-- `NEWSLETTER_AI_REVIEW_MIN_SCORE=90`
-- optional SMTP secrets if you want automatic email delivery
-
-The scheduled workflow is configured to fail closed if the AI drafting or AI review layers are unavailable, which is the safest mode if the March 15, 2026 issue is your quality benchmark.
-
 ## Codex Desktop Automation Prompt
 
 If you want Codex Desktop Automations to drive the repo directly instead of relying only on GitHub Actions, use the prompt in [config/codex_daily_automation_prompt.md](/Users/munga/PycharmProjects/Newsletter/config/codex_daily_automation_prompt.md).
@@ -165,6 +145,10 @@ That prompt tells Codex to:
 - run the existing pipeline first
 - refuse to push if the review reports fail or the issue is visibly below benchmark quality
 - commit and push only publication-ready output
+
+This is the correct route if you want Codex itself, running in OpenAI's cloud against a linked GitHub repository, to generate the issue and push the changes without putting an `OPENAI_API_KEY` into this repo.
+
+The schedule for that route is created in Codex Desktop / Codex cloud, not in the GitHub workflow files in this repository.
 
 ## Daily schedule on macOS
 
@@ -176,7 +160,7 @@ launchctl unload ~/Library/LaunchAgents/com.munga.newsletter.daily.plist 2>/dev/
 launchctl load ~/Library/LaunchAgents/com.munga.newsletter.daily.plist
 ```
 
-The sample job runs every day at 07:30 local time. It now calls `scripts/newsletter_command.py run --send --git-commit --git-push`, so it generates the issue, runs the review gates, rebuilds the archive, sends the email, and pushes the refreshed artifacts to GitHub.
+The sample job runs every day at 07:30 local time. It now calls the full pipeline script, which fetches candidates, generates the issue, optionally applies AI drafting and AI review, renders the preview, builds the archive, and sends the email.
 
 ## Notes
 
