@@ -19,6 +19,8 @@ SELECTION_CRITERIA_PATH = ROOT / "selection_criteria.md"
 AI_DRAFTS_DIR = ROOT / "data" / "ai_drafts"
 DEFAULT_PROFILE_PATH = ROOT / "config" / "newsletter_profile.json"
 BENCHMARK_ISSUE_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
+DAILY_WORKFLOW_PATH = ROOT / "daily_workflow.md"
+ISSUE_TEMPLATE_PATH = ROOT / "daily_issue_template.md"
 
 REQUIRED_HEADINGS = [
     "## Quick Hits",
@@ -102,9 +104,17 @@ def load_benchmark_issue() -> str:
     return BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8")
 
 
+def load_reference_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8")
+
+
 def build_prompt(issue_date: dt.date, current_draft: str, candidates: dict, selection_criteria: str) -> str:
     editorial_profile = load_editorial_profile()
     benchmark_issue = load_benchmark_issue()
+    daily_workflow = load_reference_text(DAILY_WORKFLOW_PATH)
+    issue_template = load_reference_text(ISSUE_TEMPLATE_PATH)
     return f"""You are the final editorial pass for a daily email newsletter called Frontier Threads.
 
 Goal:
@@ -126,6 +136,11 @@ Editorial requirements:
 - Match or exceed the level of detail, explanatory depth, and editorial coherence of the benchmark issue when the source material supports it.
 - Do not collapse strong sections into thin summaries if the benchmark shows a more developed treatment is possible.
 - Aim for compact but substantive section entries: the benchmark issue is the standard for richness, not the minimum draft.
+- Use the issue template and daily workflow as structural guides, but produce finished copy rather than placeholders.
+- Every main entry must explain what happened and why it matters; never leave a section as title-plus-source only.
+- If the source support for a candidate is too weak to sustain a strong item, cut it or demote it to a short take instead of padding.
+- Prefer primary sources, authoritative institutions, and top-tier reporting over derivative summaries whenever the candidate pool allows.
+- Keep the benchmark's useful recurring moves where appropriate: thematic intro, explanatory paragraphs, explicit why-it-matters bullets, and one-line conceptual takeaway.
 
 Validation requirements:
 - Include every required section exactly once.
@@ -137,6 +152,12 @@ Selection rubric:
 
 Editorial profile:
 {editorial_profile or "Use the current Frontier Threads defaults."}
+
+Daily workflow reference:
+{daily_workflow or "Workflow reference unavailable."}
+
+Issue template reference:
+{issue_template or "Issue template unavailable."}
 
 Benchmark issue to match or beat in detail and quality:
 {benchmark_issue or "Benchmark issue unavailable."}

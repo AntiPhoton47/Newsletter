@@ -8,9 +8,11 @@
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/python3</string>
-    <string>/Users/munga/PycharmProjects/Newsletter/scripts/run_daily_pipeline.py</string>
-    <string>--overwrite</string>
+    <string>/Users/munga/PycharmProjects/Newsletter/scripts/newsletter_command.py</string>
+    <string>run</string>
     <string>--send</string>
+    <string>--git-commit</string>
+    <string>--git-push</string>
   </array>
 
   <key>WorkingDirectory</key>

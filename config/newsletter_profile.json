@@ -23,8 +23,8 @@
   "automation_defaults": {
     "overwrite": true,
     "send_email": false,
-    "git_commit": false,
-    "git_push": false
+    "git_commit": true,
+    "git_push": true
   },
   "quality_policy": {
     "require_ai": true,
