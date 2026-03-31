@@ -3,6 +3,7 @@ layout: default
 title: Search
 permalink: /search/
 ---
+{% assign features = site.data.site_features %}
 <section class="landing-hero">
   <p class="issue-kicker">Search</p>
   <h1>Search the newsletter archive.</h1>
@@ -12,6 +13,14 @@ permalink: /search/
 <section class="search-panel search-panel--page">
   <div class="card-kicker">Keyword Search</div>
   <h2>Find relevant issues quickly</h2>
+  <div class="quick-filter-group">
+    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-bar">
+      {% for tag in features.top_tags limit: 10 %}
+      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
   <div class="filter-controls">
     <select id="newsletter-sort-select" class="filter-select">
       <option value="relevance">Best match</option>
@@ -23,9 +32,30 @@ permalink: /search/
     <select id="newsletter-category-select" class="filter-select">
       <option value="">All categories</option>
     </select>
-    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+    <input id="newsletter-tag-input" class="filter-input" type="search" aria-label="Filter search by tag" placeholder="Filter by tag">
   </div>
-  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Enter your search term...">
+  <input id="newsletter-search-input" class="search-input" type="search" aria-label="Enter your search term" placeholder="Enter your search term...">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
+</section>
+
+<section class="archive-preview">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">Featured</p>
+      <h2>Good places to begin</h2>
+      <p class="home-carousel-section__lede">If you are exploring for the first time, these curated issues are the quickest way in.</p>
+    </div>
+  </div>
+  <div class="archive-list archive-list--compact">
+    {% for issue in features.featured_issues limit: 3 %}
+    <article class="archive-item archive-item--featured">
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
+      <div class="search-section">{{ issue.primary_category }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
+      <p>{{ issue.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
 </section>

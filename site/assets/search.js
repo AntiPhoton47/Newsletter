@@ -50,6 +50,24 @@
     window.history.replaceState({}, '', url.toString());
   }
 
+  function metaLine(item) {
+    if (item.kind === 'page') return 'Site page';
+    return `${item.published_label || item.display_date} · ${item.reading_time} min read`;
+  }
+
+  function badgeMarkup(item) {
+    const badges = [];
+    if (item.pinned) badges.push('<span class="result-badge">Pinned</span>');
+    if (item.featured) badges.push('<span class="result-badge result-badge--accent">Featured</span>');
+    return badges.length ? `<div class="card-badges">${badges.join('')}</div>` : '';
+  }
+
+  function chips(item) {
+    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
+    const category = item.primary_category ? `<span class="taxonomy-chip taxonomy-chip--category">${escapeHtml(item.primary_category)}</span>` : '';
+    return `<div class="card-tags">${category}${tags.map((tag) => `<span class="taxonomy-chip">${escapeHtml(tag)}</span>`).join('')}</div>`;
+  }
+
   function snippetFor(item, terms) {
     const haystack = item.search_text || '';
     const lower = haystack.toLowerCase();
@@ -72,31 +90,22 @@
     return rendered;
   }
 
-  function metaLine(item) {
-    if (item.kind === 'page') {
-      return item.primary_category || 'Site';
-    }
-    return `${item.display_date} · ${item.display_time} · ${item.reading_time} min read`;
-  }
-
-  function chips(item) {
-    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
-    const category = item.primary_category ? `<span class="taxonomy-chip taxonomy-chip--category">${escapeHtml(item.primary_category)}</span>` : '';
-    return `<div class="card-tags">${category}${tags.map((tag) => `<span class="taxonomy-chip">${escapeHtml(tag)}</span>`).join('')}</div>`;
-  }
-
-  function renderResults(matches, query, terms) {
-    const hasFilters = query || (categorySelect && categorySelect.value) || (tagInput && tagInput.value.trim());
+  function renderResults(matches, hasFilters, terms) {
     if (!hasFilters) {
       results.innerHTML = '';
       status.textContent = `Search ${items.length} indexed pages and issues.`;
       return;
     }
     status.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'}.`;
+    if (!matches.length) {
+      results.innerHTML = '<div class="search-empty">No matches yet. Try a broader keyword, a different tag, or clear one of the filters.</div>';
+      return;
+    }
     results.innerHTML = matches.slice(0, 50).map((item) => {
       const snippet = snippetFor(item, terms);
       return `
         <article class="search-result">
+          ${badgeMarkup(item)}
           <div class="search-section">${escapeHtml(item.primary_category || item.date)}</div>
           <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
           <p class="card-meta">${escapeHtml(metaLine(item))}</p>
@@ -110,8 +119,14 @@
 
   function renderArchive(matches) {
     if (!archiveList) return;
-    archiveList.innerHTML = matches.filter((item) => item.kind === 'issue').map((item) => `
-      <article class="archive-item" data-date="${escapeHtml(item.date)}" data-category="${escapeHtml(item.primary_category || '')}" data-tags="${escapeHtml((item.tags || []).join(','))}" data-reading-time="${escapeHtml(item.reading_time)}" data-title="${escapeHtml(item.title)}">
+    const issueMatches = matches.filter((item) => item.kind === 'issue');
+    if (!issueMatches.length) {
+      archiveList.innerHTML = '<div class="search-empty">No issues match these filters yet.</div>';
+      return;
+    }
+    archiveList.innerHTML = issueMatches.map((item) => `
+      <article class="archive-item ${item.featured ? 'archive-item--featured' : ''}" data-date="${escapeHtml(item.date)}" data-category="${escapeHtml(item.primary_category || '')}" data-tags="${escapeHtml((item.tags || []).join(','))}" data-reading-time="${escapeHtml(item.reading_time)}" data-title="${escapeHtml(item.title)}">
+        ${badgeMarkup(item)}
         <div class="search-section">${escapeHtml(item.primary_category || 'Issue')}</div>
         <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
         <p class="card-meta">${escapeHtml(metaLine(item))}</p>
@@ -144,6 +159,7 @@
     const selectedCategory = categorySelect ? categorySelect.value.toLowerCase() : '';
     const tagTerm = tagInput ? tagInput.value.trim().toLowerCase() : '';
     const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
+    const hasFilters = Boolean(query || selectedCategory || tagTerm);
 
     const matches = pool.map((item) => {
       const title = (item.title || '').toLowerCase();
@@ -163,9 +179,9 @@
         let matched = 0;
         for (const term of terms) {
           let termScore = 0;
-          if (title.includes(term)) termScore += 10;
+          if (title.includes(term)) termScore += 12;
           if (summary.includes(term)) termScore += 6;
-          if (tags.some((tag) => tag.includes(term))) termScore += 5;
+          if (tags.some((tag) => tag.includes(term))) termScore += 7;
           if (categories.some((category) => category.includes(term))) termScore += 4;
           if (text.includes(term)) termScore += 2;
           if (termScore > 0) matched += 1;
@@ -177,16 +193,19 @@
         score = 1;
       }
 
+      if (item.featured) score += 4;
+      if (item.pinned) score += 2;
       return { ...item, score };
     }).filter(Boolean);
 
     const sorted = sortMatches(matches);
-    renderResults(sorted, query, terms);
+    renderResults(sorted, hasFilters, terms);
     renderArchive(sorted);
   }
 
   function populateControls() {
-    const categories = Array.from(new Set(items.flatMap((item) => item.categories || []))).sort();
+    const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
+    const categories = Array.from(new Set(pool.flatMap((item) => item.categories || []))).sort();
     if (categorySelect) {
       const selected = categorySelect.value;
       categorySelect.innerHTML = '<option value="">All categories</option>' + categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('');
@@ -204,6 +223,15 @@
     filterItems();
   }
 
+  function applyShortcut(dataset) {
+    if (dataset.searchQuery) input.value = dataset.searchQuery;
+    if (dataset.searchTag && tagInput) tagInput.value = dataset.searchTag;
+    if (dataset.searchCategory && categorySelect) categorySelect.value = dataset.searchCategory;
+    if (dataset.searchSort && sortSelect) sortSelect.value = dataset.searchSort;
+    if (bootstrapped) writeParams();
+    filterItems();
+  }
+
   fetch(searchUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -213,6 +241,7 @@
     })
     .catch(() => {
       status.textContent = 'Search index failed to load.';
+      if (archiveList) archiveList.innerHTML = '<div class="search-empty">Search index failed to load.</div>';
     });
 
   [input, categorySelect, sortSelect, tagInput].forEach((element) => {
@@ -229,9 +258,7 @@
 
   function scrollCarousel(id, direction) {
     const track = document.querySelector(`[data-carousel-track="${id}"]`);
-    if (!track) {
-      return;
-    }
+    if (!track) return;
     const step = Math.max(track.clientWidth * 0.82, 280);
     track.scrollBy({ left: direction * step, behavior: 'smooth' });
   }
@@ -239,13 +266,10 @@
   document.addEventListener('click', function (event) {
     const prev = event.target.closest('[data-carousel-prev]');
     const next = event.target.closest('[data-carousel-next]');
+    const shortcut = event.target.closest('[data-search-query], [data-search-tag], [data-search-category], [data-search-sort]');
 
-    if (prev) {
-      scrollCarousel(prev.getAttribute('data-carousel-prev'), -1);
-    }
-
-    if (next) {
-      scrollCarousel(next.getAttribute('data-carousel-next'), 1);
-    }
+    if (prev) scrollCarousel(prev.getAttribute('data-carousel-prev'), -1);
+    if (next) scrollCarousel(next.getAttribute('data-carousel-next'), 1);
+    if (shortcut) applyShortcut(shortcut.dataset);
   });
 })();

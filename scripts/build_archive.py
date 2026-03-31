@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import datetime as dt
 import importlib.util
 import json
@@ -10,11 +11,13 @@ import os
 import re
 import shutil
 from pathlib import Path
+from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ISSUES_DIR = ROOT / "issues" / "daily"
 SITE_DIR = ROOT / "site"
+CURATIONS_PATH = ROOT / "config" / "site_curations.json"
 PERSONAL_SITE_ASSETS = ROOT.parent / "PersonalWebsite" / "PersonalSite" / "assets" / "images"
 
 
@@ -159,22 +162,36 @@ layout: default
 title: Current Issue
 permalink: /
 ---
-{% assign latest = site.issues | sort: 'issue_date' | reverse | first %}
-{% assign recent = site.issues | sort: 'issue_date' | reverse %}
+{% assign features = site.data.site_features %}
+{% assign latest = features.latest_issue %}
 <section class="hero-banner" style="background-image: url('{{ '/assets/images/newsletter-hero.jpg' | relative_url }}');">
   <div class="hero-banner__overlay"></div>
   <div class="hero-banner__content">
     <p class="issue-kicker">Frontier Threads</p>
     <h1>The day’s reading, with a long memory.</h1>
     <p class="landing-copy">Welcome to Frontier Threads: a daily briefing across science, technology, ideas, markets, and world events, built to be read in the moment and revisited later.</p>
+    <div class="hero-stat-row">
+      <span class="meta-pill">{{ features.issue_count }} issues indexed</span>
+      {% if latest %}
+      <span class="meta-pill">Latest: {{ latest.display_date }}</span>
+      {% endif %}
+    </div>
   </div>
 </section>
 
 <section class="search-panel search-panel--top">
-  <div class="card-kicker">🔎 Newsletter Search</div>
+  <div class="card-kicker">Search The Archive</div>
   <h2>Start anywhere in the archive</h2>
   <p>Look up topics, papers, researchers, companies, technologies, regions, and recurring themes across past editions.</p>
-  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search past newsletters by keyword">
+  <div class="quick-filter-group">
+    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-bar">
+      {% for tag in features.top_tags limit: 8 %}
+      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
+  <input id="newsletter-search-input" class="search-input" type="search" aria-label="Search past newsletters by keyword" placeholder="Search past newsletters by keyword">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
@@ -185,7 +202,7 @@ permalink: /
     <div>
       <p class="section-kicker">Pinned</p>
       <h2>Start with the essentials</h2>
-      <p class="home-carousel-section__lede">The fastest ways into the project: today’s issue, the full archive, and the live feed.</p>
+      <p class="home-carousel-section__lede">A consistent set of entry points: the newest issue, archive browsing, search, and the feed.</p>
     </div>
     <div class="home-carousel-section__actions">
       <div class="carousel-controls">
@@ -199,29 +216,29 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel" data-carousel-track="pinned-cards">
-    {% if latest %}
+    {% for item in features.pinned %}
     <article class="feature-card carousel-card">
-      <div class="search-section">{{ latest.primary_category | default: 'Current Issue' }}</div>
-      <h3><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h3>
-      <p class="card-meta">{{ latest.display_date }} · {{ latest.display_time }} · {{ latest.reading_time }} min read</p>
-      <p>{{ latest.summary }}</p>
+      <div class="card-badges">
+        <span class="result-badge">Pinned</span>
+        {% if item.featured %}<span class="result-badge result-badge--accent">Featured</span>{% endif %}
+      </div>
+      <div class="search-section">{{ item.primary_category | default: 'Pinned' }}</div>
+      <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+      <p class="card-meta">
+        {% if item.kind == 'issue' %}
+        {{ item.published_label }} · {{ item.reading_time }} min read
+        {% else %}
+        Site page
+        {% endif %}
+      </p>
+      <p>{{ item.summary }}</p>
       <div class="card-tags">
-        {% for tag in latest.tags limit: 3 %}
+        {% for tag in item.tags limit: 3 %}
         <span class="taxonomy-chip">{{ tag }}</span>
         {% endfor %}
       </div>
     </article>
-    {% endif %}
-    <article class="feature-card carousel-card">
-      <div class="search-section">Archive</div>
-      <h3><a href="{{ '/archive/' | relative_url }}">Browse all editions</a></h3>
-      <p>Scan recent and older issues in one place and jump into specific dates quickly.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">RSS Feed</div>
-      <h3><a href="{{ '/feed.xml' | relative_url }}">Subscribe by RSS</a></h3>
-      <p>Use your preferred reader to follow each new issue as it lands in the archive.</p>
-    </article>
+    {% endfor %}
   </div>
   </section>
 </section>
@@ -232,7 +249,7 @@ permalink: /
     <div>
       <p class="section-kicker">Featured Issues</p>
       <h2>Reopen the strongest recent editions</h2>
-      <p class="home-carousel-section__lede">A few recent editions worth reopening, especially if you want the broader pattern rather than just today’s snapshot.</p>
+      <p class="home-carousel-section__lede">Curated issue picks rather than a raw latest-first list, so discovery stays intentional.</p>
     </div>
     <div class="home-carousel-section__actions">
       <a class="home-carousel-section__see-all" href="{{ '/archive/' | relative_url }}">See all issues</a>
@@ -247,11 +264,12 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel archive-list" data-carousel-track="featured-issues">
-    {% for issue in recent limit: 6 %}
+    {% for issue in features.featured_issues %}
     <article class="archive-item carousel-card">
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
       <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
       <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
-      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
       <div class="card-tags">
         {% for tag in issue.tags limit: 3 %}
@@ -269,8 +287,8 @@ permalink: /
   <div class="home-carousel-section__header">
     <div>
       <p class="section-kicker">Discovery</p>
-      <h2>Use the archive as a map of questions</h2>
-      <p class="home-carousel-section__lede">The archive is most useful when you treat it less like a stack of posts and more like a map of recurring questions.</p>
+      <h2>Browse by recurring themes</h2>
+      <p class="home-carousel-section__lede">Discovery now uses the same tag and category metadata that powers search, archive filters, and featured picks.</p>
     </div>
     <div class="home-carousel-section__actions">
       <div class="carousel-controls">
@@ -284,26 +302,13 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel" data-carousel-track="discovery-cards">
+    {% for topic in features.discovery_topics %}
     <article class="feature-card carousel-card">
-      <div class="search-section">Research Watch</div>
-      <h3>Track papers and conceptual shifts over time</h3>
-      <p>Revisit quantum foundations, AI, mathematics, and scientific computing as continuing threads rather than isolated stories.</p>
+      <div class="search-section">{{ topic.primary_category }}</div>
+      <h3><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a></h3>
+      <p>{{ topic.summary }}</p>
     </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">Markets &amp; Economy</div>
-      <h3>Read market moves in a wider context</h3>
-      <p>Each issue pairs the market board with macro data and investment themes, so the archive becomes a running notebook on the technology cycle.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">World News</div>
-      <h3>Keep global events in the same frame as research</h3>
-      <p>Geopolitics, institutions, and science policy stay close to technical developments instead of being split into separate reading universes.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">Tools</div>
-      <h3>Rediscover platforms, APIs, and workflows</h3>
-      <p>Search past editions to recover useful open-source projects, company offerings, data sources, and research infrastructure.</p>
-    </article>
+    {% endfor %}
   </div>
   </section>
 </section>
@@ -330,14 +335,23 @@ title: Archive
 permalink: /archive/
 ---
 {% assign issues = site.issues | sort: 'issue_date' | reverse %}
+{% assign features = site.data.site_features %}
 <section class="landing-hero">
   <p class="issue-kicker">Archive</p>
   <h1>Browse and search every issue.</h1>
-  <p class="landing-copy">The archive is filterable in the browser and backed by a generated keyword index.</p>
+  <p class="landing-copy">The archive now uses the same tagging, categories, featured picks, and search metadata across every page.</p>
 </section>
 
 <section class="search-panel">
-  <div class="card-kicker">Keyword Search</div>
+  <div class="card-kicker">Archive Filters</div>
+  <div class="quick-filter-group">
+    <div class="quick-filter-label">Browse by tag</div>
+    <div class="quick-filter-bar">
+      {% for tag in features.top_tags limit: 10 %}
+      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
   <div class="filter-controls">
     <select id="newsletter-sort-select" class="filter-select">
       <option value="newest">Newest first</option>
@@ -348,37 +362,28 @@ permalink: /archive/
     <select id="newsletter-category-select" class="filter-select">
       <option value="">All categories</option>
     </select>
-    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+    <input id="newsletter-tag-input" class="filter-input" type="search" aria-label="Filter archive by tag" placeholder="Filter by tag">
   </div>
-  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search all archived issues">
+  <input id="newsletter-search-input" class="search-input" type="search" aria-label="Search all archived issues" placeholder="Search all archived issues">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
 
 <section class="archive-preview">
-  <section class="home-carousel-section">
   <div class="home-carousel-section__header">
     <div>
-      <p class="section-kicker">All Issues</p>
-      <h2>Browse the full run</h2>
-    </div>
-    <div class="home-carousel-section__actions">
-      <div class="carousel-controls">
-        <button type="button" class="carousel-controls__button" data-carousel-prev="archive-issues" aria-label="Previous">
-          <span aria-hidden="true">&larr;</span>
-        </button>
-        <button type="button" class="carousel-controls__button" data-carousel-next="archive-issues" aria-label="Next">
-          <span aria-hidden="true">&rarr;</span>
-        </button>
-      </div>
+      <p class="section-kicker">Featured</p>
+      <h2>Editorially highlighted issues</h2>
+      <p class="home-carousel-section__lede">These same picks appear on the homepage and in the search index.</p>
     </div>
   </div>
-  <div class="home-carousel archive-list" data-carousel-track="archive-issues" id="newsletter-archive-list">
-    {% for issue in issues %}
-    <article class="archive-item carousel-card" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}" data-category="{{ issue.primary_category | escape }}" data-tags="{{ issue.tags | join: ',' | escape }}" data-reading-time="{{ issue.reading_time }}" data-title="{{ issue.title | escape }}">
+  <div class="archive-list archive-list--compact">
+    {% for issue in features.featured_issues limit: 3 %}
+    <article class="archive-item archive-item--featured">
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
       <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
       <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
-      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
       <div class="card-tags">
         {% for tag in issue.tags limit: 4 %}
@@ -388,7 +393,30 @@ permalink: /archive/
     </article>
     {% endfor %}
   </div>
-  </section>
+</section>
+
+<section class="archive-preview">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">All Issues</p>
+      <h2>Browse the full run</h2>
+    </div>
+  </div>
+  <div class="archive-list archive-grid" id="newsletter-archive-list">
+    {% for issue in issues %}
+    <article class="archive-item" data-date="{{ issue.issue_date }}" data-summary="{{ issue.summary | escape }}" data-category="{{ issue.primary_category | escape }}" data-tags="{{ issue.tags | join: ',' | escape }}" data-reading-time="{{ issue.reading_time }}" data-title="{{ issue.title | escape }}">
+      <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
+      <p>{{ issue.summary }}</p>
+      <div class="card-tags">
+        {% for tag in issue.tags limit: 4 %}
+        <span class="taxonomy-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 """
 
@@ -398,6 +426,7 @@ layout: default
 title: Search
 permalink: /search/
 ---
+{% assign features = site.data.site_features %}
 <section class="landing-hero">
   <p class="issue-kicker">Search</p>
   <h1>Search the newsletter archive.</h1>
@@ -407,6 +436,14 @@ permalink: /search/
 <section class="search-panel search-panel--page">
   <div class="card-kicker">Keyword Search</div>
   <h2>Find relevant issues quickly</h2>
+  <div class="quick-filter-group">
+    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-bar">
+      {% for tag in features.top_tags limit: 10 %}
+      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
   <div class="filter-controls">
     <select id="newsletter-sort-select" class="filter-select">
       <option value="relevance">Best match</option>
@@ -418,11 +455,32 @@ permalink: /search/
     <select id="newsletter-category-select" class="filter-select">
       <option value="">All categories</option>
     </select>
-    <input id="newsletter-tag-input" class="filter-input" type="search" placeholder="Filter by tag">
+    <input id="newsletter-tag-input" class="filter-input" type="search" aria-label="Filter search by tag" placeholder="Filter by tag">
   </div>
-  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Enter your search term...">
+  <input id="newsletter-search-input" class="search-input" type="search" aria-label="Enter your search term" placeholder="Enter your search term...">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
+</section>
+
+<section class="archive-preview">
+  <div class="home-carousel-section__header">
+    <div>
+      <p class="section-kicker">Featured</p>
+      <h2>Good places to begin</h2>
+      <p class="home-carousel-section__lede">If you are exploring for the first time, these curated issues are the quickest way in.</p>
+    </div>
+  </div>
+  <div class="archive-list archive-list--compact">
+    {% for issue in features.featured_issues limit: 3 %}
+    <article class="archive-item archive-item--featured">
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
+      <div class="search-section">{{ issue.primary_category }}</div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
+      <p>{{ issue.summary }}</p>
+    </article>
+    {% endfor %}
+  </div>
 </section>
 """
 
@@ -456,7 +514,7 @@ layout: default
 title: Sitemap
 permalink: /sitemap/
 ---
-{% assign issues = site.issues | sort: 'issue_date' | reverse %}
+{% assign features = site.data.site_features %}
 <section class="landing-hero">
   <p class="issue-kicker">Sitemap</p>
   <h1>Everything in one place.</h1>
@@ -466,31 +524,24 @@ permalink: /sitemap/
 <section class="archive-preview">
   <div class="card-kicker">Core Pages</div>
   <div class="archive-list">
+    {% for page in features.core_pages %}
     <article class="archive-item">
-      <h3><a href="{{ '/' | relative_url }}">Current Issue</a></h3>
-      <p>The homepage with discovery panels, featured issues, and archive search.</p>
+      <div class="search-section">{{ page.primary_category }}</div>
+      <h3><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h3>
+      <p>{{ page.summary }}</p>
     </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/archive/' | relative_url }}">Archive</a></h3>
-      <p>Browse all newsletter editions in date order.</p>
-    </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/search/' | relative_url }}">Search</a></h3>
-      <p>Run full-text keyword searches across the newsletter archive.</p>
-    </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></h3>
-      <p>Subscribe in any feed reader for new issues.</p>
-    </article>
+    {% endfor %}
   </div>
 </section>
 
 <section class="archive-preview">
-  <div class="card-kicker">Issues</div>
+  <div class="card-kicker">Featured Issues</div>
   <div class="archive-list">
-    {% for issue in issues %}
+    {% for issue in features.featured_issues %}
     <article class="archive-item">
-      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
     </article>
     {% endfor %}
@@ -777,6 +828,12 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 10px;
 }
+.hero-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
 .filter-controls {
   display: flex;
   flex-wrap: wrap;
@@ -798,6 +855,42 @@ a:hover { text-decoration: underline; }
 }
 .filter-input {
   flex: 1 1 220px;
+}
+.quick-filter-group {
+  margin-top: 16px;
+}
+.quick-filter-label {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+.quick-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.filter-chip span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.filter-chip:hover {
+  border-color: rgba(14, 165, 233, 0.36);
 }
 .home-carousel-section {
   margin: 1rem 0;
@@ -907,6 +1000,31 @@ a:hover { text-decoration: underline; }
   padding: 18px 18px 16px;
   box-shadow: 0 10px 22px var(--shadow);
   height: 100%;
+}
+.card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  color: var(--accent-2);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.result-badge--accent {
+  background: rgba(249, 115, 22, 0.12);
+  border-color: rgba(249, 115, 22, 0.26);
+  color: var(--accent);
 }
 .pin-card::before,
 .feature-card::before,
@@ -1069,12 +1187,30 @@ a:hover { text-decoration: underline; }
   gap: 12px;
   margin-top: 16px;
 }
+.archive-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.archive-list--compact {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 .archive-item,
 .search-result {
   padding: 18px;
   background: var(--panel-strong);
   border: 1px solid var(--line);
   border-radius: 18px;
+}
+.archive-item--featured {
+  position: relative;
+  overflow: hidden;
+}
+.archive-item--featured::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(14, 165, 233, 0.72));
 }
 .archive-item h3,
 .search-result h3 {
@@ -1111,6 +1247,13 @@ html[data-theme-mode="dark"] .search-input {
   margin-top: 10px;
   color: var(--muted);
   font-size: 0.95rem;
+}
+.search-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  color: var(--muted);
+  background: rgba(128, 128, 128, 0.04);
 }
 .search-result-snippet {
   margin-top: 8px;
@@ -1607,6 +1750,24 @@ SEARCH_JS = """(function () {
     window.history.replaceState({}, '', url.toString());
   }
 
+  function metaLine(item) {
+    if (item.kind === 'page') return 'Site page';
+    return `${item.published_label || item.display_date} · ${item.reading_time} min read`;
+  }
+
+  function badgeMarkup(item) {
+    const badges = [];
+    if (item.pinned) badges.push('<span class="result-badge">Pinned</span>');
+    if (item.featured) badges.push('<span class="result-badge result-badge--accent">Featured</span>');
+    return badges.length ? `<div class="card-badges">${badges.join('')}</div>` : '';
+  }
+
+  function chips(item) {
+    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
+    const category = item.primary_category ? `<span class="taxonomy-chip taxonomy-chip--category">${escapeHtml(item.primary_category)}</span>` : '';
+    return `<div class="card-tags">${category}${tags.map((tag) => `<span class="taxonomy-chip">${escapeHtml(tag)}</span>`).join('')}</div>`;
+  }
+
   function snippetFor(item, terms) {
     const haystack = item.search_text || '';
     const lower = haystack.toLowerCase();
@@ -1629,31 +1790,22 @@ SEARCH_JS = """(function () {
     return rendered;
   }
 
-  function metaLine(item) {
-    if (item.kind === 'page') {
-      return item.primary_category || 'Site';
-    }
-    return `${item.display_date} · ${item.display_time} · ${item.reading_time} min read`;
-  }
-
-  function chips(item) {
-    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 4) : [];
-    const category = item.primary_category ? `<span class="taxonomy-chip taxonomy-chip--category">${escapeHtml(item.primary_category)}</span>` : '';
-    return `<div class="card-tags">${category}${tags.map((tag) => `<span class="taxonomy-chip">${escapeHtml(tag)}</span>`).join('')}</div>`;
-  }
-
-  function renderResults(matches, query, terms) {
-    const hasFilters = query || (categorySelect && categorySelect.value) || (tagInput && tagInput.value.trim());
+  function renderResults(matches, hasFilters, terms) {
     if (!hasFilters) {
       results.innerHTML = '';
       status.textContent = `Search ${items.length} indexed pages and issues.`;
       return;
     }
     status.textContent = `${matches.length} result${matches.length === 1 ? '' : 's'}.`;
+    if (!matches.length) {
+      results.innerHTML = '<div class="search-empty">No matches yet. Try a broader keyword, a different tag, or clear one of the filters.</div>';
+      return;
+    }
     results.innerHTML = matches.slice(0, 50).map((item) => {
       const snippet = snippetFor(item, terms);
       return `
         <article class="search-result">
+          ${badgeMarkup(item)}
           <div class="search-section">${escapeHtml(item.primary_category || item.date)}</div>
           <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
           <p class="card-meta">${escapeHtml(metaLine(item))}</p>
@@ -1667,8 +1819,14 @@ SEARCH_JS = """(function () {
 
   function renderArchive(matches) {
     if (!archiveList) return;
-    archiveList.innerHTML = matches.filter((item) => item.kind === 'issue').map((item) => `
-      <article class="archive-item" data-date="${escapeHtml(item.date)}" data-category="${escapeHtml(item.primary_category || '')}" data-tags="${escapeHtml((item.tags || []).join(','))}" data-reading-time="${escapeHtml(item.reading_time)}" data-title="${escapeHtml(item.title)}">
+    const issueMatches = matches.filter((item) => item.kind === 'issue');
+    if (!issueMatches.length) {
+      archiveList.innerHTML = '<div class="search-empty">No issues match these filters yet.</div>';
+      return;
+    }
+    archiveList.innerHTML = issueMatches.map((item) => `
+      <article class="archive-item ${item.featured ? 'archive-item--featured' : ''}" data-date="${escapeHtml(item.date)}" data-category="${escapeHtml(item.primary_category || '')}" data-tags="${escapeHtml((item.tags || []).join(','))}" data-reading-time="${escapeHtml(item.reading_time)}" data-title="${escapeHtml(item.title)}">
+        ${badgeMarkup(item)}
         <div class="search-section">${escapeHtml(item.primary_category || 'Issue')}</div>
         <h3><a href="${baseUrl}${item.url}">${escapeHtml(item.title)}</a></h3>
         <p class="card-meta">${escapeHtml(metaLine(item))}</p>
@@ -1701,6 +1859,7 @@ SEARCH_JS = """(function () {
     const selectedCategory = categorySelect ? categorySelect.value.toLowerCase() : '';
     const tagTerm = tagInput ? tagInput.value.trim().toLowerCase() : '';
     const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
+    const hasFilters = Boolean(query || selectedCategory || tagTerm);
 
     const matches = pool.map((item) => {
       const title = (item.title || '').toLowerCase();
@@ -1720,9 +1879,9 @@ SEARCH_JS = """(function () {
         let matched = 0;
         for (const term of terms) {
           let termScore = 0;
-          if (title.includes(term)) termScore += 10;
+          if (title.includes(term)) termScore += 12;
           if (summary.includes(term)) termScore += 6;
-          if (tags.some((tag) => tag.includes(term))) termScore += 5;
+          if (tags.some((tag) => tag.includes(term))) termScore += 7;
           if (categories.some((category) => category.includes(term))) termScore += 4;
           if (text.includes(term)) termScore += 2;
           if (termScore > 0) matched += 1;
@@ -1734,16 +1893,19 @@ SEARCH_JS = """(function () {
         score = 1;
       }
 
+      if (item.featured) score += 4;
+      if (item.pinned) score += 2;
       return { ...item, score };
     }).filter(Boolean);
 
     const sorted = sortMatches(matches);
-    renderResults(sorted, query, terms);
+    renderResults(sorted, hasFilters, terms);
     renderArchive(sorted);
   }
 
   function populateControls() {
-    const categories = Array.from(new Set(items.flatMap((item) => item.categories || []))).sort();
+    const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
+    const categories = Array.from(new Set(pool.flatMap((item) => item.categories || []))).sort();
     if (categorySelect) {
       const selected = categorySelect.value;
       categorySelect.innerHTML = '<option value=\"\">All categories</option>' + categories.map((category) => `<option value=\"${escapeHtml(category)}\">${escapeHtml(category)}</option>`).join('');
@@ -1761,6 +1923,15 @@ SEARCH_JS = """(function () {
     filterItems();
   }
 
+  function applyShortcut(dataset) {
+    if (dataset.searchQuery) input.value = dataset.searchQuery;
+    if (dataset.searchTag && tagInput) tagInput.value = dataset.searchTag;
+    if (dataset.searchCategory && categorySelect) categorySelect.value = dataset.searchCategory;
+    if (dataset.searchSort && sortSelect) sortSelect.value = dataset.searchSort;
+    if (bootstrapped) writeParams();
+    filterItems();
+  }
+
   fetch(searchUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -1770,6 +1941,7 @@ SEARCH_JS = """(function () {
     })
     .catch(() => {
       status.textContent = 'Search index failed to load.';
+      if (archiveList) archiveList.innerHTML = '<div class="search-empty">Search index failed to load.</div>';
     });
 
   [input, categorySelect, sortSelect, tagInput].forEach((element) => {
@@ -1786,9 +1958,7 @@ SEARCH_JS = """(function () {
 
   function scrollCarousel(id, direction) {
     const track = document.querySelector(`[data-carousel-track="${id}"]`);
-    if (!track) {
-      return;
-    }
+    if (!track) return;
     const step = Math.max(track.clientWidth * 0.82, 280);
     track.scrollBy({ left: direction * step, behavior: 'smooth' });
   }
@@ -1796,14 +1966,11 @@ SEARCH_JS = """(function () {
   document.addEventListener('click', function (event) {
     const prev = event.target.closest('[data-carousel-prev]');
     const next = event.target.closest('[data-carousel-next]');
+    const shortcut = event.target.closest('[data-search-query], [data-search-tag], [data-search-category], [data-search-sort]');
 
-    if (prev) {
-      scrollCarousel(prev.getAttribute('data-carousel-prev'), -1);
-    }
-
-    if (next) {
-      scrollCarousel(next.getAttribute('data-carousel-next'), 1);
-    }
+    if (prev) scrollCarousel(prev.getAttribute('data-carousel-prev'), -1);
+    if (next) scrollCarousel(next.getAttribute('data-carousel-next'), 1);
+    if (shortcut) applyShortcut(shortcut.dataset);
   });
 })();"""
 
@@ -1848,6 +2015,34 @@ def slugify(value: str) -> str:
 
 def yaml_list(values: list[str]) -> str:
     return "[" + ", ".join(f'"{yaml_escape(value)}"' for value in values) + "]"
+
+
+def load_site_curations() -> dict[str, object]:
+    defaults: dict[str, object] = {
+        "featured_issue_dates": [],
+    }
+    if not CURATIONS_PATH.exists():
+        return defaults
+    payload = json.loads(CURATIONS_PATH.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        return defaults
+    return {
+        **defaults,
+        **payload,
+    }
+
+
+def build_filter_url(*, q: str = "", tag: str = "", category: str = "", sort: str = "") -> str:
+    params: list[str] = []
+    if q:
+        params.append(f"q={quote(q)}")
+    if tag:
+        params.append(f"tag={quote(tag)}")
+    if category:
+        params.append(f"category={quote(category)}")
+    if sort:
+        params.append(f"sort={quote(sort)}")
+    return "/search/" + (f"?{'&'.join(params)}" if params else "")
 
 
 def clean_summary(lines: list[str]) -> str:
@@ -1903,11 +2098,25 @@ def split_display_time(timestamp: dt.datetime) -> tuple[str, str]:
     )
 
 
+def issue_published_label(issue_date: dt.date, display_time: str) -> str:
+    return f"{issue_date.strftime('%b %d, %Y')} · {display_time}"
+
+
+def headings_from_markdown(markdown_text: str) -> list[str]:
+    return [match.group(1).strip() for match in re.finditer(r"^#{2,3}\s+(.+)$", markdown_text, flags=re.MULTILINE)]
+
+
+def build_search_text(markdown_text: str, headings: list[str], tags: list[str], categories: list[str]) -> str:
+    payload = " ".join([plain_text(markdown_text), *headings, *tags, *categories])
+    return re.sub(r"\s+", " ", payload).strip()
+
+
 def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, sender) -> dict[str, str]:
     lines = markdown_text.splitlines()
     summary = clean_summary(lines)
-    search_text = plain_text(markdown_text)
-    themes = detect_themes(search_text)
+    headings = headings_from_markdown(markdown_text)
+    plain = plain_text(markdown_text)
+    themes = detect_themes(plain)
     tags = [label for label, _, _ in themes[:6]]
     categories = []
     for _, category, _ in themes:
@@ -1917,9 +2126,12 @@ def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, 
             break
     if not categories:
         categories = ["Science & Technology"]
+    search_text = build_search_text(markdown_text, headings, tags, categories)
+    themes = detect_themes(search_text)
     title = issue_title_from_themes(themes, summary)
     published_at = dt.datetime.fromtimestamp(issue_path.stat().st_mtime)
-    display_date, display_time = split_display_time(published_at)
+    display_date = issue_date.strftime("%B %d, %Y")
+    display_time = published_at.strftime("%I:%M %p").lstrip("0")
     reading_time = estimate_reading_time(search_text)
     content_html = sender.blocks_to_html(sender.markdown_to_blocks(markdown_text))
     return {
@@ -1928,11 +2140,12 @@ def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, 
         "display_time": display_time,
         "issue_date": issue_date.isoformat(),
         "published_at": published_at.isoformat(timespec="minutes"),
-        "published_label": format_display_time(published_at),
+        "published_label": issue_published_label(issue_date, display_time),
         "reading_time": str(reading_time),
         "summary": summary,
         "content_html": content_html,
         "search_text": search_text,
+        "headings": headings,
         "url": f"/issues/{issue_date.isoformat()}/",
         "tags": tags,
         "categories": categories,
@@ -1978,94 +2191,227 @@ def copy_reference_images() -> None:
             shutil.copy2(source, destination)
 
 
-def build_search_index(entries: list[dict[str, str]]) -> str:
-    payload = [
+def build_site_pages() -> list[dict[str, object]]:
+    return [
         {
-            "date": entry["issue_date"],
-            "display_date": entry["display_date"],
-            "display_time": entry["display_time"],
-            "published_label": entry["published_label"],
-            "published_at": entry["published_at"],
-            "title": entry["title"],
-            "summary": entry["summary"],
-            "url": entry["url"],
-            "search_text": entry["search_text"],
-            "reading_time": int(entry["reading_time"]),
-            "tags": entry["tags"],
-            "categories": entry["categories"],
-            "primary_category": entry["primary_category"],
-            "kind": "issue",
-        }
-        for entry in sorted(entries, key=lambda item: item["issue_date"], reverse=True)
+            "id": "home",
+            "date": "site",
+            "display_date": "Homepage",
+            "display_time": "",
+            "published_label": "Site page",
+            "published_at": "",
+            "title": "Frontier Threads homepage",
+            "summary": "Current issue landing page with pinned items, featured issues, discovery panels, and top-level newsletter search.",
+            "url": "/",
+            "search_text": "homepage current issue pinned featured issues discovery rss newsletter search archive frontier threads",
+            "reading_time": 1,
+            "tags": ["homepage", "archive", "search"],
+            "categories": ["Site"],
+            "primary_category": "Site",
+            "kind": "page",
+            "pinned": False,
+            "featured": False,
+        },
+        {
+            "id": "archive",
+            "date": "site",
+            "display_date": "Archive",
+            "display_time": "",
+            "published_label": "Site page",
+            "published_at": "",
+            "title": "Frontier Threads archive",
+            "summary": "Full list of archived newsletter issues with browser-side search access.",
+            "url": "/archive/",
+            "search_text": "archive browse issues newsletter dates search frontier threads",
+            "reading_time": 1,
+            "tags": ["archive", "issues", "browse"],
+            "categories": ["Site"],
+            "primary_category": "Site",
+            "kind": "page",
+            "pinned": True,
+            "featured": False,
+        },
+        {
+            "id": "search",
+            "date": "site",
+            "display_date": "Search",
+            "display_time": "",
+            "published_label": "Site page",
+            "published_at": "",
+            "title": "Frontier Threads search",
+            "summary": "Dedicated full-text search page for the newsletter archive and site navigation.",
+            "url": "/search/",
+            "search_text": "search full text keyword archive newsletters site frontier threads",
+            "reading_time": 1,
+            "tags": ["search", "keyword", "archive"],
+            "categories": ["Site"],
+            "primary_category": "Site",
+            "kind": "page",
+            "pinned": True,
+            "featured": False,
+        },
+        {
+            "id": "feed",
+            "date": "site",
+            "display_date": "Feed",
+            "display_time": "",
+            "published_label": "Site page",
+            "published_at": "",
+            "title": "Frontier Threads RSS feed",
+            "summary": "Subscription feed for new Frontier Threads issues.",
+            "url": "/feed.xml",
+            "search_text": "rss feed subscribe frontier threads latest issues",
+            "reading_time": 1,
+            "tags": ["rss", "feed", "subscribe"],
+            "categories": ["Site"],
+            "primary_category": "Site",
+            "kind": "page",
+            "pinned": True,
+            "featured": False,
+        },
+        {
+            "id": "sitemap",
+            "date": "site",
+            "display_date": "Sitemap",
+            "display_time": "",
+            "published_label": "Site page",
+            "published_at": "",
+            "title": "Frontier Threads sitemap",
+            "summary": "Jump page for the homepage, archive, search, RSS feed, and every published issue.",
+            "url": "/sitemap/",
+            "search_text": "sitemap pages current issue archive search rss feed issues frontier threads",
+            "reading_time": 1,
+            "tags": ["sitemap", "navigation", "rss"],
+            "categories": ["Site"],
+            "primary_category": "Site",
+            "kind": "page",
+            "pinned": False,
+            "featured": False,
+        },
     ]
-    payload.extend(
-        [
+
+
+def build_site_features(entries: list[dict[str, str]], curations: dict[str, object]) -> dict[str, object]:
+    issue_entries = sorted(entries, key=lambda item: item["issue_date"], reverse=True)
+    latest_issue = issue_entries[0] if issue_entries else None
+    site_pages = build_site_pages()
+    page_lookup = {page["id"]: page for page in site_pages}
+
+    pinned: list[dict[str, object]] = []
+    if latest_issue:
+        pinned.append(
             {
-                "date": "site",
-                "display_date": "Homepage",
-                "title": "Frontier Threads homepage",
-                "summary": "Current issue landing page with pinned items, featured issues, discovery panels, and top-level newsletter search.",
-                "url": "/",
-                "search_text": "homepage current issue pinned featured issues discovery rss newsletter search archive frontier threads",
-                "display_time": "",
-                "published_label": "Site page",
-                "published_at": "",
-                "reading_time": 1,
-                "tags": ["homepage", "archive", "search"],
-                "categories": ["Site"],
-                "primary_category": "Site",
-                "kind": "page",
-            },
+                "title": latest_issue["title"],
+                "summary": latest_issue["summary"],
+                "url": latest_issue["url"],
+                "primary_category": "Current Issue",
+                "tags": latest_issue["tags"][:3],
+                "reading_time": int(latest_issue["reading_time"]),
+                "published_label": latest_issue["published_label"],
+                "display_date": latest_issue["display_date"],
+                "display_time": latest_issue["display_time"],
+                "kind": "issue",
+                "pinned": True,
+                "featured": True,
+            }
+        )
+    for page_id in ("archive", "search", "feed"):
+        page = page_lookup[page_id]
+        pinned.append({**page})
+
+    featured_dates = [str(value) for value in curations.get("featured_issue_dates", []) if str(value).strip()]
+    featured_lookup = {entry["issue_date"]: entry for entry in issue_entries}
+    featured_issues: list[dict[str, object]] = []
+    seen_dates: set[str] = set()
+    target_featured_count = 3
+    for issue_date in featured_dates:
+        entry = featured_lookup.get(issue_date)
+        if not entry or issue_date in seen_dates:
+            continue
+        featured_issues.append({**entry, "featured": True, "pinned": False})
+        seen_dates.add(issue_date)
+        if len(featured_issues) >= target_featured_count:
+            break
+    for entry in issue_entries:
+        if len(featured_issues) >= target_featured_count:
+            break
+        if entry["issue_date"] in seen_dates:
+            continue
+        featured_issues.append({**entry, "featured": False, "pinned": False})
+        seen_dates.add(entry["issue_date"])
+
+    tag_counts = Counter(tag for entry in issue_entries for tag in entry["tags"])
+    top_tags = [
+        {
+            "name": tag,
+            "count": count,
+            "url": build_filter_url(tag=tag, sort="relevance"),
+        }
+        for tag, count in tag_counts.most_common(12)
+    ]
+    category_counts = Counter(category for entry in issue_entries for category in entry["categories"])
+    top_categories = [
+        {
+            "name": category,
+            "count": count,
+            "url": build_filter_url(category=category, sort="newest"),
+        }
+        for category, count in category_counts.most_common(8)
+    ]
+
+    discovery_topics = [
+        {
+            "title": tag["name"],
+            "summary": f"{tag['count']} issue{'s' if tag['count'] != 1 else ''} indexed under this thread.",
+            "url": tag["url"],
+            "primary_category": "Topic",
+        }
+        for tag in top_tags[:4]
+    ]
+
+    return {
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
+        "issue_count": len(issue_entries),
+        "latest_issue": latest_issue,
+        "pinned": pinned,
+        "featured_issues": featured_issues,
+        "recent_issues": issue_entries[:8],
+        "top_tags": top_tags,
+        "top_categories": top_categories,
+        "discovery_topics": discovery_topics,
+        "core_pages": [page_lookup["home"], page_lookup["archive"], page_lookup["search"], page_lookup["feed"], page_lookup["sitemap"]],
+    }
+
+
+def build_search_index(entries: list[dict[str, str]], site_features: dict[str, object]) -> str:
+    featured_dates = {
+        item["issue_date"]
+        for item in site_features.get("featured_issues", [])
+        if isinstance(item, dict) and item.get("issue_date")
+    }
+    payload = []
+    for entry in sorted(entries, key=lambda item: item["issue_date"], reverse=True):
+        payload.append(
             {
-                "date": "site",
-                "display_date": "Archive",
-                "title": "Frontier Threads archive",
-                "summary": "Full list of archived newsletter issues with browser-side search access.",
-                "url": "/archive/",
-                "search_text": "archive browse issues newsletter dates search frontier threads",
-                "display_time": "",
-                "published_label": "Site page",
-                "published_at": "",
-                "reading_time": 1,
-                "tags": ["archive", "issues", "browse"],
-                "categories": ["Site"],
-                "primary_category": "Site",
-                "kind": "page",
-            },
-            {
-                "date": "site",
-                "display_date": "Search",
-                "title": "Frontier Threads search",
-                "summary": "Dedicated full-text search page for the newsletter archive and site navigation.",
-                "url": "/search/",
-                "search_text": "search full text keyword archive newsletters site frontier threads",
-                "display_time": "",
-                "published_label": "Site page",
-                "published_at": "",
-                "reading_time": 1,
-                "tags": ["search", "keyword", "archive"],
-                "categories": ["Site"],
-                "primary_category": "Site",
-                "kind": "page",
-            },
-            {
-                "date": "site",
-                "display_date": "Sitemap",
-                "title": "Frontier Threads sitemap",
-                "summary": "Jump page for the homepage, archive, search, RSS feed, and every published issue.",
-                "url": "/sitemap/",
-                "search_text": "sitemap pages current issue archive search rss feed issues frontier threads",
-                "display_time": "",
-                "published_label": "Site page",
-                "published_at": "",
-                "reading_time": 1,
-                "tags": ["sitemap", "navigation", "rss"],
-                "categories": ["Site"],
-                "primary_category": "Site",
-                "kind": "page",
-            },
-        ]
-    )
+                "date": entry["issue_date"],
+                "display_date": entry["display_date"],
+                "display_time": entry["display_time"],
+                "published_label": entry["published_label"],
+                "published_at": entry["published_at"],
+                "title": entry["title"],
+                "summary": entry["summary"],
+                "url": entry["url"],
+                "search_text": entry["search_text"],
+                "reading_time": int(entry["reading_time"]),
+                "tags": entry["tags"],
+                "categories": entry["categories"],
+                "primary_category": entry["primary_category"],
+                "kind": "issue",
+                "featured": entry["issue_date"] in featured_dates,
+                "pinned": False,
+            }
+        )
+    payload.extend(build_site_pages())
     return json.dumps(payload, indent=2)
 
 
@@ -2086,6 +2432,7 @@ def main() -> None:
         shutil.rmtree(SITE_DIR)
     SITE_DIR.mkdir(parents=True, exist_ok=True)
     copy_reference_images()
+    curations = load_site_curations()
 
     entries: list[dict[str, str]] = []
     for issue_path in sorted(ISSUES_DIR.glob("*-daily-newsletter.md")):
@@ -2095,7 +2442,10 @@ def main() -> None:
         entries.append(entry)
         write_text(SITE_DIR / "_issues" / f"{issue_date.isoformat()}.md", issue_document(entry))
 
+    site_features = build_site_features(entries, curations)
+
     write_text(SITE_DIR / "_config.yml", config_yml(baseurl=baseurl, site_url=site_url))
+    write_text(SITE_DIR / "_data" / "site_features.json", json.dumps(site_features, indent=2))
     write_text(SITE_DIR / "_layouts" / "default.html", DEFAULT_LAYOUT)
     write_text(SITE_DIR / "_layouts" / "issue.html", ISSUE_LAYOUT)
     write_text(SITE_DIR / "index.html", HOME_PAGE)
@@ -2105,7 +2455,7 @@ def main() -> None:
     write_text(SITE_DIR / "sitemap.html", SITEMAP_PAGE)
     write_text(SITE_DIR / "assets" / "site.css", SITE_CSS.strip() + "\n")
     write_text(SITE_DIR / "assets" / "search.js", SEARCH_JS.strip() + "\n")
-    write_text(SITE_DIR / "search.json", build_search_index(entries))
+    write_text(SITE_DIR / "search.json", build_search_index(entries, site_features))
 
     print(f"Built Jekyll archive source in {SITE_DIR}")
 

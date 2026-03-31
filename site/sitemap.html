@@ -3,7 +3,7 @@ layout: default
 title: Sitemap
 permalink: /sitemap/
 ---
-{% assign issues = site.issues | sort: 'issue_date' | reverse %}
+{% assign features = site.data.site_features %}
 <section class="landing-hero">
   <p class="issue-kicker">Sitemap</p>
   <h1>Everything in one place.</h1>
@@ -13,31 +13,24 @@ permalink: /sitemap/
 <section class="archive-preview">
   <div class="card-kicker">Core Pages</div>
   <div class="archive-list">
+    {% for page in features.core_pages %}
     <article class="archive-item">
-      <h3><a href="{{ '/' | relative_url }}">Current Issue</a></h3>
-      <p>The homepage with discovery panels, featured issues, and archive search.</p>
+      <div class="search-section">{{ page.primary_category }}</div>
+      <h3><a href="{{ page.url | relative_url }}">{{ page.title }}</a></h3>
+      <p>{{ page.summary }}</p>
     </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/archive/' | relative_url }}">Archive</a></h3>
-      <p>Browse all newsletter editions in date order.</p>
-    </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/search/' | relative_url }}">Search</a></h3>
-      <p>Run full-text keyword searches across the newsletter archive.</p>
-    </article>
-    <article class="archive-item">
-      <h3><a href="{{ '/feed.xml' | relative_url }}">RSS Feed</a></h3>
-      <p>Subscribe in any feed reader for new issues.</p>
-    </article>
+    {% endfor %}
   </div>
 </section>
 
 <section class="archive-preview">
-  <div class="card-kicker">Issues</div>
+  <div class="card-kicker">Featured Issues</div>
   <div class="archive-list">
-    {% for issue in issues %}
+    {% for issue in features.featured_issues %}
     <article class="archive-item">
-      <h3><a href="{{ issue.url | relative_url }}">{{ issue.display_date }}</a></h3>
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
+      <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
     </article>
     {% endfor %}

@@ -3,22 +3,36 @@ layout: default
 title: Current Issue
 permalink: /
 ---
-{% assign latest = site.issues | sort: 'issue_date' | reverse | first %}
-{% assign recent = site.issues | sort: 'issue_date' | reverse %}
+{% assign features = site.data.site_features %}
+{% assign latest = features.latest_issue %}
 <section class="hero-banner" style="background-image: url('{{ '/assets/images/newsletter-hero.jpg' | relative_url }}');">
   <div class="hero-banner__overlay"></div>
   <div class="hero-banner__content">
     <p class="issue-kicker">Frontier Threads</p>
     <h1>The day’s reading, with a long memory.</h1>
     <p class="landing-copy">Welcome to Frontier Threads: a daily briefing across science, technology, ideas, markets, and world events, built to be read in the moment and revisited later.</p>
+    <div class="hero-stat-row">
+      <span class="meta-pill">{{ features.issue_count }} issues indexed</span>
+      {% if latest %}
+      <span class="meta-pill">Latest: {{ latest.display_date }}</span>
+      {% endif %}
+    </div>
   </div>
 </section>
 
 <section class="search-panel search-panel--top">
-  <div class="card-kicker">🔎 Newsletter Search</div>
+  <div class="card-kicker">Search The Archive</div>
   <h2>Start anywhere in the archive</h2>
   <p>Look up topics, papers, researchers, companies, technologies, regions, and recurring themes across past editions.</p>
-  <input id="newsletter-search-input" class="search-input" type="search" placeholder="Search past newsletters by keyword">
+  <div class="quick-filter-group">
+    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-bar">
+      {% for tag in features.top_tags limit: 8 %}
+      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% endfor %}
+    </div>
+  </div>
+  <input id="newsletter-search-input" class="search-input" type="search" aria-label="Search past newsletters by keyword" placeholder="Search past newsletters by keyword">
   <div id="newsletter-search-status" class="search-status"></div>
   <div id="newsletter-search-results" class="search-results"></div>
 </section>
@@ -29,7 +43,7 @@ permalink: /
     <div>
       <p class="section-kicker">Pinned</p>
       <h2>Start with the essentials</h2>
-      <p class="home-carousel-section__lede">The fastest ways into the project: today’s issue, the full archive, and the live feed.</p>
+      <p class="home-carousel-section__lede">A consistent set of entry points: the newest issue, archive browsing, search, and the feed.</p>
     </div>
     <div class="home-carousel-section__actions">
       <div class="carousel-controls">
@@ -43,29 +57,29 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel" data-carousel-track="pinned-cards">
-    {% if latest %}
+    {% for item in features.pinned %}
     <article class="feature-card carousel-card">
-      <div class="search-section">{{ latest.primary_category | default: 'Current Issue' }}</div>
-      <h3><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h3>
-      <p class="card-meta">{{ latest.display_date }} · {{ latest.display_time }} · {{ latest.reading_time }} min read</p>
-      <p>{{ latest.summary }}</p>
+      <div class="card-badges">
+        <span class="result-badge">Pinned</span>
+        {% if item.featured %}<span class="result-badge result-badge--accent">Featured</span>{% endif %}
+      </div>
+      <div class="search-section">{{ item.primary_category | default: 'Pinned' }}</div>
+      <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+      <p class="card-meta">
+        {% if item.kind == 'issue' %}
+        {{ item.published_label }} · {{ item.reading_time }} min read
+        {% else %}
+        Site page
+        {% endif %}
+      </p>
+      <p>{{ item.summary }}</p>
       <div class="card-tags">
-        {% for tag in latest.tags limit: 3 %}
+        {% for tag in item.tags limit: 3 %}
         <span class="taxonomy-chip">{{ tag }}</span>
         {% endfor %}
       </div>
     </article>
-    {% endif %}
-    <article class="feature-card carousel-card">
-      <div class="search-section">Archive</div>
-      <h3><a href="{{ '/archive/' | relative_url }}">Browse all editions</a></h3>
-      <p>Scan recent and older issues in one place and jump into specific dates quickly.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">RSS Feed</div>
-      <h3><a href="{{ '/feed.xml' | relative_url }}">Subscribe by RSS</a></h3>
-      <p>Use your preferred reader to follow each new issue as it lands in the archive.</p>
-    </article>
+    {% endfor %}
   </div>
   </section>
 </section>
@@ -76,7 +90,7 @@ permalink: /
     <div>
       <p class="section-kicker">Featured Issues</p>
       <h2>Reopen the strongest recent editions</h2>
-      <p class="home-carousel-section__lede">A few recent editions worth reopening, especially if you want the broader pattern rather than just today’s snapshot.</p>
+      <p class="home-carousel-section__lede">Curated issue picks rather than a raw latest-first list, so discovery stays intentional.</p>
     </div>
     <div class="home-carousel-section__actions">
       <a class="home-carousel-section__see-all" href="{{ '/archive/' | relative_url }}">See all issues</a>
@@ -91,11 +105,12 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel archive-list" data-carousel-track="featured-issues">
-    {% for issue in recent limit: 6 %}
+    {% for issue in features.featured_issues %}
     <article class="archive-item carousel-card">
+      <div class="card-badges"><span class="result-badge result-badge--accent">Featured</span></div>
       <div class="search-section">{{ issue.primary_category | default: 'Issue' }}</div>
       <h3><a href="{{ issue.url | relative_url }}">{{ issue.title }}</a></h3>
-      <p class="card-meta">{{ issue.display_date }} · {{ issue.display_time }} · {{ issue.reading_time }} min read</p>
+      <p class="card-meta">{{ issue.published_label }} · {{ issue.reading_time }} min read</p>
       <p>{{ issue.summary }}</p>
       <div class="card-tags">
         {% for tag in issue.tags limit: 3 %}
@@ -113,8 +128,8 @@ permalink: /
   <div class="home-carousel-section__header">
     <div>
       <p class="section-kicker">Discovery</p>
-      <h2>Use the archive as a map of questions</h2>
-      <p class="home-carousel-section__lede">The archive is most useful when you treat it less like a stack of posts and more like a map of recurring questions.</p>
+      <h2>Browse by recurring themes</h2>
+      <p class="home-carousel-section__lede">Discovery now uses the same tag and category metadata that powers search, archive filters, and featured picks.</p>
     </div>
     <div class="home-carousel-section__actions">
       <div class="carousel-controls">
@@ -128,26 +143,13 @@ permalink: /
     </div>
   </div>
   <div class="home-carousel" data-carousel-track="discovery-cards">
+    {% for topic in features.discovery_topics %}
     <article class="feature-card carousel-card">
-      <div class="search-section">Research Watch</div>
-      <h3>Track papers and conceptual shifts over time</h3>
-      <p>Revisit quantum foundations, AI, mathematics, and scientific computing as continuing threads rather than isolated stories.</p>
+      <div class="search-section">{{ topic.primary_category }}</div>
+      <h3><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a></h3>
+      <p>{{ topic.summary }}</p>
     </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">Markets &amp; Economy</div>
-      <h3>Read market moves in a wider context</h3>
-      <p>Each issue pairs the market board with macro data and investment themes, so the archive becomes a running notebook on the technology cycle.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">World News</div>
-      <h3>Keep global events in the same frame as research</h3>
-      <p>Geopolitics, institutions, and science policy stay close to technical developments instead of being split into separate reading universes.</p>
-    </article>
-    <article class="feature-card carousel-card">
-      <div class="search-section">Tools</div>
-      <h3>Rediscover platforms, APIs, and workflows</h3>
-      <p>Search past editions to recover useful open-source projects, company offerings, data sources, and research infrastructure.</p>
-    </article>
+    {% endfor %}
   </div>
   </section>
 </section>
