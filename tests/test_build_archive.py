@@ -41,6 +41,7 @@ class BuildArchiveTests(unittest.TestCase):
 
         self.assertEqual(entry["display_date"], "March 16, 2026")
         self.assertEqual(entry["display_time"], "8:37 PM")
+        self.assertEqual(entry["published_label"], "Mar 16, 2026 · 8:37 PM")
 
     def test_build_site_features_respects_curated_featured_dates(self) -> None:
         entries = [
@@ -84,6 +85,10 @@ class BuildArchiveTests(unittest.TestCase):
         self.assertEqual(features["latest_issue"]["issue_date"], "2026-03-31")
         self.assertEqual(features["featured_issues"][0]["issue_date"], "2026-03-15")
         self.assertEqual(features["top_tags"][0]["name"], "AI Research")
+        self.assertEqual(features["archive_years"][0]["value"], "2026")
+        self.assertEqual(features["archive_months"][0]["value"], "2026-03")
+        self.assertEqual(features["min_issue_date"], "2026-03-15")
+        self.assertEqual(features["max_issue_date"], "2026-03-31")
 
 
 if __name__ == "__main__":

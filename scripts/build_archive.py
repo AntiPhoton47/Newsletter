@@ -352,6 +352,49 @@ permalink: /archive/
       {% endfor %}
     </div>
   </div>
+  <div class="archive-date-panel">
+    <div class="quick-filter-label">Browse by date</div>
+    <div class="date-filter-grid">
+      <label class="date-filter-field">
+        <span>Year</span>
+        <select id="newsletter-year-select" class="filter-select">
+          <option value="">All years</option>
+          {% for year in features.archive_years %}
+          <option value="{{ year.value }}">{{ year.label }} ({{ year.count }})</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="date-filter-field">
+        <span>Month</span>
+        <select id="newsletter-month-select" class="filter-select">
+          <option value="">All months</option>
+          {% for month in features.archive_months %}
+          <option value="{{ month.value }}">{{ month.label }} ({{ month.count }})</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="date-filter-field">
+        <span>From</span>
+        <input id="newsletter-date-from" class="filter-input" type="date" min="{{ features.min_issue_date }}" max="{{ features.max_issue_date }}">
+      </label>
+      <label class="date-filter-field">
+        <span>To</span>
+        <input id="newsletter-date-to" class="filter-input" type="date" min="{{ features.min_issue_date }}" max="{{ features.max_issue_date }}">
+      </label>
+    </div>
+    <div class="quick-filter-group quick-filter-group--tight">
+      <div class="quick-filter-label">Jump to common ranges</div>
+      <div class="quick-filter-bar">
+        {% for month in features.archive_months limit: 6 %}
+        <button type="button" class="filter-chip" data-search-month="{{ month.value }}">{{ month.label }} <span>{{ month.count }}</span></button>
+        {% endfor %}
+        {% for year in features.archive_years limit: 3 %}
+        <button type="button" class="filter-chip" data-search-year="{{ year.value }}">{{ year.label }} <span>{{ year.count }}</span></button>
+        {% endfor %}
+        <button type="button" class="filter-chip filter-chip--ghost" id="newsletter-clear-filters">Clear filters</button>
+      </div>
+    </div>
+  </div>
   <div class="filter-controls">
     <select id="newsletter-sort-select" class="filter-select">
       <option value="newest">Newest first</option>
@@ -859,10 +902,32 @@ a:hover { text-decoration: underline; }
 .quick-filter-group {
   margin-top: 16px;
 }
+.quick-filter-group--tight {
+  margin-top: 14px;
+}
 .quick-filter-label {
   margin-bottom: 8px;
   color: var(--muted);
   font-size: 0.92rem;
+  font-weight: 700;
+}
+.archive-date-panel {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.date-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.date-filter-field {
+  display: grid;
+  gap: 6px;
+}
+.date-filter-field span {
+  color: var(--muted);
+  font-size: 0.84rem;
   font-weight: 700;
 }
 .quick-filter-bar {
@@ -891,6 +956,9 @@ a:hover { text-decoration: underline; }
 }
 .filter-chip:hover {
   border-color: rgba(14, 165, 233, 0.36);
+}
+.filter-chip--ghost {
+  background: transparent;
 }
 .home-carousel-section {
   margin: 1rem 0;
@@ -1623,6 +1691,9 @@ blockquote {
   .filter-controls {
     flex-direction: column;
   }
+  .date-filter-grid {
+    grid-template-columns: 1fr;
+  }
   .filter-select,
   .filter-input {
     width: 100%;
@@ -1705,6 +1776,11 @@ SEARCH_JS = """(function () {
   const categorySelect = document.getElementById('newsletter-category-select');
   const sortSelect = document.getElementById('newsletter-sort-select');
   const tagInput = document.getElementById('newsletter-tag-input');
+  const yearSelect = document.getElementById('newsletter-year-select');
+  const monthSelect = document.getElementById('newsletter-month-select');
+  const dateFromInput = document.getElementById('newsletter-date-from');
+  const dateToInput = document.getElementById('newsletter-date-to');
+  const clearFiltersButton = document.getElementById('newsletter-clear-filters');
   const archiveList = document.getElementById('newsletter-archive-list');
   if (!input || !results || !status) return;
 
@@ -1728,6 +1804,10 @@ SEARCH_JS = """(function () {
       q: url.searchParams.get('q') || '',
       category: url.searchParams.get('category') || '',
       tag: url.searchParams.get('tag') || '',
+      year: url.searchParams.get('year') || '',
+      month: url.searchParams.get('month') || '',
+      from: url.searchParams.get('from') || '',
+      to: url.searchParams.get('to') || '',
       sort: url.searchParams.get('sort') || '',
     };
   }
@@ -1738,6 +1818,10 @@ SEARCH_JS = """(function () {
       q: input.value.trim(),
       category: categorySelect ? categorySelect.value : '',
       tag: tagInput ? tagInput.value.trim() : '',
+      year: yearSelect ? yearSelect.value : '',
+      month: monthSelect ? monthSelect.value : '',
+      from: dateFromInput ? dateFromInput.value : '',
+      to: dateToInput ? dateToInput.value : '',
       sort: sortSelect ? sortSelect.value : '',
     };
     Object.entries(params).forEach(([key, value]) => {
@@ -1753,6 +1837,13 @@ SEARCH_JS = """(function () {
   function metaLine(item) {
     if (item.kind === 'page') return 'Site page';
     return `${item.published_label || item.display_date} · ${item.reading_time} min read`;
+  }
+
+  function resetDateFilters() {
+    if (yearSelect) yearSelect.value = '';
+    if (monthSelect) monthSelect.value = '';
+    if (dateFromInput) dateFromInput.value = '';
+    if (dateToInput) dateToInput.value = '';
   }
 
   function badgeMarkup(item) {
@@ -1858,19 +1949,36 @@ SEARCH_JS = """(function () {
     const terms = query ? query.split(' ').filter(Boolean) : [];
     const selectedCategory = categorySelect ? categorySelect.value.toLowerCase() : '';
     const tagTerm = tagInput ? tagInput.value.trim().toLowerCase() : '';
+    const yearTerm = yearSelect ? yearSelect.value : '';
+    const monthTerm = monthSelect ? monthSelect.value : '';
+    const fromTerm = dateFromInput ? dateFromInput.value : '';
+    const toTerm = dateToInput ? dateToInput.value : '';
     const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
-    const hasFilters = Boolean(query || selectedCategory || tagTerm);
+    const hasFilters = Boolean(query || selectedCategory || tagTerm || yearTerm || monthTerm || fromTerm || toTerm);
 
     const matches = pool.map((item) => {
       const title = (item.title || '').toLowerCase();
       const summary = (item.summary || '').toLowerCase();
       const text = (item.search_text || '').toLowerCase();
+      const itemDate = item.date || '';
       const categories = (item.categories || []).map((value) => value.toLowerCase());
       const tags = (item.tags || []).map((value) => value.toLowerCase());
       if (selectedCategory && !categories.includes(selectedCategory) && (item.primary_category || '').toLowerCase() !== selectedCategory) {
         return null;
       }
       if (tagTerm && !tags.some((tag) => tag.includes(tagTerm))) {
+        return null;
+      }
+      if (yearTerm && !itemDate.startsWith(yearTerm)) {
+        return null;
+      }
+      if (monthTerm && !itemDate.startsWith(monthTerm)) {
+        return null;
+      }
+      if (fromTerm && itemDate && itemDate < fromTerm) {
+        return null;
+      }
+      if (toTerm && itemDate && itemDate > toTerm) {
         return null;
       }
 
@@ -1917,6 +2025,10 @@ SEARCH_JS = """(function () {
     const params = readParams();
     if (params.q) input.value = params.q;
     if (tagInput && params.tag) tagInput.value = params.tag;
+    if (yearSelect && params.year) yearSelect.value = params.year;
+    if (monthSelect && params.month) monthSelect.value = params.month;
+    if (dateFromInput && params.from) dateFromInput.value = params.from;
+    if (dateToInput && params.to) dateToInput.value = params.to;
     if (sortSelect && params.sort) sortSelect.value = params.sort;
     if (categorySelect && params.category) categorySelect.value = params.category;
     bootstrapped = true;
@@ -1927,6 +2039,15 @@ SEARCH_JS = """(function () {
     if (dataset.searchQuery) input.value = dataset.searchQuery;
     if (dataset.searchTag && tagInput) tagInput.value = dataset.searchTag;
     if (dataset.searchCategory && categorySelect) categorySelect.value = dataset.searchCategory;
+    if (dataset.searchYear && yearSelect) {
+      resetDateFilters();
+      yearSelect.value = dataset.searchYear;
+    }
+    if (dataset.searchMonth && monthSelect) {
+      resetDateFilters();
+      monthSelect.value = dataset.searchMonth;
+      if (yearSelect) yearSelect.value = dataset.searchMonth.slice(0, 4);
+    }
     if (dataset.searchSort && sortSelect) sortSelect.value = dataset.searchSort;
     if (bootstrapped) writeParams();
     filterItems();
@@ -1944,7 +2065,7 @@ SEARCH_JS = """(function () {
       if (archiveList) archiveList.innerHTML = '<div class="search-empty">Search index failed to load.</div>';
     });
 
-  [input, categorySelect, sortSelect, tagInput].forEach((element) => {
+  [input, categorySelect, sortSelect, tagInput, yearSelect, monthSelect, dateFromInput, dateToInput].forEach((element) => {
     if (!element) return;
     element.addEventListener('input', function () {
       if (bootstrapped) writeParams();
@@ -1955,6 +2076,18 @@ SEARCH_JS = """(function () {
       filterItems();
     });
   });
+
+  if (clearFiltersButton) {
+    clearFiltersButton.addEventListener('click', function () {
+      input.value = '';
+      if (categorySelect) categorySelect.value = '';
+      if (tagInput) tagInput.value = '';
+      resetDateFilters();
+      if (sortSelect) sortSelect.value = archiveList ? 'newest' : 'relevance';
+      if (bootstrapped) writeParams();
+      filterItems();
+    });
+  }
 
   function scrollCarousel(id, direction) {
     const track = document.querySelector(`[data-carousel-track="${id}"]`);
@@ -2369,6 +2502,29 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
         for tag in top_tags[:4]
     ]
 
+    year_counts = Counter(entry["issue_date"][:4] for entry in issue_entries)
+    month_counts = Counter(entry["issue_date"][:7] for entry in issue_entries)
+    archive_years = [
+        {
+            "value": year,
+            "label": year,
+            "count": year_counts[year],
+            "url": build_filter_url(sort="newest") + f"{'&' if '?' in build_filter_url(sort='newest') else '?'}year={quote(year)}",
+        }
+        for year in sorted(year_counts.keys(), reverse=True)
+    ]
+    archive_months = [
+        {
+            "value": month,
+            "label": dt.date.fromisoformat(f"{month}-01").strftime("%B %Y"),
+            "count": month_counts[month],
+            "url": build_filter_url(sort="newest") + f"{'&' if '?' in build_filter_url(sort='newest') else '?'}month={quote(month)}",
+        }
+        for month in sorted(month_counts.keys(), reverse=True)
+    ]
+    min_issue_date = issue_entries[-1]["issue_date"] if issue_entries else ""
+    max_issue_date = issue_entries[0]["issue_date"] if issue_entries else ""
+
     return {
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
         "issue_count": len(issue_entries),
@@ -2379,6 +2535,10 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
         "top_tags": top_tags,
         "top_categories": top_categories,
         "discovery_topics": discovery_topics,
+        "archive_years": archive_years,
+        "archive_months": archive_months,
+        "min_issue_date": min_issue_date,
+        "max_issue_date": max_issue_date,
         "core_pages": [page_lookup["home"], page_lookup["archive"], page_lookup["search"], page_lookup["feed"], page_lookup["sitemap"]],
     }
 

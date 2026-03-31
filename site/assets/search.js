@@ -5,6 +5,11 @@
   const categorySelect = document.getElementById('newsletter-category-select');
   const sortSelect = document.getElementById('newsletter-sort-select');
   const tagInput = document.getElementById('newsletter-tag-input');
+  const yearSelect = document.getElementById('newsletter-year-select');
+  const monthSelect = document.getElementById('newsletter-month-select');
+  const dateFromInput = document.getElementById('newsletter-date-from');
+  const dateToInput = document.getElementById('newsletter-date-to');
+  const clearFiltersButton = document.getElementById('newsletter-clear-filters');
   const archiveList = document.getElementById('newsletter-archive-list');
   if (!input || !results || !status) return;
 
@@ -28,6 +33,10 @@
       q: url.searchParams.get('q') || '',
       category: url.searchParams.get('category') || '',
       tag: url.searchParams.get('tag') || '',
+      year: url.searchParams.get('year') || '',
+      month: url.searchParams.get('month') || '',
+      from: url.searchParams.get('from') || '',
+      to: url.searchParams.get('to') || '',
       sort: url.searchParams.get('sort') || '',
     };
   }
@@ -38,6 +47,10 @@
       q: input.value.trim(),
       category: categorySelect ? categorySelect.value : '',
       tag: tagInput ? tagInput.value.trim() : '',
+      year: yearSelect ? yearSelect.value : '',
+      month: monthSelect ? monthSelect.value : '',
+      from: dateFromInput ? dateFromInput.value : '',
+      to: dateToInput ? dateToInput.value : '',
       sort: sortSelect ? sortSelect.value : '',
     };
     Object.entries(params).forEach(([key, value]) => {
@@ -53,6 +66,13 @@
   function metaLine(item) {
     if (item.kind === 'page') return 'Site page';
     return `${item.published_label || item.display_date} · ${item.reading_time} min read`;
+  }
+
+  function resetDateFilters() {
+    if (yearSelect) yearSelect.value = '';
+    if (monthSelect) monthSelect.value = '';
+    if (dateFromInput) dateFromInput.value = '';
+    if (dateToInput) dateToInput.value = '';
   }
 
   function badgeMarkup(item) {
@@ -158,19 +178,36 @@
     const terms = query ? query.split(' ').filter(Boolean) : [];
     const selectedCategory = categorySelect ? categorySelect.value.toLowerCase() : '';
     const tagTerm = tagInput ? tagInput.value.trim().toLowerCase() : '';
+    const yearTerm = yearSelect ? yearSelect.value : '';
+    const monthTerm = monthSelect ? monthSelect.value : '';
+    const fromTerm = dateFromInput ? dateFromInput.value : '';
+    const toTerm = dateToInput ? dateToInput.value : '';
     const pool = archiveList ? items.filter((item) => item.kind === 'issue') : items;
-    const hasFilters = Boolean(query || selectedCategory || tagTerm);
+    const hasFilters = Boolean(query || selectedCategory || tagTerm || yearTerm || monthTerm || fromTerm || toTerm);
 
     const matches = pool.map((item) => {
       const title = (item.title || '').toLowerCase();
       const summary = (item.summary || '').toLowerCase();
       const text = (item.search_text || '').toLowerCase();
+      const itemDate = item.date || '';
       const categories = (item.categories || []).map((value) => value.toLowerCase());
       const tags = (item.tags || []).map((value) => value.toLowerCase());
       if (selectedCategory && !categories.includes(selectedCategory) && (item.primary_category || '').toLowerCase() !== selectedCategory) {
         return null;
       }
       if (tagTerm && !tags.some((tag) => tag.includes(tagTerm))) {
+        return null;
+      }
+      if (yearTerm && !itemDate.startsWith(yearTerm)) {
+        return null;
+      }
+      if (monthTerm && !itemDate.startsWith(monthTerm)) {
+        return null;
+      }
+      if (fromTerm && itemDate && itemDate < fromTerm) {
+        return null;
+      }
+      if (toTerm && itemDate && itemDate > toTerm) {
         return null;
       }
 
@@ -217,6 +254,10 @@
     const params = readParams();
     if (params.q) input.value = params.q;
     if (tagInput && params.tag) tagInput.value = params.tag;
+    if (yearSelect && params.year) yearSelect.value = params.year;
+    if (monthSelect && params.month) monthSelect.value = params.month;
+    if (dateFromInput && params.from) dateFromInput.value = params.from;
+    if (dateToInput && params.to) dateToInput.value = params.to;
     if (sortSelect && params.sort) sortSelect.value = params.sort;
     if (categorySelect && params.category) categorySelect.value = params.category;
     bootstrapped = true;
@@ -227,6 +268,15 @@
     if (dataset.searchQuery) input.value = dataset.searchQuery;
     if (dataset.searchTag && tagInput) tagInput.value = dataset.searchTag;
     if (dataset.searchCategory && categorySelect) categorySelect.value = dataset.searchCategory;
+    if (dataset.searchYear && yearSelect) {
+      resetDateFilters();
+      yearSelect.value = dataset.searchYear;
+    }
+    if (dataset.searchMonth && monthSelect) {
+      resetDateFilters();
+      monthSelect.value = dataset.searchMonth;
+      if (yearSelect) yearSelect.value = dataset.searchMonth.slice(0, 4);
+    }
     if (dataset.searchSort && sortSelect) sortSelect.value = dataset.searchSort;
     if (bootstrapped) writeParams();
     filterItems();
@@ -244,7 +294,7 @@
       if (archiveList) archiveList.innerHTML = '<div class="search-empty">Search index failed to load.</div>';
     });
 
-  [input, categorySelect, sortSelect, tagInput].forEach((element) => {
+  [input, categorySelect, sortSelect, tagInput, yearSelect, monthSelect, dateFromInput, dateToInput].forEach((element) => {
     if (!element) return;
     element.addEventListener('input', function () {
       if (bootstrapped) writeParams();
@@ -255,6 +305,18 @@
       filterItems();
     });
   });
+
+  if (clearFiltersButton) {
+    clearFiltersButton.addEventListener('click', function () {
+      input.value = '';
+      if (categorySelect) categorySelect.value = '';
+      if (tagInput) tagInput.value = '';
+      resetDateFilters();
+      if (sortSelect) sortSelect.value = archiveList ? 'newest' : 'relevance';
+      if (bootstrapped) writeParams();
+      filterItems();
+    });
+  }
 
   function scrollCarousel(id, direction) {
     const track = document.querySelector(`[data-carousel-track="${id}"]`);

@@ -21,6 +21,49 @@ permalink: /archive/
       {% endfor %}
     </div>
   </div>
+  <div class="archive-date-panel">
+    <div class="quick-filter-label">Browse by date</div>
+    <div class="date-filter-grid">
+      <label class="date-filter-field">
+        <span>Year</span>
+        <select id="newsletter-year-select" class="filter-select">
+          <option value="">All years</option>
+          {% for year in features.archive_years %}
+          <option value="{{ year.value }}">{{ year.label }} ({{ year.count }})</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="date-filter-field">
+        <span>Month</span>
+        <select id="newsletter-month-select" class="filter-select">
+          <option value="">All months</option>
+          {% for month in features.archive_months %}
+          <option value="{{ month.value }}">{{ month.label }} ({{ month.count }})</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="date-filter-field">
+        <span>From</span>
+        <input id="newsletter-date-from" class="filter-input" type="date" min="{{ features.min_issue_date }}" max="{{ features.max_issue_date }}">
+      </label>
+      <label class="date-filter-field">
+        <span>To</span>
+        <input id="newsletter-date-to" class="filter-input" type="date" min="{{ features.min_issue_date }}" max="{{ features.max_issue_date }}">
+      </label>
+    </div>
+    <div class="quick-filter-group quick-filter-group--tight">
+      <div class="quick-filter-label">Jump to common ranges</div>
+      <div class="quick-filter-bar">
+        {% for month in features.archive_months limit: 6 %}
+        <button type="button" class="filter-chip" data-search-month="{{ month.value }}">{{ month.label }} <span>{{ month.count }}</span></button>
+        {% endfor %}
+        {% for year in features.archive_years limit: 3 %}
+        <button type="button" class="filter-chip" data-search-year="{{ year.value }}">{{ year.label }} <span>{{ year.count }}</span></button>
+        {% endfor %}
+        <button type="button" class="filter-chip filter-chip--ghost" id="newsletter-clear-filters">Clear filters</button>
+      </div>
+    </div>
+  </div>
   <div class="filter-controls">
     <select id="newsletter-sort-select" class="filter-select">
       <option value="newest">Newest first</option>

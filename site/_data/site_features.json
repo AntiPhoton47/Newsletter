@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T21:28+00:00",
+  "generated_at": "2026-03-31T21:42+00:00",
   "issue_count": 4,
   "latest_issue": {
     "title": "AI Research, Research Tools, and Biomedicine",
@@ -1038,6 +1038,24 @@
       "primary_category": "Topic"
     }
   ],
+  "archive_years": [
+    {
+      "value": "2026",
+      "label": "2026",
+      "count": 4,
+      "url": "/search/?sort=newest&year=2026"
+    }
+  ],
+  "archive_months": [
+    {
+      "value": "2026-03",
+      "label": "March 2026",
+      "count": 4,
+      "url": "/search/?sort=newest&month=2026-03"
+    }
+  ],
+  "min_issue_date": "2026-03-15",
+  "max_issue_date": "2026-03-31",
   "core_pages": [
     {
       "id": "home",

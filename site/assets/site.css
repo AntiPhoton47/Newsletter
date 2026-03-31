@@ -306,10 +306,32 @@ a:hover { text-decoration: underline; }
 .quick-filter-group {
   margin-top: 16px;
 }
+.quick-filter-group--tight {
+  margin-top: 14px;
+}
 .quick-filter-label {
   margin-bottom: 8px;
   color: var(--muted);
   font-size: 0.92rem;
+  font-weight: 700;
+}
+.archive-date-panel {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.date-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.date-filter-field {
+  display: grid;
+  gap: 6px;
+}
+.date-filter-field span {
+  color: var(--muted);
+  font-size: 0.84rem;
   font-weight: 700;
 }
 .quick-filter-bar {
@@ -338,6 +360,9 @@ a:hover { text-decoration: underline; }
 }
 .filter-chip:hover {
   border-color: rgba(14, 165, 233, 0.36);
+}
+.filter-chip--ghost {
+  background: transparent;
 }
 .home-carousel-section {
   margin: 1rem 0;
@@ -1069,6 +1094,9 @@ blockquote {
   .site-shell { padding-inline: 10px; }
   .filter-controls {
     flex-direction: column;
+  }
+  .date-filter-grid {
+    grid-template-columns: 1fr;
   }
   .filter-select,
   .filter-input {
