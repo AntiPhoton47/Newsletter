@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
-import datetime as dt
 import subprocess
 from pathlib import Path
 
-from openai_pipeline import ai_enabled, load_env_file, require_ai
+from issue_clock import resolve_issue_date
+from openai_pipeline import ai_enabled, load_env_file
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,14 +24,13 @@ def main() -> None:
     parser.add_argument("--send", action="store_true", help="Send the generated issue after building archive.")
     args = parser.parse_args()
 
-    issue_date = dt.date.today().isoformat()
-    if args.date:
-        issue_date = args.date
+    issue_date = resolve_issue_date(args.date).isoformat()
 
     load_env_file()
     use_ai = ai_enabled()
 
     fetch_cmd = ["python3", "scripts/fetch_candidates.py", "--date", issue_date]
+    preflight_cmd = ["python3", "scripts/check_pipeline_inputs.py", "--date", issue_date]
     generate_cmd = ["python3", "scripts/generate_issue.py", "--date", issue_date]
     if args.overwrite:
         generate_cmd.append("--overwrite")
@@ -42,16 +41,12 @@ def main() -> None:
     ai_review_cmd = ["python3", "scripts/ai_review_issue.py", "--date", issue_date]
 
     run(fetch_cmd)
+    run(preflight_cmd)
     run(generate_cmd)
     if use_ai:
         run(ai_generate_cmd)
-    elif require_ai():
-        raise SystemExit("AI generation is required but OPENAI_API_KEY or NEWSLETTER_USE_AI is not configured.")
     run(review_cmd)
-    if use_ai:
-        run(ai_review_cmd)
-    elif require_ai():
-        raise SystemExit("AI review is required but OPENAI_API_KEY or NEWSLETTER_USE_AI is not configured.")
+    run(ai_review_cmd)
     run(preview_cmd)
     run(archive_cmd)
     if args.send:

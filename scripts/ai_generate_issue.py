@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import argparse
-import datetime as dt
 import json
 import os
 import re
 from pathlib import Path
 
+from issue_clock import resolve_issue_date
 from openai_pipeline import ai_enabled, call_openai_text, draft_model
 
 
@@ -167,9 +167,7 @@ def main() -> None:
         print("AI drafting skipped: OPENAI_API_KEY or NEWSLETTER_USE_AI not set.")
         return
 
-    issue_date = dt.date.today()
-    if args.date:
-        issue_date = dt.date.fromisoformat(args.date)
+    issue_date = resolve_issue_date(args.date)
 
     issue_path = issue_path_for(issue_date)
     if not issue_path.exists():

@@ -20,6 +20,7 @@
     "Keep links labeled and avoid raw URLs in prose.",
     "Target at least the explanatory depth and editorial polish of the March 15, 2026 benchmark issue."
   ],
+  "timezone": "Europe/Oslo",
   "automation_defaults": {
     "overwrite": true,
     "send_email": false,

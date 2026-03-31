@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import os
 import subprocess
 from pathlib import Path
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +26,15 @@ def run(cmd: list[str], env: dict[str, str] | None = None) -> None:
     if env:
         merged_env.update(env)
     subprocess.run(cmd, cwd=ROOT, check=True, env=merged_env)
+
+
+def default_issue_date(profile: dict) -> str:
+    timezone_name = str(profile.get("timezone") or os.environ.get("NEWSLETTER_TIMEZONE") or os.environ.get("TZ") or "UTC")
+    try:
+        tzinfo = ZoneInfo(timezone_name)
+    except ZoneInfoNotFoundError:
+        tzinfo = dt.timezone.utc
+    return dt.datetime.now(dt.timezone.utc).astimezone(tzinfo).date().isoformat()
 
 
 def maybe_commit(issue_date: str, push: bool) -> None:
@@ -44,11 +55,42 @@ def maybe_commit(issue_date: str, push: bool) -> None:
         run(["git", "push"])
 
 
+def build_env(profile_path: Path, profile: dict) -> dict[str, str]:
+    quality_policy = profile.get("quality_policy", {})
+    env = {
+        "NEWSLETTER_EDITORIAL_PROFILE_PATH": str(profile_path),
+    }
+    if profile.get("timezone"):
+        env["NEWSLETTER_TIMEZONE"] = str(profile["timezone"])
+        env["TZ"] = str(profile["timezone"])
+    if "require_ai" in quality_policy:
+        env["NEWSLETTER_REQUIRE_AI"] = "true" if quality_policy.get("require_ai") else "false"
+    if "minimum_review_score" in quality_policy:
+        env["NEWSLETTER_AI_REVIEW_MIN_SCORE"] = str(quality_policy.get("minimum_review_score"))
+    return env
+
+
+def run_prepare(issue_date: str, overwrite: bool, env: dict[str, str]) -> None:
+    cmd = ["python3", "scripts/prepare_editorial_packet.py", "--date", issue_date]
+    if overwrite:
+        cmd.append("--overwrite")
+    run(cmd, env=env)
+
+
+def run_publish(issue_date: str, send_email: bool, env: dict[str, str]) -> None:
+    run(["python3", "scripts/review_issue.py", "--date", issue_date], env=env)
+    run(["python3", "scripts/ai_review_issue.py", "--date", issue_date], env=env)
+    run(["python3", "scripts/send_daily_newsletter.py", "--date", issue_date, "--preview-html"], env=env)
+    run(["python3", "scripts/build_archive.py"], env=env)
+    if send_email:
+        run(["python3", "scripts/send_daily_newsletter.py", "--date", issue_date], env=env)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Single-command entrypoint for generating, rendering, archiving, and optionally publishing the newsletter."
     )
-    parser.add_argument("command", nargs="?", default="run", choices=["run"], help="Command to execute.")
+    parser.add_argument("command", nargs="?", default="run", choices=["run", "prepare", "publish"], help="Command to execute.")
     parser.add_argument("--date", help="Issue date in YYYY-MM-DD format. Defaults to today in the pipeline.")
     parser.add_argument("--profile", default=str(DEFAULT_PROFILE), help="Path to the newsletter profile JSON.")
     parser.add_argument("--send", action="store_true", help="Send the generated issue by email.")
@@ -68,22 +110,23 @@ def main() -> None:
     if git_push:
         git_commit = True
 
-    env = {
-        "NEWSLETTER_EDITORIAL_PROFILE_PATH": str(profile_path),
-    }
-
-    cmd = ["python3", "scripts/run_daily_pipeline.py"]
     if args.date:
-        cmd.extend(["--date", args.date])
         issue_date = args.date
     else:
-        issue_date = "today"
-    if overwrite:
-        cmd.append("--overwrite")
-    if send_email:
-        cmd.append("--send")
+        issue_date = default_issue_date(profile)
+    env = build_env(profile_path, profile)
 
-    run(cmd, env=env)
+    if args.command == "prepare":
+        run_prepare(issue_date, overwrite=overwrite, env=env)
+    elif args.command == "publish":
+        run_publish(issue_date, send_email=send_email, env=env)
+    else:
+        cmd = ["python3", "scripts/run_daily_pipeline.py", "--date", issue_date]
+        if overwrite:
+            cmd.append("--overwrite")
+        if send_email:
+            cmd.append("--send")
+        run(cmd, env=env)
 
     if git_commit:
         maybe_commit(issue_date, push=git_push)

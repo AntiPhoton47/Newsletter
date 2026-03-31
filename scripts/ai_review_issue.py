@@ -7,7 +7,9 @@ import datetime as dt
 import json
 from pathlib import Path
 
+from issue_clock import resolve_issue_date
 from openai_pipeline import ai_enabled, call_openai_json, review_min_score, review_model
+from review_issue import review_text
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,31 +94,105 @@ def validate_report(report: dict) -> dict:
     return normalized
 
 
+def build_local_fallback_report(issue_date: dt.date, issue_text: str, benchmark_issue: str) -> dict:
+    rule_report = review_text(issue_text)
+    issue_word_count = len(issue_text.split())
+    benchmark_word_count = len(benchmark_issue.split()) if benchmark_issue.strip() else 0
+    source_count = issue_text.count("**Source:**")
+    benchmark_source_count = benchmark_issue.count("**Source:**") if benchmark_issue else 0
+
+    findings: list[dict[str, str]] = []
+    for finding in rule_report["findings"]:
+        severity = "high"
+        if "Quick Hits count out of range" in finding or "Issue has too few sections" in finding:
+            severity = "medium"
+        findings.append(
+            {
+                "severity": severity,
+                "section": "Rule-based review",
+                "issue": finding,
+                "recommendation": "Tighten the draft or enrich candidate summaries before publication.",
+            }
+        )
+
+    word_ratio = issue_word_count / benchmark_word_count if benchmark_word_count else 0.0
+    source_ratio = source_count / benchmark_source_count if benchmark_source_count else 0.0
+
+    if word_ratio < 0.65:
+        findings.append(
+            {
+                "severity": "high",
+                "section": "Editorial depth",
+                "issue": f"Draft length is well below benchmark depth ({issue_word_count} words vs {benchmark_word_count}).",
+                "recommendation": "Add explanatory detail and stronger section development before publishing.",
+            }
+        )
+    if source_ratio < 0.65:
+        findings.append(
+            {
+                "severity": "medium",
+                "section": "Source density",
+                "issue": f"Draft cites materially fewer main sources than the benchmark ({source_count} vs {benchmark_source_count}).",
+                "recommendation": "Promote or add more fully sourced entries in the strongest sections.",
+            }
+        )
+
+    score = 72
+    score += min(10, max(0, int((word_ratio - 0.65) * 40)))
+    score += min(8, max(0, int((source_ratio - 0.65) * 24)))
+    score += 5 if rule_report["passed"] else 0
+    score -= min(25, len(findings) * 4)
+    score = max(0, min(100, score))
+
+    high_findings = [finding for finding in findings if finding["severity"] == "high"]
+    passed = score >= review_min_score() and not high_findings
+
+    strengths: list[str] = []
+    if rule_report["passed"]:
+        strengths.append("Rule-based review passed without placeholder or feed-wrapper failures.")
+    if word_ratio >= 0.8:
+        strengths.append("Draft reaches most of the benchmark's explanatory length.")
+    if source_ratio >= 0.8:
+        strengths.append("Source density is close to the benchmark issue.")
+
+    return {
+        "passed": passed,
+        "ready_to_send": passed,
+        "overall_score": score,
+        "summary": "Local fallback review used because OPENAI_API_KEY is not configured.",
+        "strengths": strengths,
+        "findings": findings,
+        "bias_assessment": "Local heuristic review checks structure and benchmark depth, but does not replace full model-based editorial judgment.",
+        "recommended_action": "Publish only if the fallback report clears the benchmark-based thresholds; otherwise revise the draft.",
+        "date": issue_date.isoformat(),
+        "model": "local-heuristic",
+        "minimum_score": review_min_score(),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run an AI editorial review on a generated issue.")
     parser.add_argument("--date", help="Issue date in YYYY-MM-DD format. Defaults to today.")
     args = parser.parse_args()
 
-    if not ai_enabled():
-        print("AI review skipped: OPENAI_API_KEY or NEWSLETTER_USE_AI not set.")
-        return
-
-    issue_date = dt.date.today()
-    if args.date:
-        issue_date = dt.date.fromisoformat(args.date)
+    issue_date = resolve_issue_date(args.date)
 
     issue_path = issue_path_for(issue_date)
     issue_text = issue_path.read_text(encoding="utf-8")
     selection_criteria = SELECTION_CRITERIA_PATH.read_text(encoding="utf-8")
     sources_text = SOURCES_PATH.read_text(encoding="utf-8")
     benchmark_issue = BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8") if BENCHMARK_ISSUE_PATH.exists() else ""
-    prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text, benchmark_issue)
-    raw_report = call_openai_json(prompt, review_model())
-    report = validate_report(raw_report)
-    report["date"] = issue_date.isoformat()
-    report["issue"] = str(issue_path)
-    report["model"] = review_model()
-    report["minimum_score"] = review_min_score()
+    if ai_enabled():
+        prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text, benchmark_issue)
+        raw_report = call_openai_json(prompt, review_model())
+        report = validate_report(raw_report)
+        report["date"] = issue_date.isoformat()
+        report["issue"] = str(issue_path)
+        report["model"] = review_model()
+        report["minimum_score"] = review_min_score()
+    else:
+        report = build_local_fallback_report(issue_date, issue_text, benchmark_issue)
+        report["issue"] = str(issue_path)
 
     high_findings = [
         finding for finding in report["findings"]
@@ -130,10 +206,10 @@ def main() -> None:
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
     if report["ready_to_send"]:
-        print(f"AI review passed: {issue_path}")
+        print(f"Editorial review passed: {issue_path}")
         return
 
-    print(f"AI review failed: {issue_path}")
+    print(f"Editorial review failed: {issue_path}")
     print(f"- Score: {report['overall_score']}")
     for finding in report["findings"]:
         if isinstance(finding, dict):

@@ -12,6 +12,9 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
+from fetch_candidates import decode_google_news_link, enrich_entries
+from issue_clock import resolve_issue_date
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES_DIR = ROOT / "data" / "candidates"
@@ -107,9 +110,7 @@ def fetch_url(url: str) -> bytes:
 def preferred_link(link: str, publisher: str = "") -> str:
     if not link:
         return PUBLISHER_URLS.get(publisher, "")
-    if "news.google.com" in link:
-        return PUBLISHER_URLS.get(publisher, "")
-    return link
+    return decode_google_news_link(link)
 
 
 YAHOO_SYMBOLS = {
@@ -177,6 +178,24 @@ PUBLISHER_URLS = {
 }
 
 FRED_SERIES_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
+MARKET_TICKERS = [
+    ("S&P 500 (SPY)", "spy.us"),
+    ("NASDAQ-100 (QQQ)", "qqq.us"),
+    ("DOW (DIA)", "dia.us"),
+    ("Europe (VGK)", "vgk.us"),
+    ("Japan (EWJ)", "ewj.us"),
+    ("China (MCHI)", "mchi.us"),
+    ("India (INDA)", "inda.us"),
+    ("China large-cap (FXI)", "fxi.us"),
+    ("Bitcoin", "btcusd"),
+    ("Ethereum", "ethusd"),
+    ("Gold (GLD)", "gld.us"),
+    ("Oil proxy (USO)", "uso.us"),
+    ("NVIDIA (NVDA)", "nvda.us"),
+    ("Tesla (TSLA)", "tsla.us"),
+    ("Palantir (PLTR)", "pltr.us"),
+    ("ARM Holdings (ARM)", "arm.us"),
+]
 
 
 def fetch_yahoo_quote(symbol: str) -> tuple[str, str]:
@@ -247,8 +266,9 @@ def format_day(date_str: str) -> str:
     return dt.date.fromisoformat(date_str).strftime("%b. %d, %Y")
 
 
-def build_macro_lines() -> list[str]:
+def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[str]]:
     lines: list[str] = []
+    failures: list[str] = []
 
     try:
         cpi_date, cpi_yoy = latest_fred_yoy("CPIAUCSL")
@@ -256,7 +276,9 @@ def build_macro_lines() -> list[str]:
             f"- **US CPI (YoY):** {cpi_yoy:.1f}% as of {format_month(cpi_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)"
         )
     except Exception:
-        lines.append("- **US CPI (YoY):** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
+        failures.append("US CPI (YoY)")
+        if allow_placeholders:
+            lines.append("- **US CPI (YoY):** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
 
     try:
         unrate_date, unrate = latest_fred_value("UNRATE")
@@ -264,7 +286,9 @@ def build_macro_lines() -> list[str]:
             f"- **US unemployment rate:** {unrate:.1f}% as of {format_month(unrate_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)"
         )
     except Exception:
-        lines.append("- **US unemployment rate:** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
+        failures.append("US unemployment rate")
+        if allow_placeholders:
+            lines.append("- **US unemployment rate:** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
 
     try:
         fed_date, fed = latest_fred_value("FEDFUNDS")
@@ -272,7 +296,9 @@ def build_macro_lines() -> list[str]:
             f"- **Fed funds rate:** {fed:.2f}% as of {format_month(fed_date)}. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)"
         )
     except Exception:
-        lines.append("- **Fed funds rate:** Live macro series unavailable. Source: [Federal Reserve](https://www.federalreserve.gov/)")
+        failures.append("Fed funds rate")
+        if allow_placeholders:
+            lines.append("- **Fed funds rate:** Live macro series unavailable. Source: [Federal Reserve](https://www.federalreserve.gov/)")
 
     try:
         dgs10_date, dgs10 = latest_fred_value("DGS10")
@@ -280,7 +306,9 @@ def build_macro_lines() -> list[str]:
             f"- **US 10-year Treasury:** {dgs10:.2f}% latest daily close on {format_day(dgs10_date)}. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)"
         )
     except Exception:
-        lines.append("- **US 10-year Treasury:** Live macro series unavailable. Source: [U.S. Treasury](https://home.treasury.gov/)")
+        failures.append("US 10-year Treasury")
+        if allow_placeholders:
+            lines.append("- **US 10-year Treasury:** Live macro series unavailable. Source: [U.S. Treasury](https://home.treasury.gov/)")
 
     try:
         brent_date, brent = latest_fred_value("DCOILBRENTEU")
@@ -288,35 +316,29 @@ def build_macro_lines() -> list[str]:
             f"- **Brent crude:** ${brent:.2f}/barrel latest daily print on {format_day(brent_date)}. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)"
         )
     except Exception:
-        lines.append("- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)")
+        failures.append("Brent crude")
+        if allow_placeholders:
+            lines.append("- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)")
 
-    return lines
+    return lines, failures
 
 
-def build_markets_section() -> list[str]:
-    tickers = [
-        ("S&P 500 (SPY)", "spy.us"),
-        ("NASDAQ-100 (QQQ)", "qqq.us"),
-        ("DOW (DIA)", "dia.us"),
-        ("Europe (VGK)", "vgk.us"),
-        ("Japan (EWJ)", "ewj.us"),
-        ("China (MCHI)", "mchi.us"),
-        ("India (INDA)", "inda.us"),
-        ("China large-cap (FXI)", "fxi.us"),
-        ("Bitcoin", "btcusd"),
-        ("Ethereum", "ethusd"),
-        ("Gold (GLD)", "gld.us"),
-        ("Oil proxy (USO)", "uso.us"),
-        ("NVIDIA (NVDA)", "nvda.us"),
-        ("Tesla (TSLA)", "tsla.us"),
-        ("Palantir (PLTR)", "pltr.us"),
-        ("ARM Holdings (ARM)", "arm.us"),
-    ]
-    macro_lines = build_macro_lines()
+def build_markets_section(allow_placeholders: bool = True) -> tuple[list[str], dict[str, list[str]]]:
+    failures = {
+        "quotes": [],
+        "macro": [],
+    }
     lines = ["## Markets & Economy", ""]
-    for label, symbol in tickers:
+    for label, symbol in MARKET_TICKERS:
         price, move = fetch_yahoo_quote(symbol)
+        available = price != "data unavailable" and move != "live quote unavailable"
+        if not available:
+            failures["quotes"].append(label)
+            if not allow_placeholders:
+                continue
         lines.append(f"- **{label}:** {price}, {move}.")
+    macro_lines, macro_failures = build_macro_lines(allow_placeholders=allow_placeholders)
+    failures["macro"].extend(macro_failures)
     lines.extend(macro_lines)
     lines.extend(
         [
@@ -327,7 +349,7 @@ def build_markets_section() -> list[str]:
             "",
         ]
     )
-    return lines
+    return lines, failures
 
 
 def build_main_entry(entry: dict) -> list[str]:
@@ -373,6 +395,7 @@ def build_generic_section(section: str, entries: list[dict]) -> list[str]:
         return lines
     main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
     main_entries = entries[:main_count]
+    enrich_entries(main_entries)
     short_entries = entries[main_count: main_count + short_count]
     for entry in main_entries:
         lines.extend(build_main_entry(entry))
@@ -406,6 +429,7 @@ def build_travel_section(entries: list[dict]) -> list[str]:
     lines = ["## Travel", "", "### Cool Place To Visit", ""]
     if entries:
         entry = entries[0]
+        enrich_entries([entry])
         title = clean_title(entry["title"])
         summary = summarize(entry.get("summary") or "", 220)
         publisher = entry.get("publisher", "")
@@ -424,6 +448,7 @@ def build_idea_section(entries: list[dict]) -> list[str]:
     lines = ["## Idea Of The Day", "", "### Concept to explain", ""]
     if entries:
         entry = entries[0]
+        enrich_entries([entry])
         link = preferred_link(entry.get("link", ""), entry.get("publisher", ""))
         lines.append(
             f"Use today's strongest conceptual thread, for example from **{clean_title(entry['title'])}**, and explain it clearly in 1-2 paragraphs."
@@ -449,15 +474,37 @@ def build_quick_hits(sections: dict[str, list[dict]]) -> list[str]:
     return lines
 
 
+def build_overview(sections: dict[str, list[dict]]) -> list[str]:
+    highlighted_sections = [
+        section
+        for section in ("Need To Know", "Research Watch", "World News", "Technology", "AI", "Tools You Can Use")
+        if sections.get(section)
+    ][:3]
+    if not highlighted_sections:
+        return ["The strongest developments are still being assembled from today's source mix."]
+
+    lead_entries = [sections[section][0] for section in highlighted_sections]
+    enrich_entries(lead_entries)
+
+    sentences: list[str] = []
+    for index, (section, entry) in enumerate(zip(highlighted_sections, lead_entries)):
+        title = clean_title(entry["title"])
+        summary = summarize(entry.get("summary") or "", 180)
+        sentence = summary or title
+        if index == 0:
+            sentences.append(f"Today's lead signal comes from {section.lower()}: {sentence}.")
+        else:
+            sentences.append(f"In {section.lower()}, {sentence}.")
+    return sentences[:3]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a draft daily issue from fetched candidates.")
     parser.add_argument("--date", help="Issue date in YYYY-MM-DD format. Defaults to today.")
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
 
-    issue_date = dt.date.today()
-    if args.date:
-        issue_date = dt.date.fromisoformat(args.date)
+    issue_date = resolve_issue_date(args.date)
 
     candidates = load_candidates(issue_date)
     sections = candidates.get("sections", {})
@@ -472,11 +519,12 @@ def main() -> None:
         "",
         "### The day's most interesting developments in science, technology, and ideas",
         "",
-        "This issue was generated from the configured source pipeline and is intended as a strong first draft for daily review.",
+        *build_overview(sections),
         "",
     ]
     lines.extend(build_quick_hits(sections))
-    lines.extend(build_markets_section())
+    market_lines, _ = build_markets_section()
+    lines.extend(market_lines)
 
     for section in SECTION_ORDER[1:]:
         entries = sections.get(section, [])

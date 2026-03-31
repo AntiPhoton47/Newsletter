@@ -1,0 +1,504 @@
+{
+  "date": "2026-03-31",
+  "display_date": "March 31, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-03-31-daily-newsletter.md",
+  "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-03-15-daily-newsletter.md",
+  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-03-31-issue-scaffold.md",
+  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-03-31.md",
+  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-03-31 --git-commit --git-push",
+  "sources_by_section": {
+    "Markets & Economy": [
+      "BLS",
+      "Eurostat",
+      "ECB",
+      "Bank of Japan",
+      "IMF"
+    ],
+    "Need To Know": [
+      "Nature"
+    ],
+    "Research Watch": [
+      "Nature",
+      "arXiv"
+    ],
+    "World News": [
+      "IMF",
+      "AP News",
+      "UNHCR",
+      "United Nations",
+      "OECD",
+      "World Economic Forum"
+    ],
+    "Philosophy": [
+      "IAI TV"
+    ],
+    "Biology": [
+      "Nature"
+    ],
+    "Psychology and Neuroscience": [
+      "Nature Neuroscience",
+      "Nature Mental Health",
+      "Nature Reviews Neuroscience"
+    ],
+    "Health and Medicine": [
+      "Nature Health",
+      "Nature Ecology & Evolution",
+      "WHO",
+      "IARC"
+    ],
+    "Sociology and Anthropology": [
+      "Nature",
+      "SAPIENS",
+      "Nature Communications"
+    ],
+    "Technology": [
+      "Nature",
+      "Nature News",
+      "MIT Technology Review"
+    ],
+    "Robotics": [
+      "Nature Electronics",
+      "Nature Materials",
+      "IEEE"
+    ],
+    "AI": [
+      "OpenAI",
+      "Nature",
+      "GitHub"
+    ],
+    "Engineering": [
+      "npj Space Exploration",
+      "Nature Materials",
+      "IEEE"
+    ],
+    "Mathematics": [
+      "Quanta Magazine"
+    ],
+    "Historical Discoveries": [
+      "Quanta Magazine",
+      "Nature",
+      "Science"
+    ],
+    "Archaeology": [
+      "Nature Ecology & Evolution",
+      "Nature",
+      "Scientific American"
+    ],
+    "Tools You Can Use": [
+      "arXiv",
+      "OpenAI",
+      "GitHub",
+      "OpenAlex Developers",
+      "Semantic Scholar"
+    ],
+    "Entertainment": [
+      "Rotten Tomatoes",
+      "Parade",
+      "Tom's Guide",
+      "AP News",
+      "PC Gamer",
+      "Billboard Canada"
+    ],
+    "Travel": [
+      "Lonely Planet",
+      "TripAdvisor",
+      "Hello Canary Islands"
+    ],
+    "Idea Of The Day": [
+      "Derived from the research material cited earlier in the issue"
+    ]
+  },
+  "section_queries": {
+    "Need To Know": [
+      "site:nature.com physics OR quantum OR relativity OR proton radius",
+      "site:nature.com spectroscopy OR standard model physics"
+    ],
+    "Research Watch": [
+      "site:arxiv.org quantum foundations OR contextuality",
+      "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+      "site:nature.com AI for science research"
+    ],
+    "World News": [
+      "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+      "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org"
+    ],
+    "Philosophy": [
+      "philosophy of science epistemology agency site:iai.tv"
+    ],
+    "Biology": [
+      "biology discovery evolution microbiome site:nature.com"
+    ],
+    "Psychology and Neuroscience": [
+      "neuroscience psychology cognition brain site:nature.com"
+    ],
+    "Health and Medicine": [
+      "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int"
+    ],
+    "Sociology and Anthropology": [
+      "anthropology sociology human behavior site:nature.com OR site:sapiens.org"
+    ],
+    "Technology": [
+      "technology infrastructure computing materials site:nature.com OR site:technologyreview.com"
+    ],
+    "Robotics": [
+      "robotics embodied AI site:nature.com OR site:ieee.org"
+    ],
+    "AI": [
+      "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com"
+    ],
+    "Engineering": [
+      "engineering infrastructure materials construction site:nature.com OR site:ieee.org"
+    ],
+    "Mathematics": [
+      "mathematics foundations infinity site:quantamagazine.org"
+    ],
+    "Historical Discoveries": [
+      "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org"
+    ],
+    "Archaeology": [
+      "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com"
+    ],
+    "Tools You Can Use": [
+      "research tools API protocol MCP site:github.com OR site:openai.com OR site:openalex.org OR site:semanticscholar.org"
+    ],
+    "Entertainment": [
+      "new movies books tv shows video games concerts upcoming releases"
+    ],
+    "Travel": [
+      "best places to visit this month travel destination"
+    ]
+  },
+  "candidate_snapshot": {
+    "Need To Know": [
+      {
+        "title": "Quantum simulations verified by experiments for the first time",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1yLWllVjBiVWwtLTBURDBoVUFhN0xMX2NyMXBmRkFpc2s4NG9LeTF6SzFmeV95QWFjVkw5YW16SHIwa0ZBd1dIUDBiZ3hJZ0pIOERfU0plT1VQT3RXVTJ3?oc=5"
+      },
+      {
+        "title": "Countdown to Artemis: is NASA\u2019s Moon mission the dawn of a new space age?",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB4SGJiSmVncGpOa21UbTVmMlpFeG9lV2lYR2JaNzlMV1M5dkRaVVpGTmh6b28welVPSUxYZGd1MVhrOHpNc2hudlkzYVhmdG94d1d0dUZ3X0NqZ3lzRW9F?oc=5"
+      },
+      {
+        "title": "Superspreading and ultra-infiltrative coacervate mediates strong underwater adhesion on hydrated and lipidic substrates",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBtOHVJUVY0NG1HamxnUTdvem5qTzEyeUJneFZFSGwydzJReXRDa0RjSHNLRDduZjBET1ljMGZPcTZvWEtaZ1RfRU5VTGpJQW8yU05GUG9IZEpFeVpTUWtR?oc=5"
+      }
+    ],
+    "Research Watch": [
+      {
+        "title": "Shor\u2019s algorithm is possible with as few as 10,000 reconfigurable atomic qubits",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1QQkQ0WGhPaUE1d0hYcEhlaWRJYThYQzZTQmpMazFBWXRRRVZzVEYwcG5Fb2h2SGd0dm1ONkE3YnZCWEl5bmlGbzZCaw?oc=5"
+      },
+      {
+        "title": "Chats with sycophantic AI make you less kind to others",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ROWg0QW5YcllFMGIwZ1UzbUhCUW14NGxZYmdaS0VVT3FLZXU1dlpCc0NwYU9mVUV2ODAxRUV1c1Q2REtJMkFSWGR2TzlUYzF5b24ybzc5YVE5VWw4OU84?oc=5"
+      },
+      {
+        "title": "Consistent Gauge Conditions for Dust-Shell Dynamics in Effective Quantum Gravity",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBkMWVCUUNla2cwYl9zMVRTV3IzZERTZk4tQTB3RjIzM1VCNXhkRWNiRlVfNmZoVEFoVlBiMFM0c0tDVVl0M2RvY2tpRQ?oc=5"
+      }
+    ],
+    "World News": [
+      {
+        "title": "How the War in the Middle East Is Affecting Energy, Trade, and Finance",
+        "publisher": "International Monetary Fund | IMF",
+        "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNV3dneUQ0RExnWHZRQmZuZGU3bkdiOE9Xc0MyVTBVaVB0b0ZuQlYzZ3UzWTRRMGViaTczbVFObkhWZnBMZ3RSSFdNSVZETkNPSDBxZTNSOTg5cU43OGt1ejVTNVU2UkcxTlo3RnNZYW1lSWFwR0kwVnpuTDZVTEMxMGFyekNVN2lmT2hTcXRGTVNaMm4xSkJ5dFBXVW5uSk8xLU00NkdDd3ozc3RFWXlGb3VmME1EN0t3?oc=5"
+      },
+      {
+        "title": "China factory activity rebounds in March as Iran war looms over growth",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMFRXNzU1SjhjQjZQZGhTWWhubk1DNmxfbTNxZ0ZFb2hGNlQ4aEIxZzByV3pha2t4dXFTYXozdk1CczZwRVJYZnU5MWVpc2pPdlJ1T3lWRGZvWEJmY1dVcThFdjBHRks2ckpkLTFnR0hiRkxaSGVuSlB1RVJJSlRheGZfeHMzVHdSNWRiS2c2c09TVTBFalJibGY5cFVRLXdMTkE?oc=5"
+      },
+      {
+        "title": "Yemen\u2019s Houthis claim responsibility for missile attack on Israel, their first since war started",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQaUZNZWJHMnBzZmtITzU2RFRySm9rbXV1ZDBac2lUbGRLMUtHeXNJVkVtZDZkSkp5aWQzaUhLcjlEYWpGYklSUzBoV0pCM2RXZTNSUlFkdHhTUi0yUVlueDFjcGQ3V0xPSTdjRG5rVHlxcFdlbEdzM0tiQTBqYU1LUDBZNHVNNWZISlN5UU9tSmR6XzM4bHBTMHVlU2ZNWGNXaktRSw?oc=5"
+      }
+    ],
+    "Philosophy": [
+      {
+        "title": "Reality is not a controlled hallucination",
+        "publisher": "IAI TV",
+        "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZndiMENGZldSNDZNeXdLY2tnVlBKaWpKQnFmZ2kzdDlEbDJqX1g5SkpmaTU4MjBBdy04VHZvNUlSbEJWdFh5SnlBdUVnSTZHYlRiR0NYdW1OemdQTWZjZTNCcUZTeWVtSVFsUWJJeDNfS2pxQVJCRWZrVUlYcVpjaA?oc=5"
+      },
+      {
+        "title": "In a post-truth world truth-seeking is more important than ever | Jason Baehr",
+        "publisher": "IAI TV",
+        "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQSTRWcTRsTUlMUVYzUUZZZjExdnotaGlUQzZ6OTdtZi1wSnROZmI1amxLYWU1cVd2eXdZTF9Ibk5DTUU2UjJ5ancxSFp6U1RjN3JwaDRPSUM0Tnlib0JXU2pieHZxYW5qSTVPWWdLZWhaeTlsS0dVR0xrZkJwUGhib0xGQWNZXzlrTFdkVjd3b1ROUmE0cWRjMHNod2FRZw?oc=5"
+      }
+    ],
+    "Biology": [
+      {
+        "title": "High-resolution metagenome assembly for modern long reads with myloasm",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1JS0pleFJLT25XdFJIYjF0dldmYkg3eTU2RFJGTGRUU19LbUQyMk1MZ3l3WGs3cnQyS2l4QUNsNHJ5Tkt5TC1SaHNGQS0zY0IyU1lQa2ZmNEd0T3VrZEdR?oc=5"
+      },
+      {
+        "title": "Biological sciences articles within Nature Reviews Drug Discovery",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5pWWtMN1psOHE1eTdUbnl1cEU4b3ktN0I1RTA1ajN3cU5INV9LYmJuZE9oS1B6aU01YjFGZ1J3NF94dzFyTjBVM1ZpelQ2R25EcGJ5bFQwbW1uYkViSzJJRkpjdVE1UQ?oc=5"
+      },
+      {
+        "title": "How thoughtful experimental design can empower biologists in the omics era",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBJdURNMEZaQkVmMHBud29wUG1TSUhyNmF5X19aX3ZzSlpmVnozNHRhb0t4OHFsYjQ2VDhQZ2o3cVJiWG4tWmozZ09vMm9IbVRpajFVYmRZOUM3ZjdMaXlJ?oc=5"
+      }
+    ],
+    "Psychology and Neuroscience": [
+      {
+        "title": "Metabolic psychiatry targeting metabolic dysregulation in mental health",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5IdkRPUlRSaDhpaGNYUFhsYk5NUW0yTEtLR3dJOFVBUFRqNGtxTXlQS0V0dkV4MU9ROWtfM1NhX3FGcS04WEVvVnhfVDhUYm5aMTM3WURqVVZ1b0dLeGVZ?oc=5"
+      },
+      {
+        "title": "Charting the human brain\u2019s lifelong functional organization",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ESHg5R0FoUUVVNUVfanAwMW14eTFsN1hkZ2JmN0ctS2xkbXlWN3AwWFdEQ185YmN0TzZIOG9YbmFIbThTbTdDcWUyM0NPamY1M3ZZTlRCdFROTG1wdVJv?oc=5"
+      },
+      {
+        "title": "Mapping the genetic landscape across 14 psychiatric disorders",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1kelBVdzBFNkxYeUM5WVlBZXFxdTBkUERpbl9OVnVpb1lraDl1Z3VfMzk2OXRESmpSU3ZianQ0aFpNWlBZYnpNT0dTeFlFOXRWQjdmcERkT3I1SWY0X1dR?oc=5"
+      }
+    ],
+    "Health and Medicine": [
+      {
+        "title": "AI-based chest X-ray prioritization in the lung cancer diagnostic pathway: the LungIMPACT randomized controlled trial",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5Cc2E0eDZFRE1WVlB3czZ6R3JOcmQ2bkVnUG1UYkhmMVNweGNFMVBsN0U3VTUzTEFMWjFNMzZ1SkRoeXFCQVlnQUZBdjh6V0lPc1IzdDJSN1A4a1ZlOEVN?oc=5"
+      },
+      {
+        "title": "An agentic system for rare disease diagnosis with traceable reasoning",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1yUFFscHc3NWR4MkhOYXpqZEsya2lCU3EtVF9kU0p4bEpwX1N1Ty1Ja0QzcHU2Szh6ZWlEOFN4c1AzLUxFNDZPNThxYVZYTE54U0Vxb0oxc0QwNW9OX2ZN?oc=5"
+      },
+      {
+        "title": "Accelerating AI innovation in healthcare: real-world clinical research applications on the Mayo Clinic Platform",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9EcTVDZklvMDZmWGpFNllNY3owVGVlNDhRYmZCV3FYUl9rc1I5YXFtUDFORmJoaGdPOXgycHd0RjlEVTM0ZTBaS0FJZklOaHlPRk00T0hpTTdVU0h0a2lV?oc=5"
+      }
+    ],
+    "Sociology and Anthropology": [
+      {
+        "title": "Advancing applied behavioral science: the GAP framework",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE01QlRzeThtU1NWYjZKaTlUTWJiMjhWaUZ5LTB3Q2JzalZ6UmN6MHBPTWFFVW1DMXVkVFVEY1ZPTVY4WWtpQnlNMzdXWmZVRTd5eWxYN0dBSGhwdWl0YTVv?oc=5"
+      },
+      {
+        "title": "Human-animal interactions and relations",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA1b0VBamFNc212SkdNVVYyeXlERlA2YXR6eVRtb3NYMlF5ek8yYmlEcVQ2cDUxVXkzY1ByYXFNRlctSzNUMFpONjR4eEUxbW9BUFZmYm1XOGU?oc=5"
+      },
+      {
+        "title": "Social clustering of preference for female genital mutilation/cutting in south-central Ethiopia",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45Z1hYNmdYUlVLZDViMk1rWjMtWi1kNEVXYl90di1hSTdMRmhHQVV3UTgzanNMOE5rNDZaQmJieDRGQ2VoQUcySEZEZzVscmRUczNNRDU4UnRIeUlwdlNV?oc=5"
+      }
+    ],
+    "Technology": [
+      {
+        "title": "How buildings and cities can be aligned with life",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9QRXozdXY3SmQxWmRiZEFoTjVyaWZBV0JESFJJdXhCUmZRQmZJZjRTY3dfbk83MzB4amZSamlTUTREelU1S2xnRnlsb2FRSXlvclFMTEJTeVRxcVhPMTRn?oc=5"
+      },
+      {
+        "title": "Radiofrequency cascade readout of coupled spin qubits",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1acmVZZ0VkSk5JQ1VjalJoendWRGt0eHhnb3RramFGcEJPU0FYR1FEQ0lwR29JVFNCSTBoU1NTMXZNMy13OFJPUXUxR2Q4OEd4N3VlczBpSmxKSmVaUGk4?oc=5"
+      },
+      {
+        "title": "Long-distance quantum link generates entanglement faster than it is lost",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE16Nm9IYXQyQ0JmTDFvTTB6S09YR1drdDAyYnl6VW9hNlA4S0V2a3B0U2syVlY2Wml5Z1FTOWZHS25raGQtLWhITC1ZVGxyYWxpNW84dHE5aUFRZ25jOThz?oc=5"
+      }
+    ],
+    "Robotics": [
+      {
+        "title": "A robot operating system framework for using large language models in embodied AI",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE83Y3ZESnNlbzh6MVRvb2pzWGZfcndfVDBhRjdBRWtiTUxZSmxxa2hNT1BOZE9DMmZFZUFNT29qVDJ1UWlQRWdGT1F5V3lyeERYeXczcU1BYXlzTnlRdU1B?oc=5"
+      },
+      {
+        "title": "EED: Embodied Environment Description Through Robotic Visual Exploration",
+        "publisher": "ieeexplore.ieee.org",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE11LThicERDVHgyRmh0TTM3aE1aZEdQb24yYnJ4aV9jd2hCVzhUQVZVRjlFV0lhem84QWwwTml3V3VKOXFQTkJSQ3RFUk1iU00yYnlPUnNmRXV4Zw?oc=5"
+      },
+      {
+        "title": "Real-Time Social Presence Modulation of Embodied AI-based Robots: An Audio-Centric Approach",
+        "publisher": "ieeexplore.ieee.org",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBuQ2RhX01ubHNQMXIwbnlMSDNIMXhuZWhhaTlDVF8zS3Znc1FBVjVJcWNGTWxZYThNYkFxdDhHZ082aTg0c21OV2dscTV5ck9WNXhPUXdaaVVUdWxiZVFZRVkzWWFXRmhQU21NSkFpWmQ?oc=5"
+      }
+    ],
+    "AI": [
+      {
+        "title": "microsoft/agent-framework",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE15eGNFUmtmaFM0TGNSdlV4TVRhbG1FTExJU1VZZVkwRDcteXZlUmxKVU1QZVU2bHZJS0U4TFB5YzZhTVpIdkp5dHVaa0RhUUloMDBzdFAycw?oc=5"
+      },
+      {
+        "title": "Empowering AI data scientists using a multi-agent LLM framework with self-evolving capabilities for autonomous, tool-aware biomedical data analyses",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBMQmZFSzVqTzRrZGY5bURTbTRPQm1HNl9BZ0RyWDEyMW5lbzEwaVN5MTdjWk5JNmZpelZWTGVobS1EVF9zTHdpSHlJQ0VvUHlrdzR5eFoxdVd1dkJiaFhJ?oc=5"
+      },
+      {
+        "title": "vercel-labs/agent-browser: Browser automation CLI for AI agents",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1ZYnoyRFNFLW5sUE1aUHNkS1dkQURmRnk0em1BRkZ0ektsNUh6RFBTcTZNaWJXQjdDck5jLXYwZWNJdFQyYVJ0ZkZUSmFPQlA0UXVmTzVJZw?oc=5"
+      }
+    ],
+    "Engineering": [
+      {
+        "title": "Companies Hope Lasers Can Replace Radio for Space-to-Ground Comms",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOeE4wbk9kZklOemVpTlNwYWljRFlYXzJrajdXYW1IazdaZjN3WGtkeF9PdnlhazQxOGo3OUt1c1YtalJ5TUxpODZoNUZUaHVUcjAyZ2xDQmtudVFRTnFwVkZfMFFZRnM0WWJrX3h6TTlrUkxzRW1GRVNzQTZQeklxSmFB0gGWAUFVX3lxTFBXNHZWci1ETkpWMGc5Mm9HM0JRWWwtNG9veWdIVWpxVHNnUGxoYzhRakFLeGFZd2M1NWVyZW45TXpDZFgzaEMxbG92T2VQNzI0cGlZRlprX2FvcUJfS29fbFJOXzd5bWVaTF9rcXdYalQ2X1NjRUZPbC1aUFhKTjJZTDc5Y3lIRlhfVFlfRjhWMVVHY09KQQ?oc=5"
+      },
+      {
+        "title": "The AI Data Centers That Fit on a Truck",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1GQV94SUk0R2x4Rk5HVElGSlpoOEU0ejV6cjhmNVJ3YzNRLUluR2RRanZGYVF1d1V2X2lhcWpWLUtzOExwTDA1N1NNek9aaUNJOGZqTThqTlnSAWxBVV95cUxOXzZnMHdkZ09MRUdQU3hmTU5xaGpSNWlZVTlrM2J3WFFEbDRnRkJNRWRYYmpUZXFWaHZmMkNhc2c4SlJrdERGT0RocXhvMHBYdFBuZnVKNEktZHNLTVJyaXVlajFwd2k4TVVCQ0g?oc=5"
+      },
+      {
+        "title": "Facial Recognition Is Spreading Everywhere",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5wbWhpZWJiRGs3MFY0bHRUczZubEZXV1IyLXpId2Zoam9pLWt3Ql9XODV4cnFQWUR4bU5LQVdOWkdEZTNxUFRTSkp4bG5Xakk3VkVjVVJQVENpbmJ1TW93X3hOaWVDQdIBekFVX3lxTE80anJaY1dXZzhmUGt5Ul8zYmpSOWVESFl1NmpSUnpmMWlZekVVa2hxN0lYU0laVkxxbmMzX19ZVTRUbjlFODZPUUtnMTRXa2pnMFFHTmhGa0NJUEpqcEdtcDgySVFRUGF5VHBSQmMzZmNYQWZhZEVHb0F3?oc=5"
+      }
+    ],
+    "Mathematics": [
+      {
+        "title": "In Math, Rigor Is Vital. But Are Digitized Proofs Taking It Too Far?",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcDVHUEFBMjNfRFhydFNxVG11TFNGZjMzeDZNd0lSR1NRaFhTU3ZQeGNabGsyNjVvaW1UYXNVYzlyb0pyQ1hiSkhVemlKaERuQkNxMW1HQ2Zrb1NtR2ZWcTdBVUFFazUyT00wTjR6UThqVmJCd2p6WlljWk5yVHluclFiYjNHai0yakdpenhYVzV0MjczbktFb3draGozM2dvcG1WTUVxdS01dw?oc=5"
+      },
+      {
+        "title": "New Series from Quanta Magazine Explores the Infinite Evolution of Math",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQaVhqRFlVVEJjLWl3dFhSZWZmdUFzRTBKdVd2bm16ejhlVmx6NkdVS3Y2ZlRCRlFLeHRQc1RKM0ltdlNZWk4wUWpUajJzMl85Y2RNLUZWZThXWUNIUzdtQ3J2ekRWdW9DXzU5SUtsSGZLQ0xIU1RDQjBxZmEweWxqb2E5UEV1Y0pNbzU5SjRpM1VXcF9iWVBJc0I1OC1ldkkyOTg3YWROdnhLTDZEdDA3UGFFREM?oc=5"
+      },
+      {
+        "title": "The Man Who Stole Infinity",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAxei1DQkhzWXpSMVMtLTdxWVF5QV9jRVJ4dUtKUWVKQ09FRGN4UFVDTmpXaXd3OU05UDBReDl1WmFHc2RKSmFCMXVEZjU3R2ZnRzlmdjc1VWEyRnl6RVE1eFVIcFYyNUtzWHBwUDVvTko4ZmZPbEE?oc=5"
+      }
+    ],
+    "Historical Discoveries": [
+      {
+        "title": "Description of a collaborative sperm whale birth and shifts in coda vocal styles during key events | Scientific Reports",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBMWTJ2RjNtN2xQN0lBWUVnM19sMFZCb18wSlEwNF9qNXpMOVlKY3g3NkJqQ2tFVTZraksybldqYk1nUnVjR0JmYzJzY2tOeDdjUVdKUHhvZ05YS3oycUpv?oc=5"
+      },
+      {
+        "title": "An Early Miocene ape from the biogeographic crossroads of African and Eurasian Hominoidea",
+        "publisher": "Science | AAAS",
+        "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBnQzlCbDRma2s5ajR2UXpkZS1ZTzhrY1lrVjZUMG51enBKYTktSzNxVG1yaVZNanNKODExTDVOUjA2Rm5BQ3l6aEJMN2xMM1JQanBZaVFnM2VOWThXaGlNMg?oc=5"
+      },
+      {
+        "title": "How Writing Changes Mathematical Thought",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYzBUSzJHWG96dEFNMHJNb2ZOZTJnY0VId3N4NVN5TUZaYnhNWnJTVUpjTlBSMEJiaDYyZC1ZQ0djMWt0eDMwLUcxSmxrOS1Xei1VbHBSeFBIaThzQVFRR0xta0tIOHVnb3BlRTRGVGN4VS1iekQtYVE0T0hWSFJFYkRrcm5MS2hI?oc=5"
+      }
+    ],
+    "Archaeology": [
+      {
+        "title": "Daily briefing: Earliest known dog genome pushes genetic record back 5,000 years",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5uV2UzbjFkc0lNSzVaWEdGNkdMX1BjSzlBcmJHQVlpeGlJTS1NTEJjby0zVmVtNXVjZS02eXdXVFZUQnNuVkRVdVItb0l5V2xhNDMtUXUzSUV3ZmVaUjM4?oc=5"
+      },
+      {
+        "title": "Dogs were widely distributed across western Eurasia during the Palaeolithic",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WUHlqQ3dsOS1vYWlsLTRCcnlMTUR6aERwLW9BdzNSWmt6a244UGV3RTgzU2tQeDZPa1lUQkQyc2h6R182YXhxc0dDb09JbFpQeHQydmpqODVlZmJvRmxV?oc=5"
+      },
+      {
+        "title": "Faunal exploitation at the elephant hunting site of Lehringen, Germany, 125,000 years ago | Scientific Reports",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzVV85ZTU5XzdJLWtVNGhIa0ctMUxVaElBSDdNYTNLOFIwVkZnZExsVXBhQWpSSzBvQUlycUU3RkZodWY0TWtkSloyUFBUSE1Ea29qbHlHQWdjNDlvbzkw?oc=5"
+      }
+    ],
+    "Tools You Can Use": [
+      {
+        "title": "Building MCP servers for ChatGPT Apps and API integrations",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9SMnd2MmJDdlRWTk94S0RkQ0dKakZGd0t0MlNHWlF6aE5RUmFfdWNlMGE1aG41QXk2a3h6LUd4YTVVZW9CSW1QVG9yY0ljMVJ6SEhlQlJR?oc=5"
+      },
+      {
+        "title": "MCP and Connectors | OpenAI API",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE4wYW42Z1FaazlQeXlmNGZPNklWcm1kU2FLam4yRHd5SkZrRjJwV1NFeHdVQlBiY0UxVW44OWVBUUwxaUJ2WlRCTVJkemhXYlhwUmprN3FpVTRWU0xFd3hXWnhEa2tQV3JQYTNkZDVFa0RqWFl4bnc?oc=5"
+      },
+      {
+        "title": "Model Context Protocol \u2013 Codex",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE51RVdkUFBwdDdYMk5HMExqaHR5Rl9QSjJ6U0s2TjA5dHZMVUU1SUMzN1JzazdYazU5MlFfeDY3ZldqbzhEbE9ZVXRLR0s5Y0FCb0E?oc=5"
+      }
+    ],
+    "Entertainment": [
+      {
+        "title": "Upcoming Movies in April at ODEON - from Super Mario Galaxy Movie to Michael",
+        "publisher": "Odeon",
+        "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBQc2oxcGpWN3FEYnpkTVdnUE4zUS1KTkpDSDBVQmtMRkdMTkdmYTE1QVdROE1NbjMzV2dxSVNYdkVKclkzT0hqeml2SGtOVkJzeWJLd2ZnTDFOWFZ4ckNjd3N3NzR4VUFHSHNxZFhKdGZyRVU3eUh5cG1B?oc=5"
+      },
+      {
+        "title": "Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books",
+        "publisher": "Marie Claire",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNb2dyV1l1aDl2VHVTbDJxWVJGX3VFalBhS3E0R3k2MUNwbzFVN09GTVZFajYyQ1RYVzM1ZDB2eVZTU0lKZFhWRGREUHU4YzhyTmk1NzVrbXhiMHF2cllPQnU4SHVGZkwxUUxTdFdteUVyR2dIRGU1WncwV09JOFpJdHM4ZGY0dFVicmVpQmlSU25BMXk3Z3B2b2VsQlVJelhBYXZ0TEstY2ZOZw?oc=5"
+      },
+      {
+        "title": "Upcoming 4K UHD and Blu-ray Release Dates",
+        "publisher": "IGN",
+        "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsdmprLTZLNFRtOFZDRVQ5dkZ5OGlMOFhUbXBUclF3TlZNeFI5NWpSdGpWeEdJNzJRQVM3SlVURDNSTThoelJUT3NReVQydGRySlU3OE5pWF9vT0tjZlVtUW9aM050elZNTUVLSjVVak1RbXQzeGJqWHlB?oc=5"
+      }
+    ],
+    "Travel": [
+      {
+        "title": "The Best Places To Visit in Central America for Each Month of the Year",
+        "publisher": "CentralAmerica.com",
+        "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONkRJTHVLVFJ3aFZuX0JlLU5rR1pSdkV2V3pENTZVbGRNZDhnRnNnejNqdUNMcVppTXpQaUpLc3VSMFlUXzM1eWhTTVZQcjR4ZGdHSldJLV90MTAteW1tU21FMnRlSm9NVWJEYkFLSGQ0bHpQSjF3UF9ZN21pX3QwcV9qQTVTeExjUThoZ0pXaGs5Ry1Ld25kV1Nnd21TT3BwcUVJ?oc=5"
+      },
+      {
+        "title": "11 bucket list trips in Europe the travel editors dream of",
+        "publisher": "CN Traveller",
+        "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0wWWJpaTRUV0IyeldjZERQMG9VWlh2ZmV6Vi1uT1RSNE5aak5jMm9mdmo1RXJFeWJRdDdsaV9yMnFXU01jbGw4bXJsYjdET3NoNnJqbWJEV3Uza3dzdXRxSnBUdEdNTmw1YUUySHBn?oc=5"
+      },
+      {
+        "title": "Best Places To Visit in May in the USA & Abroad (2026)",
+        "publisher": "Going",
+        "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0wYTN0NXA3eHVOcG1qMWlzWjBJbU9ya21qQWh3cUNpTW5waWlWcEY1aERnaWl3Mkw5Vi1wMzNoeGRQNnVCNXM0dFA2Tm9ERl9SM01XOE5Wb25YLUtBU3c1THh5NHZsbFU?oc=5"
+      }
+    ]
+  },
+  "benchmark": {
+    "word_count": 7741,
+    "source_count": 40,
+    "link_count": 45,
+    "section_word_counts": {
+      "March 15, 2026": 80,
+      "Quick Hits": 389,
+      "Markets & Economy": 409,
+      "Need To Know": 211,
+      "Research Watch": 911,
+      "World News": 1150,
+      "Philosophy": 251,
+      "Biology": 242,
+      "Psychology and Neuroscience": 309,
+      "Health and Medicine": 275,
+      "Sociology and Anthropology": 320,
+      "Technology": 241,
+      "Robotics": 256,
+      "AI": 268,
+      "Engineering": 238,
+      "Mathematics": 231,
+      "Historical Discoveries": 228,
+      "Archaeology": 248,
+      "Tools You Can Use": 572,
+      "Entertainment": 707,
+      "Travel": 70,
+      "Idea Of The Day": 66
+    }
+  },
+  "fetch_warning": ""
+}

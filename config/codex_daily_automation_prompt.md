@@ -12,23 +12,27 @@ Use these repo references before changing anything:
 - `daily_issue_template.md`
 - `selection_criteria.md`
 - `sources.md`
+- `story_scorecard.md`
 - `config/newsletter_profile.json`
 
 Required workflow:
-1. Start from the repository's existing workflow instead of inventing a parallel process:
-   `python3 scripts/newsletter_command.py run`
-2. Review the generated files for today's date in:
-   - `issues/daily/`
-   - `output/`
-   - `data/reviews/`
-   - `data/ai_reviews/`
-3. If the generated issue is thin, repetitive, placeholder-like, weakly sourced, or clearly below the March 15 benchmark, improve the newsletter directly in the repo and rebuild the derived artifacts before considering a push.
-4. Use the March 15 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
-5. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
-6. Preserve the authoritative `Markets & Economy` data section unless you are correcting an obvious formatting issue.
-7. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
-8. If a section cannot be supported at benchmark quality from the available material, keep it concise rather than filling it with low-value copy.
-9. Commit and push only when the issue is publication-ready and the review reports pass. If quality is below benchmark, do not push.
+1. Prepare the run context first:
+   `python3 scripts/newsletter_command.py prepare`
+2. Read the generated packet and scaffolds for today's date in:
+   - `data/editorial_packets/YYYY-MM-DD.md`
+   - `data/editorial_packets/YYYY-MM-DD.json`
+   - `data/editorial_packets/YYYY-MM-DD-issue-scaffold.md`
+   - `data/research_notes/YYYY-MM-DD.md`
+3. Use the packet, `sources.md`, `selection_criteria.md`, `daily_workflow.md`, `daily_issue_template.md`, and the March 15 benchmark as the editorial operating system for the run.
+4. Search the listed sources directly on the web. Prefer underlying publisher and institution pages over Google wrapper pages, and use the candidate snapshot only as a discovery aid rather than the final source of truth.
+5. Capture useful notes in `data/research_notes/YYYY-MM-DD.md`, then write the final publication-ready issue directly to `issues/daily/YYYY-MM-DD-daily-newsletter.md`.
+6. Use the March 15 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
+7. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
+8. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue.
+9. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
+10. Once the issue is publication-ready, run:
+   `python3 scripts/newsletter_command.py publish --git-commit --git-push`
+11. If review or benchmark quality fails, improve the issue and rerun `publish`. If you cannot reach benchmark quality from the available material, stop without pushing.
 
 Git requirements:
 - Push changes to the linked GitHub repository's `main` branch.

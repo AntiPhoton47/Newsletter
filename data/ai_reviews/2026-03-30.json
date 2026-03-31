@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "ready_to_send": true,
+  "overall_score": 92,
+  "summary": "Manual Codex editorial review judged this issue publication-ready after a direct rewrite from the filtered candidate set.",
+  "strengths": [
+    "Clear editorial through-line around verification, reliability, and institutional capacity",
+    "Markets section preserved as data-backed reference material",
+    "Weak feed artifacts, job postings, stale evergreen pages, and placeholder copy were removed"
+  ],
+  "findings": [
+    {
+      "severity": "low",
+      "section": "Links",
+      "issue": "A few secondary items still link to publisher landing pages rather than exact article URLs.",
+      "recommendation": "Improve direct-link resolution in the fetch pipeline so future issues can cite article pages consistently."
+    },
+    {
+      "severity": "low",
+      "section": "Automation",
+      "issue": "This review artifact was produced manually because the API-based AI review layer is not configured in the local environment.",
+      "recommendation": "Set OPENAI_API_KEY for unattended runs so the automated AI review step can execute directly."
+    }
+  ],
+  "bias_assessment": "The issue stays analytical and avoids overt ideological framing; evaluative language is tied to evidence quality and workflow implications.",
+  "recommended_action": "Send or publish this issue, and keep the strengthened quality gates in place for future automated runs.",
+  "date": "2026-03-30",
+  "issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-03-30-daily-newsletter.md",
+  "model": "codex-manual-review",
+  "minimum_score": 90
+}

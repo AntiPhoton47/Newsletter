@@ -18,6 +18,7 @@ This folder contains a local daily newsletter pipeline:
 - `data/candidates`: raw fetched candidate story data by date
 - `scripts/send_daily_newsletter.py`: renderer and email sender
 - `scripts/fetch_candidates.py`: fetches candidates from configured queries
+- `scripts/check_pipeline_inputs.py`: validates source coverage and market data before any issue draft is written
 - `scripts/generate_issue.py`: generates a draft issue from candidate data
 - `scripts/ai_generate_issue.py`: uses OpenAI to rewrite the draft into a stronger editorial issue
 - `scripts/review_issue.py`: runs quality checks on generated issues before send
@@ -77,16 +78,26 @@ Useful variants:
 python3 scripts/newsletter_command.py run --send
 python3 scripts/newsletter_command.py run --date 2026-03-21 --send
 python3 scripts/newsletter_command.py run --send --git-commit --git-push
+python3 scripts/newsletter_command.py prepare
+python3 scripts/newsletter_command.py publish --date 2026-03-21 --git-commit --git-push
 ```
 
 That last form is the closest to the full remote-trigger workflow:
 - fetch candidates
+- run preflight input checks
 - generate the newsletter
 - run review
 - render HTML
 - rebuild the Jekyll site and search index
 - send the email
 - commit and push the updated archive so GitHub Pages refreshes
+
+For Codex-driven editorial runs, the more useful split is:
+
+- `python3 scripts/newsletter_command.py prepare`
+  Creates a dated editorial packet, issue scaffold, research-notes scaffold, and fresh candidate snapshot.
+- `python3 scripts/newsletter_command.py publish --date YYYY-MM-DD --git-commit --git-push`
+  Reviews an already-written issue, renders the preview, rebuilds the archive, and pushes only if the review gates pass.
 
 For an SSH-style remote trigger, the command would look like:
 
@@ -142,9 +153,10 @@ If you want Codex Desktop Automations to drive the repo directly instead of rely
 
 That prompt tells Codex to:
 - use the March 15 benchmark and the repo templates as hard references
-- run the existing pipeline first
-- refuse to push if the review reports fail or the issue is visibly below benchmark quality
-- commit and push only publication-ready output
+- start each run with `python3 scripts/newsletter_command.py prepare`
+- use the generated editorial packet plus the approved source list for source-first research
+- write the final issue directly rather than trusting the baseline draft blindly
+- run `python3 scripts/newsletter_command.py publish --git-commit --git-push` only after the issue is publication-ready
 
 This is the correct route if you want Codex itself, running in OpenAI's cloud against a linked GitHub repository, to generate the issue and push the changes without putting an `OPENAI_API_KEY` into this repo.
 
@@ -169,15 +181,18 @@ The sample job runs every day at 07:30 local time. It now calls the full pipelin
 - If there is no issue matching today's date, the script falls back to the latest daily issue.
 - `scripts/fetch_candidates.py` uses configured Google News RSS search queries as a feed-based ingestion layer.
 - Google News RSS is currently the discovery layer for automated candidate gathering; the intended editorial sources remain the underlying publishers and institutions listed in `sources.md`.
+- `scripts/prepare_editorial_packet.py` turns `sources.md`, the benchmark issue, the template, and the current discovery snapshot into a dated run packet for Codex-driven source-first drafting.
+- `scripts/check_pipeline_inputs.py` now fails the pipeline before draft generation when source coverage or live market data falls below minimum thresholds, and it writes blocking review artifacts instead of letting placeholder text flow into a draft issue.
 - `scripts/generate_issue.py` produces a draft issue automatically; you can still edit the Markdown before sending.
 - `scripts/ai_generate_issue.py` upgrades that draft into a more readable issue when `OPENAI_API_KEY` is configured.
 - `scripts/review_issue.py` blocks the pipeline when low-quality feed artifacts or obvious placeholders remain in the draft.
 - `scripts/ai_review_issue.py` adds an editorial release gate and can block automatic delivery if the issue is not ready.
+- `scripts/newsletter_command.py` now propagates `quality_policy` values from `config/newsletter_profile.json`, so `require_ai` and the minimum review score are actually enforced during remote runs.
 - The recommended production mode is now: `NEWSLETTER_USE_AI=true`, `NEWSLETTER_REQUIRE_AI=true`, and `NEWSLETTER_AI_REVIEW_MIN_SCORE=90`.
 - `scripts/build_archive.py` builds a Jekyll archive with a current-issue landing page, browseable archive, and client-side keyword search.
 - `scripts/run_daily_pipeline.py` is the one-command daily automation entry point.
 - `scripts/newsletter_command.py` is the remote-friendly wrapper around the pipeline and is the recommended command to trigger over SSH or any other remote shell.
-- the daily pipeline now fails closed: if review checks detect low-quality artifacts, the draft is generated but preview/build/send are blocked until the issue is fixed
+- the daily pipeline now fails closed in two places: preflight blocks draft generation when upstream inputs are too weak, and draft review blocks preview/build/send when low-quality artifacts remain
 - if `NEWSLETTER_REQUIRE_AI=true`, the pipeline also fails closed when the AI editorial layer is unavailable
 - `config/newsletter_profile.json` is where you keep the standing editorial instructions that the AI drafting layer should follow on every run
 - `sources.md` is the current reference for where each newsletter section is drawing material from.

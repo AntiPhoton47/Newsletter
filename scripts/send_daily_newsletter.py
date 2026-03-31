@@ -14,6 +14,8 @@ from email.message import EmailMessage
 from pathlib import Path
 from typing import Iterable
 
+from issue_clock import resolve_issue_date
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ISSUES_DIR = ROOT / "issues" / "daily"
@@ -772,9 +774,7 @@ def main() -> None:
     args = parser.parse_args()
 
     load_env_file(ROOT / ".env")
-    issue_date = dt.date.today()
-    if args.date:
-        issue_date = dt.date.fromisoformat(args.date)
+    issue_date = resolve_issue_date(args.date)
 
     if args.issue:
         issue_path = Path(args.issue).expanduser().resolve()
