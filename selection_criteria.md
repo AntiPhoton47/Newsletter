@@ -106,6 +106,8 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Entertainment / Travel
 - These sections are lighter in tone, but should still be selective, concrete, and current.
 - Prefer actual releases, events, and places rather than vague trends.
+- Keep the prose reader-facing; do not mention the drafting process, section weakness, or chat context inside the issue itself.
+- Travel should rotate destinations across issues when possible and include a source-backed image.
 
 ## Main Story vs Short Take
 

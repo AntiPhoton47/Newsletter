@@ -480,9 +480,9 @@ This is exactly the kind of tool story that sophisticated readers should follow.
 
 ### What looks worth watching and reading next
 
-The entertainment slate is thinner and noisier than the science slate today, so it is better to stay selective. ODEON’s April release roundup is useful mainly as a practical release-calendar check rather than as criticism, and the early push around Prime Video’s adaptation of **Off Campus** is a reminder that book-to-streaming pipelines remain one of the most reliable bridges between publishing fandom and platform television.
+The entertainment slate is thinner and noisier than the science slate today, so it is better to stay selective. ODEON's April release roundup is useful mainly as a practical release-calendar check rather than as criticism, and the early push around Prime Video's adaptation of **Off Campus** is a reminder that book-to-streaming pipelines remain one of the most reliable bridges between publishing fandom and platform television.
 
-For this issue, the right move is not to pad the section with weak trend language. The only useful takeaway is that the next week’s culture calendar is being driven more by franchise conversion and release scheduling than by any single standout critical event.
+The clearer takeaway is that the next week's culture calendar is being driven more by franchise conversion and release scheduling than by any single breakout critical event. If you are deciding what to queue up next, the practical signal is that dependable IP is still doing more of the work than surprise originals.
 
 **Link:** [Read release roundup at ODEON](https://www.odeon.co.uk/odeon-scene/upcoming-movies-new-film-releases/)
 
@@ -490,9 +490,13 @@ For this issue, the right move is not to pad the section with weak trend languag
 
 ### A practical spring destination: Gran Canaria
 
+![Gran Canaria beach](https://upload.wikimedia.org/wikipedia/commons/f/f8/Beach_-_Gran_Canaria.jpg)
+
+*Photo: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beach_-_Gran_Canaria.jpg)*
+
 If you want a destination that still offers warm weather, strong walking terrain, and enough urban life that the trip feels like more than a resort loop, Gran Canaria remains a credible late-March and early-April choice. The attraction is not novelty for its own sake. It is the density of options: beaches, volcanic terrain, mid-sized city infrastructure, and an itinerary that can be relaxed without feeling empty.
 
-That makes it a better fit for this newsletter than more performative luxury travel picks. It is concrete, seasonally sensible, and easy to justify on the basis of actual use rather than image.
+That combination makes it especially good for a short spring break: you can alternate between Las Palmas, inland viewpoints, and quieter beach stretches without spending the whole trip in transit. It is a place where mild weather and variety do most of the work.
 
 **Link:** [Read a Europe budget-destination roundup at The Times](https://www.thetimes.com/travel/destinations/europe-travel/europes-best-cheap-summer-holiday-destinations-vwlgzg0s7)
 

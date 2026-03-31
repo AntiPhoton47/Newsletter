@@ -28,11 +28,13 @@ Required workflow:
 5. Capture useful notes in `data/research_notes/YYYY-MM-DD.md`, then write the final publication-ready issue directly to `issues/daily/YYYY-MM-DD-daily-newsletter.md`.
 6. Use the March 15 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
 7. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
-8. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue.
-9. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
-10. Once the issue is publication-ready, run:
+8. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue, but replace the company lines with 2-4 notable companies chosen for that day rather than reusing a fixed set.
+9. Pick a different cool destination for `Travel` than the previous issue when possible, include a photo of the place, and make sure the image renders in the markdown and HTML preview.
+10. Keep the prose reader-facing. Do not include meta language aimed at the operator, the chat, or the drafting process inside the published issue.
+11. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
+12. Once the issue is publication-ready, run:
    `python3 scripts/newsletter_command.py publish --git-commit --git-push`
-11. If review or benchmark quality fails, improve the issue and rerun `publish`. If you cannot reach benchmark quality from the available material, stop without pushing.
+13. If review or benchmark quality fails, improve the issue and rerun `publish`. If you cannot reach benchmark quality from the available material, stop without pushing.
 
 Git requirements:
 - Push changes to the linked GitHub repository's `main` branch.

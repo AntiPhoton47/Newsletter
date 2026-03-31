@@ -127,9 +127,29 @@ YAHOO_SYMBOLS = {
     "gld.us": "GLD",
     "uso.us": "USO",
     "nvda.us": "NVDA",
+    "msft.us": "MSFT",
+    "amzn.us": "AMZN",
+    "googl.us": "GOOGL",
+    "meta.us": "META",
+    "avgo.us": "AVGO",
+    "amd.us": "AMD",
+    "mu.us": "MU",
     "tsla.us": "TSLA",
     "pltr.us": "PLTR",
-    "arm.us": "ARM"
+    "arm.us": "ARM",
+    "tsm.us": "TSM",
+    "asml.us": "ASML",
+    "now.us": "NOW",
+    "crwd.us": "CRWD",
+    "snow.us": "SNOW",
+    "uber.us": "UBER",
+    "hood.us": "HOOD",
+    "rddt.us": "RDDT",
+    "rtx.us": "RTX",
+    "ba.us": "BA",
+    "ge.us": "GE",
+    "cat.us": "CAT",
+    "xom.us": "XOM",
 }
 
 PUBLISHER_URLS = {
@@ -178,7 +198,7 @@ PUBLISHER_URLS = {
 }
 
 FRED_SERIES_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
-MARKET_TICKERS = [
+CORE_MARKET_TICKERS = [
     ("S&P 500 (SPY)", "spy.us"),
     ("NASDAQ-100 (QQQ)", "qqq.us"),
     ("DOW (DIA)", "dia.us"),
@@ -191,11 +211,34 @@ MARKET_TICKERS = [
     ("Ethereum", "ethusd"),
     ("Gold (GLD)", "gld.us"),
     ("Oil proxy (USO)", "uso.us"),
+]
+COMPANY_MOVER_POOL = [
     ("NVIDIA (NVDA)", "nvda.us"),
+    ("Microsoft (MSFT)", "msft.us"),
+    ("Amazon (AMZN)", "amzn.us"),
+    ("Alphabet (GOOGL)", "googl.us"),
+    ("Meta (META)", "meta.us"),
+    ("Broadcom (AVGO)", "avgo.us"),
+    ("AMD (AMD)", "amd.us"),
+    ("Micron (MU)", "mu.us"),
     ("Tesla (TSLA)", "tsla.us"),
     ("Palantir (PLTR)", "pltr.us"),
     ("ARM Holdings (ARM)", "arm.us"),
+    ("Taiwan Semiconductor (TSM)", "tsm.us"),
+    ("ASML (ASML)", "asml.us"),
+    ("ServiceNow (NOW)", "now.us"),
+    ("CrowdStrike (CRWD)", "crwd.us"),
+    ("Snowflake (SNOW)", "snow.us"),
+    ("Uber (UBER)", "uber.us"),
+    ("Robinhood (HOOD)", "hood.us"),
+    ("Reddit (RDDT)", "rddt.us"),
+    ("RTX (RTX)", "rtx.us"),
+    ("Boeing (BA)", "ba.us"),
+    ("GE Aerospace (GE)", "ge.us"),
+    ("Caterpillar (CAT)", "cat.us"),
+    ("Exxon Mobil (XOM)", "xom.us"),
 ]
+MARKET_TICKERS = [*CORE_MARKET_TICKERS, *COMPANY_MOVER_POOL]
 
 
 def fetch_yahoo_quote(symbol: str) -> tuple[str, str]:
@@ -216,6 +259,50 @@ def fetch_yahoo_quote(symbol: str) -> tuple[str, str]:
         return (f"{close_v:.2f}", f"{direction} {abs(move):.2f}%")
     except Exception:
         return ("data unavailable", "live quote unavailable")
+
+
+def parse_move_percent(move: str) -> float | None:
+    match = re.search(r"([0-9]+(?:\.[0-9]+)?)%", move)
+    if not match:
+        return None
+    return float(match.group(1))
+
+
+def select_company_movers(
+    allow_placeholders: bool = True,
+    min_count: int = 2,
+    max_count: int = 4,
+) -> tuple[list[tuple[str, str, str]], list[str]]:
+    movers: list[tuple[str, str, str, float]] = []
+    failures: list[str] = []
+
+    for label, symbol in COMPANY_MOVER_POOL:
+        price, move = fetch_yahoo_quote(symbol)
+        move_pct = parse_move_percent(move)
+        if price == "data unavailable" or move == "live quote unavailable" or move_pct is None:
+            failures.append(label)
+            continue
+        movers.append((label, price, move, move_pct))
+
+    movers.sort(key=lambda item: (item[3], item[0]), reverse=True)
+    notable = [item for item in movers if item[3] >= 1.5]
+    if len(notable) >= min_count:
+        selected = notable[:max_count]
+    else:
+        selected = movers[: max(min_count, min(max_count, len(movers)))]
+
+    selected_labels = {label for label, _, _, _ in selected}
+    rendered = [(label, price, move) for label, price, move, _ in selected]
+
+    if allow_placeholders and len(rendered) < min_count:
+        for label, _symbol in COMPANY_MOVER_POOL:
+            if label in selected_labels:
+                continue
+            rendered.append((label, "data unavailable", "live quote unavailable"))
+            if len(rendered) >= min_count:
+                break
+
+    return rendered[:max_count], failures
 
 
 def fetch_fred_rows(series_id: str) -> list[tuple[str, str]]:
@@ -329,13 +416,17 @@ def build_markets_section(allow_placeholders: bool = True) -> tuple[list[str], d
         "macro": [],
     }
     lines = ["## Markets & Economy", ""]
-    for label, symbol in MARKET_TICKERS:
+    for label, symbol in CORE_MARKET_TICKERS:
         price, move = fetch_yahoo_quote(symbol)
         available = price != "data unavailable" and move != "live quote unavailable"
         if not available:
             failures["quotes"].append(label)
             if not allow_placeholders:
                 continue
+        lines.append(f"- **{label}:** {price}, {move}.")
+    company_movers, company_failures = select_company_movers(allow_placeholders=allow_placeholders)
+    failures["quotes"].extend(company_failures)
+    for label, price, move in company_movers:
         lines.append(f"- **{label}:** {price}, {move}.")
     macro_lines, macro_failures = build_macro_lines(allow_placeholders=allow_placeholders)
     failures["macro"].extend(macro_failures)
@@ -435,11 +526,15 @@ def build_travel_section(entries: list[dict]) -> list[str]:
         publisher = entry.get("publisher", "")
         source = source_label(entry.get("link", ""), publisher)
         link = preferred_link(entry.get("link", ""), publisher)
+        image_url = entry.get("image_url", "").strip()
+        if image_url:
+            lines.append(f"![{title}]({image_url})")
+            lines.append("")
         lines.append(f"**{title}**")
         lines.append("")
         lines.append(f"{summary}" + (f" [Source: {source}]({link})" if link else ""))
     else:
-        lines.append("**Add destination manually.** [Source](https://example.com)")
+        lines.append("A destination candidate was not available today.")
     lines.append("")
     return lines
 

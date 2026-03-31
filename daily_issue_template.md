@@ -40,10 +40,10 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 - **Ethereum:** value, move.
 - **Gold (GLD):** value, move.
 - **Oil proxy (USO):** value, move.
-- **Company mover 1:** value, move.
-- **Company mover 2:** value, move.
-- **Company mover 3:** value, move.
-- **Company mover 4:** value, move.
+- **Notable company mover 1:** value, move.
+- **Notable company mover 2:** value, move.
+- **Notable company mover 3:** value, move.
+- **Notable company mover 4:** value, move.
 - **US CPI:** short summary. Source: [Source label](https://example.com)
 - **US labor market:** short summary. Source: [Source label](https://example.com)
 - **Euro area inflation:** short summary. Source: [Source label](https://example.com)
@@ -55,6 +55,7 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 ### Upcoming Investment Opportunities
 
 Write 1-2 short paragraphs naming actual companies or sectors worth watching, with a brief rationale. Keep it analytical and avoid explicit financial advice language.
+Choose 2-4 notable company movers for the issue rather than reusing a fixed list.
 
 ## Need To Know
 
@@ -436,6 +437,8 @@ Write 1 paragraph.
 
 ## Entertainment
 
+Keep this section concrete and reader-facing. Do not write meta commentary about the drafting process or about what is not being included.
+
 ### Movies
 
 - **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
@@ -467,7 +470,7 @@ Write 1 paragraph.
 
 ![Alt text for destination image](https://example.com/image.jpg)
 
-**Destination name** in one short paragraph. [Source](https://example.com)
+Choose a destination that is different from the previous issue when possible. Include one image and one short paragraph that explains why it is worth considering right now. [Source](https://example.com)
 
 ## Idea Of The Day
 

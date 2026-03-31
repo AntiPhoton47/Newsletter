@@ -100,6 +100,9 @@ When drafting:
 - keep source lines explicit and labeled
 - avoid raw URLs in body copy
 - keep short takes concise and source-backed
+- choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
+- give `Travel` a different destination from the previous issue when possible and include one image
+- keep issue prose reader-facing and avoid meta comments about the writing process
 
 ## 6. Verify Section Quality
 
@@ -109,6 +112,7 @@ Before rendering, confirm:
 - short takes do not duplicate the main stories in the same section
 - the section order still feels coherent
 - entertainment and travel remain concise and current
+- travel includes an image that renders correctly
 - the issue still feels curated rather than merely exhaustive
 
 ## 7. Render Preview

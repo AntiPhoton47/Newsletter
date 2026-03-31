@@ -169,6 +169,10 @@ def extract_meta_content(page_html: str, field: str) -> str:
             r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)["\']',
             r"<title>([^<]+)</title>",
         ),
+        "image": (
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
+        ),
     }
     for pattern in patterns[field]:
         match = re.search(pattern, page_html, flags=re.IGNORECASE)
@@ -266,6 +270,7 @@ def fetch_article_metadata(link: str) -> dict[str, str]:
         "resolved_link": source_url,
         "resolved_title": extract_meta_content(page_html, "title"),
         "resolved_summary": extract_meta_content(page_html, "description") or extract_first_paragraph(page_html),
+        "resolved_image": extract_meta_content(page_html, "image"),
     }
     METADATA_CACHE[link] = payload
     return payload
@@ -281,10 +286,13 @@ def enrich_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
         metadata = fetch_article_metadata(link)
         resolved_link = metadata.get("resolved_link", "").strip()
         resolved_summary = metadata.get("resolved_summary", "").strip()
+        resolved_image = metadata.get("resolved_image", "").strip()
         if resolved_link:
             entry["link"] = resolved_link
         if resolved_summary:
             entry["summary"] = resolved_summary
+        if resolved_image:
+            entry["image_url"] = resolved_image
     return entries
 
 
