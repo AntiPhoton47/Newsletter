@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -17,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCES_PATH = ROOT / "sources.md"
 SECTION_QUERIES_PATH = ROOT / "config" / "section_queries.json"
 TEMPLATE_PATH = ROOT / "daily_issue_template.md"
-BENCHMARK_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
+DEFAULT_PROFILE_PATH = ROOT / "config" / "newsletter_profile.json"
 CANDIDATES_DIR = ROOT / "data" / "candidates"
 PACKETS_DIR = ROOT / "data" / "editorial_packets"
 NOTES_DIR = ROOT / "data" / "research_notes"
@@ -30,6 +31,19 @@ def display_date(issue_date: dt.date) -> str:
 
 def issue_path_for(issue_date: dt.date) -> Path:
     return ISSUES_DIR / f"{issue_date.isoformat()}-daily-newsletter.md"
+
+
+def benchmark_path() -> Path:
+    profile_path = Path(os.environ.get("NEWSLETTER_EDITORIAL_PROFILE_PATH", str(DEFAULT_PROFILE_PATH))).expanduser()
+    if profile_path.exists():
+        try:
+            payload = json.loads(profile_path.read_text(encoding="utf-8"))
+            benchmark_rel = payload.get("quality_policy", {}).get("benchmark_issue")
+            if benchmark_rel:
+                return (ROOT / str(benchmark_rel)).resolve()
+        except Exception:
+            pass
+    return ROOT / "issues" / "daily" / "2026-04-01-daily-newsletter.md"
 
 
 def parse_sources_by_section(text: str) -> dict[str, list[str]]:
@@ -152,13 +166,14 @@ def build_packet_markdown(
     scaffold_path: Path,
     notes_path: Path,
 ) -> str:
+    current_benchmark_path = benchmark_path()
     lines = [
         "# Frontier Threads Editorial Packet",
         "",
         f"- Date: `{issue_date.isoformat()}`",
         f"- Display date: `{display_date(issue_date)}`",
         f"- Issue path: `{issue_path_for(issue_date)}`",
-        f"- Benchmark issue: `{BENCHMARK_PATH}`",
+        f"- Benchmark issue: `{current_benchmark_path}`",
         f"- Issue scaffold: `{scaffold_path}`",
         f"- Research notes scaffold: `{notes_path}`",
         f"- Publish command: `python3 scripts/newsletter_command.py publish --date {issue_date.isoformat()} --git-commit --git-push`",
@@ -177,7 +192,7 @@ def build_packet_markdown(
         "- `sources.md`",
         "- `story_scorecard.md`",
         "- `config/newsletter_profile.json`",
-        f"- `{BENCHMARK_PATH.relative_to(ROOT)}`",
+        f"- `{current_benchmark_path.relative_to(ROOT)}`",
         "",
         "## Run Instructions",
         "",
@@ -240,7 +255,8 @@ def main() -> None:
     sources_by_section = parse_sources_by_section(SOURCES_PATH.read_text(encoding="utf-8"))
     section_queries = json.loads(SECTION_QUERIES_PATH.read_text(encoding="utf-8"))
     candidate_snapshot = load_candidate_snapshot(issue_date)
-    benchmark = benchmark_stats(BENCHMARK_PATH.read_text(encoding="utf-8"))
+    current_benchmark_path = benchmark_path()
+    benchmark = benchmark_stats(current_benchmark_path.read_text(encoding="utf-8"))
 
     PACKETS_DIR.mkdir(parents=True, exist_ok=True)
     NOTES_DIR.mkdir(parents=True, exist_ok=True)
@@ -273,7 +289,7 @@ def main() -> None:
                 "date": issue_date.isoformat(),
                 "display_date": display_date(issue_date),
                 "issue_path": str(issue_path_for(issue_date)),
-                "benchmark_issue": str(BENCHMARK_PATH),
+                "benchmark_issue": str(current_benchmark_path),
                 "scaffold_path": str(scaffold_path),
                 "notes_path": str(notes_path),
                 "publish_command": f"python3 scripts/newsletter_command.py publish --date {issue_date.isoformat()} --git-commit --git-push",

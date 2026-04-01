@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 from pathlib import Path
 
 from issue_clock import resolve_issue_date
@@ -17,14 +18,38 @@ ISSUES_DIR = ROOT / "issues" / "daily"
 REPORTS_DIR = ROOT / "data" / "ai_reviews"
 SELECTION_CRITERIA_PATH = ROOT / "selection_criteria.md"
 SOURCES_PATH = ROOT / "sources.md"
-BENCHMARK_ISSUE_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
+DEFAULT_PROFILE_PATH = ROOT / "config" / "newsletter_profile.json"
 
 
 def issue_path_for(issue_date: dt.date) -> Path:
     return ISSUES_DIR / f"{issue_date.isoformat()}-daily-newsletter.md"
 
 
-def build_prompt(issue_date: dt.date, issue_text: str, selection_criteria: str, sources_text: str, benchmark_issue: str) -> str:
+def format_display_date(issue_date: dt.date) -> str:
+    return issue_date.strftime("%B %d, %Y").replace(" 0", " ")
+
+
+def benchmark_issue_path() -> Path:
+    profile_path = Path(os.environ.get("NEWSLETTER_EDITORIAL_PROFILE_PATH", str(DEFAULT_PROFILE_PATH))).expanduser()
+    if profile_path.exists():
+        try:
+            payload = json.loads(profile_path.read_text(encoding="utf-8"))
+            benchmark_rel = payload.get("quality_policy", {}).get("benchmark_issue")
+            if benchmark_rel:
+                return (ROOT / str(benchmark_rel)).resolve()
+        except Exception:
+            pass
+    return ROOT / "issues" / "daily" / "2026-04-01-daily-newsletter.md"
+
+
+def build_prompt(
+    issue_date: dt.date,
+    issue_text: str,
+    selection_criteria: str,
+    sources_text: str,
+    benchmark_issue: str,
+    benchmark_label: str,
+) -> str:
     return f"""You are the release editor for Frontier Threads, a daily science, technology, world affairs, and ideas newsletter.
 
 Review the following newsletter draft for publication readiness.
@@ -37,7 +62,7 @@ Evaluate on:
 - internal consistency
 - tone neutrality and avoidance of unnecessary political or social bias
 - whether this is good enough for the user to wake up and read without manual cleanup
-- whether the level of detail, explanatory substance, and editorial polish is at least on par with the benchmark March 15, 2026 issue
+- whether the level of detail, explanatory substance, and editorial polish is at least on par with the benchmark {benchmark_label} issue
 
 Scoring:
 - overall_score: integer 0-100
@@ -181,9 +206,15 @@ def main() -> None:
     issue_text = issue_path.read_text(encoding="utf-8")
     selection_criteria = SELECTION_CRITERIA_PATH.read_text(encoding="utf-8")
     sources_text = SOURCES_PATH.read_text(encoding="utf-8")
-    benchmark_issue = BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8") if BENCHMARK_ISSUE_PATH.exists() else ""
+    benchmark_path = benchmark_issue_path()
+    benchmark_issue = benchmark_path.read_text(encoding="utf-8") if benchmark_path.exists() else ""
+    benchmark_label = (
+        format_display_date(dt.date.fromisoformat(benchmark_path.stem.replace("-daily-newsletter", "")))
+        if benchmark_path.exists()
+        else "configured benchmark"
+    )
     if ai_enabled():
-        prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text, benchmark_issue)
+        prompt = build_prompt(issue_date, issue_text, selection_criteria, sources_text, benchmark_issue, benchmark_label)
         raw_report = call_openai_json(prompt, review_model())
         report = validate_report(raw_report)
         report["date"] = issue_date.isoformat()

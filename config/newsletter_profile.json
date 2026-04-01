@@ -18,7 +18,7 @@
     "Keep Quick Hits concise and representative of the strongest sections.",
     "Keep markets authoritative and data-backed.",
     "Keep links labeled and avoid raw URLs in prose.",
-    "Target at least the explanatory depth and editorial polish of the March 15, 2026 benchmark issue."
+    "Target at least the explanatory depth and editorial polish of the April 1, 2026 benchmark issue."
   ],
   "timezone": "Europe/Oslo",
   "automation_defaults": {
@@ -30,6 +30,6 @@
   "quality_policy": {
     "require_ai": true,
     "minimum_review_score": 90,
-    "benchmark_issue": "issues/daily/2026-03-15-daily-newsletter.md"
+    "benchmark_issue": "issues/daily/2026-04-01-daily-newsletter.md"
   }
 }

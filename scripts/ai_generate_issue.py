@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import json
 import os
 import re
@@ -18,7 +19,6 @@ CANDIDATES_DIR = ROOT / "data" / "candidates"
 SELECTION_CRITERIA_PATH = ROOT / "selection_criteria.md"
 AI_DRAFTS_DIR = ROOT / "data" / "ai_drafts"
 DEFAULT_PROFILE_PATH = ROOT / "config" / "newsletter_profile.json"
-BENCHMARK_ISSUE_PATH = ROOT / "issues" / "daily" / "2026-03-15-daily-newsletter.md"
 
 REQUIRED_HEADINGS = [
     "## Quick Hits",
@@ -96,15 +96,34 @@ def load_editorial_profile() -> str:
     return json.dumps(payload, indent=2)
 
 
-def load_benchmark_issue() -> str:
-    if not BENCHMARK_ISSUE_PATH.exists():
-        return ""
-    return BENCHMARK_ISSUE_PATH.read_text(encoding="utf-8")
+def benchmark_issue_path() -> Path:
+    path = Path(os.environ.get("NEWSLETTER_EDITORIAL_PROFILE_PATH", str(DEFAULT_PROFILE_PATH))).expanduser()
+    if path.exists():
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            benchmark_rel = payload.get("quality_policy", {}).get("benchmark_issue")
+            if benchmark_rel:
+                return (ROOT / str(benchmark_rel)).resolve()
+        except Exception:
+            pass
+    return ROOT / "issues" / "daily" / "2026-04-01-daily-newsletter.md"
+
+
+def format_display_date(issue_date: dt.date) -> str:
+    return issue_date.strftime("%B %d, %Y").replace(" 0", " ")
+
+
+def load_benchmark_issue() -> tuple[str, str]:
+    path = benchmark_issue_path()
+    if not path.exists():
+        return ("", "configured benchmark")
+    issue_date = dt.date.fromisoformat(path.stem.replace("-daily-newsletter", ""))
+    return (path.read_text(encoding="utf-8"), format_display_date(issue_date))
 
 
 def build_prompt(issue_date: dt.date, current_draft: str, candidates: dict, selection_criteria: str) -> str:
     editorial_profile = load_editorial_profile()
-    benchmark_issue = load_benchmark_issue()
+    benchmark_issue, benchmark_label = load_benchmark_issue()
     return f"""You are the final editorial pass for a daily email newsletter called Frontier Threads.
 
 Goal:
@@ -138,7 +157,7 @@ Selection rubric:
 Editorial profile:
 {editorial_profile or "Use the current Frontier Threads defaults."}
 
-Benchmark issue to match or beat in detail and quality:
+Benchmark issue to match or beat in detail and quality ({benchmark_label}):
 {benchmark_issue or "Benchmark issue unavailable."}
 
 Candidate pool:

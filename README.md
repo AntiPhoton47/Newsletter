@@ -44,7 +44,7 @@ This folder contains a local daily newsletter pipeline:
 
 1. Copy `.env.example` to `.env`.
 2. Fill in your SMTP settings and recipient email.
-3. Recommended default: fill in `NEWSLETTER_AI_API_TOKEN` and keep the AI settings enabled. The project is now tuned for a fail-closed, AI-required workflow if you want output at or above the March 15, 2026 benchmark issue quality.
+3. Recommended default: fill in `NEWSLETTER_AI_API_TOKEN` and keep the AI settings enabled. The project is now tuned for a fail-closed, AI-required workflow if you want output at or above the April 1, 2026 benchmark issue quality.
 4. Fetch candidates and generate an issue:
 
 ```bash
@@ -152,7 +152,7 @@ That means your phone interaction can be as small as:
 If you want Codex Desktop Automations to drive the repo directly instead of relying only on GitHub Actions, use the prompt in [config/codex_daily_automation_prompt.md](/Users/munga/PycharmProjects/Newsletter/config/codex_daily_automation_prompt.md).
 
 That prompt tells Codex to:
-- use the March 15 benchmark and the repo templates as hard references
+- use the April 1 benchmark and the repo templates as hard references
 - start each run with `python3 scripts/newsletter_command.py prepare`
 - use the generated editorial packet plus the approved source list for source-first research
 - write the final issue directly rather than trusting the baseline draft blindly

@@ -4,10 +4,10 @@ Work in `/Users/munga/PycharmProjects/Newsletter`.
 
 This task runs in Codex cloud against the linked GitHub repository for this project.
 
-Your job is to produce today's `Frontier Threads` issue, rebuild the site artifacts, and push the result directly to `main` only if the issue meets the March 15, 2026 quality bar.
+Your job is to produce today's `Frontier Threads` issue, rebuild the site artifacts, and push the result directly to `main` only if the issue meets the April 1, 2026 quality bar.
 
 Use these repo references before changing anything:
-- `issues/daily/2026-03-15-daily-newsletter.md` as the benchmark issue
+- `issues/daily/2026-04-01-daily-newsletter.md` as the benchmark issue
 - `daily_workflow.md`
 - `daily_issue_template.md`
 - `selection_criteria.md`
@@ -23,10 +23,10 @@ Required workflow:
    - `data/editorial_packets/YYYY-MM-DD.json`
    - `data/editorial_packets/YYYY-MM-DD-issue-scaffold.md`
    - `data/research_notes/YYYY-MM-DD.md`
-3. Use the packet, `sources.md`, `selection_criteria.md`, `daily_workflow.md`, `daily_issue_template.md`, and the March 15 benchmark as the editorial operating system for the run.
+3. Use the packet, `sources.md`, `selection_criteria.md`, `daily_workflow.md`, `daily_issue_template.md`, and the April 1 benchmark as the editorial operating system for the run.
 4. Search the listed sources directly on the web. Prefer underlying publisher and institution pages over Google wrapper pages, and use the candidate snapshot only as a discovery aid rather than the final source of truth.
 5. Capture useful notes in `data/research_notes/YYYY-MM-DD.md`, then write the final publication-ready issue directly to `issues/daily/YYYY-MM-DD-daily-newsletter.md`.
-6. Use the March 15 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
+6. Use the April 1 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
 7. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
 8. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue, but replace the company lines with 2-4 notable companies chosen for that day rather than reusing a fixed set.
 9. Pick a different cool destination for `Travel` than the previous issue when possible, include a photo of the place, and make sure the image renders in the markdown and HTML preview.
@@ -44,7 +44,7 @@ Git requirements:
 Definition of done:
 - today's issue exists in `issues/daily/YYYY-MM-DD-daily-newsletter.md`
 - the HTML preview and Jekyll site artifacts are refreshed
-- the final issue is at least as coherent and useful as the March 15 benchmark
+- the final issue is at least as coherent and useful as the April 1 benchmark
 - changes are committed and pushed to `main`
 
 Failure policy:
