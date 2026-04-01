@@ -31,6 +31,9 @@ MIN_TOTAL_ENTRIES = 30
 MAX_FAILED_QUERIES = 3
 MIN_AVAILABLE_QUOTES = 12
 MIN_AVAILABLE_MACRO_LINES = 4
+RESCUE_MIN_NON_OPTIONAL_SECTIONS_WITH_ENTRIES = 5
+RESCUE_MIN_TOTAL_ENTRIES = 12
+RESCUE_MIN_CORE_SECTIONS_WITH_ENTRIES = 3
 
 
 def issue_path_for(issue_date: dt.date) -> Path:
@@ -82,8 +85,11 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
 
     findings: list[str] = []
     core_gaps: list[str] = []
+    populated_core_sections = 0
     for section, minimum in CORE_SECTION_MINIMUMS.items():
         actual = section_entry_counts.get(section, 0)
+        if actual > 0:
+            populated_core_sections += 1
         if actual < minimum:
             core_gaps.append(f"{section} ({actual}/{minimum})")
     if core_gaps:
@@ -97,14 +103,28 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
     if len(failed_queries) > MAX_FAILED_QUERIES:
         findings.append(f"Too many failed source queries: {len(failed_queries)}/{MAX_FAILED_QUERIES}")
 
+    rescue_ready = (
+        sections_with_entries >= RESCUE_MIN_NON_OPTIONAL_SECTIONS_WITH_ENTRIES
+        and total_entries >= RESCUE_MIN_TOTAL_ENTRIES
+        and populated_core_sections >= RESCUE_MIN_CORE_SECTIONS_WITH_ENTRIES
+    )
+    hard_fail = not rescue_ready and (
+        total_entries == 0
+        or sections_with_entries < 3
+        or populated_core_sections < 2
+    )
+
     return {
         "passed": len(findings) == 0,
         "findings": findings,
         "section_entry_counts": section_entry_counts,
         "total_entries": total_entries,
         "sections_with_entries": sections_with_entries,
+        "populated_core_sections": populated_core_sections,
         "failed_queries": failed_queries,
         "empty_queries": empty_queries,
+        "rescue_ready": rescue_ready,
+        "hard_fail": hard_fail,
     }
 
 
@@ -117,7 +137,7 @@ def summarize_market_health() -> dict[str, object]:
         if price == "data unavailable" or move == "live quote unavailable":
             quote_failures.append(label)
 
-    _, macro_failures = build_macro_lines(allow_placeholders=False)
+    _, macro_failures, _ = build_macro_lines(allow_placeholders=False)
     available_quotes = len(MARKET_TICKERS) - len(quote_failures)
     available_macro_lines = 5 - len(macro_failures)
 
@@ -213,13 +233,19 @@ def main() -> None:
     market_report = summarize_market_health()
     findings = [*candidate_report["findings"], *market_report["findings"]]
 
-    if findings:
+    if findings and not candidate_report["rescue_ready"]:
         cleanup_placeholder_artifacts(issue_date)
         write_failure_reports(issue_date, findings, candidate_report, market_report)
         print(f"Preflight failed for {issue_date.isoformat()}")
         for finding in findings:
             print(f"- {finding}")
         raise SystemExit(1)
+
+    if findings:
+        print(f"Preflight warnings for {issue_date.isoformat()} (continuing in rescue mode)")
+        for finding in findings:
+            print(f"- {finding}")
+        return
 
     print(f"Preflight passed for {issue_date.isoformat()}")
 

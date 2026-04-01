@@ -101,7 +101,7 @@ def benchmark_stats(text: str) -> dict[str, object]:
 def build_scaffold(issue_date: dt.date) -> str:
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
     template = template.replace("## YYYY-MM-DD", f"## {display_date(issue_date)}", 1)
-    markets_section, _ = build_markets_section()
+    markets_section, _ = build_markets_section(issue_date)
     rendered_markets = "\n".join(markets_section).strip()
     template = re.sub(
         r"(?ms)^## Markets & Economy\n.*?(?=^## |\Z)",

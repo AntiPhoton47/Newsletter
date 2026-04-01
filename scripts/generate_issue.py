@@ -68,10 +68,36 @@ DEFAULT_SECTION_COUNTS = {
     "Idea Of The Day": (0, 0),
 }
 
+RESCUE_SECTION_FALLBACKS = {
+    "Need To Know": ["Research Watch", "AI", "Technology", "Engineering", "Mathematics"],
+    "Research Watch": ["Need To Know", "AI", "Technology", "Engineering", "Mathematics", "Biology"],
+    "World News": ["Technology", "Engineering", "Markets & Economy"],
+    "Philosophy": ["AI", "Need To Know", "Research Watch", "Mathematics"],
+    "Biology": ["Health and Medicine", "Psychology and Neuroscience", "Research Watch"],
+    "Psychology and Neuroscience": ["Health and Medicine", "Biology", "Research Watch"],
+    "Health and Medicine": ["Biology", "Psychology and Neuroscience", "Research Watch"],
+    "Sociology and Anthropology": ["World News", "AI", "Philosophy"],
+    "Technology": ["Engineering", "AI", "Tools You Can Use", "Research Watch"],
+    "Robotics": ["AI", "Engineering", "Technology"],
+    "AI": ["Tools You Can Use", "Technology", "Research Watch", "Robotics"],
+    "Engineering": ["Technology", "Research Watch", "Robotics"],
+    "Mathematics": ["Research Watch", "Philosophy", "AI"],
+    "Historical Discoveries": ["Archaeology", "World News"],
+    "Archaeology": ["Historical Discoveries", "Biology"],
+    "Tools You Can Use": ["AI", "Technology", "Research Watch"],
+}
+
 
 def load_candidates(issue_date: dt.date) -> dict:
     path = CANDIDATES_DIR / f"{issue_date.isoformat()}.json"
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def entry_key(entry: dict) -> tuple[str, str]:
+    return (
+        clean_title(str(entry.get("title", ""))),
+        str(entry.get("publisher", "")).strip(),
+    )
 
 
 def clean_title(title: str) -> str:
@@ -732,6 +758,38 @@ def build_main_entry(entry: dict) -> list[str]:
     ]
 
 
+def collect_candidate_pool(
+    section: str,
+    sections: dict[str, list[dict]],
+    used_keys: set[tuple[str, str]],
+    *,
+    include_self: bool = True,
+    limit: int = 6,
+) -> list[dict]:
+    ordered_sections: list[str] = []
+    if include_self:
+        ordered_sections.append(section)
+    ordered_sections.extend(RESCUE_SECTION_FALLBACKS.get(section, []))
+    ordered_sections.extend(
+        candidate_section
+        for candidate_section in SECTION_ORDER
+        if candidate_section not in ordered_sections and candidate_section not in {"Markets & Economy"}
+    )
+
+    pool: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for candidate_section in ordered_sections:
+        for entry in sections.get(candidate_section, []):
+            key = entry_key(entry)
+            if not key[0] or key in seen or key in used_keys:
+                continue
+            seen.add(key)
+            pool.append(entry)
+            if len(pool) >= limit:
+                return pool
+    return pool
+
+
 def build_short_takes(entries: list[dict]) -> list[str]:
     if not entries:
         return []
@@ -749,39 +807,74 @@ def build_short_takes(entries: list[dict]) -> list[str]:
     return lines
 
 
-def build_generic_section(section: str, entries: list[dict]) -> list[str]:
+def build_generic_section(
+    section: str,
+    entries: list[dict],
+    *,
+    sections: dict[str, list[dict]] | None = None,
+    used_keys: set[tuple[str, str]] | None = None,
+) -> list[str]:
     lines = [f"## {section}", ""]
-    if not entries:
+    local_used_keys = used_keys if used_keys is not None else set()
+    available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
+    if not available_entries and sections is not None:
+        available_entries = collect_candidate_pool(section, sections, local_used_keys, include_self=False)
+    if not available_entries:
         lines.append("Insufficient sourced material for this section today.")
         lines.append("")
         return lines
     main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
-    main_entries = entries[:main_count]
+    main_entries = available_entries[:main_count]
     enrich_entries(main_entries)
-    short_entries = entries[main_count: main_count + short_count]
+    short_entries = available_entries[main_count: main_count + short_count]
+    for entry in [*main_entries, *short_entries]:
+        local_used_keys.add(entry_key(entry))
     for entry in main_entries:
         lines.extend(build_main_entry(entry))
     lines.extend(build_short_takes(short_entries))
     return lines
 
 
-def build_entertainment_section(entries: list[dict]) -> list[str]:
+def build_entertainment_section(
+    entries: list[dict],
+    *,
+    sections: dict[str, list[dict]] | None = None,
+    used_keys: set[tuple[str, str]] | None = None,
+) -> list[str]:
     lines = ["## Entertainment", ""]
-    if not entries:
+    local_used_keys = used_keys if used_keys is not None else set()
+    available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
+    if not available_entries and sections is not None:
+        available_entries = collect_candidate_pool("Entertainment", sections, local_used_keys, include_self=False, limit=3)
+    if not available_entries:
         lines.append("Insufficient sourced material for this section today.")
         lines.append("")
         return lines
 
-    main_entry = entries[0]
+    main_entry = available_entries[0]
+    local_used_keys.add(entry_key(main_entry))
     lines.extend(build_main_entry(main_entry))
-    lines.extend(build_short_takes(entries[1:4]))
+    short_entries = available_entries[1:4]
+    for entry in short_entries:
+        local_used_keys.add(entry_key(entry))
+    lines.extend(build_short_takes(short_entries))
     return lines
 
 
-def build_travel_section(entries: list[dict]) -> list[str]:
+def build_travel_section(
+    entries: list[dict],
+    *,
+    sections: dict[str, list[dict]] | None = None,
+    used_keys: set[tuple[str, str]] | None = None,
+) -> list[str]:
     lines = ["## Travel", ""]
-    if entries:
-        entry = entries[0]
+    local_used_keys = used_keys if used_keys is not None else set()
+    available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
+    if not available_entries and sections is not None:
+        available_entries = collect_candidate_pool("Travel", sections, local_used_keys, include_self=False, limit=1)
+    if available_entries:
+        entry = available_entries[0]
+        local_used_keys.add(entry_key(entry))
         enrich_entries([entry])
         title = clean_title(entry["title"])
         lines.append(f"### {title}")
@@ -803,10 +896,20 @@ def build_travel_section(entries: list[dict]) -> list[str]:
     return lines
 
 
-def build_idea_section(entries: list[dict]) -> list[str]:
+def build_idea_section(
+    entries: list[dict],
+    *,
+    sections: dict[str, list[dict]] | None = None,
+    used_keys: set[tuple[str, str]] | None = None,
+) -> list[str]:
     lines = ["## Idea Of The Day", ""]
-    if entries:
-        entry = entries[0]
+    local_used_keys = used_keys if used_keys is not None else set()
+    available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
+    if not available_entries and sections is not None:
+        available_entries = collect_candidate_pool("Idea Of The Day", sections, local_used_keys, include_self=False, limit=1)
+    if available_entries:
+        entry = available_entries[0]
+        local_used_keys.add(entry_key(entry))
         enrich_entries([entry])
         title = clean_title(entry["title"])
         lines.append(f"### {title}")
@@ -840,6 +943,12 @@ def build_overview(sections: dict[str, list[dict]]) -> list[str]:
         for section in ("Need To Know", "Research Watch", "World News", "Technology", "AI", "Tools You Can Use")
         if sections.get(section)
     ][:3]
+    if not highlighted_sections:
+        highlighted_sections = [
+            section
+            for section in SECTION_ORDER[1:]
+            if section in sections and sections.get(section)
+        ][:3]
     if not highlighted_sections:
         return ["Today's issue depends on stronger sourced material before a useful thematic overview can be written."]
 
@@ -885,17 +994,18 @@ def main() -> None:
     lines.extend(build_quick_hits(sections))
     market_lines, _ = build_markets_section(issue_date)
     lines.extend(market_lines)
+    used_keys: set[tuple[str, str]] = set()
 
     for section in SECTION_ORDER[1:]:
         entries = sections.get(section, [])
         if section == "Entertainment":
-            lines.extend(build_entertainment_section(entries))
+            lines.extend(build_entertainment_section(entries, sections=sections, used_keys=used_keys))
         elif section == "Travel":
-            lines.extend(build_travel_section(entries))
+            lines.extend(build_travel_section(entries, sections=sections, used_keys=used_keys))
         elif section == "Idea Of The Day":
-            lines.extend(build_idea_section(sections.get("Research Watch", [])))
+            lines.extend(build_idea_section(sections.get("Research Watch", []), sections=sections, used_keys=used_keys))
         else:
-            lines.extend(build_generic_section(section, entries))
+            lines.extend(build_generic_section(section, entries, sections=sections, used_keys=used_keys))
 
     ISSUES_DIR.mkdir(parents=True, exist_ok=True)
     issue_path.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")

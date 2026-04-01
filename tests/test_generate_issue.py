@@ -54,6 +54,38 @@ class GenerateIssueTests(unittest.TestCase):
         self.assertIn("![Alesund, Norway](https://example.com/alesund.jpg)", rendered)
         self.assertIn("[Source: Lonely Planet](https://example.com/alesund)", rendered)
 
+    def test_build_generic_section_can_rescue_from_related_sections(self) -> None:
+        sections = {
+            "Need To Know": [],
+            "Research Watch": [
+                {
+                    "title": "Quantum networking milestone",
+                    "summary": "A research result with enough detail to sustain a short write-up.",
+                    "publisher": "Nature",
+                    "link": "https://example.com/qn",
+                }
+            ],
+            "AI": [
+                {
+                    "title": "Agent tooling improves evaluation",
+                    "summary": "Another candidate that can support a short take without placeholders.",
+                    "publisher": "GitHub",
+                    "link": "https://example.com/agents",
+                }
+            ],
+        }
+
+        lines = generate_issue.build_generic_section(
+            "Need To Know",
+            [],
+            sections=sections,
+            used_keys=set(),
+        )
+
+        rendered = "\n".join(lines)
+        self.assertIn("Quantum networking milestone", rendered)
+        self.assertNotIn("Insufficient sourced material", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()
