@@ -74,6 +74,13 @@ The following biases should be applied when choosing between otherwise comparabl
 - stories that are mostly attention-driven rather than insight-driven
 - repeated stories that add little beyond a previously covered version
 
+### Consecutive-Issue Follow-Ups
+
+- It is acceptable to revisit the same story in consecutive issues when there is a real update, a materially different angle, or a stronger explanatory frame.
+- If a story appeared recently, the new entry should add something concrete: new evidence, new numbers, a new institutional consequence, a new research result, or a meaningfully different analysis.
+- Do not rerun essentially the same write-up with only superficial wording changes.
+- When in doubt, cut the repeat item or demote it to a short take unless the new value to the reader is obvious.
+
 ## Section-Level Guidance
 
 ### Need To Know
@@ -91,6 +98,8 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Philosophy
 - Favor philosophy of science, epistemology, agency, explanation, and responsibility.
 - Prefer pieces that connect back to active scientific or technological developments.
+- Use a mix of reference works, high-quality public philosophy, and serious journals or working-paper venues when possible.
+- PhilPapers and leading philosophy journals are strong fits when they surface papers, debates, or review essays with clear conceptual payoff for this readership.
 
 ### Biology / Health and Medicine / Psychology and Neuroscience
 - Prefer mechanistic and conceptually clarifying work over broad observational claims.
@@ -128,6 +137,7 @@ Short takes must:
 - be different from the section's main entries
 - remain source-backed
 - stay concise
+- avoid repeating the same recent newsletter angle unless there is a specific new development worth flagging
 
 ## Balancing an Issue
 

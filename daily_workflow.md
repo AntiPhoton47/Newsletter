@@ -52,6 +52,7 @@ A strong issue should usually contain:
 Check for:
 
 - repetition across sections
+- repetition from the previous issue unless the repeated story has a genuinely new development or angle
 - too much dependence on one outlet
 - too much focus on one domain at the expense of the others
 
@@ -100,6 +101,7 @@ When drafting:
 - keep source lines explicit and labeled
 - avoid raw URLs in body copy
 - keep short takes concise and source-backed
+- if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
 - give `Travel` a different destination from the previous issue when possible and include one image
 - keep issue prose reader-facing and avoid meta comments about the writing process
@@ -110,6 +112,7 @@ Before rendering, confirm:
 
 - each section has a clear purpose
 - short takes do not duplicate the main stories in the same section
+- repeated stories from the last issue add a real factual or analytical increment
 - the section order still feels coherent
 - entertainment and travel remain concise and current
 - travel includes an image that renders correctly

@@ -54,6 +54,17 @@ This file tracks the current source mix used in the daily newsletter.
 - European Commission
 
 ### Philosophy
+- PhilPapers
+- Ergo
+- The Philosophers' Magazine
+- Journal of Philosophy
+- Mind
+- Nous
+- Philosophy and Phenomenological Research
+- Synthese
+- British Journal for the Philosophy of Science
+- Philosophy of Science
+- European Journal for Philosophy of Science
 - IAI TV
 - Aeon
 - Psyche
@@ -236,6 +247,15 @@ This file tracks the current source mix used in the daily newsletter.
 - eLife
 - Annals of Mathematics
 - Journal of Archaeological Science
+- Ergo
+- Journal of Philosophy
+- Mind
+- Nous
+- Philosophy and Phenomenological Research
+- Synthese
+- British Journal for the Philosophy of Science
+- Philosophy of Science
+- European Journal for Philosophy of Science
 
 ### Science and Ideas Journalism
 - Quanta Magazine
@@ -247,6 +267,11 @@ This file tracks the current source mix used in the daily newsletter.
 - Smithsonian Magazine
 - JSTOR Daily
 - IEEE Spectrum
+- The Philosophers' Magazine
+
+### Scholarly Discovery and Reference
+- PhilPapers
+- Stanford Encyclopedia of Philosophy
 
 ### Institutions and International Organizations
 - IMF
