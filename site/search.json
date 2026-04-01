@@ -25,7 +25,7 @@
     ],
     "primary_category": "AI & Computing",
     "kind": "issue",
-    "featured": false,
+    "featured": true,
     "pinned": false
   },
   {
@@ -141,7 +141,7 @@
     ],
     "primary_category": "AI & Computing",
     "kind": "issue",
-    "featured": true,
+    "featured": false,
     "pinned": false
   },
   {
