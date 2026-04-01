@@ -44,7 +44,7 @@ This folder contains a local daily newsletter pipeline:
 
 1. Copy `.env.example` to `.env`.
 2. Fill in your SMTP settings and recipient email.
-3. Recommended default: fill in `OPENAI_API_KEY` and keep the AI settings enabled. The project is now tuned for a fail-closed, AI-required workflow if you want output at or above the March 15, 2026 benchmark issue quality.
+3. Recommended default: fill in `NEWSLETTER_AI_API_TOKEN` and keep the AI settings enabled. The project is now tuned for a fail-closed, AI-required workflow if you want output at or above the March 15, 2026 benchmark issue quality.
 4. Fetch candidates and generate an issue:
 
 ```bash
@@ -111,7 +111,7 @@ The cleanest minimal-intervention setup is now GitHub-based:
 
 1. Push this project to GitHub.
 2. Add the required repository secrets:
-   - `OPENAI_API_KEY`
+   - `NEWSLETTER_AI_API_TOKEN`
    - optional SMTP secrets if you want the email sent automatically
 3. Use the workflow [generate-newsletter.yml](/Users/munga/PycharmProjects/Newsletter/.github/workflows/generate-newsletter.yml).
 
@@ -158,7 +158,7 @@ That prompt tells Codex to:
 - write the final issue directly rather than trusting the baseline draft blindly
 - run `python3 scripts/newsletter_command.py publish --git-commit --git-push` only after the issue is publication-ready
 
-This is the correct route if you want Codex itself, running in OpenAI's cloud against a linked GitHub repository, to generate the issue and push the changes without putting an `OPENAI_API_KEY` into this repo.
+This is the correct route if you want Codex itself, running in OpenAI's cloud against a linked GitHub repository, to generate the issue and push the changes without putting a provider token into this repo.
 
 The schedule for that route is created in Codex Desktop / Codex cloud, not in the GitHub workflow files in this repository.
 
@@ -184,7 +184,7 @@ The sample job runs every day at 07:30 local time. It now calls the full pipelin
 - `scripts/prepare_editorial_packet.py` turns `sources.md`, the benchmark issue, the template, and the current discovery snapshot into a dated run packet for Codex-driven source-first drafting.
 - `scripts/check_pipeline_inputs.py` now fails the pipeline before draft generation when source coverage or live market data falls below minimum thresholds, and it writes blocking review artifacts instead of letting placeholder text flow into a draft issue.
 - `scripts/generate_issue.py` produces a draft issue automatically; you can still edit the Markdown before sending.
-- `scripts/ai_generate_issue.py` upgrades that draft into a more readable issue when `OPENAI_API_KEY` is configured.
+- `scripts/ai_generate_issue.py` upgrades that draft into a more readable issue when `NEWSLETTER_AI_API_TOKEN` is configured.
 - `scripts/review_issue.py` blocks the pipeline when low-quality feed artifacts or obvious placeholders remain in the draft.
 - `scripts/ai_review_issue.py` adds an editorial release gate and can block automatic delivery if the issue is not ready.
 - `scripts/newsletter_command.py` now propagates `quality_policy` values from `config/newsletter_profile.json`, so `require_ai` and the minimum review score are actually enforced during remote runs.

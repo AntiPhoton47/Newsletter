@@ -37,7 +37,7 @@ def ai_enabled() -> bool:
     load_env_file()
     if not env_flag("NEWSLETTER_USE_AI", default=True):
         return False
-    return bool(os.environ.get("OPENAI_API_KEY"))
+    return bool(os.environ.get("NEWSLETTER_AI_API_TOKEN"))
 
 
 def require_ai() -> bool:
@@ -71,15 +71,15 @@ def review_model() -> str:
 
 def _request(url: str, payload: dict) -> dict:
     load_env_file()
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        raise RuntimeError("OPENAI_API_KEY is not set")
+    api_token = os.environ.get("NEWSLETTER_AI_API_TOKEN")
+    if not api_token:
+        raise RuntimeError("NEWSLETTER_AI_API_TOKEN is not set")
 
     request = urllib.request.Request(
         url,
         data=json.dumps(payload).encode("utf-8"),
         headers={
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {api_token}",
             "Content-Type": "application/json",
         },
         method="POST",

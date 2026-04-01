@@ -19,7 +19,7 @@
       "severity": "low",
       "section": "Automation",
       "issue": "This review artifact was produced manually because the API-based AI review layer is not configured in the local environment.",
-      "recommendation": "Set OPENAI_API_KEY for unattended runs so the automated AI review step can execute directly."
+      "recommendation": "Set NEWSLETTER_AI_API_TOKEN for unattended runs so the automated AI review step can execute directly."
     }
   ],
   "bias_assessment": "The issue stays analytical and avoids overt ideological framing; evaluative language is tied to evidence quality and workflow implications.",

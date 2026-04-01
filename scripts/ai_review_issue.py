@@ -159,7 +159,7 @@ def build_local_fallback_report(issue_date: dt.date, issue_text: str, benchmark_
         "passed": passed,
         "ready_to_send": passed,
         "overall_score": score,
-        "summary": "Local fallback review used because OPENAI_API_KEY is not configured.",
+        "summary": "Local fallback review used because the AI provider token is not configured.",
         "strengths": strengths,
         "findings": findings,
         "bias_assessment": "Local heuristic review checks structure and benchmark depth, but does not replace full model-based editorial judgment.",

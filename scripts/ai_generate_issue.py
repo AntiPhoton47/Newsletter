@@ -164,7 +164,7 @@ def main() -> None:
     args = parser.parse_args()
 
     if not ai_enabled():
-        print("AI drafting skipped: OPENAI_API_KEY or NEWSLETTER_USE_AI not set.")
+        print("AI drafting skipped: NEWSLETTER_AI_API_TOKEN or NEWSLETTER_USE_AI not set.")
         return
 
     issue_date = resolve_issue_date(args.date)

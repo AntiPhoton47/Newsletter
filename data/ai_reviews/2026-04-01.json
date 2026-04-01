@@ -2,7 +2,7 @@
   "passed": true,
   "ready_to_send": true,
   "overall_score": 90,
-  "summary": "Local fallback review used because OPENAI_API_KEY is not configured.",
+  "summary": "Local fallback review used because the AI provider token is not configured.",
   "strengths": [
     "Rule-based review passed without placeholder or feed-wrapper failures.",
     "Draft reaches most of the benchmark's explanatory length.",
