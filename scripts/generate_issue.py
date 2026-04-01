@@ -353,12 +353,89 @@ def format_day(date_str: str) -> str:
     return dt.date.fromisoformat(date_str).strftime("%b. %d, %Y")
 
 
-def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[str]]:
+INVESTMENT_THEME_LIBRARY = [
+    {
+        "id": "ai_infrastructure",
+        "mover_labels": {
+            "NVIDIA (NVDA)",
+            "Broadcom (AVGO)",
+            "Micron (MU)",
+            "AMD (AMD)",
+            "ARM Holdings (ARM)",
+            "Taiwan Semiconductor (TSM)",
+            "ASML (ASML)",
+        },
+        "watch_names": [
+            "NVIDIA",
+            "Broadcom",
+            "Micron",
+            "AMD",
+            "ARM Holdings",
+            "Taiwan Semiconductor",
+            "ASML",
+            "Vertiv",
+        ],
+    },
+    {
+        "id": "power_and_grid",
+        "mover_labels": {
+            "Caterpillar (CAT)",
+            "Exxon Mobil (XOM)",
+        },
+        "watch_names": [
+            "Quanta Services",
+            "Eaton",
+            "Vertiv",
+            "Siemens Energy",
+            "Caterpillar",
+            "Exxon Mobil",
+        ],
+    },
+    {
+        "id": "resilient_software",
+        "mover_labels": {
+            "ServiceNow (NOW)",
+            "CrowdStrike (CRWD)",
+            "Snowflake (SNOW)",
+            "Uber (UBER)",
+        },
+        "watch_names": [
+            "ServiceNow",
+            "CrowdStrike",
+            "Snowflake",
+            "Uber",
+        ],
+    },
+    {
+        "id": "aerospace_defense",
+        "mover_labels": {
+            "RTX (RTX)",
+            "Boeing (BA)",
+            "GE Aerospace (GE)",
+        },
+        "watch_names": [
+            "RTX",
+            "Boeing",
+            "GE Aerospace",
+        ],
+    },
+]
+
+
+def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[str], dict[str, float | None]]:
     lines: list[str] = []
     failures: list[str] = []
+    metrics: dict[str, float | None] = {
+        "cpi_yoy": None,
+        "unemployment": None,
+        "fed_funds": None,
+        "ten_year": None,
+        "brent": None,
+    }
 
     try:
         cpi_date, cpi_yoy = latest_fred_yoy("CPIAUCSL")
+        metrics["cpi_yoy"] = cpi_yoy
         lines.append(
             f"- **US CPI (YoY):** {cpi_yoy:.1f}% as of {format_month(cpi_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)"
         )
@@ -369,6 +446,7 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
 
     try:
         unrate_date, unrate = latest_fred_value("UNRATE")
+        metrics["unemployment"] = unrate
         lines.append(
             f"- **US unemployment rate:** {unrate:.1f}% as of {format_month(unrate_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)"
         )
@@ -379,6 +457,7 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
 
     try:
         fed_date, fed = latest_fred_value("FEDFUNDS")
+        metrics["fed_funds"] = fed
         lines.append(
             f"- **Fed funds rate:** {fed:.2f}% as of {format_month(fed_date)}. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)"
         )
@@ -389,6 +468,7 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
 
     try:
         dgs10_date, dgs10 = latest_fred_value("DGS10")
+        metrics["ten_year"] = dgs10
         lines.append(
             f"- **US 10-year Treasury:** {dgs10:.2f}% latest daily close on {format_day(dgs10_date)}. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)"
         )
@@ -399,6 +479,7 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
 
     try:
         brent_date, brent = latest_fred_value("DCOILBRENTEU")
+        metrics["brent"] = brent
         lines.append(
             f"- **Brent crude:** ${brent:.2f}/barrel latest daily print on {format_day(brent_date)}. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)"
         )
@@ -407,18 +488,205 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
         if allow_placeholders:
             lines.append("- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)")
 
-    return lines, failures
+    return lines, failures, metrics
 
 
-def build_markets_section(allow_placeholders: bool = True) -> tuple[list[str], dict[str, list[str]]]:
+def parse_numeric(value: str) -> float | None:
+    try:
+        return float(value.replace(",", ""))
+    except Exception:
+        return None
+
+
+def extract_previous_investment_section(issue_date: dt.date) -> str:
+    previous_issues = sorted(
+        path for path in ISSUES_DIR.glob("*-daily-newsletter.md")
+        if path.stem < f"{issue_date.isoformat()}-daily-newsletter"
+    )
+    if not previous_issues:
+        return ""
+    previous_text = previous_issues[-1].read_text(encoding="utf-8")
+    match = re.search(
+        r"(?ms)^### Upcoming Investment Opportunities\n(?P<body>.*?)(?=^## |\Z)",
+        previous_text,
+    )
+    return match.group("body").strip() if match else ""
+
+
+def recent_theme_mentions(theme: dict[str, object], previous_section: str) -> int:
+    text = previous_section.lower()
+    return sum(1 for name in theme["watch_names"] if str(name).lower() in text)
+
+
+def format_company_list(names: list[str]) -> str:
+    if not names:
+        return ""
+    bolded = [f"**{name}**" for name in names]
+    if len(bolded) == 1:
+        return bolded[0]
+    if len(bolded) == 2:
+        return f"{bolded[0]} and {bolded[1]}"
+    return ", ".join(bolded[:-1]) + f", and {bolded[-1]}"
+
+
+def select_investment_themes(
+    company_movers: list[tuple[str, str, str]],
+    macro_metrics: dict[str, float | None],
+    quote_snapshot: dict[str, dict[str, float | None | str]],
+    previous_section: str,
+) -> list[dict[str, object]]:
+    selected_labels = {label for label, _price, _move in company_movers}
+    oil_move = quote_snapshot.get("Oil proxy (USO)", {}).get("move_pct")
+    qqq_move = quote_snapshot.get("NASDAQ-100 (QQQ)", {}).get("move_pct")
+
+    scored: list[dict[str, object]] = []
+    for theme in INVESTMENT_THEME_LIBRARY:
+        score = sum(2 for label in theme["mover_labels"] if label in selected_labels)
+        if theme["id"] == "ai_infrastructure":
+            if (qqq_move or 0) >= 0:
+                score += 1
+        elif theme["id"] == "power_and_grid":
+            if (macro_metrics.get("brent") or 0) >= 85:
+                score += 2
+            if (oil_move or 0) >= 2:
+                score += 1
+            if (macro_metrics.get("ten_year") or 0) >= 4.0:
+                score += 1
+        elif theme["id"] == "resilient_software":
+            if (macro_metrics.get("fed_funds") or 99) <= 4.0:
+                score += 1
+            if (macro_metrics.get("unemployment") or 99) < 5.0:
+                score += 1
+        elif theme["id"] == "aerospace_defense":
+            if (macro_metrics.get("brent") or 0) >= 85:
+                score += 1
+            if (oil_move or 0) >= 2:
+                score += 1
+
+        repeated_recently = recent_theme_mentions(theme, previous_section) >= 2
+        effective_score = score - 2 if repeated_recently and score < 4 else score
+        scored.append(
+            {
+                **theme,
+                "score": score,
+                "effective_score": effective_score,
+                "repeated_recently": repeated_recently,
+            }
+        )
+
+    ranked = sorted(
+        scored,
+        key=lambda item: (int(item["effective_score"]), int(item["score"]), str(item["id"])),
+        reverse=True,
+    )
+    chosen = [item for item in ranked if int(item["effective_score"]) > 0][:2]
+    if len(chosen) < 2:
+        fallback = [item for item in ranked if item not in chosen][: 2 - len(chosen)]
+        chosen.extend(fallback)
+    return chosen
+
+
+def theme_paragraph(theme: dict[str, object]) -> str:
+    watch_names = list(theme["watch_names"])[:4]
+    companies = format_company_list(watch_names)
+    theme_id = str(theme["id"])
+
+    if theme_id == "ai_infrastructure":
+        return (
+            "AI infrastructure remains most interesting when the signal is moving deeper into the stack rather than "
+            f"staying at the flagship-model headline level. Watch {companies} for evidence on networking silicon, "
+            "HBM supply, advanced packaging, and lithography; the better thesis is about persistent bottlenecks and "
+            "pricing power, not a generic claim that AI demand is still large."
+        )
+    if theme_id == "power_and_grid":
+        return (
+            "Power, grid, and hard-infrastructure names matter when electrification and data-center build-outs start "
+            f"looking non-discretionary. Watch {companies} for signs that transmission, cooling, and power-management "
+            "budgets are being treated as enabling spend rather than optional optimization."
+        )
+    if theme_id == "resilient_software":
+        return (
+            "Rate-sensitive software is only interesting when it is tied to budgets that companies cut last. Watch "
+            f"{companies} for evidence that workflow automation, security, and operating-efficiency tools remain "
+            "mission-critical even if the market becomes less forgiving about duration."
+        )
+    return (
+        "Defense and aerospace deserve attention when geopolitical strain, fleet renewal, and long-cycle backlogs "
+        f"matter more than consumer demand. Watch {companies} for order-book quality, aftermarket resilience, and "
+        "execution discipline rather than only headline contract wins."
+    )
+
+
+def build_regime_sentence(macro_metrics: dict[str, float | None]) -> str:
+    ten_year = macro_metrics.get("ten_year")
+    brent = macro_metrics.get("brent")
+    fed_funds = macro_metrics.get("fed_funds")
+    cpi_yoy = macro_metrics.get("cpi_yoy")
+
+    fragments: list[str] = []
+    if ten_year is not None:
+        fragments.append(f"the 10-year Treasury is still around {ten_year:.2f}%")
+    if brent is not None:
+        fragments.append(f"Brent is near ${brent:.2f}")
+    if fed_funds is not None:
+        fragments.append(f"the Fed funds rate is {fed_funds:.2f}%")
+    if cpi_yoy is not None:
+        fragments.append(f"headline CPI is running near {cpi_yoy:.1f}% year over year")
+
+    if not fragments:
+        return (
+            "Across any cluster, the useful discipline is to track the variables that can actually change the thesis: "
+            "rates, energy costs, backlog quality, pricing power, and whether capex survives contact with tighter budgets."
+        )
+
+    joined = "; ".join(fragments[:3])
+    return (
+        f"Across any cluster, keep the regime in view: {joined}. That is why the right watchlist is one tied to "
+        "constraint variables, not just recent momentum."
+    )
+
+
+def build_investment_opportunities(
+    issue_date: dt.date,
+    company_movers: list[tuple[str, str, str]],
+    macro_metrics: dict[str, float | None],
+    quote_snapshot: dict[str, dict[str, float | None | str]],
+) -> list[str]:
+    previous_section = extract_previous_investment_section(issue_date)
+    themes = select_investment_themes(company_movers, macro_metrics, quote_snapshot, previous_section)
+    paragraphs: list[str] = []
+
+    for index, theme in enumerate(themes[:2]):
+        paragraph = theme_paragraph(theme)
+        if index == 1:
+            paragraph += " " + build_regime_sentence(macro_metrics)
+        paragraphs.append(paragraph)
+
+    if not paragraphs:
+        paragraphs.append(build_regime_sentence(macro_metrics))
+
+    lines = ["### Upcoming Investment Opportunities", ""]
+    for paragraph in paragraphs:
+        lines.append(paragraph)
+        lines.append("")
+    return lines
+
+
+def build_markets_section(issue_date: dt.date, allow_placeholders: bool = True) -> tuple[list[str], dict[str, list[str]]]:
     failures = {
         "quotes": [],
         "macro": [],
     }
     lines = ["## Markets & Economy", ""]
+    quote_snapshot: dict[str, dict[str, float | None | str]] = {}
     for label, symbol in CORE_MARKET_TICKERS:
         price, move = fetch_yahoo_quote(symbol)
         available = price != "data unavailable" and move != "live quote unavailable"
+        quote_snapshot[label] = {
+            "price": parse_numeric(price),
+            "move": move,
+            "move_pct": parse_move_percent(move),
+        }
         if not available:
             failures["quotes"].append(label)
             if not allow_placeholders:
@@ -428,18 +696,10 @@ def build_markets_section(allow_placeholders: bool = True) -> tuple[list[str], d
     failures["quotes"].extend(company_failures)
     for label, price, move in company_movers:
         lines.append(f"- **{label}:** {price}, {move}.")
-    macro_lines, macro_failures = build_macro_lines(allow_placeholders=allow_placeholders)
+    macro_lines, macro_failures, macro_metrics = build_macro_lines(allow_placeholders=allow_placeholders)
     failures["macro"].extend(macro_failures)
     lines.extend(macro_lines)
-    lines.extend(
-        [
-            "",
-            "### Upcoming Investment Opportunities",
-            "",
-            "Watch **NVIDIA**, **Broadcom**, **Micron**, and **Vertiv** for continued AI-infrastructure exposure; **Quanta Services**, **Eaton**, and **Siemens Energy** for grid modernization; and **ServiceNow**, **CrowdStrike**, and **ASML** for rate-sensitive quality growth and advanced-manufacturing exposure.",
-            "",
-        ]
-    )
+    lines.extend(["", *build_investment_opportunities(issue_date, company_movers, macro_metrics, quote_snapshot)])
     return lines, failures
 
 
@@ -618,7 +878,7 @@ def main() -> None:
         "",
     ]
     lines.extend(build_quick_hits(sections))
-    market_lines, _ = build_markets_section()
+    market_lines, _ = build_markets_section(issue_date)
     lines.extend(market_lines)
 
     for section in SECTION_ORDER[1:]:

@@ -19,16 +19,25 @@ This file tracks the current source mix used in the daily newsletter.
 - IMF
 - OECD
 - World Bank
+- Reuters
+- Financial Times
+- Wall Street Journal
+- Bloomberg
+- Bank for International Settlements Quarterly Review
 
 ### Need To Know
 - Nature
+- Nature News
 - Science
+- Science News
 - Quanta Magazine
 - MIT Technology Review
 - IEEE Spectrum
 - NASA
 - ESA
 - CERN
+- APS Physics
+- Physical Review Letters
 
 ### Research Watch
 - Nature
@@ -39,12 +48,20 @@ This file tracks the current source mix used in the daily newsletter.
 - Cell
 - PNAS
 - eLife
+- Physical Review Letters
+- Physical Review X
+- Journal of High Energy Physics
+- NeurIPS Proceedings
+- ICML Proceedings
 
 ### World News
 - AP News
 - Reuters
 - Financial Times
+- Wall Street Journal
+- BBC News
 - United Nations
+- UN OCHA
 - UNHCR
 - IMF
 - World Bank
@@ -79,6 +96,11 @@ This file tracks the current source mix used in the daily newsletter.
 - PNAS
 - eLife
 - bioRxiv
+- Nature Biotechnology
+- Nature Genetics
+- Genome Biology
+- EMBO Journal
+- Molecular Cell
 
 ### Psychology and Neuroscience
 - Nature Neuroscience
@@ -89,6 +111,11 @@ This file tracks the current source mix used in the daily newsletter.
 - Current Biology
 - medRxiv
 - bioRxiv
+- Trends in Cognitive Sciences
+- Nature Human Behaviour
+- PNAS
+- eLife
+- Biological Psychiatry
 
 ### Health and Medicine
 - Nature Medicine
@@ -100,6 +127,11 @@ This file tracks the current source mix used in the daily newsletter.
 - CDC
 - NIH
 - IARC
+- medRxiv
+- Cochrane
+- STAT
+- Cell
+- The BMJ Opinion
 
 ### Sociology and Anthropology
 - Nature Human Behaviour
@@ -107,17 +139,24 @@ This file tracks the current source mix used in the daily newsletter.
 - Nature Communications
 - Current Anthropology
 - Annual Review of Anthropology
+- American Journal of Sociology
+- American Sociological Review
+- American Ethnologist
+- Social Forces
 - Pew Research Center
 - Our World in Data
 
 ### Technology
 - Nature
 - Nature News
+- Nature Electronics
 - MIT Technology Review
 - IEEE Spectrum
 - Ars Technica
 - Semafor
 - The Verge
+- Financial Times
+- Semianalysis
 - NASA
 - ESA
 
@@ -129,6 +168,10 @@ This file tracks the current source mix used in the daily newsletter.
 - Nature Electronics
 - arXiv cs.RO
 - ROS
+- Robotics: Science and Systems
+- CoRL Proceedings
+- ROS Discourse
+- IEEE Robotics and Automation Letters
 
 ### AI
 - OpenAI
@@ -140,6 +183,11 @@ This file tracks the current source mix used in the daily newsletter.
 - GitHub
 - arXiv
 - Stanford HAI
+- Papers with Code
+- Google AI Blog
+- Anthropic Research
+- DeepMind Blog
+- AI Snake Oil
 
 ### Engineering
 - npj Space Exploration
@@ -151,10 +199,17 @@ This file tracks the current source mix used in the daily newsletter.
 - JPL
 - ESA
 - ASME
+- NREL
+- Applied Energy
+- Joule
+- arXiv eess.SY
 
 ### Mathematics
 - Quanta Magazine
 - Annals of Mathematics
+- Inventiones Mathematicae
+- Journal of the AMS
+- Bulletin of the AMS
 - Notices of the AMS
 - Simons Foundation
 - arXiv math
@@ -166,6 +221,9 @@ This file tracks the current source mix used in the daily newsletter.
 - Smithsonian Magazine
 - JSTOR Daily
 - PNAS
+- American Historical Review
+- History Today
+- Past & Present
 
 ### Archaeology
 - Antiquity
@@ -175,6 +233,9 @@ This file tracks the current source mix used in the daily newsletter.
 - Journal of Archaeological Science
 - Current Archaeology
 - Scientific American
+- World Archaeology
+- PNAS
+- Antiquity Journal
 
 ### Tools You Can Use
 - arXiv
@@ -186,6 +247,10 @@ This file tracks the current source mix used in the daily newsletter.
 - Kaggle
 - OpenAlex Developers
 - Semantic Scholar
+- Weights & Biases
+- Modal
+- Replicate
+- PyPI
 
 ### Entertainment
 - Rotten Tomatoes
@@ -199,6 +264,9 @@ This file tracks the current source mix used in the daily newsletter.
 - PC Gamer
 - Polygon
 - Eurogamer
+- Letterboxd
+- IGN
+- RogerEbert.com
 
 ### Travel
 - Lonely Planet
@@ -206,16 +274,20 @@ This file tracks the current source mix used in the daily newsletter.
 - Conde Nast Traveler
 - AFAR
 - Atlas Obscura
+- Michelin Guide
 - UNESCO
 - Official tourism boards
 - National park or regional destination sites
 - Wikimedia Commons
+- Wikivoyage
 
 ### Idea Of The Day
 - Derived from the research material cited earlier in the issue
 - Stanford Encyclopedia of Philosophy
+- PhilPapers
 - Quanta Magazine
 - Aeon
+- Psyche
 
 ## By Source Type
 
@@ -268,10 +340,17 @@ This file tracks the current source mix used in the daily newsletter.
 - JSTOR Daily
 - IEEE Spectrum
 - The Philosophers' Magazine
+- Reuters
+- Financial Times
+- Wall Street Journal
+- BBC News
 
 ### Scholarly Discovery and Reference
 - PhilPapers
 - Stanford Encyclopedia of Philosophy
+- Papers with Code
+- OpenAlex Developers
+- Semantic Scholar
 
 ### Institutions and International Organizations
 - IMF

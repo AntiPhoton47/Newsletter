@@ -54,8 +54,11 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 
 ### Upcoming Investment Opportunities
 
-Write 1-2 short paragraphs naming actual companies or sectors worth watching, with a brief rationale. Keep it analytical and avoid explicit financial advice language.
-Choose 2-4 notable company movers for the issue rather than reusing a fixed list.
+Write 1-2 short paragraphs naming `2-3` actual company or sector clusters worth watching, with a brief rationale.
+Keep it analytical and avoid explicit financial advice language.
+Tie the analysis to concrete regime variables such as rates, margins, capex, commodity prices, regulation, supply constraints, backlog quality, or balance-sheet resilience.
+Do not repeat the previous issue's framing unless the same cluster is still clearly central and you can explain why it remains important today.
+Prefer a thesis + catalyst + risk frame over a static list of favorite names.
 
 ## Need To Know
 

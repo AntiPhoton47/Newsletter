@@ -16,6 +16,7 @@ For each section:
 
 - scan primary sources first where possible
 - use high-quality journalism for context and synthesis
+- maintain a healthy mix of primary, specialist, and reference/discovery sources over time
 - collect more candidates than you expect to publish
 - note the date, source, and a one-line reason the story might matter
 
@@ -53,6 +54,7 @@ Check for:
 
 - repetition across sections
 - repetition from the previous issue unless the repeated story has a genuinely new development or angle
+- overreliance on the same source in a section when a better or more direct source is available
 - too much dependence on one outlet
 - too much focus on one domain at the expense of the others
 
@@ -103,6 +105,8 @@ When drafting:
 - keep short takes concise and source-backed
 - if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
+- make `Upcoming Investment Opportunities` specific to today's regime and catalysts rather than repeating a standing basket
+- keep the investment-opportunities analysis focused on `2-3` strong clusters and explain what would make the thesis stronger or weaker
 - give `Travel` a different destination from the previous issue when possible and include one image
 - keep issue prose reader-facing and avoid meta comments about the writing process
 
@@ -113,6 +117,7 @@ Before rendering, confirm:
 - each section has a clear purpose
 - short takes do not duplicate the main stories in the same section
 - repeated stories from the last issue add a real factual or analytical increment
+- the source mix across sections still feels deliberate rather than habitual
 - the section order still feels coherent
 - entertainment and travel remain concise and current
 - travel includes an image that renders correctly

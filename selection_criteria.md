@@ -81,7 +81,21 @@ The following biases should be applied when choosing between otherwise comparabl
 - Do not rerun essentially the same write-up with only superficial wording changes.
 - When in doubt, cut the repeat item or demote it to a short take unless the new value to the reader is obvious.
 
+### Source-Mix Discipline
+
+- Each section should draw from a credible mix of source types over time: primary literature or institutions, specialized journalism, and reference or discovery tools where appropriate.
+- Do not let one familiar outlet dominate a section just because it is easy to summarize.
+- Prefer the source that is closest to the claim being made, then use higher-quality secondary coverage for framing or synthesis.
+- When expanding a section's source pool, add outlets that improve signal, not just quantity.
+
 ## Section-Level Guidance
+
+### Markets & Economy
+- Keep the data block authoritative and conservative.
+- The `Upcoming Investment Opportunities` subsection should be thesis-driven, not a static watchlist.
+- Do not repeat the prior issue's investment-opportunities framing unless the same cluster still clearly matters and today's evidence explains why.
+- Prefer `2-3` strong clusters over a long list of names.
+- The analysis should connect company groups to regime variables such as rates, margins, capex, commodity prices, regulation, supply constraints, balance-sheet resilience, or backlog quality.
 
 ### Need To Know
 - Reserve for the single most consequential or intellectually rich story in the issue.
@@ -94,6 +108,7 @@ The following biases should be applied when choosing between otherwise comparabl
 ### World News
 - Include geopolitical, policy, conflict, trade, and humanitarian developments that materially shape research, technology, or global stability.
 - Prefer structural consequences over sensational framing.
+- Use a mix of direct institutional reporting and high-quality journalism so the section does not drift into either raw bulletin style or pure commentary.
 
 ### Philosophy
 - Favor philosophy of science, epistemology, agency, explanation, and responsibility.
@@ -104,13 +119,16 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Biology / Health and Medicine / Psychology and Neuroscience
 - Prefer mechanistic and conceptually clarifying work over broad observational claims.
 - Strong preference for stories with methodological or explanatory payoff.
+- Use primary papers and journal coverage as the backbone, with journalism or explainers added when they genuinely improve readability or context.
 
 ### Technology / Robotics / AI / Engineering / Tools
 - Prioritize infrastructure, toolchains, interoperability, compute, manufacturing, deployment, and scientifically useful platforms.
 - Prefer what can be used, measured, or built over branding-heavy announcements.
+- Mix vendor, research, and independent technical sources so sections do not collapse into announcement rewrites.
 
 ### Mathematics / Historical Discoveries / Archaeology
 - Emphasize conceptual structure, intellectual history, and discoveries that reshape interpretation rather than just extend a timeline or dataset.
+- Use specialist journals and field-specific publications where possible rather than relying only on general-interest summaries.
 
 ### Entertainment / Travel
 - These sections are lighter in tone, but should still be selective, concrete, and current.
