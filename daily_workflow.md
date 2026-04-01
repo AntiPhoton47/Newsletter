@@ -107,6 +107,9 @@ When drafting:
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
 - make `Upcoming Investment Opportunities` specific to today's regime and catalysts rather than repeating a standing basket
 - keep the investment-opportunities analysis focused on `2-3` strong clusters and explain what would make the thesis stronger or weaker
+- make `Entertainment` concrete: list specific upcoming or currently hot movies, books, shows, games, or events rather than writing vague overview copy
+- make `World News` broader than a two-story digest when the source material supports it, and include European developments when they are materially relevant
+- make `Tools You Can Use` actionable by linking directly to actual tools, products, repos, or APIs whenever possible
 - give `Travel` a different destination from the previous issue when possible and include one image
 - keep issue prose reader-facing and avoid meta comments about the writing process
 
@@ -119,6 +122,9 @@ Before rendering, confirm:
 - repeated stories from the last issue add a real factual or analytical increment
 - the source mix across sections still feels deliberate rather than habitual
 - the section order still feels coherent
+- entertainment is concrete and date- or momentum-aware rather than hand-wavy
+- world news has enough breadth to feel globally useful, including Europe when relevant
+- tools links point to actual usable destinations rather than mostly commentary pages
 - entertainment and travel remain concise and current
 - travel includes an image that renders correctly
 - the issue still feels curated rather than merely exhaustive

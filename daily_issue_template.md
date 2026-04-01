@@ -136,6 +136,9 @@ Write 2-3 short paragraphs.
 - Concise distinct item. [Source](https://example.com)
 - Concise distinct item. [Source](https://example.com)
 - Concise distinct item. [Source](https://example.com)
+- Concise Europe-focused item. [Source](https://example.com)
+- Concise Europe-focused item. [Source](https://example.com)
+- Concise additional globally relevant item. [Source](https://example.com)
 
 ## Philosophy
 
@@ -417,55 +420,41 @@ Write 1 paragraph.
 
 ### Tool name
 
-Write 1-2 paragraphs.
+Write 1 short paragraph describing what the tool actually does, who it is useful for, and why it is worth clicking.
 
-**Link:** [Read at Source](https://example.com)
-
-### Tool name
-
-Write 1-2 paragraphs.
-
-**Link:** [Read at Source](https://example.com)
+**Link:** [Open tool](https://example.com)
 
 ### Tool name
 
-Write 1 paragraph.
+Write 1 short paragraph describing what the tool actually does, who it is useful for, and why it is worth clicking.
 
-**Link:** [Read at Source](https://example.com)
+**Link:** [Open tool](https://example.com)
+
+### Tool name
+
+Write 1 short paragraph describing what the tool actually does, who it is useful for, and why it is worth clicking.
+
+**Link:** [Open tool](https://example.com)
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise actual tool with direct link. [Source](https://example.com)
+- Concise actual tool with direct link. [Source](https://example.com)
+- Concise actual tool with direct link. [Source](https://example.com)
+- Concise actual tool with direct link. [Source](https://example.com)
 
 ## Entertainment
 
-Keep this section concrete and reader-facing. Do not write meta commentary about the drafting process or about what is not being included.
+Keep this section concrete, current, and reader-facing. Do not write vague overview prose or meta commentary about the drafting process.
 
-### Movies
+### What Looks Worth Your Attention
 
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-
-### Books
-
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-
-### TV Shows
-
-- **Title** premieres on date. One-sentence why it matters. [Source](https://example.com)
-- **Title** premieres on date. One-sentence why it matters. [Source](https://example.com)
-
-### Video Games
-
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-- **Title** releases on date. One-sentence why it matters. [Source](https://example.com)
-
-### Concerts
-
-- **Event / Artist** on date. One-sentence why it matters. [Source](https://example.com)
-- **Event / Artist** on date. One-sentence why it matters. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
 
 ## Travel
 

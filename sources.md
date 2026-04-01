@@ -60,6 +60,9 @@ This file tracks the current source mix used in the daily newsletter.
 - Financial Times
 - Wall Street Journal
 - BBC News
+- Politico Europe
+- Euronews
+- The Economist
 - United Nations
 - UN OCHA
 - UNHCR
@@ -251,6 +254,11 @@ This file tracks the current source mix used in the daily newsletter.
 - Modal
 - Replicate
 - PyPI
+- Product Hunt
+- There's An AI For That
+- FutureTools
+- Hugging Face Spaces
+- Vercel AI SDK examples
 
 ### Entertainment
 - Rotten Tomatoes
@@ -267,6 +275,11 @@ This file tracks the current source mix used in the daily newsletter.
 - Letterboxd
 - IGN
 - RogerEbert.com
+- IMDb
+- Deadline
+- Steam
+- Nintendo Direct
+- PlayStation Blog
 
 ### Travel
 - Lonely Planet

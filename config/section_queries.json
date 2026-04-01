@@ -10,7 +10,8 @@
   ],
   "World News": [
     "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
-    "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org"
+    "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+    "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu"
   ],
   "Philosophy": [
     "philosophy of science epistemology agency site:iai.tv"
@@ -49,10 +50,12 @@
     "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com"
   ],
   "Tools You Can Use": [
-    "research tools API protocol MCP site:github.com OR site:openai.com OR site:openalex.org OR site:semanticscholar.org"
+    "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+    "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com"
   ],
   "Entertainment": [
-    "new movies books tv shows video games concerts upcoming releases"
+    "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+    "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com"
   ],
   "Travel": [
     "best places to visit this month travel destination"

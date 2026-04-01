@@ -10,7 +10,7 @@ Today’s issue is about specialization under pressure. In chemistry, biology, a
 
 - **Need To Know:** The clearest signal is that AI becomes more valuable when it is turned into a specialized research tool, whether in chemistry or in experimentally grounded simulation.
 - **Research Watch:** Research looks strongest where capability claims are being translated into thresholds, auditability, and explicit workflow design rather than just more scale.
-- **World News:** The Middle East conflict is widening into trade, fertilizer, inflation, and industrial planning effects, while China’s factory rebound reminds us that geopolitics is now inseparable from growth interpretation.
+- **World News:** The Middle East conflict is widening into trade, fertilizer, inflation, and industrial planning effects, while Europe’s energy fallback options and China’s factory rebound show how tightly geopolitics and growth interpretation are now linked.
 - **Philosophy:** Philosophy is most useful right now where it clarifies what explanation, truth-seeking, and epistemic responsibility should mean in a world saturated with models and persuasion systems.
 - **Biology:** Biology looks strongest where richer reference systems, from pangenomes to better assemblies, make diversity usable rather than merely documented.
 - **Psychology and Neuroscience:** The field is pushing toward richer maps of brain organization and stronger mechanistic links between metabolism, genetics, and psychiatric outcomes.
@@ -23,7 +23,7 @@ Today’s issue is about specialization under pressure. In chemistry, biology, a
 - **Mathematics:** Math is unusually visible because rigor, notation, and formalization are no longer purely internal concerns; they are increasingly shaping software verification and what later disciplines can safely inherit.
 - **Historical Discoveries:** The best historical discovery stories are not just adding facts but reopening old maps, whether through ape fossils that complicate migration narratives or animal records that widen what counts as an archive.
 - **Archaeology:** Archaeology is getting more explanatory as ancient genomes and faunal evidence sharpen questions about mobility, domestication, and the texture of early human life.
-- **Tools You Can Use:** MCP-related tooling is now useful in the immediate sense because it standardizes how models reach external systems, which is exactly what agentic workflows have been missing.
+- **Tools You Can Use:** Actual agent tooling is becoming more usable, from workspace connectors and setup utilities to browser automation and reusable skill packs.
 
 ## Markets & Economy
 
@@ -104,31 +104,44 @@ For research institutions, the practical question is not whether a system can ou
 
 ## World News
 
-### The Middle East war is now a systems shock, not just a regional conflict story
+### Algeria emerges as Europe’s key gas partner after Iran strikes
+
+**Source:** Euronews.com
+
+Europe’s energy vulnerability is back in plain view. Euronews reports that benchmark gas prices have jumped sharply since the latest Middle East escalation, while storage levels have started 2026 well below the more comfortable levels Europe carried into previous winters. That is why Algeria matters again: pipeline gas from North Africa is one of the few levers Europe can pull quickly without depending entirely on LNG cargoes competing with Asia.
+
+The more important point is that Algeria is a buffer, not a full solution. Europe took roughly 39 to 40 billion cubic metres from Algeria in 2025, and the article suggests the realistic upside for 2026 may only be another 4 to 8 bcm. That can ease the stress, especially for Italy and Spain, but it does not erase the structural problem. For Europe, this is another reminder that energy security, industrial policy, and geopolitics are now the same conversation.
+
+**Link:** [Read at Euronews.com](https://www.euronews.com/business/2026/03/31/can-algerias-gas-save-the-old-continent-from-the-strait-of-hormuz)
+
+### How the War in the Middle East Is Affecting Energy, Trade, and Finance
 
 **Source:** International Monetary Fund | IMF
 
-The IMF’s piece is useful because it tracks how war moves through concrete transmission channels: energy prices, shipping routes, trade costs, financing conditions, and business confidence. That is the right scale of analysis. Once a conflict reaches those channels, it stops being just a foreign-policy topic and starts becoming a macroeconomic constraint that changes planning for importers, manufacturers, insurers, and central banks.
+The IMF’s framing is useful because it pulls the conflict out of the foreign-policy silo and into the operating system of the global economy: shipping routes, commodity prices, insurance costs, trade finance, and business confidence. Once those channels move, the effects stop being local. They show up in manufacturing plans, food prices, freight decisions, and central-bank headaches.
 
-For this newsletter’s audience, the deeper implication is about fragility in global infrastructure. Advanced economies can talk about AI, electrification, semiconductors, and industrial strategy all they want, but those agendas still depend on physical routes, fuel pricing, and predictable risk premia. The IMF article matters because it reminds readers that technical progress is not insulated from geopolitical plumbing; it is built on it.
+That is the right lens for this newsletter. Advanced economies can talk about AI build-outs, reindustrialization, and research competitiveness, but those ambitions still rest on stable logistics and tolerable energy costs. The IMF piece matters because it clarifies that the constraint is not just oil. It is the wider reliability of the systems that make everything else look scalable.
 
-**Link:** [Read at IMF](https://www.imf.org/en/blogs/articles/2026/03/30/how-the-war-in-the-middle-east-is-affecting-energy-trade-and-finance)
+**Link:** [Read at International Monetary Fund | IMF](https://www.imf.org/en/blogs/articles/2026/03/30/how-the-war-in-the-middle-east-is-affecting-energy-trade-and-finance)
 
-### China’s March factory rebound matters because growth signals are now read through war risk
+### China factory activity rebounds in March as Iran war looms over growth
 
-**Source:** AP News
+**Source:** apnews.com
 
-AP’s report on China’s manufacturing rebound would have been a relatively straightforward macro item in a calmer year. It is not being read that way now. A return to expansion after two months of contraction is useful data, but the significance lies in the context: investors and firms are trying to interpret every production signal through the lens of energy risk, shipping strain, and conflict-driven uncertainty elsewhere in Asia and the Middle East.
+China’s official manufacturing PMI rose to 50.4 in March from 49 in February, its strongest reading in a year, which makes the rebound real enough to notice. But AP’s reporting makes the context more important than the headline. Analysts think the full effects of the Iran war, especially higher energy costs and disruptions tied to Hormuz, have not yet flowed through to factories, exporters, and chemical supply chains.
 
-That makes the story larger than a single PMI print. If China stabilizes industrial activity while the geopolitical environment worsens, it reinforces the idea that supply-chain geography is being rewritten under stress rather than after stress. In practical terms, countries and firms are being pushed to think about manufacturing resilience, inventory strategy, and trade partnerships at the same time. That is why a modest factory rebound deserves more attention than it would in an easier cycle.
+That tension is what makes the story worth watching. China still needs exports to regions such as Southeast Asia and Europe to offset weak property demand at home, so any prolonged energy shock hits both its cost base and its external demand story. A stronger PMI is good news, but it is being posted into a much harsher global operating environment than a standard cyclical rebound would imply.
 
-**Link:** [Read at AP News](https://apnews.com/article/china-manufacturing-economy-pmi-iran-war-1dece7eda196b93706091b7b52eef94a)
+**Link:** [Read at apnews.com](https://apnews.com/article/china-manufacturing-economy-pmi-iran-war-1dece7eda196b93706091b7b52eef94a)
 
 ### Short Takes
 
-- **Yemen’s Houthis claim responsibility for missile attack on Israel, their first since war started:** A reminder that conflict expansion often shows up first as risk to shipping and insurance rather than as a neat shift in battlefield maps. [Source: AP News](https://apnews.com/article/iran-us-israel-trump-lebanon-march-27-2026-195444c54cbb7545d0a77f8ffbc0e4c0)
-- **The war in Iran sparks a global fertilizer shortage and threatens food prices:** This is exactly the kind of second-order commodity story that later feeds inflation, agricultural stress, and political instability. [Source: AP News](https://apnews.com/article/iran-war-fertilizer-exports-farming-3b7c92d58dba0817c3aa8f1db47464b7)
-- **OECD Economic Outlook, Interim Report March 2026:** The broader backdrop remains one of uneven growth, expensive capital, and reduced room for policy mistakes. [Source: OECD](https://www.oecd.org/en/publications/oecd-economic-outlook-interim-report-march-2026_d4623013-en.html)
+- **G7 allies meet against backdrop of wars in Ukraine and Iran, with unpredictable US:** Europe’s leaders are trying to keep support for Ukraine intact while also preventing the Iran crisis from splintering the coalition. [Source: Reuters](https://www.reuters.com/world/europe/g7-allies-meet-against-backdrop-wars-ukraine-iran-with-unpredictable-us-2026-03-26/)
+- **Why Europe’s center left can’t stop losing:** This matters beyond party strategy because weakened center-left parties reduce Europe’s room to build durable coalitions around industrial policy, migration, and defense. [Source: Politico Europe](https://www.politico.eu/article/europe-social-democrats-losing-election/)
+- **Yemen’s Houthis claim responsibility for missile attack on Israel, their first since war started:** Another reminder that escalation spreads through shipping and insurance channels before it shows up neatly on diplomatic timelines. [Source: AP News](https://apnews.com/article/iran-us-israel-trump-lebanon-march-27-2026-195444c54cbb7545d0a77f8ffbc0e4c0)
+- **Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows:** Humanitarian systems are under pressure at exactly the moment regional spillovers are widening, which is a bad combination for migration and political stability. [Source: AP News](https://apnews.com/article/iran-war-usaid-humanitarian-funding-e798b818617a1297e107495ef407fe3f)
+- **OECD Economic Outlook, Interim Report March 2026:** The macro backdrop remains one of slower growth, expensive capital, and very little room for policy mistakes if energy shocks persist. [Source: OECD](https://www.oecd.org/en/publications/oecd-economic-outlook-interim-report-march-2026_d4623013-en.html)
+- **Coming Soon: World Economic Outlook, April 2026:** Worth watching because the next IMF update will tell us how much of the current conflict has already been incorporated into the baseline global growth view. [Source: IMF](https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026)
 
 ## Philosophy
 
@@ -262,30 +275,20 @@ This is where anthropology and sociology become directly relevant to technical w
 
 ## Technology
 
-### The built environment is becoming a technology story again because resilience has become design-critical
+### How buildings and cities can be aligned with life
 
 **Source:** Nature
 
-Nature’s piece on aligning buildings and cities with life is easy to misread as soft biomimicry rhetoric. The better reading is infrastructural. The built environment now has to absorb hotter temperatures, more volatile energy systems, tighter material constraints, and higher expectations for human health and livability. Under those conditions, designs that work with ecological and physiological realities rather than against them stop looking ornamental and start looking economically rational.
+Nature’s argument lands because the built environment is finally being discussed as a biological and systems problem rather than a purely aesthetic one. A city that works with local heat, water, airflow, and ecological constraints is not just greener in the abstract. It is usually more resilient, cheaper to cool, and less brittle under climate stress than one designed as if concrete and energy were always abundant.
 
-The significance is broader than architecture. Cities are where climate adaptation, energy infrastructure, public health, and computation-heavy industry physically meet. A more life-aligned built environment is not just aesthetically appealing; it can reduce operating costs, improve resilience, and make other advanced systems easier to sustain. That is why this belongs in technology rather than lifestyle coverage.
+That makes this more than architecture rhetoric. The real shift is that biomimicry and nature-aligned design are becoming practical infrastructure questions. If construction, zoning, and urban retrofits start treating living systems as design partners instead of obstacles, the payoff is not only lower emissions. It is better urban performance under the harsher conditions cities are already entering.
 
 **Link:** [Read at Nature](https://www.nature.com/articles/d41586-026-00971-5)
 
-### Faster entanglement generation matters because quantum networking has to beat loss in the real world
-
-**Source:** Nature
-
-Nature’s report on a long-distance quantum link generating entanglement faster than it is lost captures one of the most important practical thresholds in the field. Quantum networking will only become more than a laboratory curiosity if the rate of useful entanglement generation can outrun decoherence and transmission losses. Until that happens, talk of distributed quantum systems remains mostly aspirational.
-
-That is why this is a technology story rather than just a physics curiosity. Networking thresholds determine what kinds of architectures are worth building, how repeaters and memories should be prioritized, and whether secure communication or distributed sensing use cases can move out of the proof-of-concept stage. The result does not complete the stack, but it strengthens the sense that the stack is becoming buildable in pieces.
-
-**Link:** [Read at Nature](https://www.nature.com/articles/d41586-026-00804-5)
-
 ### Short Takes
 
-- **Radiofrequency cascade readout of coupled spin qubits:** Useful because progress in readout often does more for platform credibility than another wave of abstract performance claims. [Source: Nature](https://www.nature.com/articles/s41928-026-01582-8)
-- **Highly accurate ab initio gene annotation with ANNEVO:** Another example of infrastructure-like tooling improving what later work can do cheaply and reliably. [Source: Nature](https://www.nature.com/articles/s41592-026-02611-8)
+- **Long-distance quantum link generates entanglement faster than it is lost:** Long-distance quantum link generates entanglement faster than it is lost  Nature [Source: Nature](https://www.nature.com/articles/d41586-026-00804-5)
+- **AI-powered open-source infrastructure for accelerating materials discovery and advanced manufacturing:** AI-powered open-source infrastructure for accelerating materials discovery and advanced manufacturing  Nature [Source: Nature](https://www.nature.com/articles/s43246-026-01105-0)
 
 ## Robotics
 
@@ -451,40 +454,41 @@ That shift is important because archaeology often advances by connecting isolate
 
 ## Tools You Can Use
 
-### MCP server support is becoming the most useful bridge between models and real systems
+### Claude Code Skills & Plugins — Agent Skills for Every Coding Tool
 
-**Source:** OpenAI Developers
+This is a large, practical repo of reusable skills and plugins for coding agents across multiple environments. If you want more than a blank chatbot shell, it is the kind of starter kit that gives an agent immediate task-specific leverage in engineering, product, compliance, and research workflows.
 
-The OpenAI guide to building MCP servers matters because it converts the often vague idea of tool use into a concrete integration surface. MCP is useful not because it is fashionable, but because it provides a shared way to expose capabilities to models without forcing every team to invent its own ad hoc protocol. That reduces friction immediately for anyone trying to connect language models to internal APIs, databases, or operational software.
+**Link:** [Open tool](https://github.com/alirezarezvani/claude-skills)
 
-The broader point is infrastructural. Tool-using models become valuable only when the cost of connecting them to external systems falls far enough that the workflow is repeatable. A good protocol does not make a weak application strong, but it does reduce glue work and make reuse easier. That is why MCP-related tooling is showing up in serious product and research discussions so quickly.
+### Autoclaw: One-click Openclaw set up by Z.AI
 
-**Link:** [Read at OpenAI Developers](https://developers.openai.com/api/docs/mcp/)
+Autoclaw is exactly the kind of linkable utility this section should carry: a concrete setup tool aimed at getting an agent stack running with less manual configuration. If you are experimenting with open agent workflows and want to reduce environment friction, this is more useful than another commentary post about agents.
 
-### Connectors matter because agentic systems need dependable access patterns more than one-off tool hacks
+**Link:** [Open tool](https://www.producthunt.com/products/autoclaw)
 
-**Source:** OpenAI Developers
+### Notion MCP: Your Notion workspace, inside every AI agent
 
-The Connectors and MCP guide is useful because it frames interoperability as an operating assumption rather than as an advanced feature. Once teams expect models to search, retrieve, and act across multiple services, the hard problem becomes consistency: shared schemas, predictable behavior, and manageable security boundaries. Connectors solve a boring but decisive piece of that problem.
+Notion MCP turns a common documentation surface into something an agent can query directly. For anyone whose real working memory lives in notes, specs, meeting docs, or project wikis, that is a meaningful upgrade over constantly copying context into prompts by hand.
 
-This is exactly the kind of tool story that sophisticated readers should follow. The future of applied AI will not be decided solely by base-model quality. It will be shaped by whether models can be attached to work systems cleanly enough to become ordinary software components. Connectors make that future more plausible because they standardize access instead of leaving each integration to custom improvisation.
-
-**Link:** [Read at OpenAI Developers](https://developers.openai.com/api/docs/guides/tools-connectors-mcp/)
+**Link:** [Open tool](https://www.producthunt.com/products/notion-mcp)
 
 ### Short Takes
 
-- **Model Context Protocol for Codex:** Worth reading because it shows how protocol-level ideas map onto actual agent workflows instead of staying at the spec layer. [Source: OpenAI Developers](https://developers.openai.com/codex/mcp/)
-- **The official MCP server implementation for the Perplexity API Platform:** A useful indicator that the protocol is spreading beyond one vendor’s ecosystem. [Source: GitHub](https://github.com/perplexityai/modelcontextprotocol)
+- **Ollang DX:** An enterprise-oriented layer for wiring AI language systems into broader execution pipelines rather than leaving them as isolated chat surfaces. [Open tool](https://www.producthunt.com/products/ollang-mcp-skills-sdk-api)
+- **agent-browser:** Vercel’s browser automation CLI is useful if you want agents to do real UI work instead of stopping at API-only demos. [Open tool](https://github.com/vercel-labs/agent-browser)
+- **microsoft/agent-framework:** A serious framework option for teams testing production-style multi-agent workflows in code rather than in slideware. [Open tool](https://github.com/microsoft/agent-framework)
+- **Agent2Agent (A2A) Protocol:** Worth a look if your bottleneck is getting separate agents or services to coordinate cleanly instead of improvising brittle glue code. [Open tool](https://github.com/a2aproject/A2A)
 
 ## Entertainment
 
-### What looks worth watching and reading next
+### What Looks Worth Your Attention
 
-April's slate still looks more like a calendar story than a genuine culture surprise, which makes selectivity more important than omnivorous browsing. ODEON's release roundup remains a useful practical check because it highlights how much of the near-term queue is being carried by established franchises, brand-recognition bets, and well-tested adaptation pipelines rather than by breakout originals with clear critical momentum.
-
-That does not make the week empty. It just means the best use of attention is to treat entertainment the way this newsletter treats tools: look for what seems likely to deliver, not what is merely loud. Right now that argues for following the strongest scheduled releases, then waiting for the actual critical split before committing more time.
-
-**Link:** [Read release roundup at ODEON](https://www.odeon.co.uk/odeon-scene/upcoming-movies-new-film-releases/)
+- **Avatar: Fire and Ash:** The current heat here is simple: it is now on premium VOD for $19.99 after a $1.5 billion global box-office run, and IGN notes there is still no Disney+ date, so the home-release window is the immediate story. [Source: IGN](https://www.ign.com/articles/avatar-fire-and-ash-is-now-available-to-watch-at-home)
+- **New Lord of the Rings film in development:** Variety reports Stephen Colbert and his son are developing a new movie set in the franchise, which is exactly the kind of IP-expansion signal fantasy fans and studio-watchers will want on their radar. [Source: Variety](https://variety.com/2026/film/news/lord-of-the-rings-movie-stephen-colbert-warner-bros-1236698684/)
+- **Brandon Sanderson’s Cosmere at Apple:** The Hollywood Reporter says Apple is circling film and TV adaptations built around Mistborn and The Stormlight Archive, making this one of the bigger active fantasy-adaptation stories in the pipeline. [Source: The Hollywood Reporter](https://www.hollywoodreporter.com/movies/movie-news/brandon-sandersons-mistborn-stormlight-archive-movie-tv-1236487271/)
+- **2026 TV slate watch:** Variety’s big TV preview says the return calendar includes The Pitt, Survivor, and the final season of The Boys, while new projects like The Beauty give the year a stronger launch list than the early-month chatter suggested. [Source: Variety](https://variety.com/lists/most-anticipated-tv-shows-2026/)
+- **George R.R. Martin remains the fantasy-industry hinge point:** The Hollywood Reporter’s profile is worth your time if you want to understand how much of the Thrones/Dragon ecosystem still depends on Martin’s unfinished-book gravitational pull. [Source: The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-features/george-rr-martin-interview-thrones-winds-dragon-knight-1236473519/)
+- **Ready or Not 2 is moving from cult favorite to real 2026 sequel watch:** Rotten Tomatoes has the follow-up page live, and while that is not a review signal yet, it is a good flag that one of the sharper recent studio horror hits is back on the release calendar. [Source: Rotten Tomatoes](https://www.rottentomatoes.com/m/ready_or_not_2_here_i_come)
 
 ## Travel
 

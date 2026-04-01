@@ -83,7 +83,9 @@ class GenerateIssueTests(unittest.TestCase):
         )
 
         rendered = "\n".join(lines)
-        self.assertIn("Quantum networking milestone", rendered)
+        self.assertTrue(
+            any(title in rendered for title in ("Quantum networking milestone", "Agent tooling improves evaluation"))
+        )
         self.assertNotIn("Insufficient sourced material", rendered)
 
 

@@ -109,6 +109,8 @@ The following biases should be applied when choosing between otherwise comparabl
 - Include geopolitical, policy, conflict, trade, and humanitarian developments that materially shape research, technology, or global stability.
 - Prefer structural consequences over sensational framing.
 - Use a mix of direct institutional reporting and high-quality journalism so the section does not drift into either raw bulletin style or pure commentary.
+- Cover Europe explicitly when there is a meaningful policy, security, industrial, energy, migration, or macro development worth the reader's attention.
+- Aim for more breadth here than in most sections: the section should usually carry several clearly distinct stories plus a healthy short-takes bench.
 
 ### Philosophy
 - Favor philosophy of science, epistemology, agency, explanation, and responsibility.
@@ -125,6 +127,8 @@ The following biases should be applied when choosing between otherwise comparabl
 - Prioritize infrastructure, toolchains, interoperability, compute, manufacturing, deployment, and scientifically useful platforms.
 - Prefer what can be used, measured, or built over branding-heavy announcements.
 - Mix vendor, research, and independent technical sources so sections do not collapse into announcement rewrites.
+- In `Tools You Can Use`, prefer actual usable tools, products, APIs, repos, datasets, model interfaces, and workflow utilities with direct links over abstract protocol or industry-discussion pieces.
+- When possible, include direct product or repo links so the section feels actionable in the style of a strong tools newsletter rather than a general news recap.
 
 ### Mathematics / Historical Discoveries / Archaeology
 - Emphasize conceptual structure, intellectual history, and discoveries that reshape interpretation rather than just extend a timeline or dataset.
@@ -133,6 +137,7 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Entertainment / Travel
 - These sections are lighter in tone, but should still be selective, concrete, and current.
 - Prefer actual releases, events, and places rather than vague trends.
+- In `Entertainment`, favor upcoming or currently hot releases with dates, launch windows, or concrete signs of momentum; avoid filler prose about the general state of culture coverage.
 - Keep the prose reader-facing; do not mention the drafting process, section weakness, or chat context inside the issue itself.
 - Travel should rotate destinations across issues when possible and include a source-backed image.
 

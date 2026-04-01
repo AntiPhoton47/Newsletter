@@ -49,7 +49,7 @@ LAST_THREE = {"Entertainment", "Travel", "Idea Of The Day"}
 DEFAULT_SECTION_COUNTS = {
     "Need To Know": (1, 0),
     "Research Watch": (2, 2),
-    "World News": (2, 3),
+    "World News": (3, 6),
     "Philosophy": (1, 2),
     "Biology": (1, 2),
     "Psychology and Neuroscience": (1, 2),
@@ -62,7 +62,7 @@ DEFAULT_SECTION_COUNTS = {
     "Mathematics": (1, 2),
     "Historical Discoveries": (1, 2),
     "Archaeology": (1, 2),
-    "Tools You Can Use": (2, 2),
+    "Tools You Can Use": (3, 4),
     "Entertainment": (0, 0),
     "Travel": (0, 0),
     "Idea Of The Day": (0, 0),
@@ -113,6 +113,39 @@ def summarize(text: str, limit: int = 220) -> str:
     if len(text) <= limit:
         return text
     return text[: limit - 1].rsplit(" ", 1)[0] + "…"
+
+
+def lead_story_key(title: str) -> str:
+    cleaned = clean_title(title).lower()
+    cleaned = re.sub(r"[^a-z0-9]+", " ", cleaned)
+    tokens = [token for token in cleaned.split() if token not in {"the", "a", "an", "new", "now", "after", "from", "with"}]
+    return " ".join(tokens[:3])
+
+
+def compact_text(text: str) -> str:
+    text = re.sub(r"\s+", " ", text).strip().lower()
+    return re.sub(r"[^a-z0-9 ]+", "", text)
+
+
+def summary_quality(entry: dict) -> int:
+    title = compact_text(clean_title(str(entry.get("title", ""))))
+    summary = compact_text(summarize(str(entry.get("summary", "")), 320))
+    if not summary:
+        return -100
+    score = len(summary)
+    if summary == title or summary.startswith(title):
+        score -= 250
+    return score
+
+
+def tool_entry_priority(entry: dict) -> tuple[int, int]:
+    title = clean_title(str(entry.get("title", ""))).lower()
+    link = preferred_link(str(entry.get("link", "")), str(entry.get("publisher", ""))).lower()
+    publisher = str(entry.get("publisher", "")).lower()
+    docs_penalty = 1 if "developers.openai.com" in link or title in {"building agents", "agents | openai api", "agent builder | openai api"} else 0
+    product_bonus = 1 if any(host in link for host in ("github.com", "producthunt.com", "huggingface.co", "replicate.com", "modal.com", "vercel.com")) else 0
+    publisher_bonus = 1 if publisher in {"github.com", "product hunt"} else 0
+    return (product_bonus + publisher_bonus, -docs_penalty)
 
 
 def source_label(link: str, publisher: str = "") -> str:
@@ -807,6 +840,68 @@ def build_short_takes(entries: list[dict]) -> list[str]:
     return lines
 
 
+def build_tools_section(
+    entries: list[dict],
+    *,
+    sections: dict[str, list[dict]] | None = None,
+    used_keys: set[tuple[str, str]] | None = None,
+) -> list[str]:
+    lines = ["## Tools You Can Use", ""]
+    local_used_keys = used_keys if used_keys is not None else set()
+    available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
+    if sections is not None:
+        fallback_pool = collect_candidate_pool("Tools You Can Use", sections, local_used_keys, include_self=False, limit=10)
+        seen_keys = {entry_key(entry) for entry in available_entries}
+        for entry in fallback_pool:
+            key = entry_key(entry)
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            available_entries.append(entry)
+    if not available_entries:
+        lines.append("Insufficient sourced material for this section today.")
+        lines.append("")
+        return lines
+
+    available_entries = sorted(available_entries, key=tool_entry_priority, reverse=True)
+
+    main_entries = available_entries[:3]
+    enrich_entries(main_entries)
+    for entry in main_entries:
+        title = clean_title(entry["title"])
+        summary = summarize(entry.get("summary") or "", 200)
+        publisher = entry.get("publisher", "")
+        source = source_label(entry.get("link", ""), publisher)
+        link = preferred_link(entry.get("link", ""), publisher)
+        local_used_keys.add(entry_key(entry))
+        lines.extend(
+            [
+                f"### {title}",
+                "",
+                summary or "Useful tool worth opening directly.",
+                "",
+                f"**Link:** [Open tool]({link})" if link else (f"**Link:** [Read at {source}]({link})" if link else ""),
+                "",
+            ]
+        )
+
+    short_entries = available_entries[3:7]
+    if short_entries:
+        lines.append("### Short Takes")
+        lines.append("")
+        for entry in short_entries:
+            title = clean_title(entry["title"])
+            summary = summarize(entry.get("summary") or "", 120)
+            publisher = entry.get("publisher", "")
+            source = source_label(entry.get("link", ""), publisher)
+            link = preferred_link(entry.get("link", ""), publisher)
+            local_used_keys.add(entry_key(entry))
+            tail = f" [Open tool]({link})" if link else (f" [Source: {source}]({link})" if link else "")
+            lines.append(f"- **{title}:** {summary}{tail}" if summary else f"- **{title}.**{tail}")
+        lines.append("")
+    return lines
+
+
 def build_generic_section(
     section: str,
     entries: list[dict],
@@ -824,9 +919,12 @@ def build_generic_section(
         lines.append("")
         return lines
     main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
-    main_entries = available_entries[:main_count]
+    ranked_entries = sorted(available_entries, key=summary_quality, reverse=True)
+    main_entries = ranked_entries[:main_count]
     enrich_entries(main_entries)
-    short_entries = available_entries[main_count: main_count + short_count]
+    main_keys = {entry_key(entry) for entry in main_entries}
+    short_pool = [entry for entry in available_entries if entry_key(entry) not in main_keys]
+    short_entries = short_pool[:short_count]
     for entry in [*main_entries, *short_entries]:
         local_used_keys.add(entry_key(entry))
     for entry in main_entries:
@@ -851,13 +949,28 @@ def build_entertainment_section(
         lines.append("")
         return lines
 
-    main_entry = available_entries[0]
-    local_used_keys.add(entry_key(main_entry))
-    lines.extend(build_main_entry(main_entry))
-    short_entries = available_entries[1:4]
-    for entry in short_entries:
+    lines.extend(["### What Looks Worth Your Attention", ""])
+    shortlist: list[dict] = []
+    seen_story_keys: set[str] = set()
+    for entry in available_entries:
+        story_key = lead_story_key(entry.get("title", ""))
+        if story_key and story_key in seen_story_keys:
+            continue
+        if story_key:
+            seen_story_keys.add(story_key)
+        shortlist.append(entry)
+        if len(shortlist) >= 6:
+            break
+    for entry in shortlist:
+        title = clean_title(entry["title"])
+        summary = summarize(entry.get("summary") or "", 140)
+        publisher = entry.get("publisher", "")
+        source = source_label(entry.get("link", ""), publisher)
+        link = preferred_link(entry.get("link", ""), publisher)
         local_used_keys.add(entry_key(entry))
-    lines.extend(build_short_takes(short_entries))
+        suffix = f" [Source: {source}]({link})" if link else ""
+        lines.append(f"- **{title}:** {summary}{suffix}" if summary else f"- **{title}.**{suffix}")
+    lines.append("")
     return lines
 
 
@@ -1004,6 +1117,8 @@ def main() -> None:
             lines.extend(build_travel_section(entries, sections=sections, used_keys=used_keys))
         elif section == "Idea Of The Day":
             lines.extend(build_idea_section(sections.get("Research Watch", []), sections=sections, used_keys=used_keys))
+        elif section == "Tools You Can Use":
+            lines.extend(build_tools_section(entries, sections=sections, used_keys=used_keys))
         else:
             lines.extend(build_generic_section(section, entries, sections=sections, used_keys=used_keys))
 
