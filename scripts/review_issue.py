@@ -20,6 +20,7 @@ BAD_PATTERNS = [
     r"\bnews\.google\.com\b",
     r"\bupdate manually\b",
     r"\bdata unavailable\b",
+    r"Insufficient sourced material for this section today\.",
     r"^\*\*Source:\*\* Source$",
     r"^### Nature$",
     r"^### Nature Communications$",

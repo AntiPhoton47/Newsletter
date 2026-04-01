@@ -356,6 +356,7 @@ def format_day(date_str: str) -> str:
 INVESTMENT_THEME_LIBRARY = [
     {
         "id": "ai_infrastructure",
+        "label": "AI infrastructure",
         "mover_labels": {
             "NVIDIA (NVDA)",
             "Broadcom (AVGO)",
@@ -375,9 +376,12 @@ INVESTMENT_THEME_LIBRARY = [
             "ASML",
             "Vertiv",
         ],
+        "signal_terms": ["networking silicon", "HBM supply", "advanced packaging", "lithography"],
+        "regime_terms": ["capex durability", "pricing power", "supply bottlenecks"],
     },
     {
         "id": "power_and_grid",
+        "label": "Power and grid infrastructure",
         "mover_labels": {
             "Caterpillar (CAT)",
             "Exxon Mobil (XOM)",
@@ -390,9 +394,12 @@ INVESTMENT_THEME_LIBRARY = [
             "Caterpillar",
             "Exxon Mobil",
         ],
+        "signal_terms": ["transmission spend", "cooling demand", "power-management budgets", "backlog conversion"],
+        "regime_terms": ["electrification demand", "energy costs", "grid constraints"],
     },
     {
         "id": "resilient_software",
+        "label": "Resilient enterprise software",
         "mover_labels": {
             "ServiceNow (NOW)",
             "CrowdStrike (CRWD)",
@@ -405,9 +412,12 @@ INVESTMENT_THEME_LIBRARY = [
             "Snowflake",
             "Uber",
         ],
+        "signal_terms": ["renewal quality", "seat expansion", "security budgets", "automation demand"],
+        "regime_terms": ["rate sensitivity", "margin discipline", "budget resilience"],
     },
     {
         "id": "aerospace_defense",
+        "label": "Aerospace and defense",
         "mover_labels": {
             "RTX (RTX)",
             "Boeing (BA)",
@@ -418,6 +428,8 @@ INVESTMENT_THEME_LIBRARY = [
             "Boeing",
             "GE Aerospace",
         ],
+        "signal_terms": ["order-book quality", "aftermarket resilience", "fleet renewal", "execution discipline"],
+        "regime_terms": ["geopolitical strain", "industrial backlog", "program execution"],
     },
 ]
 
@@ -529,6 +541,16 @@ def format_company_list(names: list[str]) -> str:
     return ", ".join(bolded[:-1]) + f", and {bolded[-1]}"
 
 
+def format_plain_list(items: list[str]) -> str:
+    if not items:
+        return ""
+    if len(items) == 1:
+        return items[0]
+    if len(items) == 2:
+        return f"{items[0]} and {items[1]}"
+    return ", ".join(items[:-1]) + f", and {items[-1]}"
+
+
 def select_investment_themes(
     company_movers: list[tuple[str, str, str]],
     macro_metrics: dict[str, float | None],
@@ -586,35 +608,27 @@ def select_investment_themes(
     return chosen
 
 
-def theme_paragraph(theme: dict[str, object]) -> str:
-    watch_names = list(theme["watch_names"])[:4]
-    companies = format_company_list(watch_names)
-    theme_id = str(theme["id"])
+def theme_paragraph(theme: dict[str, object], macro_metrics: dict[str, float | None], index: int) -> str:
+    companies = format_company_list(list(theme["watch_names"])[:4])
+    signal_terms = format_plain_list(list(theme["signal_terms"])[:3])
+    regime_terms = format_plain_list(list(theme["regime_terms"])[:3])
+    label = str(theme["label"])
+    repeated_recently = bool(theme.get("repeated_recently"))
 
-    if theme_id == "ai_infrastructure":
-        return (
-            "AI infrastructure remains most interesting when the signal is moving deeper into the stack rather than "
-            f"staying at the flagship-model headline level. Watch {companies} for evidence on networking silicon, "
-            "HBM supply, advanced packaging, and lithography; the better thesis is about persistent bottlenecks and "
-            "pricing power, not a generic claim that AI demand is still large."
-        )
-    if theme_id == "power_and_grid":
-        return (
-            "Power, grid, and hard-infrastructure names matter when electrification and data-center build-outs start "
-            f"looking non-discretionary. Watch {companies} for signs that transmission, cooling, and power-management "
-            "budgets are being treated as enabling spend rather than optional optimization."
-        )
-    if theme_id == "resilient_software":
-        return (
-            "Rate-sensitive software is only interesting when it is tied to budgets that companies cut last. Watch "
-            f"{companies} for evidence that workflow automation, security, and operating-efficiency tools remain "
-            "mission-critical even if the market becomes less forgiving about duration."
-        )
-    return (
-        "Defense and aerospace deserve attention when geopolitical strain, fleet renewal, and long-cycle backlogs "
-        f"matter more than consumer demand. Watch {companies} for order-book quality, aftermarket resilience, and "
-        "execution discipline rather than only headline contract wins."
+    opener = f"{label} still looks worth watching"
+    if repeated_recently:
+        opener += " because the current regime still supports the thesis"
+    else:
+        opener += " because today's signals point there more clearly than the previous issue did"
+
+    sentence = (
+        f"{opener}. Watch {companies} for evidence on {signal_terms}; the real question is whether "
+        f"{regime_terms} keep translating into durable earnings power rather than just short-term momentum."
     )
+
+    if index == 1:
+        sentence += " " + build_regime_sentence(macro_metrics)
+    return sentence
 
 
 def build_regime_sentence(macro_metrics: dict[str, float | None]) -> str:
@@ -657,10 +671,7 @@ def build_investment_opportunities(
     paragraphs: list[str] = []
 
     for index, theme in enumerate(themes[:2]):
-        paragraph = theme_paragraph(theme)
-        if index == 1:
-            paragraph += " " + build_regime_sentence(macro_metrics)
-        paragraphs.append(paragraph)
+        paragraphs.append(theme_paragraph(theme, macro_metrics, index))
 
     if not paragraphs:
         paragraphs.append(build_regime_sentence(macro_metrics))
@@ -741,7 +752,7 @@ def build_short_takes(entries: list[dict]) -> list[str]:
 def build_generic_section(section: str, entries: list[dict]) -> list[str]:
     lines = [f"## {section}", ""]
     if not entries:
-        lines.append("No candidates available today.")
+        lines.append("Insufficient sourced material for this section today.")
         lines.append("")
         return lines
     main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
@@ -756,32 +767,25 @@ def build_generic_section(section: str, entries: list[dict]) -> list[str]:
 
 def build_entertainment_section(entries: list[dict]) -> list[str]:
     lines = ["## Entertainment", ""]
-    categories = ["Movies", "Books", "TV Shows", "Video Games", "Concerts"]
-    for category in categories:
-        lines.append(f"### {category}")
+    if not entries:
+        lines.append("Insufficient sourced material for this section today.")
         lines.append("")
-        pool = entries[:2] if entries else []
-        if pool:
-            for entry in pool:
-                title = clean_title(entry["title"])
-                summary = summarize(entry.get("summary") or "", 120)
-                publisher = entry.get("publisher", "")
-                source = source_label(entry.get("link", ""), publisher)
-                link = preferred_link(entry.get("link", ""), publisher)
-                suffix = f" [Source: {source}]({link})" if link else ""
-                lines.append(f"- **{title}:** {summary}{suffix}")
-        else:
-            lines.append("- Add current release manually. [Source](https://example.com)")
-        lines.append("")
+        return lines
+
+    main_entry = entries[0]
+    lines.extend(build_main_entry(main_entry))
+    lines.extend(build_short_takes(entries[1:4]))
     return lines
 
 
 def build_travel_section(entries: list[dict]) -> list[str]:
-    lines = ["## Travel", "", "### Cool Place To Visit", ""]
+    lines = ["## Travel", ""]
     if entries:
         entry = entries[0]
         enrich_entries([entry])
         title = clean_title(entry["title"])
+        lines.append(f"### {title}")
+        lines.append("")
         summary = summarize(entry.get("summary") or "", 220)
         publisher = entry.get("publisher", "")
         source = source_label(entry.get("link", ""), publisher)
@@ -794,23 +798,24 @@ def build_travel_section(entries: list[dict]) -> list[str]:
         lines.append("")
         lines.append(f"{summary}" + (f" [Source: {source}]({link})" if link else ""))
     else:
-        lines.append("A destination candidate was not available today.")
+        lines.extend(["### Travel Brief", "", "Insufficient sourced material for this section today."])
     lines.append("")
     return lines
 
 
 def build_idea_section(entries: list[dict]) -> list[str]:
-    lines = ["## Idea Of The Day", "", "### Concept to explain", ""]
+    lines = ["## Idea Of The Day", ""]
     if entries:
         entry = entries[0]
         enrich_entries([entry])
+        title = clean_title(entry["title"])
+        lines.append(f"### {title}")
+        lines.append("")
+        summary = summarize(entry.get("summary") or "", 220)
         link = preferred_link(entry.get("link", ""), entry.get("publisher", ""))
-        lines.append(
-            f"Use today's strongest conceptual thread, for example from **{clean_title(entry['title'])}**, and explain it clearly in 1-2 paragraphs."
-            + (f" [Source]({link})" if link else "")
-        )
+        lines.append(summary + (f" [Source]({link})" if link else ""))
     else:
-        lines.append("Explain one concept from the day's strongest science or mathematics story.")
+        lines.extend(["### Concept Brief", "", "Insufficient sourced material for this section today."])
     lines.append("")
     return lines
 
@@ -836,7 +841,7 @@ def build_overview(sections: dict[str, list[dict]]) -> list[str]:
         if sections.get(section)
     ][:3]
     if not highlighted_sections:
-        return ["The strongest developments are still being assembled from today's source mix."]
+        return ["Today's issue depends on stronger sourced material before a useful thematic overview can be written."]
 
     lead_entries = [sections[section][0] for section in highlighted_sections]
     enrich_entries(lead_entries)

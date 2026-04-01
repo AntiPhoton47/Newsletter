@@ -191,7 +191,7 @@ def cleanup_placeholder_artifacts(issue_date: dt.date) -> None:
             "Feed fetch failed",
             "data unavailable",
             "**Source:** Source",
-            "Add current release manually.",
+            "Insufficient sourced material for this section today.",
         )
         if any(token in text for token in explicit_placeholders):
             issue_path.unlink()
