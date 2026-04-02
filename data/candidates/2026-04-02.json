@@ -1,0 +1,1401 @@
+{
+  "date": "2026-04-02",
+  "generated_at": "2026-04-02T12:12:43.815674+00:00",
+  "sections": {
+    "Need To Know": [
+      {
+        "title": "Nanoscale transfer-printed full-colour ultrahigh-resolution quantum dot LEDs",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5JeEM4TGtCbVJNdHdKMFlEa3ZYcWlvcncxNVZfSnprcWJQMHJtZUxqeThNb1h1dDlIWWViUkhKcExfY3hWVVBxZ29aSTJGamtfRGwzMTlSdXZMMUdRMlVF?oc=5",
+        "published": "Wed, 01 Apr 2026 22:03:55 GMT",
+        "summary": "Nanoscale transfer-printed full-colour ultrahigh-resolution quantum dot LEDs &nbsp;&nbsp; Nature",
+        "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "AlphaFold as a prior: experimental structure determination conditioned on a pretrained neural network",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBSUzEyN21XWVQ1OUhtOGk1cndhNUNXdnVrWWhUdTE1VktIaG5ScUdDcDJZVXJDYUJ2RGRKWEFjbVBmMWdEaG1TRldxVnZZSU1zTVA5d0RmZHUtV1lhMWFZ?oc=5",
+        "published": "Wed, 01 Apr 2026 11:03:16 GMT",
+        "summary": "AlphaFold as a prior: experimental structure determination conditioned on a pretrained neural network &nbsp;&nbsp; Nature",
+        "query": "site:nature.com spectroscopy OR standard model physics",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Boundary-guided cell alignment drives mouse epiblast maturation",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qUFRhVEVtN1NjaldRLVg3NlJnb2JmXzBFLUxqY0stZzFXNk9YR3pseTdnUFBOU1VxRkpnNkJob01MLWNLSDY5dzVXWUxQNUVpMnhKclFySU5seUpIZHZF?oc=5",
+        "published": "Wed, 01 Apr 2026 09:47:10 GMT",
+        "summary": "Boundary-guided cell alignment drives mouse epiblast maturation &nbsp;&nbsp; Nature",
+        "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Observation of giant nonlinear valley Hall effect",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5feDNnT0FPakhzUmp4UFVTb0kxSGk0YjNpbXVOcUhqQ0JoM1haRmotdlo3d1cyTk91Nll6eVJpWWVSQmRZVXBsTHI4eXVFS1dUNVBFZ0stSW9yWTRLODZn?oc=5",
+        "published": "Tue, 31 Mar 2026 10:39:37 GMT",
+        "summary": "Observation of giant nonlinear valley Hall effect &nbsp;&nbsp; Nature",
+        "query": "site:nature.com spectroscopy OR standard model physics",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Real-space imaging of the band topology of transition metal dichalcogenides",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE85Z2RZazlpejNkbXRXcDdMWm93UmZPbE42VU55Z2tRQWttVS1tN1d6U28xQXZTeWFjQmxONWY0Wnk4TXlwYnNqOUFVWWdlQ2htU0pwNnFOYTVLYkhqZGZZ?oc=5",
+        "published": "Tue, 31 Mar 2026 09:08:55 GMT",
+        "summary": "Real-space imaging of the band topology of transition metal dichalcogenides &nbsp;&nbsp; Nature",
+        "query": "site:nature.com spectroscopy OR standard model physics",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Quantum simulations verified by experiments for the first time",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1yLWllVjBiVWwtLTBURDBoVUFhN0xMX2NyMXBmRkFpc2s4NG9LeTF6SzFmeV95QWFjVkw5YW16SHIwa0ZBd1dIUDBiZ3hJZ0pIOERfU0plT1VQT3RXVTJ3?oc=5",
+        "published": "Mon, 30 Mar 2026 14:01:53 GMT",
+        "summary": "Quantum simulations verified by experiments for the first time &nbsp;&nbsp; Nature",
+        "query": "site:nature.com spectroscopy OR standard model physics",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "A two-mode thermomechanically squeezed phonon laser",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5WNlloTklXRmJFUGt6X0ZvRWxoTGtWaGRhQTFCRm1qcTBoWU5nRlVlRzliOE5KZ2l1YmtYT2FXaXZ1RnpCdW1uenhLOFdySTRxR0NTUFlqSUtlaHlKOE5Z?oc=5",
+        "published": "Mon, 30 Mar 2026 09:11:37 GMT",
+        "summary": "A two-mode thermomechanically squeezed phonon laser &nbsp;&nbsp; Nature",
+        "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The hydrodynamic torque dipole from rotary bacterial flagella powers symmetric discs",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9OTW5qRXI2OEl2QjF2ZlR3LVdVYVdjNlp4eDZRU3ZNYWpXTjM3QmExa3dXRlJhTjN6NkpiemJRWTZoVUhhMWpWS1JpSWliZHJTQVlyT25GSUZtSEJNTHNz?oc=5",
+        "published": "Fri, 27 Mar 2026 10:56:05 GMT",
+        "summary": "The hydrodynamic torque dipole from rotary bacterial flagella powers symmetric discs &nbsp;&nbsp; Nature",
+        "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "A quantum walk comb source at telecommunication wavelengths",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjZWdqbVBvQmhlb3ptTEd5UWFybDdYbTctcHp4Q25rM1hmZHlGcmdTYjEtZjdfTEctYjJNaVFzblM0X21DbWdUTkt1RDFkQnk0Y1c0RDBGZ3Y1QmMzZmlJ?oc=5",
+        "published": "Wed, 25 Mar 2026 11:06:45 GMT",
+        "summary": "A quantum walk comb source at telecommunication wavelengths &nbsp;&nbsp; Nature",
+        "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Research Watch": [
+      {
+        "title": "1 Introduction",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE8tcTNROC0xbmp6UUIyN3pSQV9feXVocXVsQ1I5VjNfS0tGb2VYSmMzMmt1Tl8yeVY5NWZobW95NXdhNjdmVllfOGJsNA?oc=5",
+        "published": "Thu, 02 Apr 2026 03:07:36 GMT",
+        "summary": "1 Introduction &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Hallucinated citations are polluting the scientific literature. What can be done?",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE12NkZwZ042TGJDV2FZeTF4MkJKdkprcFRZWEU0UVEwRHlFRF9HTEhzbmhrS3pISVNSOHRoSmhjRFlKUXdYQzd0Wm9SX3ZrOUdMYTRrb2xGcXB0OExTWTF3?oc=5",
+        "published": "Wed, 01 Apr 2026 11:31:41 GMT",
+        "summary": "Hallucinated citations are polluting the scientific literature. What can be done? &nbsp;&nbsp; Nature",
+        "query": "site:nature.com AI for science research",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Shor\u2019s algorithm is possible with as few as 10,000 reconfigurable atomic qubits",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1QQkQ0WGhPaUE1d0hYcEhlaWRJYThYQzZTQmpMazFBWXRRRVZzVEYwcG5Fb2h2SGd0dm1ONkE3YnZCWEl5bmlGbzZCaw?oc=5",
+        "published": "Tue, 31 Mar 2026 05:10:55 GMT",
+        "summary": "Shor\u2019s algorithm is possible with as few as 10,000 reconfigurable atomic qubits &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum foundations OR contextuality",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Major conference catches illicit AI use \u2014 and rejects hundreds of papers",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ONDBYWjRXTjFNWEluMzVwSWQ2WDRTMFlMNWFhU3JFaXBrN1BRWkZlRThpMWFWMTgyT255X0Q3czlSVE04RUIzUUoweHhCRTljTTNNTVRlUnpUU3hGNTg4?oc=5",
+        "published": "Wed, 25 Mar 2026 07:00:00 GMT",
+        "summary": "Major conference catches illicit AI use \u2014 and rejects hundreds of papers &nbsp;&nbsp; Nature",
+        "query": "site:nature.com AI for science research",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Towards end-to-end automation of AI research",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB4LTJYMm9QTUc0M0RUaV9scXhlRmRSUl9PSFlUbzd3UXo4b3hGWXQ3bmlPMkVLcDNEMTJjRTctLTZuanJNbjcxLVFzWjQxNEg0ZFVEaUNFeXM0QnRxazNV?oc=5",
+        "published": "Wed, 25 Mar 2026 07:00:00 GMT",
+        "summary": "Towards end-to-end automation of AI research &nbsp;&nbsp; Nature",
+        "query": "site:nature.com AI for science research",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "First-principle evolution Hamiltonian operator: derivation from ADM quantum constraints and quantum reference-frame conditions",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ITkQ3ckNYSjVkcVVKZVVzTDdDUDBQa1ZYSmp0Zm9JajBpNXMxMDBxS1dESzA1NlRGTTh4dXN6amFra1gzZU9BSTFYMA?oc=5",
+        "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+        "summary": "First-principle evolution Hamiltonian operator: derivation from ADM quantum constraints and quantum reference-frame conditions &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The Steep Price of No Hair in a Modified Loop Quantum Cosmology",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBnck9lSS1TdWpabHRrV1ZvT1FjZXN3X2JvNlRjYlRqQ3ZNNU8yYjlNTE5rUjd2YW80NllnNW1vc1ZXTC0xZ0hlSi1VSQ?oc=5",
+        "published": "Sat, 21 Mar 2026 07:00:00 GMT",
+        "summary": "The Steep Price of No Hair in a Modified Loop Quantum Cosmology &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "[2603.13626] Quantum contextuality with mixed states of 1D symmetry-protected topological order",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE8wZFpycDh4LWo0WHRwZW9pYVJadERIUGN2ZE4tT0pSWFhIdWY0VFhYQmdlLW53YTc2b1VHbjM1ODU3SGJ4OXc4?oc=5",
+        "published": "Fri, 13 Mar 2026 07:00:00 GMT",
+        "summary": "[2603.13626] Quantum contextuality with mixed states of 1D symmetry-protected topological order &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum foundations OR contextuality",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "An Introduction to the Foundations and Interpretations of Quantum Mechanics",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE0xNVlCMGIwMHZOTjg5OWVIWlBFZ09ZN3pWQy1FcnNWeml4ajFhRVZNcXk4MF83dG1jWkc2dDN0SUZLcTBPdzNaNjI3cw?oc=5",
+        "published": "Wed, 11 Mar 2026 04:18:48 GMT",
+        "summary": "An Introduction to the Foundations and Interpretations of Quantum Mechanics &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum foundations OR contextuality",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Black holes and covariance in effective quantum gravity: A solution without Cauchy horizons",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBsNzZWMmZ2X1d4TGxzRWxiNlpQYmFKcklpam0yenpla0FMaUJ4YTBaSkdQb3dsOWJybjlCN2Z2RWw1NDA4RU9nY3JlWQ?oc=5",
+        "published": "Thu, 05 Mar 2026 06:56:49 GMT",
+        "summary": "Black holes and covariance in effective quantum gravity: A solution without Cauchy horizons &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Black Holes and Covariance in Effective Quantum Gravity",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5UVnRUVlhTTjZQcnQzTmc5eTFzTnFEUndxVUg4M3VxLTJobXdTUUlRcTdJM2h6VEFvTmY0emRJdGlLZWNUTm12Q0VZQQ?oc=5",
+        "published": "Thu, 05 Mar 2026 06:56:02 GMT",
+        "summary": "Black Holes and Covariance in Effective Quantum Gravity &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "[2603.04630] Quantum foundations for quantum technologies in the International Year of Quantum (2025)",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9BTTd2a05BT25UaHdHWTlRVFczVHVOQmk4RlpXdV9VU04ycDNzSno4TGZ3bTRrQU5uZzhodHppMmJ4Vl9aWkdF?oc=5",
+        "published": "Wed, 04 Mar 2026 08:00:00 GMT",
+        "summary": "[2603.04630] Quantum foundations for quantum technologies in the International Year of Quantum (2025) &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum foundations OR contextuality",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Quantum foundations for quantum technologies in the International Year of Quantum (2025)",
+        "publisher": "arXiv",
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE82alMzbjJZMUxTYmdnNXJzckZhZXBoT2FyeC0zR2ktWHExM3pRRlloYnd3M0l0dFZ6WWQ4UF9COEJubm1UdE80?oc=5",
+        "published": "Wed, 04 Mar 2026 08:00:00 GMT",
+        "summary": "Quantum foundations for quantum technologies in the International Year of Quantum (2025) &nbsp;&nbsp; arXiv",
+        "query": "site:arxiv.org quantum foundations OR contextuality",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "A benchmark of expert-level academic questions to assess AI capabilities",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE93bU50WWJqVzdWR0RFOEpmYVZ4MXVLaEFGLUtzVGxkZDQzTloyRndvU1F2NzkzQXpxU2Vwbjg4ck9Pb2NPaXgwcElhV0g4X3lfcDlEamh6LVh0eUlmWVZr?oc=5",
+        "published": "Wed, 28 Jan 2026 08:00:00 GMT",
+        "summary": "A benchmark of expert-level academic questions to assess AI capabilities &nbsp;&nbsp; Nature",
+        "query": "site:nature.com AI for science research",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The effect of ChatGPT on students\u2019 learning performance, learning perception, and higher-order thinking: insights from a meta-analysis | Humanities and Social Sciences Communications",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1JQmZwNDRDVlRZQ3BHTFFvNDRCWDlnMm5KckpPMnZUYk14UkcwQlRSQWZKaG9fWmhWdkpZZ1k0TEdRWVJ2WFpZcUxhbXpYaHF6S3hpZkMwWHdMMXJxbHJj?oc=5",
+        "published": "Tue, 06 May 2025 07:00:00 GMT",
+        "summary": "The effect of ChatGPT on students\u2019 learning performance, learning perception, and higher-order thinking: insights from a meta-analysis | Humanities and Social Sciences Communications &nbsp;&nbsp; Nature",
+        "query": "site:nature.com AI for science research",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "World News": [
+      {
+        "title": "\u2018No plan, no legal basis\u2019: Merz sparks backlash over desire to send Syrians home",
+        "publisher": "politico.eu",
+        "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNeWR2NHZ4bl9remtIcml5YjRGRmwtc3hmdjJWY0FqTlZuTkVxdGVXaFFKeE9ibURnMUdsLWxZU3JzbkFnbzFUM0FPQ3RhQ1dlZV9qUEZMel9RSkhJNFVBUDkwWkh1cFNtQ1d0WEJDeDhNS3d4cXVxbXNIMW9jdnZWZmExbHpweGhKYUMxYTItRUU5Slk?oc=5",
+        "published": "Thu, 02 Apr 2026 03:00:00 GMT",
+        "summary": "\u2018No plan, no legal basis\u2019: Merz sparks backlash over desire to send Syrians home &nbsp;&nbsp; politico.eu",
+        "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "France advising Bahrain on UN resolution to open Strait of Hormuz",
+        "publisher": "politico.eu",
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxObDVkVUZEbHZrY2ZpaHVaRk1id0ZNamswTmwyYXZMZE1xelk0TmJvZUZGak5td3RiTlluR1hVWGhKc1ZhVlFpUU8zTXdVQ3JNNmFSSEtyNEpjSUpBcHFTd19VOHNpNXFlX1JrN1dUc3I5SERfWVdmZEJVTVdJS3REUmZDSDJBa0xONVRnM2xJVTA2R1ZsbTVVOHg2ak9YeDVpYWpsYkgtMGd4OVBDanVWQ3FOZw?oc=5",
+        "published": "Wed, 01 Apr 2026 23:46:00 GMT",
+        "summary": "France advising Bahrain on UN resolution to open Strait of Hormuz &nbsp;&nbsp; politico.eu",
+        "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "How the War in the Middle East Is Affecting Energy, Trade, and Finance",
+        "publisher": "International Monetary Fund | IMF",
+        "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNV3dneUQ0RExnWHZRQmZuZGU3bkdiOE9Xc0MyVTBVaVB0b0ZuQlYzZ3UzWTRRMGViaTczbVFObkhWZnBMZ3RSSFdNSVZETkNPSDBxZTNSOTg5cU43OGt1ejVTNVU2UkcxTlo3RnNZYW1lSWFwR0kwVnpuTDZVTEMxMGFyekNVN2lmT2hTcXRGTVNaMm4xSkJ5dFBXVW5uSk8xLU00NkdDd3ozc3RFWXlGb3VmME1EN0t3?oc=5",
+        "published": "Tue, 31 Mar 2026 09:51:37 GMT",
+        "summary": "How the War in the Middle East Is Affecting Energy, Trade, and Finance &nbsp;&nbsp; International Monetary Fund | IMF",
+        "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "China factory activity rebounds in March as Iran war looms over growth",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNMFRXNzU1SjhjQjZQZGhTWWhubk1DNmxfbTNxZ0ZFb2hGNlQ4aEIxZzByV3pha2t4dXFTYXozdk1CczZwRVJYZnU5MWVpc2pPdlJ1T3lWRGZvWEJmY1dVcThFdjBHRks2ckpkLTFnR0hiRkxaSGVuSlB1RVJJSlRheGZfeHMzVHdSNWRiS2c2c09TVTBFalJibGY5cFVRLXdMTkE?oc=5",
+        "published": "Tue, 31 Mar 2026 04:33:53 GMT",
+        "summary": "China factory activity rebounds in March as Iran war looms over growth &nbsp;&nbsp; AP News",
+        "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The connectivity choices Europe must now make",
+        "publisher": "politico.eu",
+        "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdW1FVVBzWWRpYmVLMEE3ODdIanpOLWhBamRiTHQxVUsyZWJUcUs4N1lHZEw4LUw3UHUwLXBBTGZqbTF0MmlPRGdnQjhuTXBudXRuR2FJYTF4bnFzb2dFMlVFbmxQMW52RVNFNGVwbWgzTkxSSmR4cU1VdUtoZDRXaTN2U2xBQ0VVb0ZLSzRvQjBfUQ?oc=5",
+        "published": "Tue, 31 Mar 2026 04:00:00 GMT",
+        "summary": "The connectivity choices Europe must now make &nbsp;&nbsp; politico.eu",
+        "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Coming Soon: World Economic Outlook, April 2026",
+        "publisher": "International Monetary Fund | IMF",
+        "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNck1vV210SGxtN1h5dEJwa3ZrNGRLV3RId3o1Y1BVcFl3UVhiYmRQWm9sVC00ZW80Y0lMSEpMRzV3V3dsNTl1djltOFBOelVIZFY3WW9EcERfTTFUeENacnpRTzk0Vlk5Q0dYSFpmSXgxU2RBa29Ed0dpWEJYMFZhd1RzMTU5SjBXY2swZURyU1M3aXM1cEE?oc=5",
+        "published": "Mon, 30 Mar 2026 18:44:56 GMT",
+        "summary": "Coming Soon: World Economic Outlook, April 2026 &nbsp;&nbsp; International Monetary Fund | IMF",
+        "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Why Europe\u2019s center left can\u2019t stop losing",
+        "publisher": "politico.eu",
+        "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFB6QlhvRmh5eEpzcFJhS3JYY2gxdkljcnVtREJMcHJ4LTd3bXRTOXoxREl6ZTJJRFE0dGVHcHlyRTFTWGM1MUtpVnBjcmFNTEFnejRjVGc3MW9VSVlmUU1UVTZPQkowMEdCSEJpNU9ZQjJhNXlmcnlUSTV0bjM?oc=5",
+        "published": "Mon, 30 Mar 2026 03:00:00 GMT",
+        "summary": "Why Europe\u2019s center left can\u2019t stop losing &nbsp;&nbsp; politico.eu",
+        "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Yemen\u2019s Houthis claim responsibility for missile attack on Israel, their first since war started",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQaUZNZWJHMnBzZmtITzU2RFRySm9rbXV1ZDBac2lUbGRLMUtHeXNJVkVtZDZkSkp5aWQzaUhLcjlEYWpGYklSUzBoV0pCM2RXZTNSUlFkdHhTUi0yUVlueDFjcGQ3V0xPSTdjRG5rVHlxcFdlbEdzM0tiQTBqYU1LUDBZNHVNNWZISlN5UU9tSmR6XzM4bHBTMHVlU2ZNWGNXaktRSw?oc=5",
+        "published": "Sat, 28 Mar 2026 07:32:00 GMT",
+        "summary": "Yemen\u2019s Houthis claim responsibility for missile attack on Israel, their first since war started &nbsp;&nbsp; AP News",
+        "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "G7 allies meet against backdrop of wars in Ukraine and Iran, with unpredictable US",
+        "publisher": "Reuters",
+        "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOS0hsMVl2STZQYkZWa0o1RDloVFBOZnQ2M1pNQ1VxTjZNUmZ2OGtaV1BWNGU2dmN2N3dLR2V6OXJicGRGLUpac2RtRjRRaGVHZktQOVNQMnhXdkttZFFJOVJkYXY3Z3BUZXpycmcyNURBSjFyQXVzZlplY0taYUNYQ1pYY01Rdk1jeGlfSjhHS2pUeHRLc3lxME5xbFZhWEE3UkFQVUJlTk10UVVjSVdkNjBwOUUtbnF4QVFlTg?oc=5",
+        "published": "Fri, 27 Mar 2026 01:49:32 GMT",
+        "summary": "G7 allies meet against backdrop of wars in Ukraine and Iran, with unpredictable US &nbsp;&nbsp; Reuters",
+        "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "IMF Executive Board Concludes 2026 Article IV Consultation, and Mid-Term Review Under the Flexible Credit Line Arrangement with Morocco",
+        "publisher": "International Monetary Fund | IMF",
+        "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPazdLWVRzVDN1V0oxSnpQSGNucVI0dG9WSVdobWdkNHdfdXkyOWhUd2MycldRTWFuU0k3cU1NR20zaEE3NS1iQWpZLUU2ei1jX21ZV2FXZTljaHdOTVNhMjVrYXY3allTQ1BvRG11ekU0LWw3cjB4V1hWakVhRmtmS000YWE0OVFkdEZ0ZzBWQ0M0cWhmb0N0YkRuSm0yZk1haWVxR0hRWEpwMkpDcW5kZFN4a2ZMeXZsYVhNNVJockVPZHFUbUxNZ2lwdnZhUkFsdTVJVg?oc=5",
+        "published": "Wed, 25 Mar 2026 16:08:56 GMT",
+        "summary": "IMF Executive Board Concludes 2026 Article IV Consultation, and Mid-Term Review Under the Flexible Credit Line Arrangement with Morocco &nbsp;&nbsp; International Monetary Fund | IMF",
+        "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaFFwa0hHdTBzQXVsN2JDa3BYMm9sSjZzQmdOYUNsZmRzNVpRTThXWUFWZnJLUlZGTUJ4ZFVGRW5wQ1hCOUxkc1JYSUhZbm9ZSS1lQ28zU2ZmVkhrQTBURU9KaGhrelFudElKRHZrM2oxT2NJc1JQek1VWjRSdmIxeWNvY2ZjVDBkWEtfZGNEMzM5Y2hLV005RFk0TQ?oc=5",
+        "published": "Wed, 25 Mar 2026 12:00:00 GMT",
+        "summary": "Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows &nbsp;&nbsp; AP News",
+        "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Aid vessel arrives in Havana as Cuba\u2019s economic and energy crises deepen",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNLTBjU0oxNW5yTTZlYmsyOU10UW5VeUpYR0RNa2t2dTRtS3RHbmF2MVJWSTlIaEdRQ1VUSWcwV0FHODBhRUNacnNiVUFqdnlFWHBGckZ0MjlzanVtWWJtTmw2MkNaSlM3c2NZd0djQ045WkN0WG1PNDU1d1Q2NENWUDJEbmdrS244dEdvZnNlYUxOUWJROXl5bFowT1JBVjJ4NGJXcjFmd28?oc=5",
+        "published": "Tue, 24 Mar 2026 07:00:00 GMT",
+        "summary": "Aid vessel arrives in Havana as Cuba\u2019s economic and energy crises deepen &nbsp;&nbsp; AP News",
+        "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "OECD Economic Outlook, Interim Report March 2026 (EN)",
+        "publisher": "OECD",
+        "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNX1BwcnVtTTBpajFIVGdNS3RUc0xtTzhVWWhqZmQxeUZPaWM2VHF6clRoM1RQM2lnVl85bDZTZmZ4ejd1MXN6RTlZTllZVDEzYkdlaU55MnJHWjJ2RWdadi05eHZQWmpFXzdQY0NtQzRDbzU2bFJvQzRxRC12YzZhbTg1SkNPM1U0VEpCMGsxMl9sRWEwUjgzM0owX29hZVo3QWpSQV9DY1d3QUt6ZFJxc1h5SkJrcDk3S3h4cGdaVnFvVFVOQ19laXF3dENGVDFJZjN2U2hyeEdUdw?oc=5",
+        "published": "Mon, 23 Mar 2026 07:00:00 GMT",
+        "summary": "OECD Economic Outlook, Interim Report March 2026 (EN) &nbsp;&nbsp; OECD",
+        "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Trade with Cuba collapses as Trump escalates pressure on Communist Party leadership",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOeTJNOEMxZFhxZjF1RGNUVjVyRXd5a3k4SncyQ0l5SmtTYU9abXFGR3FlSm1iU0dKR1JlRFhCdVpfVkdQdmpSeXJSRDExLWY0R1lneEh4Ml9hNkZMRTV6NUVwWEpnT3V3OWxSMVpMcTU0dDZpbzNTSEFEel9XcllDbE5mMExUbU5qM3FqM2J1MmRVUFR6azFKeldIeVI?oc=5",
+        "published": "Thu, 19 Mar 2026 07:00:00 GMT",
+        "summary": "Trade with Cuba collapses as Trump escalates pressure on Communist Party leadership &nbsp;&nbsp; AP News",
+        "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "2 Mexican Navy ships laden with humanitarian aid dock in Cuba as US blockade sparks energy crisis",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTWYxa2JkdG0xak9pdzlXYVJTa3EzRTJVOUVWcnBUeHVlN3JfZ083MV8zZ1FOYjRYb18zT0dnazVSWnZ1MFFIRG0wZFUtbnZoamxUTC1KdklwMWgyRjZ6ZG5zVTJsaVhCaEk4Wnh5bHNILUI0eHRDUEVnMWhCbWpLOUhDQzR4MDBRSVhwZ3NvaVFuMjhvb19tN1E0RHFoSVU4c3p2S29KS3lFY1Jx?oc=5",
+        "published": "Thu, 12 Feb 2026 08:00:00 GMT",
+        "summary": "2 Mexican Navy ships laden with humanitarian aid dock in Cuba as US blockade sparks energy crisis &nbsp;&nbsp; AP News",
+        "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Philosophy": [
+      {
+        "title": "Reality is not a controlled hallucination",
+        "publisher": "IAI TV",
+        "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPZndiMENGZldSNDZNeXdLY2tnVlBKaWpKQnFmZ2kzdDlEbDJqX1g5SkpmaTU4MjBBdy04VHZvNUlSbEJWdFh5SnlBdUVnSTZHYlRiR0NYdW1OemdQTWZjZTNCcUZTeWVtSVFsUWJJeDNfS2pxQVJCRWZrVUlYcVpjaA?oc=5",
+        "published": "Mon, 09 Mar 2026 07:00:00 GMT",
+        "summary": "Reality is not a controlled hallucination &nbsp;&nbsp; IAI TV",
+        "query": "philosophy of science epistemology agency site:iai.tv",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "In a post-truth world truth-seeking is more important than ever | Jason Baehr",
+        "publisher": "IAI TV",
+        "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQSTRWcTRsTUlMUVYzUUZZZjExdnotaGlUQzZ6OTdtZi1wSnROZmI1amxLYWU1cVd2eXdZTF9Ibk5DTUU2UjJ5ancxSFp6U1RjN3JwaDRPSUM0Tnlib0JXU2pieHZxYW5qSTVPWWdLZWhaeTlsS0dVR0xrZkJwUGhib0xGQWNZXzlrTFdkVjd3b1ROUmE0cWRjMHNod2FRZw?oc=5",
+        "published": "Wed, 08 Oct 2025 07:00:00 GMT",
+        "summary": "In a post-truth world truth-seeking is more important than ever | Jason Baehr &nbsp;&nbsp; IAI TV",
+        "query": "philosophy of science epistemology agency site:iai.tv",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Biology": [
+      {
+        "title": "Interspecies interactions drive bacterial proteome reorganization and emergent metabolism",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBuUGxKQzNEV2lKaHA5WkhYd09ZaERYLUlmN1ZvRDktVnJwQ2N5S0RZQUE2ZmJNLUtTSWUwU3Myd1RNeURUMER5NThIZnhPRlYyMl92V01KUGt6Z2Jiel80?oc=5",
+        "published": "Tue, 31 Mar 2026 09:53:29 GMT",
+        "summary": "Interspecies interactions drive bacterial proteome reorganization and emergent metabolism &nbsp;&nbsp; Nature",
+        "query": "biology discovery evolution microbiome site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Accelerating coral assisted evolution to keep pace with climate change",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1DZFRzNTJod21hTFMzNmNUVVl2eDB5UTlsUFFDNWtRQUxRUzIwdW1IUXdXRURUU3cwWjh4VTlyRnZFZk1pUlJpTGhWQ0lIYWdUQ2hDNGJNWGZBaFZzVjZJ?oc=5",
+        "published": "Mon, 30 Mar 2026 04:08:34 GMT",
+        "summary": "Accelerating coral assisted evolution to keep pace with climate change &nbsp;&nbsp; Nature",
+        "query": "biology discovery evolution microbiome site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "High-resolution metagenome assembly for modern long reads with myloasm",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1JS0pleFJLT25XdFJIYjF0dldmYkg3eTU2RFJGTGRUU19LbUQyMk1MZ3l3WGs3cnQyS2l4QUNsNHJ5Tkt5TC1SaHNGQS0zY0IyU1lQa2ZmNEd0T3VrZEdR?oc=5",
+        "published": "Fri, 27 Mar 2026 10:24:07 GMT",
+        "summary": "High-resolution metagenome assembly for modern long reads with myloasm &nbsp;&nbsp; Nature",
+        "query": "biology discovery evolution microbiome site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "How thoughtful experimental design can empower biologists in the omics era",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBJdURNMEZaQkVmMHBud29wUG1TSUhyNmF5X19aX3ZzSlpmVnozNHRhb0t4OHFsYjQ2VDhQZ2o3cVJiWG4tWmozZ09vMm9IbVRpajFVYmRZOUM3ZjdMaXlJ?oc=5",
+        "published": "Wed, 06 Aug 2025 07:00:00 GMT",
+        "summary": "How thoughtful experimental design can empower biologists in the omics era &nbsp;&nbsp; Nature",
+        "query": "biology discovery evolution microbiome site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Gut microbiota\u2013mediated lipid accumulation as a driver of evolutionary adaptation to blue light toxicity in Drosophila",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1pLW1kdzVyZl9fT1ZYQlZ3LVFYQmhHVnFYandOSm1yZjVxTU50MTUybHRaNWpnN1cyY1hrWW9xelRVSHVMc2Q3azh3elc2NGNpZUFXa1ZpZko0b0xoemNN?oc=5",
+        "published": "Mon, 07 Jul 2025 07:00:00 GMT",
+        "summary": "Gut microbiota\u2013mediated lipid accumulation as a driver of evolutionary adaptation to blue light toxicity in Drosophila &nbsp;&nbsp; Nature",
+        "query": "biology discovery evolution microbiome site:nature.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Psychology and Neuroscience": [
+      {
+        "title": "Metabolic psychiatry targeting metabolic dysregulation in mental health",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5IdkRPUlRSaDhpaGNYUFhsYk5NUW0yTEtLR3dJOFVBUFRqNGtxTXlQS0V0dkV4MU9ROWtfM1NhX3FGcS04WEVvVnhfVDhUYm5aMTM3WURqVVZ1b0dLeGVZ?oc=5",
+        "published": "Mon, 30 Mar 2026 09:26:41 GMT",
+        "summary": "Metabolic psychiatry targeting metabolic dysregulation in mental health &nbsp;&nbsp; Nature",
+        "query": "neuroscience psychology cognition brain site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Charting the human brain\u2019s lifelong functional organization",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9ESHg5R0FoUUVVNUVfanAwMW14eTFsN1hkZ2JmN0ctS2xkbXlWN3AwWFdEQ185YmN0TzZIOG9YbmFIbThTbTdDcWUyM0NPamY1M3ZZTlRCdFROTG1wdVJv?oc=5",
+        "published": "Wed, 25 Mar 2026 16:20:28 GMT",
+        "summary": "Charting the human brain\u2019s lifelong functional organization &nbsp;&nbsp; Nature",
+        "query": "neuroscience psychology cognition brain site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Cognition",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNc1pzRno4UEt3NzQ4WjVzd1U1RnlBU0VfS2xLZUl2RGhoRDNYZ215TzlhZDh3Y3VSTExfS0RCQlBnSl9WRnlzbkhnMHVLWDJ0VTlRRlJucUhZUEFrclJIanBITGEtLVVoSFhldWp3WVRQamU5Vm9xeVFlUVlLcm5TQ20wbUJnTjJfQXZSbHpFWkZjQQ?oc=5",
+        "published": "Mon, 14 Jul 2025 07:27:01 GMT",
+        "summary": "Cognition &nbsp;&nbsp; Nature",
+        "query": "neuroscience psychology cognition brain site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "A foundation model to predict and capture human cognition",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB3VmlOOG1tYURhNV9yWVNhZDBNQU5qb1FrV245ZjQzZlk2U21pV2g3eGJkT1VES3ZpSnBVemhWWEU0VnBLZmMzNFpReWZIQ21paGxJVlJoX1dmRmotZUlv?oc=5",
+        "published": "Wed, 02 Jul 2025 07:00:00 GMT",
+        "summary": "A foundation model to predict and capture human cognition &nbsp;&nbsp; Nature",
+        "query": "neuroscience psychology cognition brain site:nature.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ubm9SYURkaTlYdDVzSGVrUkx5SklGeFhFT2V3dDI4Y1Jza3cwenhUbXRyQ0d1WEVVQkcyWWNyeEhpTzhyQUlNcE5uZTE0TVFkR3ZJQ2JnR21kTG1oeUdB?oc=5",
+        "published": "Tue, 15 Apr 2025 07:00:00 GMT",
+        "summary": "Ten principles for reliable, efficient, and adaptable coding in psychology and cognitive neuroscience &nbsp;&nbsp; Nature",
+        "query": "neuroscience psychology cognition brain site:nature.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Health and Medicine": [
+      {
+        "title": "ChatGPT Health performance in a structured test of triage recommendations",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1rRkk1OUpGNUVkSENodzF4dzJVbVNJUXFCMnl2RE9YY2hKTkx0QTlnS0s0QlFjSGpoSmdYSFJDdmNSWmNwTG1fdDB2QnpFNC1CRTZ1dmgzSGNmQVRFLVBF?oc=5",
+        "published": "Mon, 23 Feb 2026 08:00:00 GMT",
+        "summary": "ChatGPT Health performance in a structured test of triage recommendations &nbsp;&nbsp; Nature",
+        "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "An agentic system for rare disease diagnosis with traceable reasoning",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1yUFFscHc3NWR4MkhOYXpqZEsya2lCU3EtVF9kU0p4bEpwX1N1Ty1Ja0QzcHU2Szh6ZWlEOFN4c1AzLUxFNDZPNThxYVZYTE54U0Vxb0oxc0QwNW9OX2ZN?oc=5",
+        "published": "Wed, 18 Feb 2026 08:00:00 GMT",
+        "summary": "An agentic system for rare disease diagnosis with traceable reasoning &nbsp;&nbsp; Nature",
+        "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Accelerating AI innovation in healthcare: real-world clinical research applications on the Mayo Clinic Platform",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9EcTVDZklvMDZmWGpFNllNY3owVGVlNDhRYmZCV3FYUl9rc1I5YXFtUDFORmJoaGdPOXgycHd0RjlEVTM0ZTBaS0FJZklOaHlPRk00T0hpTTdVU0h0a2lV?oc=5",
+        "published": "Mon, 16 Feb 2026 08:00:00 GMT",
+        "summary": "Accelerating AI innovation in healthcare: real-world clinical research applications on the Mayo Clinic Platform &nbsp;&nbsp; Nature",
+        "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Reliability of LLMs as medical assistants for the general public: a randomized preregistered study",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1LRFhENjFvd2tuUENmcVhZRHpPZ3U5OU40Z1RjWjZROGs5d3RlTTQ2N3NNSXVuajVhdGg4YzllWlU2SGpZSWVXdk82TTVHSjBiaUVKejd0NDctOVNoRXg0?oc=5",
+        "published": "Mon, 09 Feb 2026 08:00:00 GMT",
+        "summary": "Reliability of LLMs as medical assistants for the general public: a randomized preregistered study &nbsp;&nbsp; Nature",
+        "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Ethics and governance of artificial intelligence for health. Guidance on large multi-modal models",
+        "publisher": "World Health Organization (WHO)",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNOVU2anJ0UDJBM21lUWJ2dlptd0pBanlNMlRjY1ItZjhDbFRheDVjWDU3Z1ladFJ0OVQtYVJrcl91eXFXQVRWTFZGVUZMc2lkNzN3WU1qaFVveWZVUXhuSlF0N1Q4cmZCNGlNdW5CTUkwZXJBeEJSU3RLb19tOGJTUXlTUnpmdXRQcDNaZnJMazI4ZGtQVmZz?oc=5",
+        "published": "Mon, 17 Nov 2025 23:23:09 GMT",
+        "summary": "Ethics and governance of artificial intelligence for health. Guidance on large multi-modal models &nbsp;&nbsp; World Health Organization (WHO)",
+        "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Sociology and Anthropology": [
+      {
+        "title": "Investigating the analytical robustness of the social and behavioural sciences",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1VYWV6eDBVQU9lbEdMWXdLak1pNEt2dW9kdUlyR2tDYzVVdGFMcEU1RTRqb21yRExSYnlHb0ZQQUN3OE5jajdJTHhkRDFYZUNOZmpIZW1UbHBvZnJtdXV3?oc=5",
+        "published": "Wed, 01 Apr 2026 15:26:52 GMT",
+        "summary": "Investigating the analytical robustness of the social and behavioural sciences &nbsp;&nbsp; Nature",
+        "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Human-animal interactions and relations",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA1b0VBamFNc212SkdNVVYyeXlERlA2YXR6eVRtb3NYMlF5ek8yYmlEcVQ2cDUxVXkzY1ByYXFNRlctSzNUMFpONjR4eEUxbW9BUFZmYm1XOGU?oc=5",
+        "published": "Mon, 06 Oct 2025 18:14:33 GMT",
+        "summary": "Human-animal interactions and relations &nbsp;&nbsp; Nature",
+        "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Social clustering of preference for female genital mutilation/cutting in south-central Ethiopia",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE45Z1hYNmdYUlVLZDViMk1rWjMtWi1kNEVXYl90di1hSTdMRmhHQVV3UTgzanNMOE5rNDZaQmJieDRGQ2VoQUcySEZEZzVscmRUczNNRDU4UnRIeUlwdlNV?oc=5",
+        "published": "Tue, 10 Jun 2025 07:00:00 GMT",
+        "summary": "Social clustering of preference for female genital mutilation/cutting in south-central Ethiopia &nbsp;&nbsp; Nature",
+        "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Why human\u2013AI relationships need socioaffective alignment | Humanities and Social Sciences Communications",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBNSDhsNkJleXZzMkRnVlBtOTNLOU9WLXd5T0Jwajd5SzBIVkdRa3VLOTdkOGxlOFVwNnhKdllZTnBsamZ4eFdSQkNoem1DZHRPYXRSNnpUdTF3UTFRNGlN?oc=5",
+        "published": "Wed, 28 May 2025 07:00:00 GMT",
+        "summary": "Why human\u2013AI relationships need socioaffective alignment | Humanities and Social Sciences Communications &nbsp;&nbsp; Nature",
+        "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Differences in psychologists\u2019 cognitive traits are associated with scientific divides",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1QXzczZmE1UnJHS2EwMWpkRzRWRFE2WDVaS2h3MkUyTjBIcG1KcC1sYXNfaU1YRmNqSEZFVC1KNVZIbWpFaDN5SXpUUHppcWp4RGx0WmhYNElMVC1NRzVN?oc=5",
+        "published": "Thu, 17 Apr 2025 07:00:00 GMT",
+        "summary": "Differences in psychologists\u2019 cognitive traits are associated with scientific divides &nbsp;&nbsp; Nature",
+        "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Technology": [
+      {
+        "title": "How buildings and cities can be aligned with life",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9QRXozdXY3SmQxWmRiZEFoTjVyaWZBV0JESFJJdXhCUmZRQmZJZjRTY3dfbk83MzB4amZSamlTUTREelU1S2xnRnlsb2FRSXlvclFMTEJTeVRxcVhPMTRn?oc=5",
+        "published": "Mon, 30 Mar 2026 11:58:26 GMT",
+        "summary": "How buildings and cities can be aligned with life &nbsp;&nbsp; Nature",
+        "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Long-distance quantum link generates entanglement faster than it is lost",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE16Nm9IYXQyQ0JmTDFvTTB6S09YR1drdDAyYnl6VW9hNlA4S0V2a3B0U2syVlY2Wml5Z1FTOWZHS25raGQtLWhITC1ZVGxyYWxpNW84dHE5aUFRZ25jOThz?oc=5",
+        "published": "Thu, 26 Mar 2026 01:13:25 GMT",
+        "summary": "Long-distance quantum link generates entanglement faster than it is lost &nbsp;&nbsp; Nature",
+        "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "SciSciGPT: advancing human\u2013AI collaboration in the science of science",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE91czhxME5kTEIyMkhaWXhlWEh5WlZyeXIydWRISmFZRi1zZ3NPdWx3dk9RX2ZPZmR3dlRsSjctU2U3WmloVEV3Y3BmR3oxMEgxYnItQjNMVnlJYWJMUkxV?oc=5",
+        "published": "Tue, 09 Dec 2025 08:00:00 GMT",
+        "summary": "SciSciGPT: advancing human\u2013AI collaboration in the science of science &nbsp;&nbsp; Nature",
+        "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBBR0ExUXNOaTZOYk1zdW9HM1V6UzlxNzBLdVJRUFdpUm1ITTlleU5lSnlUbElXckNWa3E4VVJOcGp3c3NaZG5DcmFzUTJRd3lfM1l5YnpWcmpZNjdMMF9n?oc=5",
+        "published": "Mon, 10 Nov 2025 08:00:00 GMT",
+        "summary": "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA &nbsp;&nbsp; Nature",
+        "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "We did the math on AI\u2019s energy footprint. Here\u2019s the story you haven\u2019t heard.",
+        "publisher": "MIT Technology Review",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxObF8yZUpGaUpMWWtoaGlrMHFMSkowR3BrX3dTV3JSTnJseEtpVEo1bTc1SXM3UmhnTmYweGF1QUFjdDY3azd5MDN4bTRCTGtLR1pjdnltTHkyMTBCdHZXN3lKQm4zNW9tZ0lpbEZ2YzNfNVo5aDA0Vmc3VEhKaTEwVS1sMFcwR1RpeFNvQ2gwd0J0SVVOQ1BrcHZHaw?oc=5",
+        "published": "Tue, 20 May 2025 07:00:00 GMT",
+        "summary": "We did the math on AI\u2019s energy footprint. Here\u2019s the story you haven\u2019t heard. &nbsp;&nbsp; MIT Technology Review",
+        "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Robotics": [
+      {
+        "title": "A robot operating system framework for using large language models in embodied AI",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE83Y3ZESnNlbzh6MVRvb2pzWGZfcndfVDBhRjdBRWtiTUxZSmxxa2hNT1BOZE9DMmZFZUFNT29qVDJ1UWlQRWdGT1F5V3lyeERYeXczcU1BYXlzTnlRdU1B?oc=5",
+        "published": "Mon, 16 Mar 2026 07:00:00 GMT",
+        "summary": "A robot operating system framework for using large language models in embodied AI &nbsp;&nbsp; Nature",
+        "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications",
+        "publisher": "ieeexplore.ieee.org",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5SNW81X2gzRExMbDZ2bFo3SjZkR1JqU3lrbWZ5TGR5c1gzZVVnMTNvaEp0OVF6dmktSVF2ZlpXaE9zS1A5cjdGVzMzckNQOTdlOE9ORkdGc1E?oc=5",
+        "published": "Tue, 24 Feb 2026 07:50:32 GMT",
+        "summary": "ROSBag MCP Server: Analyzing Robot Data with LLMs for Agentic Embodied AI Applications &nbsp;&nbsp; ieeexplore.ieee.org",
+        "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "EED: Embodied Environment Description Through Robotic Visual Exploration",
+        "publisher": "ieeexplore.ieee.org",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE11LThicERDVHgyRmh0TTM3aE1aZEdQb24yYnJ4aV9jd2hCVzhUQVZVRjlFV0lhem84QWwwTml3V3VKOXFQTkJSQ3RFUk1iU00yYnlPUnNmRXV4Zw?oc=5",
+        "published": "Fri, 06 Feb 2026 08:00:00 GMT",
+        "summary": "EED: Embodied Environment Description Through Robotic Visual Exploration &nbsp;&nbsp; ieeexplore.ieee.org",
+        "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Real-Time Social Presence Modulation of Embodied AI-based Robots: An Audio-Centric Approach",
+        "publisher": "ieeexplore.ieee.org",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBuQ2RhX01ubHNQMXIwbnlMSDNIMXhuZWhhaTlDVF8zS3Znc1FBVjVJcWNGTWxZYThNYkFxdDhHZ082aTg0c21OV2dscTV5ck9WNXhPUXdaaVVUdWxiZVFZRVkzWWFXRmhQU21NSkFpWmQ?oc=5",
+        "published": "Thu, 25 Sep 2025 01:56:16 GMT",
+        "summary": "Real-Time Social Presence Modulation of Embodied AI-based Robots: An Audio-Centric Approach &nbsp;&nbsp; ieeexplore.ieee.org",
+        "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "AI": [
+      {
+        "title": "vercel-labs/agent-browser: Browser automation CLI for AI agents",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1ZYnoyRFNFLW5sUE1aUHNkS1dkQURmRnk0em1BRkZ0ektsNUh6RFBTcTZNaWJXQjdDck5jLXYwZWNJdFQyYVJ0ZkZUSmFPQlA0UXVmTzVJZw?oc=5",
+        "published": "Tue, 31 Mar 2026 07:34:02 GMT",
+        "summary": "vercel-labs/agent-browser: Browser automation CLI for AI agents &nbsp;&nbsp; GitHub",
+        "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "vercel-labs/skills: The open agent skills tool - npx skills",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1JeTA1RXA5LTFNRjhEN1JNNlJhZldRNGhJX2VQN2haejVtN0wtMHdEblh6TmtHRFdVWllZd1IyNHlhbkJJamV5eG1FNW4wQQ?oc=5",
+        "published": "Mon, 26 Jan 2026 23:03:08 GMT",
+        "summary": "vercel-labs/skills: The open agent skills tool - npx skills &nbsp;&nbsp; GitHub",
+        "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "About GitHub Copilot cloud agent",
+        "publisher": "GitHub Docs",
+        "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPeDlHTl9aR290OEVKbHJoOEdzS00xSjlhUXlTX2ZJRVJFZUZEaE9sODg2Tnl0VFNlRGVFdGIwaGxrU3FnOVlrZl8tNlZFRmJyNUxsTmp1UVU0SWZhS3pjS1hEc3lZTWhCYzdfQ1pSdkpPS0I2UW1mZ2ZBZmZOSTFoaEZRamw0Zw?oc=5",
+        "published": "Fri, 12 Sep 2025 20:55:50 GMT",
+        "summary": "About GitHub Copilot cloud agent &nbsp;&nbsp; GitHub Docs",
+        "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Agent2Agent (A2A) Protocol",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5NaTIza0lNX3N1eVJRS0E3dE1XcURiVU5jNUFNM1d6cVJJdVlYclNUemtYYm5aN004ZFVqV3p3S25XcnI1Zlpobg?oc=5",
+        "published": "Mon, 23 Jun 2025 14:30:18 GMT",
+        "summary": "Agent2Agent (A2A) Protocol &nbsp;&nbsp; GitHub",
+        "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "NirDiamant/agents-towards-production",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE03VkExVUxoSEtCem1NRXBBWmU2b1c0QVkwaTBZdjE0MXFhX1NOMUN3Y181OFh6VlB4aXB1djdTVU1QZHFkN293WEo3RXFJZWpEcDllZkxNaUNLR2xLU0ozVk91TnR6UQ?oc=5",
+        "published": "Mon, 16 Jun 2025 21:02:38 GMT",
+        "summary": "NirDiamant/agents-towards-production &nbsp;&nbsp; GitHub",
+        "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Engineering": [
+      {
+        "title": "The Lucid Lunar Is a Robotaxi for Two Passengers",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ERVYtLWdmNVZqdlM1RldqeElyNXE1TnI5X05WNGNlbTZYZ29tYmpObkxrTFNBSU9Jc1Ezemc1VVNDb29yWWpkaFV1STZLdTZwZlJVUUJtQUk0dG_SAW9BVV95cUxQazV3TWhWMWxiWTk2LUdmM0F0MjhydC13ay10eVU1QXF3dlNxc3NsbVpiSGUwem1PeEVXSjhTbjJzcXA0TG9XSVAwVWN1ODdDSkx0elF6R2pUbkxfOXpGOU04TGtxdm9SejJVZFFLNkE?oc=5",
+        "published": "Tue, 31 Mar 2026 13:32:06 GMT",
+        "summary": "The Lucid Lunar Is a Robotaxi for Two Passengers &nbsp;&nbsp; IEEE Spectrum",
+        "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The AI Data Centers That Fit on a Truck",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1GQV94SUk0R2x4Rk5HVElGSlpoOEU0ejV6cjhmNVJ3YzNRLUluR2RRanZGYVF1d1V2X2lhcWpWLUtzOExwTDA1N1NNek9aaUNJOGZqTThqTlnSAWxBVV95cUxOXzZnMHdkZ09MRUdQU3hmTU5xaGpSNWlZVTlrM2J3WFFEbDRnRkJNRWRYYmpUZXFWaHZmMkNhc2c4SlJrdERGT0RocXhvMHBYdFBuZnVKNEktZHNLTVJyaXVlajFwd2k4TVVCQ0g?oc=5",
+        "published": "Mon, 30 Mar 2026 14:04:55 GMT",
+        "summary": "The AI Data Centers That Fit on a Truck &nbsp;&nbsp; IEEE Spectrum",
+        "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Facial Recognition Is Spreading Everywhere",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5wbWhpZWJiRGs3MFY0bHRUczZubEZXV1IyLXpId2Zoam9pLWt3Ql9XODV4cnFQWUR4bU5LQVdOWkdEZTNxUFRTSkp4bG5Xakk3VkVjVVJQVENpbmJ1TW93X3hOaWVDQdIBekFVX3lxTE80anJaY1dXZzhmUGt5Ul8zYmpSOWVESFl1NmpSUnpmMWlZekVVa2hxN0lYU0laVkxxbmMzX19ZVTRUbjlFODZPUUtnMTRXa2pnMFFHTmhGa0NJUEpqcEdtcDgySVFRUGF5VHBSQmMzZmNYQWZhZEVHb0F3?oc=5",
+        "published": "Mon, 30 Mar 2026 13:15:55 GMT",
+        "summary": "Facial Recognition Is Spreading Everywhere &nbsp;&nbsp; IEEE Spectrum",
+        "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The \u201980s Submersible That Transformed Underwater Exploration",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE10LTZoMVFZaExrY2NvbWNUaXlPa1lyLXhLYTZ0RTJyZUd3aElxMzlReVFJVTU4c2lwbEc4VDFTeHR3WkV5Y1hhT1FjcVFUa3l1cnB5azlCZGZRd9IBbkFVX3lxTE82QXRzaXQ5VlM5Sm1sVzYyb3VxTmdhWV9IekJETUhnRGdCczRiLXg4Z2FtaFR0U1h0eXB4bXdQa3FnVlVyY2NZUGpoMEZfdlpuVUxFNTRkSE5IbEN1TTdMOGpwbTZnZTVYekxLT0ln?oc=5",
+        "published": "Mon, 30 Mar 2026 07:00:00 GMT",
+        "summary": "The \u201980s Submersible That Transformed Underwater Exploration &nbsp;&nbsp; IEEE Spectrum",
+        "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "30 Years Ago, Robots Learned to Walk Without Falling",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBtenVYb25FaWcyQ3B1TGVDOHR3VE5Fd0VkTlh4QndMM0xjaFUwaDEyTDRNUkRLSzdhQnctdXBWVkdyb3kyRmdZZDRQX2hLeGhFZDYwRVR6MEtxYjFtSEtjdkRwOXJYQdIBekFVX3lxTE5oSW9mZ1NyeXVGRmhaMzRZay1FcTNpdXVxczBLRGFVMnN4blQ1bVl2T2tBTHRoSUFCUlROc21OdGxCRTBrakZGZG53RDAxOVBEdjJfZVRVd0o3eHZlR2VaYXgyV1NKVk9Odk5TSHZJUE1PUlNFMDlseGd3?oc=5",
+        "published": "Wed, 25 Mar 2026 18:29:33 GMT",
+        "summary": "30 Years Ago, Robots Learned to Walk Without Falling &nbsp;&nbsp; IEEE Spectrum",
+        "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Mathematics": [
+      {
+        "title": "In Math, Rigor Is Vital. But Are Digitized Proofs Taking It Too Far?",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOcDVHUEFBMjNfRFhydFNxVG11TFNGZjMzeDZNd0lSR1NRaFhTU3ZQeGNabGsyNjVvaW1UYXNVYzlyb0pyQ1hiSkhVemlKaERuQkNxMW1HQ2Zrb1NtR2ZWcTdBVUFFazUyT00wTjR6UThqVmJCd2p6WlljWk5yVHluclFiYjNHai0yakdpenhYVzV0MjczbktFb3draGozM2dvcG1WTUVxdS01dw?oc=5",
+        "published": "Wed, 25 Mar 2026 14:56:39 GMT",
+        "summary": "In Math, Rigor Is Vital. But Are Digitized Proofs Taking It Too Far? &nbsp;&nbsp; Quanta Magazine",
+        "query": "mathematics foundations infinity site:quantamagazine.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "New Series from Quanta Magazine Explores the Infinite Evolution of Math",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQaVhqRFlVVEJjLWl3dFhSZWZmdUFzRTBKdVd2bm16ejhlVmx6NkdVS3Y2ZlRCRlFLeHRQc1RKM0ltdlNZWk4wUWpUajJzMl85Y2RNLUZWZThXWUNIUzdtQ3J2ekRWdW9DXzU5SUtsSGZLQ0xIU1RDQjBxZmEweWxqb2E5UEV1Y0pNbzU5SjRpM1VXcF9iWVBJc0I1OC1ldkkyOTg3YWROdnhLTDZEdDA3UGFFREM?oc=5",
+        "published": "Wed, 25 Feb 2026 17:56:10 GMT",
+        "summary": "New Series from Quanta Magazine Explores the Infinite Evolution of Math &nbsp;&nbsp; Quanta Magazine",
+        "query": "mathematics foundations infinity site:quantamagazine.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The Man Who Stole Infinity",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFAxei1DQkhzWXpSMVMtLTdxWVF5QV9jRVJ4dUtKUWVKQ09FRGN4UFVDTmpXaXd3OU05UDBReDl1WmFHc2RKSmFCMXVEZjU3R2ZnRzlmdjc1VWEyRnl6RVE1eFVIcFYyNUtzWHBwUDVvTko4ZmZPbEE?oc=5",
+        "published": "Wed, 25 Feb 2026 08:00:00 GMT",
+        "summary": "The Man Who Stole Infinity &nbsp;&nbsp; Quanta Magazine",
+        "query": "mathematics foundations infinity site:quantamagazine.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "A New Bridge Links the Strange Math of Infinity to Computer Science",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNUld4THg4aXR0bXVfSWNNMldOSjBRaUZzSjZkQS12ZDlaYk1uemRsWHFwNDJZVFV5LUpmM3NjWUphUDc3MTFZUTBNVTFBTEVRVTdFOG5JLVU1VlBDa0NoSVlVTVdsNmRWdUFrbl85NG0wZW01R29EdXM4MXlhSXFFeHFrN2xFNUpwSEJuTjZOVGM2akl4T3V6bjF0TE1wcDNtQmRWSU1QM3hUbC1a?oc=5",
+        "published": "Fri, 21 Nov 2025 08:00:00 GMT",
+        "summary": "A New Bridge Links the Strange Math of Infinity to Computer Science &nbsp;&nbsp; Quanta Magazine",
+        "query": "mathematics foundations infinity site:quantamagazine.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Is Mathematics Mostly Chaos or Mostly Order?",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQa25vMGRDaTl4M0gxczhYd1BqYUpYajdROS1ZV2hRREpyU0l5OERHRlVhOHpxQnBJNW9oaVBjXzBkeElYUENHb2ltT084Z25yeXZsV3R6dmpqQkM5Um5nSXo2M1RWVEFpbXZMMFpKZ013WDB0WjlfYW5JbVZuazgta0I4Q1BSQXhsWEFFXw?oc=5",
+        "published": "Fri, 20 Jun 2025 07:00:00 GMT",
+        "summary": "Is Mathematics Mostly Chaos or Mostly Order? &nbsp;&nbsp; Quanta Magazine",
+        "query": "mathematics foundations infinity site:quantamagazine.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Historical Discoveries": [
+      {
+        "title": "Historic 1994 influenza vaccine cohorts define breadth of antibody and B cell responses toward future influenza A and B viruses",
+        "publisher": "Science | AAAS",
+        "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFA4M3pLVEZ3cXBGUDNBSFk4cTZPN21pTW96SmRVY1ZYYnA0UjR2VmM5WVJfNy1VMVd3cFBPSEJoUVQwWTZpZHU5ZXVMOWZWVTdvd09hU2t6TlJmTVp3SWlZVUtiT3NxaWM?oc=5",
+        "published": "Wed, 01 Apr 2026 18:14:35 GMT",
+        "summary": "Historic 1994 influenza vaccine cohorts define breadth of antibody and B cell responses toward future influenza A and B viruses &nbsp;&nbsp; Science | AAAS",
+        "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Deep homology and design of proteasome chaperone proteins in Candidozyma auris",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9sR0pueW5WdmRIY3k1dFM5LUVORkE3N1BlamtJWUN0aGM1cHZXWFBxVTB2a0hYcHBKR2I2X3F0SDBENHpCR3NsRnlrTnhjZkpPNDRMZnJJak9Xc0tKUlg0?oc=5",
+        "published": "Mon, 30 Mar 2026 13:11:30 GMT",
+        "summary": "Deep homology and design of proteasome chaperone proteins in Candidozyma auris &nbsp;&nbsp; Nature",
+        "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "An Early Miocene ape from the biogeographic crossroads of African and Eurasian Hominoidea",
+        "publisher": "Science | AAAS",
+        "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBnQzlCbDRma2s5ajR2UXpkZS1ZTzhrY1lrVjZUMG51enBKYTktSzNxVG1yaVZNanNKODExTDVOUjA2Rm5BQ3l6aEJMN2xMM1JQanBZaVFnM2VOWThXaGlNMg?oc=5",
+        "published": "Thu, 26 Mar 2026 19:11:42 GMT",
+        "summary": "An Early Miocene ape from the biogeographic crossroads of African and Eurasian Hominoidea &nbsp;&nbsp; Science | AAAS",
+        "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "How Writing Changes Mathematical Thought",
+        "publisher": "Quanta Magazine",
+        "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYzBUSzJHWG96dEFNMHJNb2ZOZTJnY0VId3N4NVN5TUZaYnhNWnJTVUpjTlBSMEJiaDYyZC1ZQ0djMWt0eDMwLUcxSmxrOS1Xei1VbHBSeFBIaThzQVFRR0xta0tIOHVnb3BlRTRGVGN4VS1iekQtYVE0T0hWSFJFYkRrcm5MS2hI?oc=5",
+        "published": "Wed, 25 Mar 2026 14:56:16 GMT",
+        "summary": "How Writing Changes Mathematical Thought &nbsp;&nbsp; Quanta Magazine",
+        "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The distribution of power and inclusiveness across deep time",
+        "publisher": "Science | AAAS",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBaLXBEM1JHeHNSblpoWXgtU2l1S1NhakVlRlBhcjNNZkdPRkwydzdvUEhSZXUxb1dUV19TWWczcXFGTkhfVGhJNV90N1JkTkJEVUpnWVZmNFBwN2VaRXQw?oc=5",
+        "published": "Wed, 18 Mar 2026 07:00:00 GMT",
+        "summary": "The distribution of power and inclusiveness across deep time &nbsp;&nbsp; Science | AAAS",
+        "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Archaeology": [
+      {
+        "title": "Daily briefing: Earliest known dog genome pushes genetic record back 5,000 years",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5uV2UzbjFkc0lNSzVaWEdGNkdMX1BjSzlBcmJHQVlpeGlJTS1NTEJjby0zVmVtNXVjZS02eXdXVFZUQnNuVkRVdVItb0l5V2xhNDMtUXUzSUV3ZmVaUjM4?oc=5",
+        "published": "Thu, 26 Mar 2026 07:00:00 GMT",
+        "summary": "Daily briefing: Earliest known dog genome pushes genetic record back 5,000 years &nbsp;&nbsp; Nature",
+        "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Dogs were widely distributed across western Eurasia during the Palaeolithic",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1WUHlqQ3dsOS1vYWlsLTRCcnlMTUR6aERwLW9BdzNSWmt6a244UGV3RTgzU2tQeDZPa1lUQkQyc2h6R182YXhxc0dDb09JbFpQeHQydmpqODVlZmJvRmxV?oc=5",
+        "published": "Wed, 25 Mar 2026 16:03:57 GMT",
+        "summary": "Dogs were widely distributed across western Eurasia during the Palaeolithic &nbsp;&nbsp; Nature",
+        "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "How DNA in dirt is shaking up the study of human origins",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5NeEZtU3JTTHZtTmg4S3hrcmtWMVN4TWhIRTVZQzI4c3JSV0xqdmg3SGhUejFDYnVPTTc1c0tsVm40YWpXRTlFanNVM08tUGFQNm04bExweHhtbE12cUdF?oc=5",
+        "published": "Tue, 24 Mar 2026 11:53:38 GMT",
+        "summary": "How DNA in dirt is shaking up the study of human origins &nbsp;&nbsp; Nature",
+        "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Faunal exploitation at the elephant hunting site of Lehringen, Germany, 125,000 years ago | Scientific Reports",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFAzVV85ZTU5XzdJLWtVNGhIa0ctMUxVaElBSDdNYTNLOFIwVkZnZExsVXBhQWpSSzBvQUlycUU3RkZodWY0TWtkSloyUFBUSE1Ea29qbHlHQWdjNDlvbzkw?oc=5",
+        "published": "Tue, 24 Mar 2026 07:00:00 GMT",
+        "summary": "Faunal exploitation at the elephant hunting site of Lehringen, Germany, 125,000 years ago | Scientific Reports &nbsp;&nbsp; Nature",
+        "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Ancient DNA reconstruction of Late Holocene ecosystems within the Carpathian Basin from paleo-meanders and archaeological deposits",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfbG5WLW1uS21VRENMRENRak8wMi12UFVnMGZvUmlXa3EtbGRWanBJdHZUNGoxZ1V1a0xpd2VGeWhrakdQcGpndWczdkU5OGIyYlZlM2FLWDRXbkdqa0VF?oc=5",
+        "published": "Tue, 03 Feb 2026 08:00:00 GMT",
+        "summary": "Ancient DNA reconstruction of Late Holocene ecosystems within the Carpathian Basin from paleo-meanders and archaeological deposits &nbsp;&nbsp; Nature",
+        "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Tools You Can Use": [
+      {
+        "title": "Claude Code Skills & Plugins \u2014 Agent Skills for Every Coding Tool",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE55M0pPTGlvV2ZSN293YUZGSHNCOEp0MDdnTGpMN3hRS2txbXk1X3BuVS1PRURINmg4RW4zTm4xOWY0dWNIREhjNkEtZ3hGTHJ3dG9qTjhtTGpBS0U?oc=5",
+        "published": "Tue, 31 Mar 2026 08:23:32 GMT",
+        "summary": "Claude Code Skills & Plugins \u2014 Agent Skills for Every Coding Tool &nbsp;&nbsp; GitHub",
+        "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Autoclaw: One-click Openclaw set up by Z.AI",
+        "publisher": "Product Hunt",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1ELTY5cEtIWDVlamhCcWdtX0xYdV81VFQ0ekNxVzRReTQ0VkhhZmtjcUpobGNQYm0xcnk4LWNvRHVLR1FSbmU0bmMxY0lmdzlHblBobGtoYTc?oc=5",
+        "published": "Tue, 31 Mar 2026 07:13:56 GMT",
+        "summary": "Autoclaw: One-click Openclaw set up by Z.AI &nbsp;&nbsp; Product Hunt",
+        "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Notion MCP: Your Notion workspace, inside every AI agent",
+        "publisher": "Product Hunt",
+        "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE85SGJJSkpRWkRScHNMaVJXOGtnNUFQS2FSZmcyOWszbGpRLVFNTW0tNnlJU0pUenFuYkZJRTB5bWw3VGdKR0UwWHRFSHRHVGlDMTctejFHd2xXZ2c?oc=5",
+        "published": "Mon, 30 Mar 2026 07:45:42 GMT",
+        "summary": "Notion MCP: Your Notion workspace, inside every AI agent &nbsp;&nbsp; Product Hunt",
+        "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Ollang DX: The AI Language Execution Layer for Enterprise",
+        "publisher": "Product Hunt",
+        "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBMNGpKVjI1VGFTb2RSQ2F4SDlvdTJIWjlHdFVhRGJTcjZBSEdyMFMxT1pkWEJ6UVlQNm1QSFpfQXVxelIwbEYwdjBDSzRTMEs2ZmNLOEU3NjRMN3pwVmZuaTdiY29QejZ5X3FNOGJubw?oc=5",
+        "published": "Mon, 30 Mar 2026 07:45:41 GMT",
+        "summary": "Ollang DX: The AI Language Execution Layer for Enterprise &nbsp;&nbsp; Product Hunt",
+        "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Agents | OpenAI API",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4xNWFDUVZORVo1bzFyTEFDNDhHMTVJdk0zVUR4MzIwandWdjY4dXpNZHhmSVhTdWdCSmd2TEVUUU1BUnMybEZnVnV4bWZObE5GYjFEUFJnei1NVXJwMEdiVjNMdw?oc=5",
+        "published": "Mon, 09 Feb 2026 19:54:25 GMT",
+        "summary": "Agents | OpenAI API &nbsp;&nbsp; OpenAI Developers",
+        "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Agent Builder | OpenAI API",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE42YmlYTjdvSUROd3ZaZWlCbjNucGlmeGQyUEZub0RaLXJpY09ZMzVEVWVtbzhSOUF6dDB1OEVRbFNvamx4Y3VJdDF6RE02djN5aUxaQmhzLVZVYkJiVzJrdHhPNmI0anJBV3UyRg?oc=5",
+        "published": "Mon, 09 Feb 2026 19:14:28 GMT",
+        "summary": "Agent Builder | OpenAI API &nbsp;&nbsp; OpenAI Developers",
+        "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Building agents",
+        "publisher": "OpenAI Developers",
+        "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5RWjVXTlhnNU1rVU15alo1aHphbVFKZmZxNUZXMVNJNUhZTWpwVUVweVlDbEhmSEw1eG14Z2Jvc2d3UEJqd1BoWmJVc3FMZThPRzBjejlPZWtSaGJHd0tobXZaUQ?oc=5",
+        "published": "Tue, 19 Aug 2025 01:10:24 GMT",
+        "summary": "Building agents &nbsp;&nbsp; OpenAI Developers",
+        "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "badlogic/pi-mono: AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBzSFdsTTFuWlMwdEtzUHBIQndhVlVya2pZREVDYXhYY2xZSVREenQ0V0tCZFNydF9zekJ2Rk9RQWNzbDBMMm9CMHFEZw?oc=5",
+        "published": "Tue, 12 Aug 2025 06:28:01 GMT",
+        "summary": "badlogic/pi-mono: AI agent toolkit: coding agent CLI, unified LLM API, TUI & web UI libraries, Slack bot, vLLM pods &nbsp;&nbsp; GitHub",
+        "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "QwenLM/qwen-code: An open-source AI agent that lives in your terminal.",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA1aDViSm1TdHdxSFdnNDk2TFZiYmRvSzdFTUFSYmdyUEszUnBTaGF3MkRyTWgtdXhyODdvZTZvZzY2bVdNWWhtU0wwMA?oc=5",
+        "published": "Tue, 22 Jul 2025 23:04:21 GMT",
+        "summary": "QwenLM/qwen-code: An open-source AI agent that lives in your terminal. &nbsp;&nbsp; GitHub",
+        "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Arindam200/awesome-ai-apps: A collection of projects showcasing RAG, agents, workflows, and other AI use cases",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAwak8tTXQ4R3B2RC0zZHVaUDJmOU5VR1hOWXc1V0N1bW1yZTBhMmR1OUdEMlJ3Rl9hLVRTREV6c3k4X3A2cEJXNlQ2bl96QWExZVU3VlhlRmI?oc=5",
+        "published": "Tue, 20 May 2025 06:12:33 GMT",
+        "summary": "Arindam200/awesome-ai-apps: A collection of projects showcasing RAG, agents, workflows, and other AI use cases &nbsp;&nbsp; GitHub",
+        "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Entertainment": [
+      {
+        "title": "IGN Women's Favorite Movies and Shows Made by Women to Watch This Month",
+        "publisher": "IGN",
+        "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNR0hfdVdGdWVHMGRmaEt0UjhUMWR5TXpUNElsOHp3VUd1cDJWMlRtYk9tdE4xenlVeGExTlFRQU0tVkE2bmtycXpkZ19fNl9wRTZmUFlpeUFlczZINFBicm9GVFVMSUU1U084cDV4VnVWaXhYYzg0NWF3WlZqdEIyRFpWc1ViUQ?oc=5",
+        "published": "Thu, 02 Apr 2026 01:13:00 GMT",
+        "summary": "IGN Women's Favorite Movies and Shows Made by Women to Watch This Month &nbsp;&nbsp; IGN",
+        "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Netflix\u2019s New Releases Coming in April 2026",
+        "publisher": "The Hollywood Reporter",
+        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVjhpMGN3V1hSSDFjQ3dwYXd2NXRyLTN4dGVYd2luMEZBQjJpYWtmZC0yYmZ0RUxTd0F5UEFhdy1YbFJVTE9INU1nX3VCZHNvVHkxUGQ1MkxiRHlvcW5kWnpONXhsX2JoeEpEbVZWOGl1UWlweU5xOHpMaHlIcVJBUGduY0dOOGQ0UlBRNTQydTBwS3lObUJBRGFwejZmdkU?oc=5",
+        "published": "Wed, 01 Apr 2026 15:42:40 GMT",
+        "summary": "Netflix\u2019s New Releases Coming in April 2026 &nbsp;&nbsp; The Hollywood Reporter",
+        "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Avatar: Fire and Ash Is Now Available to Watch at Home, Future of the Franchise Still Up in the Air",
+        "publisher": "IGN",
+        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbWRuZGFxQnFQOThrZWo5c1NHM1l0aU5pTnUwZEhERm5tNzdPRjdNNzJad3NPOHRGMndEQXhxT2R4UWxWZktXWGtqLV9ETV9rbDdvMzZCN1R4TlZNM0E2aWFUbU8tbTRwX2J4b2RJZTJFLXJ1RlFuRlFBdFFid01TMEJoalUyOVdVSHc?oc=5",
+        "published": "Tue, 31 Mar 2026 17:35:36 GMT",
+        "summary": "Avatar: Fire and Ash Is Now Available to Watch at Home, Future of the Franchise Still Up in the Air &nbsp;&nbsp; IGN",
+        "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "\u2018Harry Potter\u2019 Trailer: Harry, Ron and Hermione Head to Hogwarts to Meet Dumbledore, Snape and Hagrid; Christmas 2026 Release Date Set on HBO",
+        "publisher": "Variety",
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMzMwSi1jczhrWkpnWlVPRnUwQ0FkeEtNa1ZqMHhRVTNQX0FUVk5mNHdrek1JZW12b3pSdFlxUmNTRkNCQl90X2dJdGZRZ3E3bVNQNG9zdjRjSEVwVzB2dENQRUhlUF9pclY1T2VVWUNaMXJEWTNDNldlanUwYWpJXy1fMjNKcm14SEtBS0p0ZXBsWUhXd3VpU0NvRQ?oc=5",
+        "published": "Wed, 25 Mar 2026 20:04:00 GMT",
+        "summary": "\u2018Harry Potter\u2019 Trailer: Harry, Ron and Hermione Head to Hogwarts to Meet Dumbledore, Snape and Hagrid; Christmas 2026 Release Date Set on HBO &nbsp;&nbsp; Variety",
+        "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Avatar: Fire and Ash Finally Has a Digital Release Date After Making $1.5 Billion at the Box Office",
+        "publisher": "IGN",
+        "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQUYzVXMxSjBhS1JLUkdYNC1aMmZvUktNejM0Mjhmb3hnbWZPaDhnMUNHNDZYNWc0Z2lrZVh4c0NDd21KZTFyYmtoTVcwWWtORWtKcmE1VFFNeFZKT2tqR3ZvX2hsb2xvOEl2c0gwbzJwRGR3el9OenZlaEtyR2huN2VnSXNJWDl3aWQ3d3QxMXpMU1M0X21RaGFIN2s4bDl3V0VuT1ZMR2tUZlVUX1pVYTU3dU43ZnRObVZKaGhSSU10QUE?oc=5",
+        "published": "Wed, 25 Mar 2026 12:05:06 GMT",
+        "summary": "Avatar: Fire and Ash Finally Has a Digital Release Date After Making $1.5 Billion at the Box Office &nbsp;&nbsp; IGN",
+        "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "HBO Reveals First Look at \u2018Harry Potter\u2019 TV Series, Trailer Coming Wednesday",
+        "publisher": "The Hollywood Reporter",
+        "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOTmdUMkl5UGpLODJhX1FwckpzYXYzVEtmbUxZeTdhdDUwcVJBelZLZkxYN19oMWNuM0RPUDI5WV9jeDNPb1RyU2QzTG1OZ2ZOSE5iZ0RKcW9kVTZDd1ByOEtDWkRaaE13enRsRDJBaDBDdFFGbHFnUzUyWW9yY19fdVdfZlBGbTkzVlBGTEJPWFprSTJm?oc=5",
+        "published": "Tue, 24 Mar 2026 07:00:00 GMT",
+        "summary": "HBO Reveals First Look at \u2018Harry Potter\u2019 TV Series, Trailer Coming Wednesday &nbsp;&nbsp; The Hollywood Reporter",
+        "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Chiraiya (TV Series 2026\u2013 ) \u2b50 5.8 | Drama",
+        "publisher": "IMDb",
+        "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9sX1lPajR5UGtFcmtxQlFvdmxVR29xMFRQUGRiVWNrMXhVRHFXRVgxem1kQlhSTzZ0c1lIVFRuRFVjRjFKZlh2NXVXXzJvNG8?oc=5",
+        "published": "Thu, 19 Mar 2026 19:19:36 GMT",
+        "summary": "Chiraiya (TV Series 2026\u2013 ) \u2b50 5.8 | Drama &nbsp;&nbsp; IMDb",
+        "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The 53 Most Anticipated New and Returning TV Shows Coming in 2026",
+        "publisher": "Variety",
+        "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE45V2lodHQwSzVZYk5ZR01GdmpZajRodUl6NE4xNFNoRUtkb0RDN0pvaGZDYUVKZVp6SnJOSFdnUGpNTjZaczRsU1Rpc2FfYWZCMS1OMDFibFpBS0dCSFo0aTByMW1penp4?oc=5",
+        "published": "Fri, 02 Jan 2026 08:00:00 GMT",
+        "summary": "The 53 Most Anticipated New and Returning TV Shows Coming in 2026 &nbsp;&nbsp; Variety",
+        "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "\u2018Harry Potter\u2019 Audible Books Cast Guide: All the Hollywood Stars Voicing Hogwarts Characters",
+        "publisher": "Variety",
+        "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNcnFNbWVfQlhJSTZNd3dEc2dQVm9odk5hVFBpaDRabXRfQVR4ZHo1Q3FtNERZMTVkZGhaQjU4YkJyZXhJVHBGYXVMTU90Q1c1enl6ZFloZUo0YkJ5Tl9RazdwSG10N3Rnc2lLcjBFZUk0NUZkdERJQ1prRmlkNElwcQ?oc=5",
+        "published": "Tue, 04 Nov 2025 08:00:00 GMT",
+        "summary": "\u2018Harry Potter\u2019 Audible Books Cast Guide: All the Hollywood Stars Voicing Hogwarts Characters &nbsp;&nbsp; Variety",
+        "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The Mortuary Assistant (2026) \u2b50 3.9 | Horror",
+        "publisher": "IMDb",
+        "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5VOF8tdGZsSy16M204V0l2ZnBMNlU1cjROemMyamU1R3JqUWppZW84VVQzWnlNVnphc1BYZ2oxanZTNmY3RVVjSnBGOXpXa1U?oc=5",
+        "published": "Thu, 01 May 2025 00:47:18 GMT",
+        "summary": "The Mortuary Assistant (2026) \u2b50 3.9 | Horror &nbsp;&nbsp; IMDb",
+        "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+        "source_type": "google-news-rss"
+      }
+    ],
+    "Travel": [
+      {
+        "title": "Skip the Airport\u201420 Underrated Midwest Destinations for a Weekend Getaway",
+        "publisher": "Midwest Living",
+        "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPNzhIUklROFRfaHpjRGJBdmh4aVpaWWlmVFhrMk9ZdUhDNDBPMWlLZldVek1TazBxa3lSUlVhU2VnZDEtaXhrZlR3VXVOU1RnT1pka1RabDg2RVBpaHVlVVViMGY0dktCTGRzeWR4dFh0WFNZXzkydjRWQW9EOVRWS2RBejJTM2Z4V3RKSWE2NjRFZGZsT2lz?oc=5",
+        "published": "Mon, 30 Mar 2026 15:27:18 GMT",
+        "summary": "Skip the Airport\u201420 Underrated Midwest Destinations for a Weekend Getaway &nbsp;&nbsp; Midwest Living",
+        "query": "best places to visit this month travel destination",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The Best Places To Visit in Central America for Each Month of the Year",
+        "publisher": "CentralAmerica.com",
+        "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONkRJTHVLVFJ3aFZuX0JlLU5rR1pSdkV2V3pENTZVbGRNZDhnRnNnejNqdUNMcVppTXpQaUpLc3VSMFlUXzM1eWhTTVZQcjR4ZGdHSldJLV90MTAteW1tU21FMnRlSm9NVWJEYkFLSGQ0bHpQSjF3UF9ZN21pX3QwcV9qQTVTeExjUThoZ0pXaGs5Ry1Ld25kV1Nnd21TT3BwcUVJ?oc=5",
+        "published": "Mon, 23 Mar 2026 21:49:39 GMT",
+        "summary": "The Best Places To Visit in Central America for Each Month of the Year &nbsp;&nbsp; CentralAmerica.com",
+        "query": "best places to visit this month travel destination",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "11 bucket list trips in Europe the travel editors dream of",
+        "publisher": "CN Traveller",
+        "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE0wWWJpaTRUV0IyeldjZERQMG9VWlh2ZmV6Vi1uT1RSNE5aak5jMm9mdmo1RXJFeWJRdDdsaV9yMnFXU01jbGw4bXJsYjdET3NoNnJqbWJEV3Uza3dzdXRxSnBUdEdNTmw1YUUySHBn?oc=5",
+        "published": "Sun, 22 Mar 2026 07:00:00 GMT",
+        "summary": "11 bucket list trips in Europe the travel editors dream of &nbsp;&nbsp; CN Traveller",
+        "query": "best places to visit this month travel destination",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "Best Places To Visit in May in the USA & Abroad (2026)",
+        "publisher": "going.com",
+        "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0wYTN0NXA3eHVOcG1qMWlzWjBJbU9ya21qQWh3cUNpTW5waWlWcEY1aERnaWl3Mkw5Vi1wMzNoeGRQNnVCNXM0dFA2Tm9ERl9SM01XOE5Wb25YLUtBU3c1THh5NHZsbFU?oc=5",
+        "published": "Mon, 09 Mar 2026 07:00:00 GMT",
+        "summary": "Best Places To Visit in May in the USA & Abroad (2026) &nbsp;&nbsp; going.com",
+        "query": "best places to visit this month travel destination",
+        "source_type": "google-news-rss"
+      },
+      {
+        "title": "The Texas Destinations We\u2019re Most Excited to Travel to This Year",
+        "publisher": "Texas Monthly",
+        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE90YkdOX2ZwZmNpbDQ0TWtnYzFaVW1JS05TMHV1cFFYTzZlYlFjTVRycHJ6d0JxY003QUJ6Mkx1NWtDZmJfQmFmWDZET1lIaldkZWlNTk9ORGRYbjFMNks4N01DZkE1Q1p2a3FKS2VHalo?oc=5",
+        "published": "Fri, 16 Jan 2026 08:00:00 GMT",
+        "summary": "The Texas Destinations We\u2019re Most Excited to Travel to This Year &nbsp;&nbsp; Texas Monthly",
+        "query": "best places to visit this month travel destination",
+        "source_type": "google-news-rss"
+      }
+    ]
+  },
+  "fetch": {
+    "sections": {
+      "Need To Know": {
+        "status": "ok",
+        "query_count": 2,
+        "failed_queries": 0,
+        "entry_count": 9,
+        "queries": [
+          {
+            "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "site:nature.com spectroscopy OR standard model physics",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Research Watch": {
+        "status": "ok",
+        "query_count": 3,
+        "failed_queries": 0,
+        "entry_count": 15,
+        "queries": [
+          {
+            "query": "site:arxiv.org quantum foundations OR contextuality",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "site:nature.com AI for science research",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "World News": {
+        "status": "ok",
+        "query_count": 3,
+        "failed_queries": 0,
+        "entry_count": 15,
+        "queries": [
+          {
+            "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Philosophy": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 2,
+        "queries": [
+          {
+            "query": "philosophy of science epistemology agency site:iai.tv",
+            "status": "ok",
+            "entry_count": 2
+          }
+        ]
+      },
+      "Biology": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "biology discovery evolution microbiome site:nature.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Psychology and Neuroscience": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "neuroscience psychology cognition brain site:nature.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Health and Medicine": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Sociology and Anthropology": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Technology": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Robotics": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 4,
+        "queries": [
+          {
+            "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "AI": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Engineering": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Mathematics": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "mathematics foundations infinity site:quantamagazine.org",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Historical Discoveries": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Archaeology": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Tools You Can Use": {
+        "status": "ok",
+        "query_count": 2,
+        "failed_queries": 0,
+        "entry_count": 10,
+        "queries": [
+          {
+            "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Entertainment": {
+        "status": "ok",
+        "query_count": 2,
+        "failed_queries": 0,
+        "entry_count": 10,
+        "queries": [
+          {
+            "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+            "status": "ok",
+            "entry_count": 5
+          },
+          {
+            "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      },
+      "Travel": {
+        "status": "ok",
+        "query_count": 1,
+        "failed_queries": 0,
+        "entry_count": 5,
+        "queries": [
+          {
+            "query": "best places to visit this month travel destination",
+            "status": "ok",
+            "entry_count": 5
+          }
+        ]
+      }
+    },
+    "summary": {
+      "total_queries": 25,
+      "failed_queries": 0,
+      "sections_with_entries": 18,
+      "total_entries": 120
+    }
+  }
+}
