@@ -19,7 +19,10 @@ from issue_clock import resolve_issue_date
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES_DIR = ROOT / "data" / "candidates"
 ISSUES_DIR = ROOT / "issues" / "daily"
+MARKET_SNAPSHOTS_DIR = ROOT / "data" / "market_snapshots"
 REQUEST_TIMEOUT = 8
+QUOTE_CACHE_MAX_AGE_DAYS = 7
+MACRO_CACHE_MAX_AGE_DAYS = 31
 
 
 SECTION_ORDER = [
@@ -298,26 +301,152 @@ COMPANY_MOVER_POOL = [
     ("Exxon Mobil (XOM)", "xom.us"),
 ]
 MARKET_TICKERS = [*CORE_MARKET_TICKERS, *COMPANY_MOVER_POOL]
+MACRO_SERIES = {
+    "US CPI (YoY)": {
+        "series_id": "CPIAUCSL",
+        "source_live": "BLS via FRED",
+        "source_fallback": "BLS via FRED",
+        "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+        "kind": "yoy",
+    },
+    "US unemployment rate": {
+        "series_id": "UNRATE",
+        "source_live": "BLS via FRED",
+        "source_fallback": "BLS via FRED",
+        "url": "https://fred.stlouisfed.org/series/UNRATE",
+        "kind": "value_1",
+    },
+    "Fed funds rate": {
+        "series_id": "FEDFUNDS",
+        "source_live": "Federal Reserve via FRED",
+        "source_fallback": "Federal Reserve via FRED",
+        "url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+        "kind": "value_2",
+    },
+    "US 10-year Treasury": {
+        "series_id": "DGS10",
+        "source_live": "Treasury via FRED",
+        "source_fallback": "Treasury via FRED",
+        "url": "https://fred.stlouisfed.org/series/DGS10",
+        "kind": "daily_2",
+    },
+    "Brent crude": {
+        "series_id": "DCOILBRENTEU",
+        "source_live": "EIA via FRED",
+        "source_fallback": "EIA via FRED",
+        "url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+        "kind": "oil_2",
+    },
+}
 
 
-def fetch_yahoo_quote(symbol: str) -> tuple[str, str]:
+def iso_date(value: object) -> str:
+    if isinstance(value, dt.datetime):
+        return value.date().isoformat()
+    if isinstance(value, dt.date):
+        return value.isoformat()
+    return str(value)
+
+
+def days_between(current: dt.date, other: str) -> int:
+    try:
+        return (current - dt.date.fromisoformat(other)).days
+    except Exception:
+        return 10**6
+
+
+def market_snapshot_path(issue_date: dt.date) -> Path:
+    return MARKET_SNAPSHOTS_DIR / f"{issue_date.isoformat()}.json"
+
+
+def load_latest_market_snapshot(issue_date: dt.date) -> dict | None:
+    if not MARKET_SNAPSHOTS_DIR.exists():
+        return None
+    snapshots = sorted(
+        path for path in MARKET_SNAPSHOTS_DIR.glob("*.json") if path.stem <= issue_date.isoformat()
+    )
+    if not snapshots:
+        return None
+    try:
+        return json.loads(snapshots[-1].read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def save_market_snapshot(issue_date: dt.date, snapshot: dict) -> None:
+    MARKET_SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+    market_snapshot_path(issue_date).write_text(json.dumps(snapshot, indent=2), encoding="utf-8")
+
+
+def fetch_yahoo_quote_snapshot(symbol: str) -> dict[str, object] | None:
     yahoo_symbol = YAHOO_SYMBOLS.get(symbol, symbol.upper())
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(yahoo_symbol)}?interval=1d&range=5d"
     try:
         payload = json.loads(fetch_url(url).decode("utf-8"))
-    except Exception:
-        return ("data unavailable", "live quote unavailable")
-
-    try:
         result = payload["chart"]["result"][0]
         meta = result["meta"]
         close_v = float(meta["regularMarketPrice"])
         previous_close = float(meta.get("chartPreviousClose") or meta.get("previousClose"))
-        move = ((close_v - previous_close) / previous_close) * 100 if previous_close else 0.0
-        direction = "up" if move > 0 else "down" if move < 0 else "flat"
-        return (f"{close_v:.2f}", f"{direction} {abs(move):.2f}%")
+        move_pct = ((close_v - previous_close) / previous_close) * 100 if previous_close else 0.0
+        direction = "up" if move_pct > 0 else "down" if move_pct < 0 else "flat"
+        market_time = meta.get("regularMarketTime")
+        if market_time:
+            as_of = dt.datetime.fromtimestamp(int(market_time), tz=dt.timezone.utc).date().isoformat()
+        else:
+            as_of = dt.datetime.now(dt.timezone.utc).date().isoformat()
+        return {
+            "symbol": symbol,
+            "price": f"{close_v:.2f}",
+            "move": f"{direction} {abs(move_pct):.2f}%",
+            "price_value": close_v,
+            "move_pct": abs(move_pct),
+            "direction": direction,
+            "as_of": as_of,
+            "origin": "live",
+        }
     except Exception:
+        return None
+
+
+def render_quote_line(label: str, entry: dict[str, object], issue_date: dt.date) -> str:
+    suffix = ""
+    if entry.get("origin") == "cache":
+        as_of = str(entry.get("as_of", ""))
+        if as_of:
+            suffix = f" (latest cached close from {format_day(as_of)})"
+        else:
+            suffix = " (latest cached close)"
+    return f"- **{label}:** {entry['price']}, {entry['move']}{suffix}."
+
+
+def render_macro_line(label: str, entry: dict[str, object]) -> str:
+    source_label_text = str(entry["source"])
+    source_url = str(entry["url"])
+    kind = str(entry["kind"])
+    value = float(entry["value"])
+    as_of = str(entry["as_of"])
+    cached_suffix = ""
+    if entry.get("origin") == "cache":
+        cached_suffix = " (cached)"
+
+    if kind == "yoy":
+        return f"- **{label}:** {value:.1f}% as of {format_month(as_of)}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+    if kind == "value_1":
+        return f"- **{label}:** {value:.1f}% as of {format_month(as_of)}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+    if kind == "value_2":
+        return f"- **{label}:** {value:.2f}% as of {format_month(as_of)}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+    if kind == "daily_2":
+        return f"- **{label}:** {value:.2f}% latest daily close on {format_day(as_of)}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+    if kind == "oil_2":
+        return f"- **{label}:** ${value:.2f}/barrel latest daily print on {format_day(as_of)}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+    return f"- **{label}:** {value}{cached_suffix}. Source: [{source_label_text}]({source_url})"
+
+
+def fetch_yahoo_quote(symbol: str) -> tuple[str, str]:
+    snapshot = fetch_yahoo_quote_snapshot(symbol)
+    if snapshot is None:
         return ("data unavailable", "live quote unavailable")
+    return (str(snapshot["price"]), str(snapshot["move"]))
 
 
 def parse_move_percent(move: str) -> float | None:
@@ -328,20 +457,30 @@ def parse_move_percent(move: str) -> float | None:
 
 
 def select_company_movers(
+    issue_date: dt.date | None = None,
     allow_placeholders: bool = True,
     min_count: int = 2,
     max_count: int = 4,
-) -> tuple[list[tuple[str, str, str]], list[str]]:
+) -> tuple[list[tuple[str, str, str]], list[str], dict[str, dict[str, object]]]:
+    current_issue_date = issue_date or resolve_issue_date(None)
+    cached_snapshot = load_latest_market_snapshot(current_issue_date)
     movers: list[tuple[str, str, str, float]] = []
     failures: list[str] = []
+    selected_entries: dict[str, dict[str, object]] = {}
 
     for label, symbol in COMPANY_MOVER_POOL:
-        price, move = fetch_yahoo_quote(symbol)
-        move_pct = parse_move_percent(move)
-        if price == "data unavailable" or move == "live quote unavailable" or move_pct is None:
+        snapshot = fetch_yahoo_quote_snapshot(symbol)
+        if snapshot is None and cached_snapshot:
+            cached_entry = cached_snapshot.get("quotes", {}).get(label)
+            if isinstance(cached_entry, dict) and days_between(current_issue_date, str(cached_entry.get("captured_on", ""))) <= QUOTE_CACHE_MAX_AGE_DAYS:
+                snapshot = {**cached_entry, "origin": "cache"}
+
+        if snapshot is None:
             failures.append(label)
             continue
-        movers.append((label, price, move, move_pct))
+        selected_entries[label] = snapshot
+        move_pct = float(snapshot.get("move_pct", 0.0))
+        movers.append((label, str(snapshot["price"]), str(snapshot["move"]), move_pct))
 
     movers.sort(key=lambda item: (item[3], item[0]), reverse=True)
     notable = [item for item in movers if item[3] >= 1.5]
@@ -353,15 +492,10 @@ def select_company_movers(
     selected_labels = {label for label, _, _, _ in selected}
     rendered = [(label, price, move) for label, price, move, _ in selected]
 
-    if allow_placeholders and len(rendered) < min_count:
-        for label, _symbol in COMPANY_MOVER_POOL:
-            if label in selected_labels:
-                continue
-            rendered.append((label, "data unavailable", "live quote unavailable"))
-            if len(rendered) >= min_count:
-                break
+    if not allow_placeholders:
+        return rendered[:max_count], failures, {label: selected_entries[label] for label, _, _ in rendered}
 
-    return rendered[:max_count], failures
+    return rendered[:max_count], failures, {label: selected_entries[label] for label, _, _ in rendered}
 
 
 def fetch_fred_rows(series_id: str) -> list[tuple[str, str]]:
@@ -493,7 +627,12 @@ INVESTMENT_THEME_LIBRARY = [
 ]
 
 
-def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[str], dict[str, float | None]]:
+def build_macro_lines(
+    allow_placeholders: bool = True,
+    issue_date: dt.date | None = None,
+) -> tuple[list[str], list[str], dict[str, float | None], dict[str, dict[str, object]]]:
+    current_issue_date = issue_date or resolve_issue_date(None)
+    cached_snapshot = load_latest_market_snapshot(current_issue_date)
     lines: list[str] = []
     failures: list[str] = []
     metrics: dict[str, float | None] = {
@@ -503,63 +642,51 @@ def build_macro_lines(allow_placeholders: bool = True) -> tuple[list[str], list[
         "ten_year": None,
         "brent": None,
     }
+    entries: dict[str, dict[str, object]] = {}
 
-    try:
-        cpi_date, cpi_yoy = latest_fred_yoy("CPIAUCSL")
-        metrics["cpi_yoy"] = cpi_yoy
-        lines.append(
-            f"- **US CPI (YoY):** {cpi_yoy:.1f}% as of {format_month(cpi_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)"
-        )
-    except Exception:
-        failures.append("US CPI (YoY)")
-        if allow_placeholders:
-            lines.append("- **US CPI (YoY):** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
+    for label, config in MACRO_SERIES.items():
+        entry: dict[str, object] | None = None
+        try:
+            if config["kind"] == "yoy":
+                as_of, value = latest_fred_yoy(str(config["series_id"]))
+            else:
+                as_of, value = latest_fred_value(str(config["series_id"]))
+            entry = {
+                "label": label,
+                "kind": config["kind"],
+                "value": value,
+                "as_of": as_of,
+                "source": config["source_live"],
+                "url": config["url"],
+                "origin": "live",
+                "captured_on": current_issue_date.isoformat(),
+            }
+        except Exception:
+            cached_entry = None
+            if cached_snapshot:
+                maybe_entry = cached_snapshot.get("macro", {}).get(label)
+                if isinstance(maybe_entry, dict) and days_between(current_issue_date, str(maybe_entry.get("captured_on", ""))) <= MACRO_CACHE_MAX_AGE_DAYS:
+                    cached_entry = {**maybe_entry, "origin": "cache"}
+            if cached_entry is not None:
+                entry = cached_entry
+            else:
+                failures.append(label)
+                continue
 
-    try:
-        unrate_date, unrate = latest_fred_value("UNRATE")
-        metrics["unemployment"] = unrate
-        lines.append(
-            f"- **US unemployment rate:** {unrate:.1f}% as of {format_month(unrate_date)}. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)"
-        )
-    except Exception:
-        failures.append("US unemployment rate")
-        if allow_placeholders:
-            lines.append("- **US unemployment rate:** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)")
+        entries[label] = entry
+        if label == "US CPI (YoY)":
+            metrics["cpi_yoy"] = float(entry["value"])
+        elif label == "US unemployment rate":
+            metrics["unemployment"] = float(entry["value"])
+        elif label == "Fed funds rate":
+            metrics["fed_funds"] = float(entry["value"])
+        elif label == "US 10-year Treasury":
+            metrics["ten_year"] = float(entry["value"])
+        elif label == "Brent crude":
+            metrics["brent"] = float(entry["value"])
+        lines.append(render_macro_line(label, entry))
 
-    try:
-        fed_date, fed = latest_fred_value("FEDFUNDS")
-        metrics["fed_funds"] = fed
-        lines.append(
-            f"- **Fed funds rate:** {fed:.2f}% as of {format_month(fed_date)}. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)"
-        )
-    except Exception:
-        failures.append("Fed funds rate")
-        if allow_placeholders:
-            lines.append("- **Fed funds rate:** Live macro series unavailable. Source: [Federal Reserve](https://www.federalreserve.gov/)")
-
-    try:
-        dgs10_date, dgs10 = latest_fred_value("DGS10")
-        metrics["ten_year"] = dgs10
-        lines.append(
-            f"- **US 10-year Treasury:** {dgs10:.2f}% latest daily close on {format_day(dgs10_date)}. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)"
-        )
-    except Exception:
-        failures.append("US 10-year Treasury")
-        if allow_placeholders:
-            lines.append("- **US 10-year Treasury:** Live macro series unavailable. Source: [U.S. Treasury](https://home.treasury.gov/)")
-
-    try:
-        brent_date, brent = latest_fred_value("DCOILBRENTEU")
-        metrics["brent"] = brent
-        lines.append(
-            f"- **Brent crude:** ${brent:.2f}/barrel latest daily print on {format_day(brent_date)}. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)"
-        )
-    except Exception:
-        failures.append("Brent crude")
-        if allow_placeholders:
-            lines.append("- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)")
-
-    return lines, failures, metrics
+    return lines, failures, metrics, entries
 
 
 def parse_numeric(value: str) -> float | None:
@@ -748,27 +875,57 @@ def build_markets_section(issue_date: dt.date, allow_placeholders: bool = True) 
         "macro": [],
     }
     lines = ["## Markets & Economy", ""]
+    cached_snapshot = load_latest_market_snapshot(issue_date)
     quote_snapshot: dict[str, dict[str, float | None | str]] = {}
+    quote_entries: dict[str, dict[str, object]] = {}
     for label, symbol in CORE_MARKET_TICKERS:
-        price, move = fetch_yahoo_quote(symbol)
-        available = price != "data unavailable" and move != "live quote unavailable"
-        quote_snapshot[label] = {
-            "price": parse_numeric(price),
-            "move": move,
-            "move_pct": parse_move_percent(move),
-        }
-        if not available:
+        entry = fetch_yahoo_quote_snapshot(symbol)
+        if entry is None and cached_snapshot:
+            maybe_entry = cached_snapshot.get("quotes", {}).get(label)
+            if isinstance(maybe_entry, dict) and days_between(issue_date, str(maybe_entry.get("captured_on", ""))) <= QUOTE_CACHE_MAX_AGE_DAYS:
+                entry = {**maybe_entry, "origin": "cache"}
+        if entry is None:
             failures["quotes"].append(label)
-            if not allow_placeholders:
-                continue
-        lines.append(f"- **{label}:** {price}, {move}.")
-    company_movers, company_failures = select_company_movers(allow_placeholders=allow_placeholders)
+            continue
+        quote_entries[label] = entry
+        quote_snapshot[label] = {
+            "price": parse_numeric(str(entry["price"])),
+            "move": str(entry["move"]),
+            "move_pct": float(entry.get("move_pct", 0.0)),
+        }
+        lines.append(render_quote_line(label, entry, issue_date))
+    company_movers, company_failures, company_entries = select_company_movers(issue_date=issue_date, allow_placeholders=allow_placeholders)
     failures["quotes"].extend(company_failures)
     for label, price, move in company_movers:
-        lines.append(f"- **{label}:** {price}, {move}.")
-    macro_lines, macro_failures, macro_metrics = build_macro_lines(allow_placeholders=allow_placeholders)
+        entry = company_entries.get(label)
+        if entry is None:
+            continue
+        quote_entries[label] = entry
+        lines.append(render_quote_line(label, entry, issue_date))
+    macro_lines, macro_failures, macro_metrics, macro_entries = build_macro_lines(allow_placeholders=allow_placeholders, issue_date=issue_date)
     failures["macro"].extend(macro_failures)
     lines.extend(macro_lines)
+    save_market_snapshot(
+        issue_date,
+        {
+            "date": issue_date.isoformat(),
+            "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+            "quotes": {
+                label: {
+                    **entry,
+                    "captured_on": str(entry.get("captured_on", issue_date.isoformat())),
+                }
+                for label, entry in quote_entries.items()
+            },
+            "macro": {
+                label: {
+                    **entry,
+                    "captured_on": str(entry.get("captured_on", issue_date.isoformat())),
+                }
+                for label, entry in macro_entries.items()
+            },
+        },
+    )
     lines.extend(["", *build_investment_opportunities(issue_date, company_movers, macro_metrics, quote_snapshot)])
     return lines, failures
 

@@ -28,31 +28,33 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 
 ## Markets & Economy
 
-- **S&P 500 (SPY):** data unavailable, live quote unavailable.
-- **NASDAQ-100 (QQQ):** data unavailable, live quote unavailable.
-- **DOW (DIA):** data unavailable, live quote unavailable.
-- **Europe (VGK):** data unavailable, live quote unavailable.
-- **Japan (EWJ):** data unavailable, live quote unavailable.
-- **China (MCHI):** data unavailable, live quote unavailable.
-- **India (INDA):** data unavailable, live quote unavailable.
-- **China large-cap (FXI):** data unavailable, live quote unavailable.
-- **Bitcoin:** data unavailable, live quote unavailable.
-- **Ethereum:** data unavailable, live quote unavailable.
-- **Gold (GLD):** data unavailable, live quote unavailable.
-- **Oil proxy (USO):** data unavailable, live quote unavailable.
-- **NVIDIA (NVDA):** data unavailable, live quote unavailable.
-- **Microsoft (MSFT):** data unavailable, live quote unavailable.
-- **US CPI (YoY):** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)
-- **US unemployment rate:** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)
-- **Fed funds rate:** Live macro series unavailable. Source: [Federal Reserve](https://www.federalreserve.gov/)
-- **US 10-year Treasury:** Live macro series unavailable. Source: [U.S. Treasury](https://home.treasury.gov/)
-- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)
+- **S&P 500 (SPY):** 655.83, up 1.66%.
+- **NASDAQ-100 (QQQ):** 584.98, up 1.95%.
+- **DOW (DIA):** 465.06, up 1.25%.
+- **Europe (VGK):** 83.22, up 3.82%.
+- **Japan (EWJ):** 85.29, up 3.12%.
+- **China (MCHI):** 55.84, up 1.45%.
+- **India (INDA):** 46.65, up 0.09%.
+- **China large-cap (FXI):** 35.56, up 1.80%.
+- **Bitcoin:** 66856.33, up 0.25%.
+- **Ethereum:** 2050.90, up 1.35%.
+- **Gold (GLD):** 429.41, up 7.18%.
+- **Oil proxy (USO):** 137.92, up 17.62%.
+- **Boeing (BA):** 208.22, up 7.13%.
+- **Reddit (RDDT):** 136.00, up 6.87%.
+- **AMD (AMD):** 217.50, up 6.74%.
+- **Snowflake (SNOW):** 151.85, down 6.46%.
+- **US CPI (YoY):** 2.7% as of Feb. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
+- **US unemployment rate:** 4.3% as of Mar. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
+- **Fed funds rate:** 3.64% as of Mar. 2026. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
+- **US 10-year Treasury:** 4.33% latest daily close on Apr. 01, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
+- **Brent crude:** $121.88/barrel latest daily print on Mar. 30, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
 
 ### Upcoming Investment Opportunities
 
-AI infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **NVIDIA**, **Broadcom**, **Micron**, and **AMD** for evidence on networking silicon, HBM supply, and advanced packaging; the real question is whether capex durability, pricing power, and supply bottlenecks keep translating into durable earnings power rather than just short-term momentum.
+Resilient enterprise software still looks worth watching because the current regime still supports the thesis. Watch **ServiceNow**, **CrowdStrike**, **Snowflake**, and **Uber** for evidence on renewal quality, seat expansion, and security budgets; the real question is whether rate sensitivity, margin discipline, and budget resilience keep translating into durable earnings power rather than just short-term momentum.
 
-Power and grid infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **Quanta Services**, **Eaton**, **Vertiv**, and **Siemens Energy** for evidence on transmission spend, cooling demand, and power-management budgets; the real question is whether electrification demand, energy costs, and grid constraints keep translating into durable earnings power rather than just short-term momentum. Across any cluster, the useful discipline is to track the variables that can actually change the thesis: rates, energy costs, backlog quality, pricing power, and whether capex survives contact with tighter budgets.
+Power and grid infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **Quanta Services**, **Eaton**, **Vertiv**, and **Siemens Energy** for evidence on transmission spend, cooling demand, and power-management budgets; the real question is whether electrification demand, energy costs, and grid constraints keep translating into durable earnings power rather than just short-term momentum. Across any cluster, keep the regime in view: the 10-year Treasury is still around 4.33%; Brent is near $121.88; the Fed funds rate is 3.64%. That is why the right watchlist is one tied to constraint variables, not just recent momentum.
 
 ## Need To Know
 

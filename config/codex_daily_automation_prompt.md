@@ -29,12 +29,13 @@ Required workflow:
 6. Use the April 1 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
 7. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
 8. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue, but replace the company lines with 2-4 notable companies chosen for that day rather than reusing a fixed set.
-9. Pick a different cool destination for `Travel` than the previous issue when possible, include a photo of the place, and make sure the image renders in the markdown and HTML preview.
-10. Keep the prose reader-facing. Do not include meta language aimed at the operator, the chat, or the drafting process inside the published issue.
-11. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
-12. Once the issue is publication-ready, run:
+9. Market quotes and macro lines must never publish as missing-value placeholders. If live fetches fail, use the latest cached market snapshot with explicit as-of dates. If neither live data nor a recent cache can support a credible `Markets & Economy` block, stop without pushing.
+10. Pick a different cool destination for `Travel` than the previous issue when possible, include a photo of the place, and make sure the image renders in the markdown and HTML preview.
+11. Keep the prose reader-facing. Do not include meta language aimed at the operator, the chat, or the drafting process inside the published issue.
+12. Keep the issue selective, analytical, low-bias, and useful to a technically sophisticated reader. Prefer cutting weak items over padding sections.
+13. Once the issue is publication-ready, run:
    `python3 scripts/newsletter_command.py publish --git-commit --git-push`
-13. If review or benchmark quality fails, improve the issue and rerun `publish`. If you cannot reach benchmark quality from the available material, stop without pushing.
+14. If review or benchmark quality fails, improve the issue and rerun `publish`. If you cannot reach benchmark quality from the available material, stop without pushing.
 
 Git requirements:
 - Push changes to the linked GitHub repository's `main` branch.

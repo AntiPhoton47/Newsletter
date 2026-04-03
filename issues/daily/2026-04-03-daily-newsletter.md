@@ -27,33 +27,33 @@ Today's issue is about systems that are becoming operational. The strongest stor
 
 ## Markets & Economy
 
-- **S&P 500 (SPY):** quote unavailable in this run.
-- **NASDAQ-100 (QQQ):** quote unavailable in this run.
-- **DOW (DIA):** quote unavailable in this run.
-- **Europe (VGK):** quote unavailable in this run.
-- **Japan (EWJ):** quote unavailable in this run.
-- **China (MCHI):** quote unavailable in this run.
-- **India (INDA):** quote unavailable in this run.
-- **China large-cap (FXI):** quote unavailable in this run.
-- **Bitcoin:** quote unavailable in this run.
-- **Ethereum:** quote unavailable in this run.
-- **Gold (GLD):** quote unavailable in this run.
-- **Oil proxy (USO):** quote unavailable in this run.
-- **Eli Lilly (LLY):** quote unavailable in this run.
-- **Novo Nordisk (NVO):** quote unavailable in this run.
-- **Palantir (PLTR):** quote unavailable in this run.
-- **RTX (RTX):** quote unavailable in this run.
-- **US CPI (YoY):** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)
-- **US unemployment rate:** Live macro series unavailable. Source: [BLS](https://www.bls.gov/)
-- **Fed funds rate:** Live macro series unavailable. Source: [Federal Reserve](https://www.federalreserve.gov/)
-- **US 10-year Treasury:** Live macro series unavailable. Source: [U.S. Treasury](https://home.treasury.gov/)
-- **Brent crude:** Live macro series unavailable. Source: [EIA](https://www.eia.gov/)
+- **S&P 500 (SPY):** 655.83, up 1.66%.
+- **NASDAQ-100 (QQQ):** 584.98, up 1.95%.
+- **DOW (DIA):** 465.06, up 1.25%.
+- **Europe (VGK):** 83.22, up 3.82%.
+- **Japan (EWJ):** 85.29, up 3.12%.
+- **China (MCHI):** 55.84, up 1.45%.
+- **India (INDA):** 46.65, up 0.09%.
+- **China large-cap (FXI):** 35.56, up 1.80%.
+- **Bitcoin:** 66856.33, up 0.25%.
+- **Ethereum:** 2050.90, up 1.35%.
+- **Gold (GLD):** 429.41, up 7.18%.
+- **Oil proxy (USO):** 137.92, up 17.62%.
+- **Boeing (BA):** 208.22, up 7.13%.
+- **Reddit (RDDT):** 136.00, up 6.87%.
+- **AMD (AMD):** 217.50, up 6.74%.
+- **Snowflake (SNOW):** 151.85, down 6.46%.
+- **US CPI (YoY):** 2.7% as of Feb. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
+- **US unemployment rate:** 4.3% as of Mar. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
+- **Fed funds rate:** 3.64% as of Mar. 2026. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
+- **US 10-year Treasury:** 4.33% latest daily close on Apr. 01, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
+- **Brent crude:** $121.88/barrel latest daily print on Mar. 30, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
 
 ### Upcoming Investment Opportunities
 
-The more interesting clusters today are policy-linked rather than purely cyclical. First, watch **Eli Lilly**, **Novo Nordisk**, **Thermo Fisher**, and **Catalent** as pharmaceutical tariffs and pricing negotiations increase the premium on manufacturing footprint, packaging control, and regulatory agility. The thesis gets stronger if onshoring commitments become concrete and if large drugmakers keep trading margin for policy certainty. It weakens if tariff threats prove mostly theatrical or if reimbursement pressure overwhelms manufacturing advantages.
+Resilient enterprise software still looks worth watching because the current regime still supports the thesis. Watch **ServiceNow**, **CrowdStrike**, **Snowflake**, and **Uber** for evidence on renewal quality, seat expansion, and security budgets; the real question is whether rate sensitivity, margin discipline, and budget resilience keep translating into durable earnings power rather than just short-term momentum.
 
-Second, watch **Palantir**, **RTX**, **AeroVironment**, **Rheinmetall**, and **Safran** as Europe and the United States keep moving toward drone-heavy, software-assisted defense procurement. The key variables are not only top-line spending, but how quickly procurement rules loosen, whether smaller suppliers can actually move into funded programs, and whether wartime urgency survives contact with budget processes.
+Power and grid infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **Quanta Services**, **Eaton**, **Vertiv**, and **Siemens Energy** for evidence on transmission spend, cooling demand, and power-management budgets; the real question is whether electrification demand, energy costs, and grid constraints keep translating into durable earnings power rather than just short-term momentum. Across any cluster, keep the regime in view: the 10-year Treasury is still around 4.33%; Brent is near $121.88; the Fed funds rate is 3.64%. That is why the right watchlist is one tied to constraint variables, not just recent momentum.
 
 ## Need To Know
 

@@ -129,15 +129,12 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
 
 
 def summarize_market_health() -> dict[str, object]:
-    quote_failures: list[str] = []
-    for label, symbol in MARKET_TICKERS:
-        from generate_issue import fetch_yahoo_quote  # Imported lazily to keep this module lightweight in tests.
+    from generate_issue import build_markets_section  # Imported lazily to keep this module lightweight in tests.
+    from issue_clock import resolve_issue_date
 
-        price, move = fetch_yahoo_quote(symbol)
-        if price == "data unavailable" or move == "live quote unavailable":
-            quote_failures.append(label)
-
-    _, macro_failures, _ = build_macro_lines(allow_placeholders=False)
+    _lines, failures = build_markets_section(resolve_issue_date(None), allow_placeholders=False)
+    quote_failures = list(failures["quotes"])
+    macro_failures = list(failures["macro"])
     available_quotes = len(MARKET_TICKERS) - len(quote_failures)
     available_macro_lines = 5 - len(macro_failures)
 
@@ -210,6 +207,8 @@ def cleanup_placeholder_artifacts(issue_date: dt.date) -> None:
         explicit_placeholders = (
             "Feed fetch failed",
             "data unavailable",
+            "quote unavailable in this run",
+            "Live macro series unavailable",
             "**Source:** Source",
             "Insufficient sourced material for this section today.",
         )

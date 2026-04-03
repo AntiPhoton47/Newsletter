@@ -121,17 +121,42 @@ class CandidateHealthTests(unittest.TestCase):
 
 
 class MarketHealthTests(unittest.TestCase):
-    @mock.patch("generate_issue.fetch_yahoo_quote", return_value=("101.00", "up 1.00%"))
-    @mock.patch("check_pipeline_inputs.build_macro_lines", return_value=(["macro"] * 5, [], {}))
-    def test_market_health_passes_with_enough_data(self, _mock_macro: mock.Mock, _mock_quote: mock.Mock) -> None:
+    @mock.patch("generate_issue.save_market_snapshot")
+    @mock.patch("generate_issue.select_company_movers")
+    @mock.patch("generate_issue.build_macro_lines")
+    @mock.patch("generate_issue.fetch_yahoo_quote_snapshot")
+    def test_market_health_passes_with_enough_data(
+        self,
+        mock_quote: mock.Mock,
+        mock_macro: mock.Mock,
+        mock_movers: mock.Mock,
+        _mock_save: mock.Mock,
+    ) -> None:
+        mock_quote.return_value = {
+            "price": "101.00",
+            "move": "up 1.00%",
+            "move_pct": 1.0,
+            "as_of": "2026-04-03",
+            "captured_on": "2026-04-03",
+        }
+        mock_macro.return_value = (["macro"] * 5, [], {}, {})
+        mock_movers.return_value = ([("NVIDIA (NVDA)", "101.00", "up 1.00%")] * 2, [], {})
         report = cpi.summarize_market_health()
         self.assertTrue(report["passed"])
         self.assertEqual(report["quote_failures"], [])
         self.assertEqual(report["macro_failures"], [])
 
-    @mock.patch("generate_issue.fetch_yahoo_quote", return_value=("data unavailable", "live quote unavailable"))
-    @mock.patch("check_pipeline_inputs.build_macro_lines", return_value=([], ["US CPI (YoY)", "US unemployment rate"], {}))
-    def test_market_health_fails_when_data_is_missing(self, _mock_macro: mock.Mock, _mock_quote: mock.Mock) -> None:
+    @mock.patch("generate_issue.save_market_snapshot")
+    @mock.patch("generate_issue.select_company_movers", return_value=([], ["NVIDIA (NVDA)", "Tesla (TSLA)"], {}))
+    @mock.patch("generate_issue.build_macro_lines", return_value=([], ["US CPI (YoY)", "US unemployment rate"], {}, {}))
+    @mock.patch("generate_issue.fetch_yahoo_quote_snapshot", return_value=None)
+    def test_market_health_fails_when_data_is_missing(
+        self,
+        _mock_quote: mock.Mock,
+        _mock_macro: mock.Mock,
+        _mock_movers: mock.Mock,
+        _mock_save: mock.Mock,
+    ) -> None:
         report = cpi.summarize_market_health()
         self.assertFalse(report["passed"])
         self.assertGreaterEqual(len(report["findings"]), 1)
