@@ -1,0 +1,328 @@
+{
+  "date": "2026-04-03",
+  "generated_at": "2026-04-03T07:16:21.488283+00:00",
+  "sections": {
+    "Need To Know": [],
+    "Research Watch": [],
+    "World News": [],
+    "Philosophy": [],
+    "Biology": [],
+    "Psychology and Neuroscience": [],
+    "Health and Medicine": [],
+    "Sociology and Anthropology": [],
+    "Technology": [],
+    "Robotics": [],
+    "AI": [],
+    "Engineering": [],
+    "Mathematics": [],
+    "Historical Discoveries": [],
+    "Archaeology": [],
+    "Tools You Can Use": [],
+    "Entertainment": [],
+    "Travel": []
+  },
+  "fetch": {
+    "sections": {
+      "Need To Know": {
+        "status": "failed",
+        "query_count": 2,
+        "failed_queries": 2,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "site:nature.com physics OR quantum OR relativity OR proton radius",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "site:nature.com spectroscopy OR standard model physics",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Research Watch": {
+        "status": "failed",
+        "query_count": 3,
+        "failed_queries": 3,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "site:arxiv.org quantum foundations OR contextuality",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "site:arxiv.org quantum gravity OR Hamiltonian constraint",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "site:nature.com AI for science research",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "World News": {
+        "status": "failed",
+        "query_count": 3,
+        "failed_queries": 3,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Philosophy": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "philosophy of science epistemology agency site:iai.tv",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Biology": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "biology discovery evolution microbiome site:nature.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Psychology and Neuroscience": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "neuroscience psychology cognition brain site:nature.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Health and Medicine": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "medicine health AI diagnosis site:nature.com OR site:who.int OR site:iarc.who.int",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Sociology and Anthropology": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "anthropology sociology human behavior site:nature.com OR site:sapiens.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Technology": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Robotics": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "robotics embodied AI site:nature.com OR site:ieee.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "AI": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Engineering": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "engineering infrastructure materials construction site:nature.com OR site:ieee.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Mathematics": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "mathematics foundations infinity site:quantamagazine.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Historical Discoveries": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Archaeology": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Tools You Can Use": {
+        "status": "failed",
+        "query_count": 2,
+        "failed_queries": 2,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Entertainment": {
+        "status": "failed",
+        "query_count": 2,
+        "failed_queries": 2,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          },
+          {
+            "query": "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      },
+      "Travel": {
+        "status": "failed",
+        "query_count": 1,
+        "failed_queries": 1,
+        "entry_count": 0,
+        "queries": [
+          {
+            "query": "best places to visit this month travel destination",
+            "status": "failed",
+            "entry_count": 0,
+            "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 1 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 2 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>; attempt 3 insecure: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+          }
+        ]
+      }
+    },
+    "summary": {
+      "total_queries": 25,
+      "failed_queries": 25,
+      "sections_with_entries": 0,
+      "total_entries": 0
+    }
+  }
+}
