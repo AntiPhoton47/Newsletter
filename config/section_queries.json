@@ -1,7 +1,8 @@
 {
   "Need To Know": [
     "site:nature.com physics OR quantum OR relativity OR proton radius",
-    "site:nature.com spectroscopy OR standard model physics"
+    "site:nature.com spectroscopy OR standard model physics",
+    "science technology research policy site:morningbrew.com OR site:join1440.com"
   ],
   "Research Watch": [
     "site:arxiv.org quantum foundations OR contextuality",
@@ -11,7 +12,8 @@
   "World News": [
     "geopolitics conflict economy policy site:apnews.com OR site:un.org OR site:oecd.org OR site:imf.org",
     "trade energy humanitarian world news site:apnews.com OR site:weforum.org OR site:unhcr.org",
-    "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu"
+    "Europe policy security energy migration economy site:reuters.com OR site:ft.com OR site:politico.eu OR site:euronews.com OR site:ec.europa.eu",
+    "geopolitics europe china tariffs conflict migration energy site:morningbrew.com OR site:join1440.com"
   ],
   "Philosophy": [
     "philosophy of science epistemology agency site:iai.tv"
@@ -29,13 +31,15 @@
     "anthropology sociology human behavior site:nature.com OR site:sapiens.org"
   ],
   "Technology": [
-    "technology infrastructure computing materials site:nature.com OR site:technologyreview.com"
+    "technology infrastructure computing materials site:nature.com OR site:technologyreview.com",
+    "chips space energy infrastructure manufacturing site:morningbrew.com OR site:join1440.com"
   ],
   "Robotics": [
     "robotics embodied AI site:nature.com OR site:ieee.org"
   ],
   "AI": [
-    "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com"
+    "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com",
+    "AI models agents chips OpenAI Anthropic DeepMind site:morningbrew.com OR site:superpowerdaily.com OR site:join1440.com OR site:technologyreview.com"
   ],
   "Engineering": [
     "engineering infrastructure materials construction site:nature.com OR site:ieee.org"

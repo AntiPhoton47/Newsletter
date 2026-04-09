@@ -180,6 +180,7 @@ The sample job runs every day at 07:30 local time. It now calls the full pipelin
 - `--preview-html` always writes a browser-openable preview into `output/`.
 - If there is no issue matching today's date, the script falls back to the latest daily issue.
 - `scripts/fetch_candidates.py` uses configured Google News RSS search queries as a feed-based ingestion layer.
+- `scripts/fetch_candidates.py` now also supplements the Google News query layer with direct newsletter discovery from Nature Briefing, MIT Technology Review's The Download, and Superpower Daily, plus newsletter-focused domain queries for Morning Brew and 1440.
 - Google News RSS is currently the discovery layer for automated candidate gathering; the intended editorial sources remain the underlying publishers and institutions listed in `sources.md`.
 - `scripts/prepare_editorial_packet.py` turns `sources.md`, the benchmark issue, the template, and the current discovery snapshot into a dated run packet for Codex-driven source-first drafting.
 - `scripts/check_pipeline_inputs.py` now fails the pipeline before draft generation when source coverage or live market data falls below minimum thresholds, and it writes blocking review artifacts instead of letting placeholder text flow into a draft issue.

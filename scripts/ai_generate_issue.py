@@ -71,12 +71,15 @@ def summarize_candidates(data: dict) -> str:
         for entry in entries[:5]:
             title = entry.get("title", "").strip()
             publisher = entry.get("publisher", "").strip()
+            newsletter_source = entry.get("newsletter_source", "").strip()
             summary = re.sub(r"\s+", " ", entry.get("summary", "")).strip()
             link = entry.get("link", "").strip()
             preferred = entry.get("preferred_link", "").strip() or link
             lines.append(f"- Title: {title}")
             if publisher:
                 lines.append(f"  Publisher: {publisher}")
+            if newsletter_source:
+                lines.append(f"  Newsletter: {newsletter_source}")
             if summary:
                 lines.append(f"  Summary: {summary[:280]}")
             if preferred:

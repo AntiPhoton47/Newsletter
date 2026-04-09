@@ -25,6 +25,7 @@ REQUEST_TIMEOUT = 8
 MAX_FETCH_ATTEMPTS = 3
 MAX_ENTRY_AGE_DAYS = 365
 ENRICH_TOP_ENTRIES_PER_SECTION = 5
+NEWSLETTER_LOOKBACK_LIMIT = 6
 
 REQUEST_HEADERS = {
     "User-Agent": (
@@ -40,6 +41,144 @@ GOOGLE_DECODE_TEMPLATE = (
 
 DECODE_CACHE: dict[str, str] = {}
 METADATA_CACHE: dict[str, dict[str, str]] = {}
+
+NATURE_BRIEFING_LIST_TEMPLATE = "https://www.nature.com/nature/articles?type=nature-briefing&year={year}"
+MIT_DOWNLOAD_CATEGORY_SEARCH_URL = "https://www.technologyreview.com/wp-json/wp/v2/categories?search=download&per_page=10"
+MIT_DOWNLOAD_POSTS_TEMPLATE = "https://www.technologyreview.com/wp-json/wp/v2/posts?categories={category_id}&per_page={limit}"
+SUPERPOWER_SITEMAP_URL = "https://www.superpowerdaily.com/sitemap.xml"
+
+NEWSLETTER_DEFAULT_SECTIONS = {
+    "Nature Briefing": "Need To Know",
+    "The Download": "Technology",
+    "Superpower Daily": "AI",
+}
+
+SECTION_KEYWORDS = {
+    "Markets & Economy": (
+        "economy",
+        "economic",
+        "market",
+        "markets",
+        "inflation",
+        "rates",
+        "tariff",
+        "tariffs",
+        "trade",
+        "prices",
+        "price",
+        "supply chain",
+        "ipo",
+        "oil",
+        "energy costs",
+    ),
+    "Need To Know": (
+        "science",
+        "scientists",
+        "physics",
+        "quantum",
+        "relativity",
+        "research",
+        "researchers",
+        "nasa",
+        "moon",
+        "space",
+        "biology",
+        "medicine",
+        "climate",
+        "technology",
+        "policy",
+    ),
+    "Research Watch": (
+        "paper",
+        "study",
+        "preprint",
+        "experiment",
+        "result",
+        "discovery",
+        "research",
+        "researchers",
+        "scientists",
+        "finding",
+        "findings",
+    ),
+    "World News": (
+        "war",
+        "conflict",
+        "europe",
+        "china",
+        "iran",
+        "ukraine",
+        "sanctions",
+        "migration",
+        "humanitarian",
+        "trade",
+        "tariff",
+        "tariffs",
+        "geopolitics",
+        "security",
+    ),
+    "Technology": (
+        "technology",
+        "chip",
+        "chips",
+        "semiconductor",
+        "computing",
+        "computer",
+        "space",
+        "satellite",
+        "battery",
+        "robot",
+        "robotics",
+        "data center",
+        "data centres",
+        "infrastructure",
+        "manufacturing",
+        "hardware",
+    ),
+    "AI": (
+        "ai",
+        "artificial intelligence",
+        "model",
+        "models",
+        "llm",
+        "openai",
+        "anthropic",
+        "deepmind",
+        "agent",
+        "agents",
+        "chatgpt",
+        "inference",
+        "training",
+        "gpu",
+        "tpu",
+    ),
+    "Engineering": (
+        "engineering",
+        "manufacturing",
+        "grid",
+        "reactor",
+        "satellite",
+        "materials",
+        "construction",
+        "infrastructure",
+        "battery",
+        "launch",
+        "mission",
+    ),
+    "Tools You Can Use": (
+        "tool",
+        "tools",
+        "api",
+        "sdk",
+        "github",
+        "open-source",
+        "open source",
+        "platform",
+        "launch",
+        "release",
+        "copilot",
+    ),
+}
 
 LOW_VALUE_TITLE_PATTERNS = (
     r"^Nature\s*-\s*Nature$",
@@ -66,6 +205,8 @@ LOW_VALUE_TITLE_PATTERNS = (
     r"^IEEE Is the Global Community for Technology Professionals$",
     r"^Directorate for Science, Technology and Innovation$",
     r"^Digital health$",
+    r"^Most interesting$",
+    r"^On the bubble$",
 )
 
 
@@ -76,9 +217,14 @@ def split_google_news_title(title: str) -> tuple[str, str]:
     return title.strip(), ""
 
 
-def is_low_value_title(title: str) -> bool:
+def is_low_value_title(title: str, headline: str = "", publisher: str = "") -> bool:
     normalized = re.sub(r"\s+", " ", title).strip()
-    return any(re.match(pattern, normalized, flags=re.IGNORECASE) for pattern in LOW_VALUE_TITLE_PATTERNS)
+    normalized_headline = re.sub(r"\s+", " ", headline or title).strip()
+    if any(re.match(pattern, normalized, flags=re.IGNORECASE) for pattern in LOW_VALUE_TITLE_PATTERNS):
+        return True
+    if normalized_headline.lower() in {"most interesting", "on the bubble"}:
+        return True
+    return False
 
 
 def google_news_rss_url(query: str) -> str:
@@ -131,6 +277,17 @@ def fetch_bytes(
 def parse_pub_date(text: str) -> dt.datetime | None:
     if not text:
         return None
+    normalized = text.strip()
+    if normalized.endswith("Z"):
+        normalized = normalized[:-1] + "+00:00"
+    try:
+        parsed = dt.datetime.fromisoformat(normalized)
+    except ValueError:
+        parsed = None
+    if parsed is not None:
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=dt.timezone.utc)
+        return parsed.astimezone(dt.timezone.utc)
     try:
         parsed = email.utils.parsedate_to_datetime(text)
     except (TypeError, ValueError, IndexError):
@@ -172,6 +329,12 @@ def extract_meta_content(page_html: str, field: str) -> str:
         "image": (
             r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
             r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
+        ),
+        "published": (
+            r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)["\']',
+            r'<meta[^>]+name=["\']article:published_time["\'][^>]+content=["\']([^"\']+)["\']',
+            r'"datePublished":"([^"]+)"',
+            r"<time[^>]+datetime=['\"]([^'\"]+)['\"]",
         ),
     }
     for pattern in patterns[field]:
@@ -271,9 +434,201 @@ def fetch_article_metadata(link: str) -> dict[str, str]:
         "resolved_title": extract_meta_content(page_html, "title"),
         "resolved_summary": extract_meta_content(page_html, "description") or extract_first_paragraph(page_html),
         "resolved_image": extract_meta_content(page_html, "image"),
+        "resolved_published": extract_meta_content(page_html, "published"),
     }
     METADATA_CACHE[link] = payload
     return payload
+
+
+def unique_strings(values: list[str]) -> list[str]:
+    seen: set[str] = set()
+    result: list[str] = []
+    for value in values:
+        if value in seen:
+            continue
+        seen.add(value)
+        result.append(value)
+    return result
+
+
+def fetch_json(url: str) -> object:
+    return json.loads(fetch_bytes(url).decode("utf-8", errors="replace"))
+
+
+def score_newsletter_section(entry: dict[str, str], section: str) -> int:
+    title = re.sub(r"^[^:]+:\s*", "", entry.get("title", "").strip().lower())
+    summary = entry.get("summary", "").strip().lower()
+    score = 0
+    if NEWSLETTER_DEFAULT_SECTIONS.get(entry.get("newsletter_source", "")) == section:
+        score += 2
+    for keyword in SECTION_KEYWORDS.get(section, ()):
+        if keyword in title:
+            score += 2
+        elif keyword in summary:
+            score += 1
+    return score
+
+
+def classify_newsletter_entry(entry: dict[str, str]) -> str | None:
+    scored = [(section, score_newsletter_section(entry, section)) for section in SECTION_KEYWORDS]
+    best_section, best_score = max(scored, key=lambda item: item[1], default=("", 0))
+    if best_score <= 0:
+        return None
+    return best_section
+
+
+def fetch_nature_briefing_entries(issue_date: dt.date) -> list[dict[str, str]]:
+    listing_url = NATURE_BRIEFING_LIST_TEMPLATE.format(year=issue_date.year)
+    listing_html = fetch_bytes(listing_url).decode("utf-8", errors="replace")
+    matches = list(
+        re.finditer(
+            r'<a href="(?P<href>/articles/d41586-[^"]+)"[^>]*>(?P<title>[^<]+)</a>',
+            listing_html,
+            flags=re.IGNORECASE,
+        )
+    )
+    entries: list[dict[str, str]] = []
+    for match in matches[:NEWSLETTER_LOOKBACK_LIMIT]:
+        snippet = listing_html[max(0, match.start() - 500) : min(len(listing_html), match.end() + 2200)]
+        summary_match = re.search(r'<div[^>]+data-test="article-description"[^>]*>.*?<p>(.*?)</p>', snippet, flags=re.IGNORECASE | re.DOTALL)
+        date_match = re.search(r'<time[^>]+datetime="([^"]+)"', snippet, flags=re.IGNORECASE)
+        published = (date_match.group(1) if date_match else "").strip()
+        if published and is_stale(published, issue_date):
+            continue
+        entries.append(
+            {
+                "title": clean_html(html.unescape(match.group("title"))),
+                "publisher": "Nature Briefing",
+                "newsletter_source": "Nature Briefing",
+                "link": urllib.parse.urljoin(listing_url, match.group("href")),
+                "published": published,
+                "summary": clean_html(html.unescape(summary_match.group(1))) if summary_match else "",
+                "source_type": "newsletter-archive",
+            }
+        )
+    return entries
+
+
+def discover_mit_download_category_id() -> int:
+    payload = fetch_json(MIT_DOWNLOAD_CATEGORY_SEARCH_URL)
+    if not isinstance(payload, list):
+        raise RuntimeError("MIT Technology Review category lookup returned unexpected payload")
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        if item.get("slug") == "download-newsletter" or item.get("name") == "The Download":
+            category_id = item.get("id")
+            if isinstance(category_id, int):
+                return category_id
+    raise RuntimeError("Could not find The Download category id")
+
+
+def fetch_mit_download_entries(issue_date: dt.date) -> list[dict[str, str]]:
+    category_id = discover_mit_download_category_id()
+    payload = fetch_json(MIT_DOWNLOAD_POSTS_TEMPLATE.format(category_id=category_id, limit=NEWSLETTER_LOOKBACK_LIMIT))
+    if not isinstance(payload, list):
+        raise RuntimeError("MIT Technology Review posts lookup returned unexpected payload")
+    entries: list[dict[str, str]] = []
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        published = str(item.get("date_gmt") or item.get("date") or "").strip()
+        if published and is_stale(published, issue_date):
+            continue
+        title = clean_html(html.unescape(str(item.get("title", {}).get("rendered", ""))))
+        summary = clean_html(html.unescape(str(item.get("excerpt", {}).get("rendered", ""))))
+        if not summary:
+            summary = clean_html(html.unescape(str(item.get("content", {}).get("rendered", ""))))[:420]
+        link = str(item.get("link", "")).strip()
+        if not title or not link:
+            continue
+        entries.append(
+            {
+                "title": title,
+                "publisher": "The Download",
+                "newsletter_source": "The Download",
+                "link": link,
+                "published": published,
+                "summary": summary,
+                "source_type": "newsletter-api",
+            }
+        )
+    return entries
+
+
+def fetch_superpower_entries(issue_date: dt.date) -> list[dict[str, str]]:
+    root = ET.fromstring(fetch_bytes(SUPERPOWER_SITEMAP_URL))
+    candidates: list[tuple[str, str]] = []
+    for node in root.findall(".//{*}url"):
+        loc = (node.findtext("{*}loc") or "").strip()
+        lastmod = (node.findtext("{*}lastmod") or "").strip()
+        if "/p/" not in loc:
+            continue
+        candidates.append((loc, lastmod))
+    candidates.sort(key=lambda item: item[1], reverse=True)
+
+    entries: list[dict[str, str]] = []
+    for link, lastmod in candidates[:NEWSLETTER_LOOKBACK_LIMIT]:
+        if lastmod and is_stale(lastmod, issue_date):
+            continue
+        metadata = fetch_article_metadata(link)
+        title = metadata.get("resolved_title", "").strip()
+        summary = metadata.get("resolved_summary", "").strip()
+        published = metadata.get("resolved_published", "").strip() or lastmod
+        if not title:
+            continue
+        entries.append(
+            {
+                "title": title,
+                "publisher": "Superpower Daily",
+                "newsletter_source": "Superpower Daily",
+                "link": metadata.get("resolved_link", "").strip() or link,
+                "published": published,
+                "summary": summary,
+                "image_url": metadata.get("resolved_image", "").strip(),
+                "source_type": "newsletter-sitemap",
+            }
+        )
+    return entries
+
+
+def fetch_newsletter_archive_entries(issue_date: dt.date) -> tuple[dict[str, list[dict[str, str]]], dict[str, dict[str, object]]]:
+    section_entries: dict[str, list[dict[str, str]]] = {}
+    reports: dict[str, dict[str, object]] = {}
+    fetchers = (
+        ("Nature Briefing", fetch_nature_briefing_entries),
+        ("The Download", fetch_mit_download_entries),
+        ("Superpower Daily", fetch_superpower_entries),
+    )
+
+    for source_name, fetcher in fetchers:
+        try:
+            entries = fetcher(issue_date)
+        except Exception as exc:
+            reports[source_name] = {
+                "status": "failed",
+                "entry_count": 0,
+                "matched_sections": {},
+                "error": str(exc),
+            }
+            continue
+
+        matched_sections: dict[str, int] = {}
+        for entry in entries:
+            section = classify_newsletter_entry(entry)
+            if not section:
+                continue
+            matched_sections[section] = matched_sections.get(section, 0) + 1
+            section_entries.setdefault(section, []).append(entry)
+
+        reports[source_name] = {
+            "status": "ok",
+            "entry_count": len(entries),
+            "matched_entry_count": sum(matched_sections.values()),
+            "matched_sections": matched_sections,
+        }
+
+    return section_entries, reports
 
 
 def enrich_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -305,7 +660,7 @@ def fetch_feed(url: str, issue_date: dt.date) -> list[dict[str, str]]:
         pub_date = (item.findtext("pubDate") or "").strip()
         description = clean_html(item.findtext("description") or "")
         headline, publisher = split_google_news_title(title)
-        if title and link and headline and not is_low_value_title(title) and not is_stale(pub_date, issue_date):
+        if title and link and headline and not is_low_value_title(title, headline, publisher) and not is_stale(pub_date, issue_date):
             items.append(
                 {
                     "title": headline,
@@ -339,8 +694,9 @@ def rank_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
         specificity = len(title.split())
         has_summary = 1 if summary else 0
         source_bonus = 1 if publisher else 0
+        newsletter_bonus = 1 if str(entry.get("source_type", "")).startswith("newsletter") else 0
         recency = int(published.timestamp()) if published else 0
-        return (has_summary + source_bonus, recency, specificity)
+        return (has_summary + source_bonus + newsletter_bonus, recency, specificity)
 
     return sorted(entries, key=score, reverse=True)
 
@@ -354,12 +710,14 @@ def main() -> None:
     issue_date = resolve_issue_date(args.date)
 
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    newsletter_entries, newsletter_reports = fetch_newsletter_archive_entries(issue_date)
     payload: dict[str, object] = {
         "date": issue_date.isoformat(),
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "sections": {},
         "fetch": {
             "sections": {},
+            "newsletter_sources": newsletter_reports,
             "summary": {},
         },
     }
@@ -400,6 +758,7 @@ def main() -> None:
                 item["query"] = query
                 item["source_type"] = "google-news-rss"
                 section_entries.append(item)
+        section_entries.extend(newsletter_entries.get(section, []))
         ranked_entries = rank_entries(dedupe_entries(section_entries))
         if ranked_entries:
             sections_with_entries += 1
@@ -416,6 +775,7 @@ def main() -> None:
             "query_count": len(query_reports),
             "failed_queries": failed_for_section,
             "entry_count": len(ranked_entries),
+            "newsletter_entry_count": len(newsletter_entries.get(section, [])),
             "queries": query_reports,
         }
 
@@ -424,6 +784,7 @@ def main() -> None:
         "failed_queries": failed_queries,
         "sections_with_entries": sections_with_entries,
         "total_entries": total_entries,
+        "newsletter_entries": sum(len(entries) for entries in newsletter_entries.values()),
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
