@@ -109,9 +109,9 @@ Write 2-3 short paragraphs.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## World News
 
@@ -131,14 +131,19 @@ Write 2-3 short paragraphs.
 
 **Link:** [Read at Source](https://example.com)
 
+### Breaking News
+
+- **Fast-moving development:** One or two sentences on what changed today, why it matters, and what remains uncertain. [Source](https://example.com)
+- **Fast-moving development:** One or two sentences on what changed today, why it matters, and what remains uncertain. [Source](https://example.com)
+
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
-- Concise Europe-focused item. [Source](https://example.com)
-- Concise Europe-focused item. [Source](https://example.com)
-- Concise additional globally relevant item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise Europe-focused item with one concrete fact or implication. [Source](https://example.com)
+- Concise Europe-focused item with one concrete fact or implication. [Source](https://example.com)
+- Concise additional globally relevant item with one concrete fact or implication. [Source](https://example.com)
 
 ## Philosophy
 
@@ -160,8 +165,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## Biology
 
@@ -183,8 +188,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## Psychology and Neuroscience
 
@@ -206,8 +211,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## Health and Medicine
 
@@ -229,8 +234,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## Sociology and Anthropology
 
@@ -252,8 +257,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item. [Source](https://example.com)
-- Concise distinct item. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
 
 ## Technology
 
@@ -438,19 +443,19 @@ Write 1 short paragraph describing what the tool actually does, who it is useful
 
 ### Short Takes
 
-- Concise actual tool with direct link. [Source](https://example.com)
-- Concise actual tool with direct link. [Source](https://example.com)
-- Concise actual tool with direct link. [Source](https://example.com)
-- Concise actual tool with direct link. [Source](https://example.com)
+- Concise actual tool with direct link and one concrete reason to click. [Source](https://example.com)
+- Concise actual tool with direct link and one concrete reason to click. [Source](https://example.com)
+- Concise actual tool with direct link and one concrete reason to click. [Source](https://example.com)
+- Concise actual tool with direct link and one concrete reason to click. [Source](https://example.com)
 
 ## Entertainment
 
-Keep this section concrete, current, and reader-facing. Do not write vague overview prose or meta commentary about the drafting process.
+Keep this section concrete, current, and reader-facing. Do not write vague overview prose or meta commentary about the drafting process. Include at least one book when there is a credible fit, especially one that connects to the issue's main themes.
 
 ### What Looks Worth Your Attention
 
 - **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Book title:** release or publication window. One-sentence why it matters now and how it connects to the issue's themes. [Source](https://example.com)
 - **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
 - **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
 - **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)

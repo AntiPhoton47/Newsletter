@@ -10,7 +10,7 @@ Today's issue is about verification coming back into fashion. The strongest stor
 
 - **Need To Know:** The strongest general-interest science story is that a much-watched W boson measurement now pulls a major anomaly back toward the standard model, which is a reminder that precision still matters more than drama.
 - **Research Watch:** Research looks strongest where verification culture is improving, from quantum-gate engineering to tighter lattice-QCD calculations and explicit cybersecurity timelines.
-- **World News:** The macro-political story is still about constraint management: Iran-risk repricing, drug-supply reshoring, and Europe's accelerated drone procurement all push states toward harder industrial decisions.
+- **World News:** The macro-political story is still about constraint management, but today it also has a genuine breaking-news layer: the Iran ceasefire looks fragile, Lebanon is still active, and shipping risk through Hormuz remains a live variable.
 - **Philosophy:** The best philosophy today is practical, clarifying why understanding matters more than mere fact collection and why model-worship can become its own form of confusion.
 - **Biology:** Biology looks strongest where diversity and maintenance are being turned into usable systems, whether through pangenomes or previously hidden routes to variation.
 - **Psychology and Neuroscience:** Brain science is gaining stronger reference frames, while psychiatry is being pushed toward more metabolically integrated explanations.
@@ -142,14 +142,19 @@ The broader implication is that Europe is becoming more willing to treat product
 
 **Link:** [Read at the European Commission](https://enlargement.ec.europa.eu/news/commission-takes-preparatory-steps-financial-support-ukraine-and-boosting-drone-production-2026-04-01_en)
 
+### Breaking News
+
+- **Hormuz reopening still looks reversible:** AP reports that Iranian semiofficial outlets published a chart implying the Revolutionary Guard mined the Strait of Hormuz during the war, which matters because even a nominal ceasefire can coexist with coercive signaling and uncertain shipping conditions. [Source: AP News](https://apnews.com/article/7760f88f183ed2a13a721057e31f3ce7)
+- **Lebanon remains the fastest way this ceasefire could unravel:** AP's live coverage says the truce is already under strain from continued attacks linked to Lebanon, a reminder that the Iran file, the oil file, and the wider regional escalation file are still tightly coupled. [Source: AP News](https://apnews.com/article/e8af575b1ab8e82b46fb6ea4be1e185c)
+
 ### Short Takes
 
 - **1440's April 7 briefing was right to center Artemis II alongside the Iran deadline:** the same news cycle is carrying both a civilizational achievement and a very old-style chokepoint crisis. [Source: 1440 Daily Digest](https://join1440.com/newsletter/historic-moon-flyby-wolverines-win-and-counterfeit-cheese)
-- **Morning Brew's markets note captured the mood shift well:** investors were clearly trading on ceasefire hopes because the Strait of Hormuz is still a real macro variable, not background scenery. [Source: Morning Brew](https://www.morningbrew.com/issues/superintelligence-cheatsheet)
-- **The United Nations says the Middle East is on the edge of a wider war:** That matters because the humanitarian story, the shipping story, and the energy-price story are now inseparable. [Source: United Nations](https://www.un.org/sg/en/content/highlight/2026-04-02.html)
+- **Morning Brew's markets note captured the mood shift well:** investors were clearly trading on ceasefire hopes because the Strait of Hormuz is still a real macro variable, not background scenery, and that remains true even after today's wobble. [Source: Morning Brew](https://www.morningbrew.com/issues/superintelligence-cheatsheet)
+- **The United Nations says the Middle East is on the edge of a wider war:** That matters because the humanitarian story, the shipping story, and the energy-price story are now inseparable, which is exactly why world-news and macro coverage keep collapsing into each other. [Source: United Nations](https://www.un.org/sg/en/content/highlight/2026-04-02.html)
 - **NATO's annual report shows Europe and Canada lifted defense spending by 20% year over year:** The historic point is not just bigger numbers but the disappearance of the old 2%-of-GDP floor as a meaningful dividing line. [Source: NATO](https://www.nato.int/en/news-and-events/articles/news/2026/03/26/nato-secretary-generals-annual-report-shows-significant-increase-in-defence-investment-from-europe-and-canada)
-- **Gaza conditions continue worsening as access stalls:** OCHA's update is a reminder that logistics constraints are now a central determinant of survival, not a secondary operational detail. [Source: United Nations / OCHA](https://www.un.org/unispal/document/ocha-on-gaza-conditions-worsening-as-access-stalls/)
-- **Eastern DRC keeps deteriorating:** The UN's latest figures on killings, abductions, looting, and displacement show how quickly underfunded crises can become structurally invisible. [Source: United Nations](https://www.un.org/sg/en/content/highlight/2026-04-02.html)
+- **Gaza conditions continue worsening as access stalls:** OCHA's update is a reminder that logistics constraints are now a central determinant of survival, not a secondary operational detail, because food, medicine, and shelter all depend on corridor predictability. [Source: United Nations / OCHA](https://www.un.org/unispal/document/ocha-on-gaza-conditions-worsening-as-access-stalls/)
+- **Eastern DRC keeps deteriorating:** The UN's latest figures on killings, abductions, looting, and displacement show how quickly underfunded crises can become structurally invisible when they lack either great-power sponsorship or commodity-price spillovers. [Source: United Nations](https://www.un.org/sg/en/content/highlight/2026-04-02.html)
 - **European defense production is scaling beyond rhetoric:** The Commission's new EDIP work program adds another sign that capacity-building is now the core European defense project. [Source: European Commission](https://defence-industry-space.ec.europa.eu/edip-commission-adopts-eu15-billion-work-programme-boost-european-and-ukrainian-defence-industry-2026-03-30_en)
 
 ## Philosophy
@@ -515,11 +520,11 @@ LeRobot is one of the most useful current entry points into open robotics. It gi
 
 - **XO, Kitty Season 3:** Released April 2. It is not subtle television, but it is currently live, globally legible, and exactly the sort of returning show that becomes ambient conversation because it ships into spring at the right moment. [Source](https://www.netflix.com/tudum/articles/xo-kitty-season-3-news-cast-release-date)
 - **The Super Mario Galaxy Movie:** Morning Brew flagged the holiday-weekend box-office surge for a reason; this looks like one of the few spring releases that has already crossed from release note to broad cultural event. [Source](https://www.morningbrew.com/issues/superintelligence-cheatsheet)
+- **The Laws of Thought:** Released February 10. Tom Griffiths' book on the mathematical roots of mind, logic, and AI is a good fit for today's issue because it sits right at the intersection of cognition, formal structure, and machine intelligence rather than treating AI as a pure product story. [Source](https://www.kirkusreviews.com/book-reviews/tom-griffiths/the-laws-of-thought/)
 - **Man on Fire:** Arrives April 30. The adaptation has enough cast weight and built-in recognition to justify watching the rollout now rather than the week it drops. [Source](https://www.netflix.com/tudum/articles/man-on-fire-tv-series-adaptation)
 - **PRAGMATA:** Releases April 17 on Nintendo Switch 2. Capcom's lunar-research-station action game still looks like one of the month's more interesting big-budget bets because it is at least trying to feel mechanically distinct. [Source](https://www.nintendo.com/us/store/products/pragmata-switch-2/)
 - **Starfield on PS5:** Launches April 7 with a major expansion and a broad free update. Even if you bounced off the original, the combination of platform expansion and the game's biggest post-launch patch makes this the moment to reassess it. [Source](https://www.theverge.com/entertainment/895304/starfield-ps5-launch-date-story-expansion)
 - **PlayStation Plus April lineup:** Playable April 7. The mix of *Lords of the Fallen*, *Tomb Raider I-III Remastered*, and *Sword Art Online Fractured Daydream* is eclectic, but that is exactly why it is worth a quick scan if you want low-friction weekend options. [Source](https://blog.playstation.com/2026/04/01)
-- **March's hot game conversation pieces:** *Marathon*, *Crimson Desert*, *MLB The Show 26*, and *Scott Pilgrim EX* were prominent enough to anchor PlayStation's March vote, which is a decent proxy for what players were actually talking about at the turn into April. [Source](https://blog.playstation.com/2026/04/01/players-choice-vote-for-march-2026s-best-new-game/)
 
 ## Travel
 

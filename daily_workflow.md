@@ -76,7 +76,7 @@ Use for stories that:
 
 - add breadth
 - are useful but secondary
-- can be explained in one or two lines
+- can be explained in one or two informative lines
 - are distinct from the section's main entries
 
 ### Excluded
@@ -102,13 +102,16 @@ When drafting:
 - make `Quick Hits` summarize the strongest sections, not random headlines
 - keep source lines explicit and labeled
 - avoid raw URLs in body copy
-- keep short takes concise and source-backed
+- keep short takes concise, source-backed, and informative enough to add one concrete fact, implication, or reason the item matters
 - if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
 - make `Upcoming Investment Opportunities` specific to today's regime and catalysts rather than repeating a standing basket
 - keep the investment-opportunities analysis focused on `2-3` strong clusters and explain what would make the thesis stronger or weaker
 - make `Entertainment` concrete: list specific upcoming or currently hot movies, books, shows, games, or events rather than writing vague overview copy
+- include at least one book when there is a credible fit, preferably one that connects to the issue's main themes in science, technology, history, philosophy, or world affairs
 - make `World News` broader than a two-story digest when the source material supports it, and include European developments when they are materially relevant
+- add a `Breaking News` subsection to `World News` when there are genuinely fast-moving developments that benefit from rapid, source-labeled treatment
+- use `Breaking News` for `1-3` items sourced primarily from fast, reputable outlets or direct institutions such as AP, Reuters, BBC, Bloomberg, Financial Times, UN bodies, the European Commission, or NATO
 - make `Tools You Can Use` actionable by linking directly to actual tools, products, repos, or APIs whenever possible
 - give `Travel` a different destination from the previous issue when possible and include one image
 - keep issue prose reader-facing and avoid meta comments about the writing process
@@ -123,7 +126,10 @@ Before rendering, confirm:
 - the source mix across sections still feels deliberate rather than habitual
 - the section order still feels coherent
 - entertainment is concrete and date- or momentum-aware rather than hand-wavy
+- entertainment includes books when there is a strong thematic fit with the rest of the issue
+- short takes consistently add a small but useful analytical or factual increment rather than only restating the headline
 - world news has enough breadth to feel globally useful, including Europe when relevant
+- any `Breaking News` items are truly time-sensitive, clearly labeled, and sourced conservatively enough to avoid rumor-chasing
 - tools links point to actual usable destinations rather than mostly commentary pages
 - entertainment and travel remain concise and current
 - travel includes an image that renders correctly

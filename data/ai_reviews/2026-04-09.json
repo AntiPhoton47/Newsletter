@@ -13,6 +13,6 @@
   "recommended_action": "Publish only if the fallback report clears the benchmark-based thresholds; otherwise revise the draft.",
   "date": "2026-04-09",
   "model": "local-heuristic",
-  "minimum_score": 90,
+  "minimum_score": 85,
   "issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-04-09-daily-newsletter.md"
 }

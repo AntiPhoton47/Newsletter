@@ -23,33 +23,60 @@ This file tracks the current source mix used in the daily newsletter.
 - Financial Times
 - Wall Street Journal
 - Bloomberg
+- The Economist
 - Bank for International Settlements Quarterly Review
 
 ### Need To Know
 - Nature
 - Nature News
+- Nature Briefing
+- Nature Physics
+- Nature Reviews Physics
 - Science
 - Science News
 - Quanta Magazine
+- Scientific American
 - MIT Technology Review
+- The Download
+- 1440 Daily Digest
 - IEEE Spectrum
 - NASA
 - ESA
 - CERN
 - APS Physics
+- Physics World
+- Physics Magazine
+- Perimeter Institute
 - Physical Review Letters
 
 ### Research Watch
 - Nature
+- Nature Briefing
+- Nature Physics
+- Nature Reviews Physics
 - Science
+- APS Physics
+- Physics World
+- Physics Magazine
 - arXiv
 - bioRxiv
 - medRxiv
 - Cell
 - PNAS
 - eLife
+- npj Quantum Information
+- New Journal of Physics
+- Quantum
 - Physical Review Letters
+- Physical Review A
+- Physical Review D
+- Physical Review Research
 - Physical Review X
+- PRX Quantum
+- Quantum Science and Technology
+- Classical and Quantum Gravity
+- Communications in Mathematical Physics
+- Journal of Physics A: Mathematical and Theoretical
 - Journal of High Energy Physics
 - NeurIPS Proceedings
 - ICML Proceedings
@@ -57,8 +84,12 @@ This file tracks the current source mix used in the daily newsletter.
 ### World News
 - AP News
 - Reuters
+- Bloomberg
 - Financial Times
 - Wall Street Journal
+- Al Jazeera English
+- 1440 Daily Digest
+- Morning Brew
 - BBC News
 - Politico Europe
 - Euronews
@@ -72,6 +103,10 @@ This file tracks the current source mix used in the daily newsletter.
 - IEA
 - NATO
 - European Commission
+- The Guardian
+- International Crisis Group
+- Council on Foreign Relations
+- CSIS
 
 ### Philosophy
 - PhilPapers
@@ -84,12 +119,14 @@ This file tracks the current source mix used in the daily newsletter.
 - Synthese
 - British Journal for the Philosophy of Science
 - Philosophy of Science
+- Philosophy of Physics
 - European Journal for Philosophy of Science
 - IAI TV
 - Aeon
 - Psyche
 - Boston Review
 - Stanford Encyclopedia of Philosophy
+- Quanta Magazine
 
 ### Biology
 - Nature
@@ -104,6 +141,8 @@ This file tracks the current source mix used in the daily newsletter.
 - Genome Biology
 - EMBO Journal
 - Molecular Cell
+- Scientific American
+- Nature Communications
 
 ### Psychology and Neuroscience
 - Nature Neuroscience
@@ -119,6 +158,7 @@ This file tracks the current source mix used in the daily newsletter.
 - PNAS
 - eLife
 - Biological Psychiatry
+- Scientific American
 
 ### Health and Medicine
 - Nature Medicine
@@ -135,6 +175,7 @@ This file tracks the current source mix used in the daily newsletter.
 - STAT
 - Cell
 - The BMJ Opinion
+- Scientific American
 
 ### Sociology and Anthropology
 - Nature Human Behaviour
@@ -148,18 +189,25 @@ This file tracks the current source mix used in the daily newsletter.
 - Social Forces
 - Pew Research Center
 - Our World in Data
+- Santa Fe Institute
+- Financial Times
 
 ### Technology
 - Nature
 - Nature News
 - Nature Electronics
 - MIT Technology Review
+- The Download
+- Morning Brew
+- 1440 Daily Digest
 - IEEE Spectrum
 - Ars Technica
 - Semafor
 - The Verge
+- IEEE
 - Financial Times
 - Semianalysis
+- Bloomberg
 - NASA
 - ESA
 
@@ -175,12 +223,17 @@ This file tracks the current source mix used in the daily newsletter.
 - CoRL Proceedings
 - ROS Discourse
 - IEEE Robotics and Automation Letters
+- Hugging Face
 
 ### AI
 - OpenAI
 - OpenAI Developers
 - Anthropic
 - Google DeepMind
+- Superpower Daily
+- The Download
+- Morning Brew
+- 1440 Daily Digest
 - Hugging Face
 - Nature
 - GitHub
@@ -191,6 +244,10 @@ This file tracks the current source mix used in the daily newsletter.
 - Anthropic Research
 - DeepMind Blog
 - AI Snake Oil
+- Semafor
+- The Verge
+- MIT Technology Review
+- IEEE Spectrum
 
 ### Engineering
 - npj Space Exploration
@@ -206,14 +263,22 @@ This file tracks the current source mix used in the daily newsletter.
 - Applied Energy
 - Joule
 - arXiv eess.SY
+- IEEE Spectrum
+- Bloomberg
 
 ### Mathematics
 - Quanta Magazine
 - Annals of Mathematics
+- Communications in Mathematical Physics
 - Inventiones Mathematicae
+- Journal of Physics A: Mathematical and Theoretical
 - Journal of the AMS
 - Bulletin of the AMS
 - Notices of the AMS
+- New Journal of Physics
+- Quantum
+- Physics World
+- Physics Magazine
 - Simons Foundation
 - arXiv math
 
@@ -227,6 +292,8 @@ This file tracks the current source mix used in the daily newsletter.
 - American Historical Review
 - History Today
 - Past & Present
+- Scientific American
+- BBC News
 
 ### Archaeology
 - Antiquity
@@ -239,6 +306,8 @@ This file tracks the current source mix used in the daily newsletter.
 - World Archaeology
 - PNAS
 - Antiquity Journal
+- Smithsonian Magazine
+- BBC News
 
 ### Tools You Can Use
 - arXiv
@@ -259,16 +328,22 @@ This file tracks the current source mix used in the daily newsletter.
 - FutureTools
 - Hugging Face Spaces
 - Vercel AI SDK examples
+- ROS
 
 ### Entertainment
 - Rotten Tomatoes
+- Goodreads
 - Metacritic
 - Variety
 - The Hollywood Reporter
 - Vulture
 - Publishers Weekly
+- Kirkus Reviews
+- The New York Review of Books
+- The New Yorker
 - Billboard
 - AP News
+- New York Times Books
 - PC Gamer
 - Polygon
 - Eurogamer
@@ -277,6 +352,7 @@ This file tracks the current source mix used in the daily newsletter.
 - RogerEbert.com
 - IMDb
 - Deadline
+- The Guardian
 - Steam
 - Nintendo Direct
 - PlayStation Blog
@@ -319,7 +395,28 @@ This file tracks the current source mix used in the daily newsletter.
 - Nature Electronics
 - Nature Materials
 - Nature Communications
+- Nature Physics
+- Nature Reviews Physics
 - npj Space Exploration
+- npj Quantum Information
+- Journal of Physics A: Mathematical and Theoretical
+- New Journal of Physics
+- Quantum
+- Journal of High Energy Physics
+- International Journal of Theoretical Physics
+- Communications in Mathematical Physics
+- Quantum Science and Technology
+- Europhysics Letters
+- Classical and Quantum Gravity
+- Physical Review Letters
+- Physical Review D
+- Physical Review A
+- Physical Review B
+- Physical Review C
+- Physical Review E
+- Physical Review X
+- Physical Review Research
+- PRX Quantum
 - Science
 - Science Advances
 - Science Robotics
@@ -336,11 +433,14 @@ This file tracks the current source mix used in the daily newsletter.
 - Journal of Philosophy
 - Mind
 - Nous
+- PhilPapers
 - Philosophy and Phenomenological Research
 - Synthese
 - British Journal for the Philosophy of Science
 - Philosophy of Science
+- Philosophy of Physics
 - European Journal for Philosophy of Science
+- Santa Fe Institute
 
 ### Science and Ideas Journalism
 - Quanta Magazine
@@ -357,9 +457,15 @@ This file tracks the current source mix used in the daily newsletter.
 - Financial Times
 - Wall Street Journal
 - BBC News
+- Sabine Hossenfelder
+- Nature Briefing
+- Physics World
+- Physics Magazine
+- Perimeter Institute
 
 ### Scholarly Discovery and Reference
 - PhilPapers
+- arXiv
 - Stanford Encyclopedia of Philosophy
 - Papers with Code
 - OpenAlex Developers
@@ -410,12 +516,32 @@ This file tracks the current source mix used in the daily newsletter.
 ### General News
 - AP News
 - Reuters
+- Bloomberg
 - Financial Times
+- The Economist
 - Semafor
 - The Verge
+- The Guardian
+- Al Jazeera English
+- BBC News
+- 1440
+
+### Breaking and Live Coverage
+- AP News
+- Reuters
+- Bloomberg
+- BBC News
+- Financial Times
+- Politico Europe
+- Euronews
+- United Nations
+- UN OCHA
+- European Commission
+- NATO
 
 ### Culture and Entertainment
 - Rotten Tomatoes
+- GoodReads
 - Metacritic
 - Variety
 - The Hollywood Reporter
@@ -441,4 +567,5 @@ This file tracks the current source mix used in the daily newsletter.
 
 - `Google News RSS` is currently used as the automated discovery layer for candidate gathering.
 - It is not the intended editorial end source. The editorial sources are the underlying publishers, institutions, and outlets listed above.
+- For `World News` `Breaking News`, prioritize the `Breaking and Live Coverage` sources above plus direct institutional statements; use slower analysis outlets only after the fast factual picture is established.
 - For travel images, prefer official tourism photography, park/media libraries, or Wikimedia Commons pages that can be cited cleanly.

@@ -111,6 +111,8 @@ The following biases should be applied when choosing between otherwise comparabl
 - Use a mix of direct institutional reporting and high-quality journalism so the section does not drift into either raw bulletin style or pure commentary.
 - Cover Europe explicitly when there is a meaningful policy, security, industrial, energy, migration, or macro development worth the reader's attention.
 - Aim for more breadth here than in most sections: the section should usually carry several clearly distinct stories plus a healthy short-takes bench.
+- When warranted, include a `Breaking News` subsection for `1-3` genuinely fast-moving items that are important enough to flag quickly but not yet mature enough for a full main-entry treatment.
+- For `Breaking News`, prioritize fast, reputable wires and direct institutions such as AP News, Reuters, Bloomberg, BBC News, Financial Times, United Nations bodies, the European Commission, and NATO; avoid rumor-heavy or thinly sourced items.
 
 ### Philosophy
 - Favor philosophy of science, epistemology, agency, explanation, and responsibility.
@@ -138,6 +140,7 @@ The following biases should be applied when choosing between otherwise comparabl
 - These sections are lighter in tone, but should still be selective, concrete, and current.
 - Prefer actual releases, events, and places rather than vague trends.
 - In `Entertainment`, favor upcoming or currently hot releases with dates, launch windows, or concrete signs of momentum; avoid filler prose about the general state of culture coverage.
+- Include books regularly when they are timely or when they connect clearly to the issue's science, technology, history, philosophy, or geopolitics themes.
 - Keep the prose reader-facing; do not mention the drafting process, section weakness, or chat context inside the issue itself.
 - Travel should rotate destinations across issues when possible and include a source-backed image.
 
@@ -159,7 +162,7 @@ Short takes must:
 
 - be different from the section's main entries
 - remain source-backed
-- stay concise
+- stay concise while adding at least one concrete fact, implication, or reason the item matters
 - avoid repeating the same recent newsletter angle unless there is a specific new development worth flagging
 
 ## Balancing an Issue
