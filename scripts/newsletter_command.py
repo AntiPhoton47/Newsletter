@@ -28,6 +28,28 @@ def run(cmd: list[str], env: dict[str, str] | None = None) -> None:
     subprocess.run(cmd, cwd=ROOT, check=True, env=merged_env)
 
 
+def try_push() -> bool:
+    result = subprocess.run(
+        ["git", "push"],
+        cwd=ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode == 0:
+        if result.stdout.strip():
+            print(result.stdout.strip())
+        return True
+
+    stderr = result.stderr.strip()
+    stdout = result.stdout.strip()
+    detail = stderr or stdout or "unknown git push failure"
+    print("Git push failed after a successful newsletter build/commit.")
+    print(f"Push error: {detail}")
+    print("The issue artifacts and commit were kept locally so you can retry `git push` later.")
+    return False
+
+
 def default_issue_date(profile: dict) -> str:
     timezone_name = str(profile.get("timezone") or os.environ.get("NEWSLETTER_TIMEZONE") or os.environ.get("TZ") or "UTC")
     try:
@@ -52,7 +74,7 @@ def maybe_commit(issue_date: str, push: bool) -> None:
     run(["git", "add", "issues/daily", "output", "site", "data", "scripts", "config", "README.md"])
     run(["git", "commit", "-m", f"Update newsletter issue {issue_date}"])
     if push:
-        run(["git", "push"])
+        try_push()
 
 
 def build_env(profile_path: Path, profile: dict) -> dict[str, str]:
