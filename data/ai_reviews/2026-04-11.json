@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "ready_to_send": true,
+  "overall_score": 93,
+  "summary": "Local fallback review used because the AI provider token is not configured.",
+  "strengths": [
+    "Rule-based review passed without placeholder or feed-wrapper failures.",
+    "Draft reaches most of the benchmark's explanatory length.",
+    "Source density is close to the benchmark issue."
+  ],
+  "findings": [],
+  "bias_assessment": "Local heuristic review checks structure and benchmark depth, but does not replace full model-based editorial judgment.",
+  "recommended_action": "Publish only if the fallback report clears the benchmark-based thresholds; otherwise revise the draft.",
+  "date": "2026-04-11",
+  "model": "local-heuristic",
+  "minimum_score": 85,
+  "issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-04-11-daily-newsletter.md"
+}
