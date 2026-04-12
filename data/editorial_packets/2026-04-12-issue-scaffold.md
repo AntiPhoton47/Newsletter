@@ -1,6 +1,6 @@
 # Frontier Threads
 
-## April 09, 2026
+## April 12, 2026
 
 ### The day's most interesting developments in science, technology, and ideas
 
@@ -28,31 +28,31 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 
 ## Markets & Economy
 
-- **S&P 500 (SPY):** 676.01, up 3.95%.
-- **NASDAQ-100 (QQQ):** 606.09, up 5.01%.
-- **DOW (DIA):** 479.16, up 3.45%.
-- **Europe (VGK):** 86.74, up 5.23%.
-- **Japan (EWJ):** 89.41, up 5.89%.
-- **China (MCHI):** 57.30, up 1.99%.
-- **India (INDA):** 49.27, up 5.19%.
-- **China large-cap (FXI):** 36.35, up 1.25%.
-- **Bitcoin:** 71288.74, up 3.34%.
-- **Ethereum:** 2184.41, up 3.58%.
-- **Gold (GLD):** 434.53, up 0.99%.
-- **Oil proxy (USO):** 124.58, down 2.10%.
-- **Micron (MU):** 406.73, up 20.39%.
-- **AMD (AMD):** 231.82, up 13.96%.
-- **Broadcom (AVGO):** 350.63, up 13.29%.
-- **Alphabet (GOOGL):** 317.32, up 10.35%.
-- **US CPI (YoY):** 2.7% as of Feb. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
-- **US unemployment rate:** 4.3% as of Mar. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
-- **Fed funds rate:** 3.64% as of Mar. 2026. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
-- **US 10-year Treasury:** 4.33% latest daily close on Apr. 07, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
-- **Brent crude:** $127.61/barrel latest daily print on Apr. 02, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
+- **S&P 500 (SPY):** 676.01, up 3.95% (latest cached close from Apr. 08, 2026).
+- **NASDAQ-100 (QQQ):** 606.09, up 5.01% (latest cached close from Apr. 08, 2026).
+- **DOW (DIA):** 479.16, up 3.45% (latest cached close from Apr. 08, 2026).
+- **Europe (VGK):** 86.74, up 5.23% (latest cached close from Apr. 08, 2026).
+- **Japan (EWJ):** 89.41, up 5.89% (latest cached close from Apr. 08, 2026).
+- **China (MCHI):** 57.30, up 1.99% (latest cached close from Apr. 08, 2026).
+- **India (INDA):** 49.27, up 5.19% (latest cached close from Apr. 08, 2026).
+- **China large-cap (FXI):** 36.35, up 1.25% (latest cached close from Apr. 08, 2026).
+- **Bitcoin:** 71288.74, up 3.34% (latest cached close from Apr. 09, 2026).
+- **Ethereum:** 2184.41, up 3.58% (latest cached close from Apr. 09, 2026).
+- **Gold (GLD):** 434.53, up 0.99% (latest cached close from Apr. 08, 2026).
+- **Oil proxy (USO):** 124.58, down 2.10% (latest cached close from Apr. 08, 2026).
+- **Micron (MU):** 406.73, up 20.39% (latest cached close from Apr. 08, 2026).
+- **AMD (AMD):** 231.82, up 13.96% (latest cached close from Apr. 08, 2026).
+- **Broadcom (AVGO):** 350.63, up 13.29% (latest cached close from Apr. 08, 2026).
+- **Alphabet (GOOGL):** 317.32, up 10.35% (latest cached close from Apr. 08, 2026).
+- **US CPI (YoY):** 2.7% as of Feb. 2026 (cached). Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
+- **US unemployment rate:** 4.3% as of Mar. 2026 (cached). Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
+- **Fed funds rate:** 3.64% as of Mar. 2026 (cached). Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
+- **US 10-year Treasury:** 4.33% latest daily close on Apr. 07, 2026 (cached). Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
+- **Brent crude:** $127.61/barrel latest daily print on Apr. 02, 2026 (cached). Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
 
 ### Upcoming Investment Opportunities
 
-AI infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **NVIDIA**, **Broadcom**, **Micron**, and **AMD** for evidence on networking silicon, HBM supply, and advanced packaging; the real question is whether capex durability, pricing power, and supply bottlenecks keep translating into durable earnings power rather than just short-term momentum.
+AI infrastructure still looks worth watching because the current regime still supports the thesis. Watch **NVIDIA**, **Broadcom**, **Micron**, and **AMD** for evidence on networking silicon, HBM supply, and advanced packaging; the real question is whether capex durability, pricing power, and supply bottlenecks keep translating into durable earnings power rather than just short-term momentum.
 
 Power and grid infrastructure still looks worth watching because the current regime still supports the thesis. Watch **Quanta Services**, **Eaton**, **Vertiv**, and **Siemens Energy** for evidence on transmission spend, cooling demand, and power-management budgets; the real question is whether electrification demand, energy costs, and grid constraints keep translating into durable earnings power rather than just short-term momentum. Across any cluster, keep the regime in view: the 10-year Treasury is still around 4.33%; Brent is near $127.61; the Fed funds rate is 3.64%. That is why the right watchlist is one tied to constraint variables, not just recent momentum.
 

@@ -97,6 +97,17 @@ def load_candidate_snapshot(issue_date: dt.date) -> dict[str, list[dict[str, str
     return snapshot
 
 
+def load_candidate_fetch_report(issue_date: dt.date) -> dict[str, dict[str, object]]:
+    path = CANDIDATES_DIR / f"{issue_date.isoformat()}.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    fetch_sections = payload.get("fetch", {}).get("sections", {})
+    if not isinstance(fetch_sections, dict):
+        return {}
+    return {str(section): report for section, report in fetch_sections.items() if isinstance(report, dict)}
+
+
 def benchmark_stats(text: str) -> dict[str, object]:
     section_word_counts: dict[str, int] = {}
     matches = list(re.finditer(r"(?ms)^## (?P<section>[^\n]+)\n(?P<body>.*?)(?=^## |\Z)", text))
@@ -162,6 +173,7 @@ def build_packet_markdown(
     sources_by_section: dict[str, list[str]],
     section_queries: dict[str, list[str]],
     candidate_snapshot: dict[str, list[dict[str, str]]],
+    fetch_report: dict[str, dict[str, object]],
     benchmark: dict[str, object],
     scaffold_path: Path,
     notes_path: Path,
@@ -228,6 +240,31 @@ def build_packet_markdown(
                 publisher = f" ({entry['publisher']})" if entry.get("publisher") else ""
                 lines.append(f"- {entry['title']}{publisher}")
             lines.append("")
+        section_report = fetch_report.get(section, {})
+        source_coverage = section_report.get("source_coverage", {}) if isinstance(section_report, dict) else {}
+        if isinstance(source_coverage, dict):
+            listed_count = source_coverage.get("listed_source_count")
+            checked_count = source_coverage.get("checked_source_count")
+            uncovered = source_coverage.get("uncovered_sources", [])
+            if listed_count is not None and checked_count is not None:
+                lines.append(f"Coverage: checked `{checked_count}` of `{listed_count}` listed sources.")
+            if isinstance(uncovered, list) and uncovered:
+                lines.append("Uncovered sources:")
+                lines.extend(f"- {source}" for source in uncovered[:8])
+            story_clusters = section_report.get("story_clusters", [])
+            if isinstance(story_clusters, list) and story_clusters:
+                lines.append("")
+                lines.append("Story clusters:")
+                for cluster in story_clusters[:3]:
+                    if not isinstance(cluster, dict):
+                        continue
+                    lead_title = str(cluster.get("lead_title", "")).strip()
+                    support_count = cluster.get("support_count", 0)
+                    lead_source = str(cluster.get("lead_source", "")).strip()
+                    if lead_title:
+                        suffix = f" ({lead_source})" if lead_source else ""
+                        lines.append(f"- `{support_count}` sources: {lead_title}{suffix}")
+            lines.append("")
 
     return "\n".join(lines).strip() + "\n"
 
@@ -255,6 +292,7 @@ def main() -> None:
     sources_by_section = parse_sources_by_section(SOURCES_PATH.read_text(encoding="utf-8"))
     section_queries = json.loads(SECTION_QUERIES_PATH.read_text(encoding="utf-8"))
     candidate_snapshot = load_candidate_snapshot(issue_date)
+    fetch_report = load_candidate_fetch_report(issue_date)
     current_benchmark_path = benchmark_path()
     benchmark = benchmark_stats(current_benchmark_path.read_text(encoding="utf-8"))
 
@@ -276,6 +314,7 @@ def main() -> None:
         sources_by_section,
         section_queries,
         candidate_snapshot,
+        fetch_report,
         benchmark,
         scaffold_path,
         notes_path,
@@ -296,6 +335,7 @@ def main() -> None:
                 "sources_by_section": sources_by_section,
                 "section_queries": section_queries,
                 "candidate_snapshot": candidate_snapshot,
+                "fetch_report": fetch_report,
                 "benchmark": benchmark,
                 "fetch_warning": fetch_error,
             },

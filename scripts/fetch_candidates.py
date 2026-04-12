@@ -20,12 +20,16 @@ from issue_clock import resolve_issue_date
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config" / "section_queries.json"
+SOURCES_PATH = ROOT / "sources.md"
 DATA_DIR = ROOT / "data" / "candidates"
 REQUEST_TIMEOUT = 8
 MAX_FETCH_ATTEMPTS = 3
 MAX_ENTRY_AGE_DAYS = 365
 ENRICH_TOP_ENTRIES_PER_SECTION = 5
 NEWSLETTER_LOOKBACK_LIMIT = 6
+MAX_CLUSTER_REPORTS_PER_SECTION = 8
+MAX_SOURCE_PROBES_PER_SECTION = 6
+SOURCE_PROBE_MAX_PER_QUERY = 2
 
 REQUEST_HEADERS = {
     "User-Agent": (
@@ -51,6 +55,108 @@ NEWSLETTER_DEFAULT_SECTIONS = {
     "Nature Briefing": "Need To Know",
     "The Download": "Technology",
     "Superpower Daily": "AI",
+}
+
+DIRECT_SOURCE_MODES = {
+    "Nature Briefing": "direct-newsletter-archive",
+    "The Download": "direct-newsletter-api",
+    "Superpower Daily": "direct-newsletter-sitemap",
+}
+
+SOURCE_QUERY_HINTS = {
+    "1440 Daily Digest": ("site:join1440.com", "join1440.com", "site:1440", " 1440"),
+    "AP News": ("site:apnews.com", "apnews.com"),
+    "APS Physics": ("site:aps.org", "physics.aps.org"),
+    "Al Jazeera English": ("site:aljazeera.com", "aljazeera.com"),
+    "Anthropic": ("site:anthropic.com", "anthropic.com"),
+    "BBC News": ("site:bbc.com", "site:bbc.co.uk", "bbc.com", "bbc.co.uk"),
+    "Bloomberg": ("site:bloomberg.com", "bloomberg.com"),
+    "CSIS": ("site:csis.org", "csis.org"),
+    "CERN": ("site:cern.ch", "cern.ch"),
+    "Council on Foreign Relations": ("site:cfr.org", "cfr.org"),
+    "DeepMind Blog": ("site:deepmind.google", "deepmind.google"),
+    "ESA": ("site:esa.int", "esa.int"),
+    "European Commission": ("site:ec.europa.eu", "ec.europa.eu"),
+    "Euronews": ("site:euronews.com", "euronews.com"),
+    "Financial Times": ("site:ft.com", "ft.com"),
+    "GitHub": ("site:github.com", "github.com"),
+    "Google DeepMind": ("site:deepmind.google", "deepmind.google"),
+    "IEEE Spectrum": ("site:spectrum.ieee.org", "spectrum.ieee.org"),
+    "IMF": ("site:imf.org", "imf.org"),
+    "IEA": ("site:iea.org", "iea.org"),
+    "International Crisis Group": ("site:crisisgroup.org", "crisisgroup.org"),
+    "JPL": ("site:jpl.nasa.gov", "jpl.nasa.gov"),
+    "MIT Technology Review": ("site:technologyreview.com", "technologyreview.com"),
+    "Morning Brew": ("site:morningbrew.com", "morningbrew.com"),
+    "NASA": ("site:nasa.gov", "nasa.gov"),
+    "NATO": ("site:nato.int", "nato.int"),
+    "Nature": ("site:nature.com", "nature.com"),
+    "Nature Briefing": ("site:nature.com", "nature.com"),
+    "OECD": ("site:oecd.org", "oecd.org"),
+    "OpenAI": ("site:openai.com", "openai.com"),
+    "OpenAI Developers": ("site:openai.com", "developers.openai.com"),
+    "Perimeter Institute": ("site:perimeterinstitute.ca", "perimeterinstitute.ca"),
+    "Physics Magazine": ("site:physics.aps.org", "physics.aps.org"),
+    "Physics World": ("site:physicsworld.com", "physicsworld.com"),
+    "Politico Europe": ("site:politico.eu", "politico.eu"),
+    "Quanta Magazine": ("site:quantamagazine.org", "quantamagazine.org"),
+    "Reuters": ("site:reuters.com", "reuters.com"),
+    "SAPIENS": ("site:sapiens.org", "sapiens.org"),
+    "Semafor": ("site:semafor.com", "semafor.com"),
+    "Superpower Daily": ("site:superpowerdaily.com", "superpowerdaily.com"),
+    "The Download": ("site:technologyreview.com", "technologyreview.com"),
+    "The Economist": ("site:economist.com", "economist.com"),
+    "The Guardian": ("site:theguardian.com", "theguardian.com"),
+    "The Verge": ("site:theverge.com", "theverge.com"),
+    "UN OCHA": ("site:unocha.org", "site:ochaopt.org", "unocha.org", "ochaopt.org"),
+    "UNHCR": ("site:unhcr.org", "unhcr.org"),
+    "United Nations": ("site:un.org", "un.org"),
+    "Wall Street Journal": ("site:wsj.com", "wsj.com"),
+    "World Bank": ("site:worldbank.org", "worldbank.org"),
+    "WHO": ("site:who.int", "who.int"),
+    "arXiv": ("site:arxiv.org", "arxiv.org"),
+}
+
+SOURCE_NAME_ALIASES = {
+    "GoodReads": ("Goodreads",),
+    "Santa Fe Institute": ("Sante Fe Institute",),
+    "UN OCHA": ("United Nations / OCHA", "OCHA"),
+}
+
+TITLE_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "are",
+    "as",
+    "at",
+    "be",
+    "by",
+    "for",
+    "from",
+    "how",
+    "in",
+    "into",
+    "is",
+    "it",
+    "its",
+    "more",
+    "new",
+    "now",
+    "of",
+    "on",
+    "or",
+    "our",
+    "still",
+    "that",
+    "the",
+    "their",
+    "this",
+    "to",
+    "what",
+    "when",
+    "why",
+    "with",
 }
 
 SECTION_KEYWORDS = {
@@ -236,6 +342,134 @@ def clean_html(text: str) -> str:
     text = re.sub(r"<[^>]+>", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
+
+
+def parse_sources_by_section(text: str) -> dict[str, list[str]]:
+    in_by_section = False
+    current_section: str | None = None
+    result: dict[str, list[str]] = {}
+
+    for raw_line in text.splitlines():
+        stripped = raw_line.strip()
+        if stripped == "## By Section":
+            in_by_section = True
+            current_section = None
+            continue
+        if stripped.startswith("## ") and stripped != "## By Section" and in_by_section:
+            break
+        if not in_by_section:
+            continue
+        if stripped.startswith("### "):
+            current_section = stripped[4:].strip()
+            result[current_section] = []
+            continue
+        if current_section and stripped.startswith("- "):
+            result[current_section].append(stripped[2:].strip())
+
+    return result
+
+
+def normalize_source_name(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", name.lower()).strip()
+
+
+def source_aliases(source: str) -> tuple[str, ...]:
+    aliases = [source, *SOURCE_NAME_ALIASES.get(source, ())]
+    return tuple(dict.fromkeys(alias.strip() for alias in aliases if alias.strip()))
+
+
+def query_matches_source(query: str, source: str) -> bool:
+    lowered_query = query.lower()
+    hints = SOURCE_QUERY_HINTS.get(source, ())
+    if any(hint.lower() in lowered_query for hint in hints):
+        return True
+
+    normalized_query = normalize_source_name(query)
+    for alias in source_aliases(source):
+        alias_tokens = [token for token in normalize_source_name(alias).split() if len(token) > 2]
+        if alias_tokens and all(token in normalized_query for token in alias_tokens):
+            return True
+    return False
+
+
+def preferred_source_query_hint(source: str) -> str:
+    hints = SOURCE_QUERY_HINTS.get(source, ())
+    for hint in hints:
+        if hint.startswith("site:"):
+            return hint
+    return hints[0] if hints else ""
+
+
+def build_source_probe_query(section: str, source: str) -> str | None:
+    hint = preferred_source_query_hint(source)
+    if not hint:
+        return None
+    keywords = list(dict.fromkeys(SECTION_KEYWORDS.get(section, ())))[:4]
+    if not keywords:
+        return hint
+    keyword_clause = " OR ".join(keywords)
+    return f"({keyword_clause}) {hint}"
+
+
+def build_source_probe_queries(section: str, listed_sources: list[str], configured_queries: list[str]) -> list[tuple[str, str]]:
+    probes: list[tuple[str, str]] = []
+    for source in listed_sources:
+        if source in DIRECT_SOURCE_MODES:
+            continue
+        if any(query_matches_source(query, source) for query in configured_queries):
+            continue
+        probe_query = build_source_probe_query(section, source)
+        if not probe_query:
+            continue
+        probes.append((source, probe_query))
+        if len(probes) >= MAX_SOURCE_PROBES_PER_SECTION:
+            break
+    return probes
+
+
+def canonical_entry_source(entry: dict[str, str]) -> str:
+    newsletter_source = str(entry.get("newsletter_source", "")).strip()
+    publisher = str(entry.get("publisher", "")).strip()
+    if newsletter_source:
+        return newsletter_source
+    if publisher == "United Nations / OCHA":
+        return "UN OCHA"
+    return publisher
+
+
+def sources_match(entry_source: str, listed_source: str) -> bool:
+    normalized_entry = normalize_source_name(entry_source)
+    for alias in source_aliases(listed_source):
+        if normalized_entry == normalize_source_name(alias):
+            return True
+    return False
+
+
+def source_quality(entry: dict[str, str]) -> int:
+    source_type = str(entry.get("source_type", ""))
+    if source_type.startswith("newsletter"):
+        return 3
+    if source_type == "google-news-rss":
+        return 1
+    return 2
+
+
+def title_tokens(title: str) -> set[str]:
+    normalized = re.sub(r"[^a-z0-9]+", " ", title.lower())
+    return {
+        token
+        for token in normalized.split()
+        if len(token) > 2 and token not in TITLE_STOPWORDS and not token.isdigit()
+    }
+
+
+def cluster_similarity(left: set[str], right: set[str]) -> float:
+    if not left or not right:
+        return 0.0
+    overlap = len(left & right)
+    if overlap == 0:
+        return 0.0
+    return max(overlap / min(len(left), len(right)), overlap / len(left | right))
 
 
 def fetch_bytes(
@@ -685,6 +919,127 @@ def dedupe_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
     return deduped
 
 
+def build_story_clusters(entries: list[dict[str, str]]) -> list[dict[str, object]]:
+    clusters: list[dict[str, object]] = []
+
+    for entry in entries:
+        tokens = title_tokens(entry.get("title", ""))
+        best_index = -1
+        best_score = 0.0
+        for idx, cluster in enumerate(clusters):
+            score = cluster_similarity(tokens, cluster["tokens"])  # type: ignore[arg-type]
+            if score > best_score:
+                best_score = score
+                best_index = idx
+        if best_index >= 0 and best_score >= 0.6:
+            clusters[best_index]["members"].append(entry)  # type: ignore[index]
+            clusters[best_index]["tokens"] = set(clusters[best_index]["tokens"]) | tokens  # type: ignore[index]
+            continue
+        clusters.append({"tokens": tokens, "members": [entry]})
+
+    reports: list[dict[str, object]] = []
+    for cluster_id, cluster in enumerate(clusters, start=1):
+        members = cluster["members"]  # type: ignore[assignment]
+        ranked_members = sorted(
+            members,
+            key=lambda item: (
+                len(str(item.get("summary", "")).split()),
+                source_quality(item),
+                int(parse_pub_date(item.get("published", "")).timestamp()) if parse_pub_date(item.get("published", "")) else 0,
+                len(item.get("title", "").split()),
+            ),
+            reverse=True,
+        )
+        lead = ranked_members[0]
+        publishers = sorted({canonical_entry_source(member) for member in members if canonical_entry_source(member)})
+        for member in members:
+            member["cluster_id"] = cluster_id
+            member["cluster_support"] = len(publishers)
+            member["cluster_lead_title"] = lead.get("title", "")
+        reports.append(
+            {
+                "cluster_id": cluster_id,
+                "lead_title": str(lead.get("title", "")).strip(),
+                "lead_source": canonical_entry_source(lead),
+                "support_count": len(publishers),
+                "member_count": len(members),
+                "sources": publishers,
+                "member_titles": [str(member.get("title", "")).strip() for member in ranked_members[:4]],
+            }
+        )
+    return reports
+
+
+def build_source_coverage(
+    section: str,
+    listed_sources: list[str],
+    query_reports: list[dict[str, object]],
+    entries: list[dict[str, str]],
+    newsletter_reports: dict[str, dict[str, object]],
+) -> dict[str, object]:
+    coverage_items: list[dict[str, object]] = []
+    checked_count = 0
+
+    for source in listed_sources:
+        matched_query_reports = [
+            report for report in query_reports if query_matches_source(str(report.get("query", "")), source)
+        ]
+        query_matches = [str(report.get("query", "")) for report in matched_query_reports]
+        direct_mode = DIRECT_SOURCE_MODES.get(source)
+        direct_report = newsletter_reports.get(source)
+        matched_entries = [entry for entry in entries if sources_match(canonical_entry_source(entry), source)]
+        access_modes = []
+        if query_matches:
+            access_modes.append("query-discovery")
+        if direct_mode:
+            access_modes.append(direct_mode)
+        if not access_modes:
+            access_modes.append("listed-no-fetch-path")
+
+        status = "listed"
+        notes: list[str] = []
+        if direct_mode and direct_report:
+            direct_status = str(direct_report.get("status", ""))
+            if direct_status == "ok":
+                status = "checked"
+            elif direct_status == "failed":
+                status = "direct-fetch-failed"
+                notes.append(str(direct_report.get("error", "")).strip())
+        if matched_query_reports:
+            if any(str(report.get("status", "")) == "ok" for report in matched_query_reports):
+                status = "checked" if status in {"listed", "checked"} else status
+            elif status == "listed":
+                status = "query-failed"
+                notes.append("Mapped section queries failed for this source in the current run.")
+        if query_matches and not matched_entries and status == "checked":
+            notes.append("Source was checked but did not surface section candidates in this run.")
+        if query_matches:
+            status = "checked" if status in {"listed", "checked"} else status
+        if status == "listed" and not query_matches and not direct_mode:
+            notes.append("No direct fetcher or section query currently maps to this source.")
+        if status == "checked":
+            checked_count += 1
+
+        coverage_items.append(
+            {
+                "source": source,
+                "status": status,
+                "access_modes": access_modes,
+                "matched_entry_count": len(matched_entries),
+                "matched_titles": [str(entry.get("title", "")).strip() for entry in matched_entries[:3]],
+                "matching_queries": query_matches,
+                "notes": [note for note in notes if note],
+            }
+        )
+
+    return {
+        "listed_source_count": len(listed_sources),
+        "checked_source_count": checked_count,
+        "uncovered_sources": [item["source"] for item in coverage_items if item["status"] != "checked"],
+        "sources": coverage_items,
+    }
+
+
 def rank_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
     def score(entry: dict[str, str]) -> tuple[int, int, int]:
         title = entry.get("title", "")
@@ -693,10 +1048,10 @@ def rank_entries(entries: list[dict[str, str]]) -> list[dict[str, str]]:
         published = parse_pub_date(entry.get("published", ""))
         specificity = len(title.split())
         has_summary = 1 if summary else 0
-        source_bonus = 1 if publisher else 0
-        newsletter_bonus = 1 if str(entry.get("source_type", "")).startswith("newsletter") else 0
+        source_bonus = source_quality(entry)
+        cluster_support = int(entry.get("cluster_support", 1))
         recency = int(published.timestamp()) if published else 0
-        return (has_summary + source_bonus + newsletter_bonus, recency, specificity)
+        return (cluster_support, has_summary + source_bonus, recency, specificity)
 
     return sorted(entries, key=score, reverse=True)
 
@@ -710,6 +1065,7 @@ def main() -> None:
     issue_date = resolve_issue_date(args.date)
 
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    sources_by_section = parse_sources_by_section(SOURCES_PATH.read_text(encoding="utf-8"))
     newsletter_entries, newsletter_reports = fetch_newsletter_archive_entries(issue_date)
     payload: dict[str, object] = {
         "date": issue_date.isoformat(),
@@ -741,6 +1097,7 @@ def main() -> None:
                 query_reports.append(
                     {
                         "query": query,
+                        "kind": "configured",
                         "status": "failed",
                         "entry_count": 0,
                         "error": str(exc),
@@ -750,6 +1107,39 @@ def main() -> None:
                 query_reports.append(
                     {
                         "query": query,
+                        "kind": "configured",
+                        "status": "ok",
+                        "entry_count": len(items),
+                    }
+                )
+            for item in items:
+                item["query"] = query
+                item["source_type"] = "google-news-rss"
+                section_entries.append(item)
+        for source, query in build_source_probe_queries(section, sources_by_section.get(section, []), queries):
+            total_queries += 1
+            url = google_news_rss_url(query)
+            try:
+                items = fetch_feed(url, issue_date)[: min(args.max_per_query, SOURCE_PROBE_MAX_PER_QUERY)]
+            except Exception as exc:
+                items = []
+                failed_queries += 1
+                query_reports.append(
+                    {
+                        "query": query,
+                        "source": source,
+                        "kind": "source-probe",
+                        "status": "failed",
+                        "entry_count": 0,
+                        "error": str(exc),
+                    }
+                )
+            else:
+                query_reports.append(
+                    {
+                        "query": query,
+                        "source": source,
+                        "kind": "source-probe",
                         "status": "ok",
                         "entry_count": len(items),
                     }
@@ -759,7 +1149,16 @@ def main() -> None:
                 item["source_type"] = "google-news-rss"
                 section_entries.append(item)
         section_entries.extend(newsletter_entries.get(section, []))
-        ranked_entries = rank_entries(dedupe_entries(section_entries))
+        deduped_entries = dedupe_entries(section_entries)
+        story_clusters = build_story_clusters(deduped_entries)
+        ranked_entries = rank_entries(deduped_entries)
+        source_coverage = build_source_coverage(
+            section,
+            sources_by_section.get(section, []),
+            query_reports,
+            ranked_entries,
+            newsletter_reports,
+        )
         if ranked_entries:
             sections_with_entries += 1
         total_entries += len(ranked_entries)
@@ -777,14 +1176,25 @@ def main() -> None:
             "entry_count": len(ranked_entries),
             "newsletter_entry_count": len(newsletter_entries.get(section, [])),
             "queries": query_reports,
+            "source_coverage": source_coverage,
+            "story_clusters": story_clusters[:MAX_CLUSTER_REPORTS_PER_SECTION],
         }
 
     payload["fetch"]["summary"] = {
         "total_queries": total_queries,
         "failed_queries": failed_queries,
+        "source_probe_queries": sum(
+            sum(1 for query in section_report["queries"] if str(query.get("kind", "")) == "source-probe")
+            for section_report in payload["fetch"]["sections"].values()  # type: ignore[union-attr]
+        ),
         "sections_with_entries": sections_with_entries,
         "total_entries": total_entries,
         "newsletter_entries": sum(len(entries) for entries in newsletter_entries.values()),
+        "listed_sources": sum(len(entries) for entries in sources_by_section.values()),
+        "checked_sources": sum(
+            int(section_report["source_coverage"]["checked_source_count"])
+            for section_report in payload["fetch"]["sections"].values()  # type: ignore[union-attr]
+        ),
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
