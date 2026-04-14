@@ -10,14 +10,17 @@
   "priorities": [
     "Prefer major research, science-policy, AI, technology, and world-events developments with durable significance.",
     "Favor primary sources and strong science journalism over commentary-heavy reporting.",
+    "Actively scan for major globally significant events so obvious stories are not missed because one source cluster or packet snapshot was thin.",
+    "Use the broader source registry aggressively: do not let a small familiar set of outlets dominate when PhilPapers, arXiv, the Physical Review journals, PRX Quantum, Quantum, or other listed sources have better material.",
     "Use relevant items surfaced by 1440 Daily Digest, Morning Brew, Superpower Daily, Nature Briefing, and MIT Technology Review's The Download when they strengthen the issue without diluting the source mix.",
     "Emphasize interdisciplinary connections, conceptual payoff, and tools that are useful to researchers or developers.",
-    "Avoid hype, partisan framing, and generic headline summaries."
+    "Avoid hype, partisan framing, generic headline summaries, and unnecessary story repetition across consecutive issues."
   ],
   "format": [
     "Produce the newsletter in the established Frontier Threads Markdown structure.",
     "Keep Quick Hits concise and representative of the strongest sections.",
-    "Keep markets authoritative and data-backed.",
+    "Keep markets authoritative, data-backed, and as current as credible live or recent cached data allows.",
+    "When there is meaningful private-company news, use a clean event-driven Private-Market Watchlist rather than defaulting to the same standing names.",
     "Keep links labeled and avoid raw URLs in prose.",
     "Target at least the explanatory depth and editorial polish of the April 9, 2026 benchmark issue."
   ],
