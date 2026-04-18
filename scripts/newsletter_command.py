@@ -13,6 +13,8 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROFILE = ROOT / "config" / "newsletter_profile.json"
+REVIEWS_DIR = ROOT / "data" / "reviews"
+AI_REVIEWS_DIR = ROOT / "data" / "ai_reviews"
 
 
 def load_profile(path: Path) -> dict:
@@ -137,7 +139,6 @@ def main() -> None:
     else:
         issue_date = default_issue_date(profile)
     env = build_env(profile_path, profile)
-
     if args.command == "prepare":
         run_prepare(issue_date, overwrite=overwrite, env=env)
     elif args.command == "publish":

@@ -2,7 +2,7 @@
 
 Work in `/Users/munga/PycharmProjects/Newsletter`.
 
-This task runs in Codex cloud against the linked GitHub repository for this project.
+This task needs live network access against the linked GitHub repository for this project so source research, market checks, and publishing can complete normally.
 
 Your job is to produce today's `Frontier Threads` issue, rebuild the site artifacts, and push the result directly to `main` only if the issue meets the April 13, 2026 quality bar.
 
@@ -32,7 +32,7 @@ Required workflow:
    - use 1440, Morning Brew, Superpower Daily, Nature Briefing, and The Download as supplements and discovery aids, not as the section backbone
 7. Capture useful notes in `data/research_notes/YYYY-MM-DD.md`, then write the final publication-ready issue directly to `issues/daily/YYYY-MM-DD-daily-newsletter.md`.
 8. Use the April 13 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
-9. This automation requires live network access for direct source research, fresher market data, and `git push`. If the run starts in a restricted-network environment, stop and report the runner misconfiguration rather than trying to publish from a sandboxed session.
+9. This automation requires live network access for direct source research, fresher market data, and `git push`. If a fetch, market refresh, or publish step fails, report the concrete failing step instead of generic runner-misconfiguration language.
 10. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
 11. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue, but replace the company lines with 2-4 notable companies chosen for that day rather than reusing a fixed set.
 12. Market quotes and macro lines must use the latest available credible data. If live fetches can produce fresher values than the cache, use them. If live fetches fail, use the latest recent cached market snapshot with explicit as-of dates. If neither live data nor a recent cache can support a credible `Markets & Economy` block, stop without pushing.
