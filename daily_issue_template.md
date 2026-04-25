@@ -60,6 +60,13 @@ Tie the analysis to concrete regime variables such as rates, margins, capex, com
 Do not repeat the previous issue's framing unless the same cluster is still clearly central and you can explain why it remains important today.
 Prefer a thesis + catalyst + risk frame over a static list of favorite names.
 
+### Private-Market Watchlist
+
+- **Private company name:** One concise bullet on why it matters now, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
+- **Private company name:** One concise bullet on why it matters now, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
+
+Use only when there is genuine private-company news worth covering. Keep it clean, specific, and event-driven. Do not default to the same standing names every issue.
+
 ## Need To Know
 
 ### Main headline

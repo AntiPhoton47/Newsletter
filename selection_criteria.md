@@ -79,6 +79,7 @@ The following biases should be applied when choosing between otherwise comparabl
 - It is acceptable to revisit the same story in consecutive issues when there is a real update, a materially different angle, or a stronger explanatory frame.
 - If a story appeared recently, the new entry should add something concrete: new evidence, new numbers, a new institutional consequence, a new research result, or a meaningfully different analysis.
 - Do not rerun essentially the same write-up with only superficial wording changes.
+- Given the breadth of the source map, repeated stories should be uncommon rather than normal.
 - When in doubt, cut the repeat item or demote it to a short take unless the new value to the reader is obvious.
 
 ### Source-Mix Discipline
@@ -86,16 +87,25 @@ The following biases should be applied when choosing between otherwise comparabl
 - Each section should draw from a credible mix of source types over time: primary literature or institutions, specialized journalism, and reference or discovery tools where appropriate.
 - Do not let one familiar outlet dominate a section just because it is easy to summarize.
 - Prefer the source that is closest to the claim being made, then use higher-quality secondary coverage for framing or synthesis.
+- Explicitly check whether an obviously relevant but underused listed source has better material before defaulting to a familiar outlet.
 - When expanding a section's source pool, add outlets that improve signal, not just quantity.
+
+### Big-Event Discipline
+
+- Before locking the issue portfolio, do one explicit pass for globally significant events in science, space, geopolitics, AI/security, and markets.
+- If a major event clearly fits the reader and the issue's scope, it should usually appear somewhere in the newsletter unless a stronger editorial reason excludes it.
+- Do not let packet incompleteness or section-local search habits cause an obvious omission.
 
 ## Section-Level Guidance
 
 ### Markets & Economy
 - Keep the data block authoritative and conservative.
+- Use the latest available credible market and macro data; if live data exists beyond the cache dates, prefer it.
 - The `Upcoming Investment Opportunities` subsection should be thesis-driven, not a static watchlist.
 - Do not repeat the prior issue's investment-opportunities framing unless the same cluster still clearly matters and today's evidence explains why.
 - Prefer `2-3` strong clusters over a long list of names.
 - The analysis should connect company groups to regime variables such as rates, margins, capex, commodity prices, regulation, supply constraints, balance-sheet resilience, or backlog quality.
+- A `Private-Market Watchlist` can be used when there is real private-company news worth covering, but it should be event-driven, clearly sourced, and rotated based on actual signal rather than defaulting to the same standing names.
 
 ### Need To Know
 - Reserve for the single most consequential or intellectually rich story in the issue.
@@ -104,6 +114,7 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Research Watch
 - Emphasize primary papers, formal advances, or major experimental results.
 - Strong fit for quantum foundations, quantum gravity, AI for science, mathematics, and new theoretical proposals.
+- For physics-heavy or mathematically dense sections, arXiv and the Physical Review family, PRX Quantum, Quantum, and similar primary venues should often outrank general-science coverage when they offer the stronger story.
 
 ### World News
 - Include geopolitical, policy, conflict, trade, and humanitarian developments that materially shape research, technology, or global stability.
@@ -119,6 +130,7 @@ The following biases should be applied when choosing between otherwise comparabl
 - Prefer pieces that connect back to active scientific or technological developments.
 - Use a mix of reference works, high-quality public philosophy, and serious journals or working-paper venues when possible.
 - PhilPapers and leading philosophy journals are strong fits when they surface papers, debates, or review essays with clear conceptual payoff for this readership.
+- Do not default to Nature or other general-science coverage for philosophy when PhilPapers or stronger philosophy-native sources have fresher or more relevant material.
 
 ### Biology / Health and Medicine / Psychology and Neuroscience
 - Prefer mechanistic and conceptually clarifying work over broad observational claims.

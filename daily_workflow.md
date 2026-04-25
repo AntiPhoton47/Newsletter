@@ -17,6 +17,7 @@ For each section:
 - scan primary sources first where possible
 - use high-quality journalism for context and synthesis
 - maintain a healthy mix of primary, specialist, and reference/discovery sources over time
+- do a top-level pass for major global events before settling section choices so important stories are not missed just because one source cluster was quiet
 - collect more candidates than you expect to publish
 - note the date, source, and a one-line reason the story might matter
 
@@ -54,6 +55,7 @@ Check for:
 
 - repetition across sections
 - repetition from the previous issue unless the repeated story has a genuinely new development or angle
+- missed major stories that obviously fit the reader but fell outside the first source pass
 - overreliance on the same source in a section when a better or more direct source is available
 - too much dependence on one outlet
 - too much focus on one domain at the expense of the others
@@ -105,6 +107,7 @@ When drafting:
 - keep short takes concise, source-backed, and informative enough to add one concrete fact, implication, or reason the item matters
 - if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
+- add a `Private-Market Watchlist` subsection only when there is genuine private-company news worth covering, and rotate companies based on actual developments instead of using standing favorites
 - make `Upcoming Investment Opportunities` specific to today's regime and catalysts rather than repeating a standing basket
 - keep the investment-opportunities analysis focused on `2-3` strong clusters and explain what would make the thesis stronger or weaker
 - make `Entertainment` concrete: list specific upcoming or currently hot movies, books, shows, games, or events rather than writing vague overview copy
@@ -123,7 +126,10 @@ Before rendering, confirm:
 - each section has a clear purpose
 - short takes do not duplicate the main stories in the same section
 - repeated stories from the last issue add a real factual or analytical increment
+- major global events that fit the reader were considered explicitly rather than omitted by accident
 - the source mix across sections still feels deliberate rather than habitual
+- philosophy was not allowed to default to general-science outlets when PhilPapers or stronger philosophy sources had better material
+- research-heavy physics and mathematics sections were not allowed to default to general-science outlets when arXiv, the Physical Review journals, PRX Quantum, Quantum, or similar primary sources had better material
 - the section order still feels coherent
 - entertainment is concrete and date- or momentum-aware rather than hand-wavy
 - entertainment includes books when there is a strong thematic fit with the rest of the issue
@@ -151,6 +157,7 @@ Review:
 - mobile responsiveness
 - source links
 - image rendering
+- market as-of dates so stale cached values do not slip through when fresher data was available
 
 ## 8. Final Editorial Pass
 
