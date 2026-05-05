@@ -1,11 +1,11 @@
 {
-  "date": "2026-05-04",
-  "display_date": "May 04, 2026",
-  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-05-04-daily-newsletter.md",
+  "date": "2026-05-05",
+  "display_date": "May 05, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-05-05-daily-newsletter.md",
   "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-04-13-daily-newsletter.md",
-  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-05-04-issue-scaffold.md",
-  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-05-04.md",
-  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-05-04 --git-commit --git-push",
+  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-05-05-issue-scaffold.md",
+  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-05-05.md",
+  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-05-05 --git-commit --git-push",
   "sources_by_section": {
     "Markets & Economy": [
       "BLS",
@@ -469,36 +469,36 @@
     ],
     "Research Watch": [
       {
+        "title": "Gravitational Constant\u2019s Value Still Up in the Air",
+        "publisher": "American Physical Society",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBYaXhLWXRoTWdUckFGTDM3NXQ4RE1ZVlRKX2cydDk0a2w3YV9PQWlubGlwU2llVDJEZG82d24xSzJpQ1k2bWJxOTUycTZaVlRu?oc=5"
+      },
+      {
         "title": "Probe of Generic Quantum Contextuality and Nonlocal Resources for Qubits",
         "publisher": "arXiv",
         "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5YRzlobVR0OVotWG1JWU82M1RRZmY5aVhEeXpyZDVOV0lKb25SRnJhcG5WbmI4cGZueG9iM0JqSWp6dFowR3VYM3NJOA?oc=5"
       },
       {
-        "title": "Heisenberg picture tensor network formalism for optical circuits",
-        "publisher": "APS Journals",
-        "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE95VmZjMG95Uzh4ZjQ2R095QlhxM2JlbFVUek9uNUJjS1RhZlo0OVlIYXZuSG5FQ2Uzc1JBb3lEVXRSS0paLVpoekZGZk5PWEJlZ3A2R2xrX2F3anpMdFpkT0pwTXIxd0RDR2x1eThNbw?oc=5"
-      },
-      {
-        "title": "Fundamental Physics, Existential Risks and Human Futures",
+        "title": "A Cosmological Uncertainty Relation and Late-Universe Acceleration",
         "publisher": "arXiv",
-        "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5RWG9lUlpodWh0S0RkUzhxcUhKS2FNZC1NUnFLUnhHS29hOVcxWXp2LUIyTUdua0c1Mk1kN0lhSlI5aWVLXzJRXzhubw?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1tb3V2RG5jU3Jxd1VlUzlNa3V2Qkxtdzl2NmYtblh4QXlseHpLNjI5TWg0cERsV1ZtcVZXdHFuTWlvR0t6M3R3?oc=5"
       }
     ],
     "World News": [
       {
-        "title": "Europe\u2019s Trump Problems",
-        "publisher": "WSJ",
-        "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9XOU5ONmFOVWtWWWVEdnh2VlNjaUFSME9RbFd0VTBPeFk4UE85Vm5QZ2ZPeUhJZHBlTVRYdUg5TmNYU0lrX3ZHZGxubjd6MFp1dGE5NXhPaVJIMU5KajQtZUtsc1ZTazdM?oc=5"
+        "title": "The Global Risks Report 2026",
+        "publisher": "The World Economic Forum",
+        "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9vaHVWN0hydDZzb3NKMS11SkZCYllmODJVbmdHckxncURRM3d2RUNlQzBYX0NjUVFOS0xmWU9HWGdsdXg5b2pzdG9LOUYtLWViTDhlNFpLa0tlNFdVOUlJNHNwV01VNkZEMTJHbEw2NkMtcVk4RlBReA?oc=5"
       },
       {
-        "title": "Trump\u2019s Voice of America: The free-speech crusader pushing MAGA on Europe",
-        "publisher": "politico.eu",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQXzRfdjBBdUhSVi1GdGZvMXE1UVdlZm5aR2JIQllYLTF6Nm1CNjg4UjBXRC1kWEJ6dTZ6OHNjWkk4UW9IQXhvcXptT0RlRDgtdktFam5UQ1gtdUZ3NjFiSG9PN0hZdGdIMFpnVWp3aXJaZXQxLUkyV2Rkam1LN0wyWFBYNEtFRWhTa0JiNF9YZGUwb3pobEt1VWZDNA?oc=5"
+        "title": "Global economic outlook worsens amid trade conflict and policy uncertainty, United Nations Report says",
+        "publisher": "Welcome to the United Nations",
+        "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOQzdZOWZNMGtWQTlXUkR1T2ZVbm1yT2NhU3ExaHlFNzFLejktOTB5eUFja2liLWVzMXFpNHZGU0FXV1JPYlZSQ01CeHNLZW40RUZzZkhIUG5KUWM5eGM3YlJ4TEI5anc4aFhnMzFFZFlTYmU0bFJOdXlBYXhGNGVfczZWOHBNOXpsV05CVGJDQUg4dDVoTjdoZXpxWEthQWN0OGJ1V2NkMlVuLW0zTWlGTGMzQVdmam8?oc=5"
       },
       {
-        "title": "Deepening fear for some in Iran as regime shows no sign of compromise",
-        "publisher": "BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBvSHJLRkR0TlFpb0RwMHA4clk2VUFCcmdTelY3SWFoNV9RZnAxc1lNU1FMQkZhaHA2M0k0anM2X3pkUDRxbk5XVm5TX1RjRE51endzSUNhSzhtZw?oc=5"
+        "title": "Russia and Ukraine declare competing ceasefires",
+        "publisher": "Al Jazeera",
+        "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaFpKeDhKRjNTMHdVSWliYlZjSTNqbGo3Wk1NWHNXY2RQOXBoYnVEcWZmUkZYa2xtT1VFd2NkTEQ5TE5va09jVkxkeEtuZTB4djR3NXFvM1NZMUxjLUxDU0hlSUdCMnpvQk4wZmJXUFRaSmoydURzTE94b2I5V2VuTUpvU0RoaXJ1RlFLR25vV23SAZYBQVVfeXFMTkFyU3NEOXZ0M1hUNUZ6eWxyRjlULVZWbkFsa0JxWWt2LTFZa2ctT3VHODhUM1MtVkR3YldwdjRZcmJ2Z3RJWWlOdTFXYkpBVVVNMEJfdkpkeGFud2Y3aWRiUVlaYTQ1U21tUVpYZFBITWNEMkQ3bnh3WThyNkVaVF9aSDMtdlZ5OHBQenc2NUlpRXg3SGpB?oc=5"
       }
     ],
     "Philosophy": [
@@ -508,9 +508,9 @@
         "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdjlGdFZKT2NWQlR0SlY4RU5mSjl4dEtsMTBhSEk5dE90NmlIRnNsc212M3JUS01OMEljS1BKdnU3MV9ydjYxSTBQWjEtTGgxT1VuTGJuSFRBYU1mTHpHQUFxaC00YkZFaExNTFJmN05BVWwyWTBwbEFqb2dzSU55bVRR?oc=5"
       },
       {
-        "title": "A New Type of Neuroplasticity Rewires the Brain After a Single Experience",
+        "title": "Physicists Discover the Most Complex Forms of Ice Yet",
         "publisher": "Quanta Magazine",
-        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMXFYNkpObTdJYjRQRUhpWEdIY0JhcllNSzVCdEQzQTZ4YVB5SlVpalh3TGVycm0wOEhoWTFMbjBWVk9OSHF0QXYtalRQQ1pYQWhsaXY0MGpEdjlKMGM0bllCcnFEYmpxQUtEM3RNQXZKdURud2RyQ01yUWZPclM4WldlWjZ0M0pjck5INFE4OFF4TC1hVnNZOVhnLXVUU1B3eFJXU2paZjFTZlVoN2UtTkV6Vlc?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQX0RVUmZ0MlVNQklONzFwb0JWTkx2SUtWbE85aVpjQ1FIMHBScFgzVTVHUDQtcVdXRVhQZWdGbXBRSVdXV2R4RlJXZk9NaHNWMXYzNHYwd2k4SE5VaHpBTVRMMXJOd0tnT05sd3pZUmlhZVM1SGtVUTY3MkFsX0VXeUJNSHI4LWRtX294M29BaEJjZGt1Q1lFcXdn?oc=5"
       },
       {
         "title": "Reality is not a controlled hallucination",
@@ -537,14 +537,14 @@
     ],
     "Psychology and Neuroscience": [
       {
+        "title": "Cognitive Neuroscience",
+        "publisher": "Nature",
+        "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFByQXlObUlIOGxHS1c4S3J2dnhVN1djYTZsYkZYcWVGcUhUN19hTGIyb0NaYjdUa3B2UXUxQTQ0OGI2Z0VSNld3ci1MNE5zcUdwcDhvdk1fVnNJUm9acldTLVducHBwaDF2T3AtRUVyX2tpRXhqR1JB?oc=5"
+      },
+      {
         "title": "Topic explorer",
         "publisher": "Nature",
         "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5jalZNN0ZNcGZSdmx6MUg4Q050YVNRTk81ZjVzdzZienp4OWkxNFN0VnplaTZoX1gwMWRrNWl2NEFIS3BkNWxZbHJoSkJndkhjSldVaERKcFh3UHVoN3NPSmIyeV9UVEJz?oc=5"
-      },
-      {
-        "title": "Nonergodicity and Simpson\u2019s paradox in neurocognitive dynamics of cognitive control",
-        "publisher": "Nature",
-        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5iQk1IZFV2QktLN0dhQzRaaTVaS3YtOE82YlVYU1dPVmUxLUdBTHJKR2FiM0NLVG5wVG9VTDVIdEgyVklMczRiamRXaXRxYTRpcHAyLTlBMXFDeTFpZzZj?oc=5"
       },
       {
         "title": "Categorization is \u2018baked\u2019 into the brain",
@@ -571,14 +571,14 @@
     ],
     "Sociology and Anthropology": [
       {
-        "title": "Banks seek to offload risk to avoid \u2018choking\u2019 on data centre debt",
+        "title": "At 100, Route 66 still ties the US and the world together",
         "publisher": "Financial Times",
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc0V4X0VzVGx5Z24zMUxUTS1Lc29EYS1ZSkZtbVpHNTJEbHpxTE1ZVHFQa1FIX09XcUVkNVNtbjdBdm80eDRBdHRWbi1NbUdYVi05aHUxZWl4OFFFSGd5QWt3RTVMQlc3VzVxc0Y4TFNQa3FGTkFBT0hpNVo2VV9Udk5PNTE?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQWJzeUVIM0NHV3BZTGN6SWxVUW5NaDBNdEViTXc0bVpfSVFacUJ6amFib04yYjNxOHB5TmJ0NDV0aG16alRmR0pjX0JUd294X1BaaU40YU9XMlpmSG1zWmNVdzN3dmh6WUNWWnhfcmhfV0xqRVQzdGdHMWl2ZUZZSTdld1M?oc=5"
       },
       {
-        "title": "Trump administration cites national security to widen clampdown on wind farms",
+        "title": "Vladimir Putin hunkers down for fear of assassination",
         "publisher": "Financial Times",
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZ2x2OFU2akhLXzZCdGNsY3BDcmVmbkx0NFBjdlVEa1lTeVdDeWVGbzNIZUE5WmV6bFdHdlZVVE5hMVNoX0psb0hlaHJxYUFpU1dkc0tmVFRISXFoYnFSWFdSb0FWeVIyOFZCc1pzd1dYZ0RwbkZHN2pVREtDV0Fhdm9nSkw?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOanhtakhaVXZ4Ymg0OGFNU19HTm9BMklJbVpVWHRkYTBwd1k4Mnl2SGdXTi1rU0VJejlBR29odFVEeUp4MUhmUTRkbG1sT3h6aVR4SzdrbmJuTFlLMTlnSTB3SGVtZGFIYnBYc0FfME11bVRWWGtKQ0JENnk0OVRKbFQtNUY?oc=5"
       },
       {
         "title": "Social Dynamics of Eating Behavior",
@@ -605,19 +605,19 @@
     ],
     "Robotics": [
       {
-        "title": "From embodied intelligence to physical AI",
-        "publisher": "Nature",
-        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBPTjI4dmNLbE5sdEpnTUN6VUhRNVY1dWVlU2I2NkI2UDkyVGhzME5qLVZMV2NKajNQc21XTVIyNzJLMVMwTGZUeDBUWE10S2NKLWFOT3k4YTg0TGlKMHkw?oc=5"
-      },
-      {
-        "title": "Embodied AI for Security: Robotic Agents in Surveillance, Disaster Response, and Cyber-Physical Defense",
-        "publisher": "ieeexplore.ieee.org",
-        "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBmX011eDRISG04V1pZMmx2LUNVRlhIa0Y0T0xCbTRwTDFXNk9RUUU0a2FQZmo2emRaU2pqVHV4ZnVMbzZwLWZyQnhZTW5rYXFDUUYzYVVrQTJwVGl5aWV0ZjJCT0pQMWpBNmpRUmhJdHo?oc=5"
-      },
-      {
         "title": "DAIMON Robotics Wants to Give Robot Hands a Sense of Touch",
         "publisher": "IEEE Spectrum",
         "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5CT1NKRW1lQ190YjFyQkE2RlcyNExlVHRDVmJRa1FBX3pOdzRrMGZNcFljekQzYnhER1hNSE1ueVZYZDV4Ri14LS1YZ3hUeGZldmVERlhXRGhGb19VdEwyUUd6WdIBd0FVX3lxTE41ZTFBRXV3TjdfS0QzR3B2eTlNS0tLU25LZUJNZ25vdEhKY0xwMldIcDNOTW8xZmNxN1dHWlRPOVN0ZVpBbnhGZ3NPNmdoeHJ2Z240S1RaVVNWNzI2ekR0ckIxVGV6R0VHYTlEVms2RXR5TXBxX3JN?oc=5"
+      },
+      {
+        "title": "iRobot Founder Wants to Put a Robotic Familiar Into Your Home",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFAzZDg1dk1jLUk3UDhQcDdUY1JyazBYOXhyc0JMeFFVQlRpNXoySmNKMEt3RlpaQWREQUhXNUhidXJhN1p2VTJFOWF0cmFSdWZ4RDQxNFFsazRjUDJab3c2M0lEUdIBd0FVX3lxTE81RzNDYVBFMnZIbVFEQ1BqNVd6d29nLXpIZlZ3MjQ1ck1zZnlNTFdhWmpkOW4yQng3NE56WldzbmhfQmU5ZVNNVUZhcXBubVRuRXZ6TW13bHh2VG1LWUtYX21wX0p3OHB2SmI4MUxIZE9YcVlOVU80?oc=5"
+      },
+      {
+        "title": "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible",
+        "publisher": "IEEE Spectrum",
+        "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBiZFpGTkFtQ1g0YkQtX2FNRE94VEM2QTd6QXQ2RFlnU29pMThLZ3M5SWpxMzduWTZ4d0V1ZTg3NGtFNWEzWkFhSG54Y3VGUk3SAWNBVV95cUxQTUJPcXVtMldNWk9MbmpVZlhabE95UDJQckd6dTJpSFpjanUwOEZ1WFo1aXdvMl9NSWVQeEtZaUE2LWV1bU5wUWNjeS1hWnJmMGx3eUFUdk1ORHRJT1I3UUZYelU?oc=5"
       }
     ],
     "AI": [
@@ -639,48 +639,31 @@
     ],
     "Engineering": [
       {
-        "title": "US Manufacturing Holds Up as Costs Gauge Hits Four-Year High",
-        "publisher": "Bloomberg.com",
-        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOanY5VEdPdWVUdlhfV2w3NXljU1dWYldDWUlIOGR1UHVfV21hdWdxUlFJWFN4MHkyX3FEbEpXQktzVko2T1dPZnZmVHlrUGdJVzBYbFNIV3VSazRLR1AyMi0xUlF3cjlzbXlQY3g3dHJER041SXoxeHYwRFdXaHYxd3hmY05NWEtXem95bGROalRUaWlPelB0RWRqVUhJLXp6M01nUWF0S2J2bFBiVVItZmEwNA?oc=5"
+        "title": "Launch boosts European Earth monitoring and connectivity",
+        "publisher": "European Space Agency",
+        "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTTVMTFNobUN3M0sxcHRJVHpBcF90T2d5VXlqOXZyaGV5NXE4d3NNTTVjTFFpRVBsYjNuMDdoRWR4azhZSUthMm1FcDQ3cjI0MnNxVl9NdjFhSm9LVWRwZy1sbnc0UGs5MkxkTFVBaXBZSHU1LUlQdERHSHcyQjVnV1FNQUU0LXpUVlJCTHRNalE3N205ck11VU91SnpkS2VsYld4aUFDd2NfbEdIMFE?oc=5"
       },
       {
-        "title": "India\u2019s Heat Exposes a Fragile Grid as Energy Crunch Deepens",
-        "publisher": "Bloomberg.com",
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcW1ROUVTa08zRldIX2pwWkk5QXBVeEk0M2lLaHNGSnNZUE9mSndvaUlFdlp6cGplSjZ2bVhmOGM1YWRTaFNQbk9VT01WSGJRUHFBWkk1eWh1dHY5eV9KNkZwNzFOaGl4NHZMRno5dUNsS081RFItSlZHcklOVDZmU0p6MVJFazhhazQ4WkpNLXVsOWJQVkhxN2NONzBaWWRhcGpCTjNvazRQTGRYMzFuWg?oc=5"
-      },
-      {
-        "title": "With $1 Cyberattacks on the Rise, Durable Defenses Pay Off",
+        "title": "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible",
         "publisher": "IEEE Spectrum",
-        "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0xMkMzRXBlSXNseWFTeUp3SkozRGVta3RmSFlHZzNYcF9OSE40d2FjenFVTEFGczVIRHV3MlNQQU5JYm8yeUNfdnlxMUxJV3JUS0NCdWEwQy1TX0JsUUZvZnFGWTBfNEU3UEHSAX5BVV95cUxQQTJrblRxX3hFYnpUaXltV1JueFIyMFhmRjdnc2k5OFhBVXNkTUNjai1PTzcxOFBaWWx6emdpck1Sem9xVnQ4dEtkU1ZWc20yS2ctYUJZd2pONVBPeXBST1N5M3dCM0ZDd2FSTEFIUVk2RXJST2dKNXJlWGZ5R0E?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBiZFpGTkFtQ1g0YkQtX2FNRE94VEM2QTd6QXQ2RFlnU29pMThLZ3M5SWpxMzduWTZ4d0V1ZTg3NGtFNWEzWkFhSG54Y3VGUk3SAWNBVV95cUxQTUJPcXVtMldNWk9MbmpVZlhabE95UDJQckd6dTJpSFpjanUwOEZ1WFo1aXdvMl9NSWVQeEtZaUE2LWV1bU5wUWNjeS1hWnJmMGx3eUFUdk1ORHRJT1I3UUZYelU?oc=5"
+      },
+      {
+        "title": "Big Oil Warns Supply Buffer Is Running Out",
+        "publisher": "Bloomberg.com",
+        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNU3dUMjJGNjkzZWt1Y1ZZeGl0TDNLRUJmRXF1bW11cXFuRDFWanBUZEhXSDVRd1hoUGp0NGNiZlNxdkk4SzdNZC1XbzllZHVPdktpUnE5bHN6Wlo4NzFJMWwya3dBRm1kakxhUGVnNGl6OS01eTgzQUpWbUtRWDhMNFFyb0IyOVV4TlBkb3NqbFJfanQwTXJOM2NJcDZ0VXZBY1ZOQWN2Mk9nbmlMcXd1c29CaldyQQ?oc=5"
       }
     ],
     "Mathematics": [
       {
-        "title": "The weirdness of quantum contextuality is not a bug \u2013 it\u2019s a feature",
-        "publisher": "Physics World",
-        "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPcHNxUFBTa0p2WnFsc3k3UG1CM1JhWFQwRjA5NUQyc1dveExLY1FCaEQ1SFNMU0NMUC1YUDJyUDViT29XeTlMdk9uZy1ZSDZVSU81aExIR3BKNHN2NlcwUmh1U294cDE5TDkwemRmU0U3bEZpb0ItS3h4aHlHQXR0ZDdQT1VIN2F3REJBWlNzbWJjY0MyUXBXeg?oc=5"
+        "title": "Quantum Error Correction Faces Another Hurdle",
+        "publisher": "American Physical Society",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE9DazF0aWJWY0FOQUFOelZnUEQtOEJsMzZncklBME1DZy03UGRrc29XdlJBdGVlRWNkbG5UbFlrMnVlcG9uTmpaN0hlUVlUcmlK?oc=5"
       },
       {
-        "title": "What Can We Gain by Losing Infinity?",
-        "publisher": "Quanta Magazine",
-        "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOdjlGdFZKT2NWQlR0SlY4RU5mSjl4dEtsMTBhSEk5dE90NmlIRnNsc212M3JUS01OMEljS1BKdnU3MV9ydjYxSTBQWjEtTGgxT1VuTGJuSFRBYU1mTHpHQUFxaC00YkZFaExNTFJmN05BVWwyWTBwbEFqb2dzSU55bVRR?oc=5"
-      },
-      {
-        "title": "Why Math\u2019s Final Axiom Proved So Controversial",
-        "publisher": "Quanta Magazine",
-        "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZnpuZzQ1cmhfdFhhUF9FUTl2YVl3aW9tZFZJNERDZ1dBS1ZDSDFodGhNbk01TUFubzZqUEFya1VENUtYSWRqY3FaRVA4OHhqeHBEN2pvZ21OMVFxX016YlJUUGpoQzhvUU1qR0Z0VU5QN2FyUHBjV0d2bDNhakVubk1RMlV5YTNpQTZuMnFvTQ?oc=5"
-      }
-    ],
-    "Historical Discoveries": [
-      {
-        "title": "Trump says US to 'guide' stranded ships through Strait of Hormuz",
-        "publisher": "BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE0xaHI2TXJQei03d1VvTWh1cEtvVTZoUWNOR1RKbjdUS1hjc3RhZC0tSmhMSHhrRmFJT0xyUnBQeGYyRWZkWEJNd3JSZTJHU3hoMVE4N0E2YU1Mdw?oc=5"
-      },
-      {
-        "title": "Hantavirus: What we know about the Atlantic cruise ship outbreak",
-        "publisher": "BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8zWWNSSE1ySENvRVJRT0hwdHlvUW5qU3NYZE9RbE0tTTB4eHhGRmI2dkpHdmhGa0ZfMXhnYVh3T0VlNzJVX196cUtlT1RMZnBhNmNVUVFLYVFIUQ?oc=5"
+        "title": "Gravitational Constant\u2019s Value Still Up in the Air",
+        "publisher": "American Physical Society",
+        "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBYaXhLWXRoTWdUckFGTDM3NXQ4RE1ZVlRKX2cydDk0a2w3YV9PQWlubGlwU2llVDJEZG82d24xSzJpQ1k2bWJxOTUycTZaVlRu?oc=5"
       },
       {
         "title": "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life",
@@ -688,55 +671,72 @@
         "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQdVRpRG12a1A3WXhZWnBWRThMRVBocFNjeXBMdWRxcmJDbTV3LVVoS2FJNWNPaHhaSHA5TE56ZkFsRThoYktjYzlFNkhGY09SQ2o3Uk54NEVUTU9oSkR2akQ1SVppV2FpU3BucG53SEh5aVRlVWo4b1I3SjA4dlBHSEdQeHowcl9ZTmszMVRWVU9VaDJqMXFOdGxsTWRmRkRUTzVZcDJSc0hHTU90Ul84?oc=5"
       }
     ],
+    "Historical Discoveries": [
+      {
+        "title": "Deadly China plane crash was caused by fuel cut-off, says report",
+        "publisher": "BBC",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OUmQwNU9kb3RUTTY2NjJyM0hYSE1ydTQ3c0g1S3UyckFfWkg3SjlyMU9LbndkT1gtS2hhWllIUWRCMUdTNnRWT1VkanlxM0VPbm4zX3dQaUQtdw?oc=5"
+      },
+      {
+        "title": "Dolly Parton cancels Las Vegas residency over health issues",
+        "publisher": "BBC",
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5sYUttUEVSX0d4Z0RwdzBTNlNuV2FTLUpYQ2h0MUV1QlVVZWsweDVidFlBcjZBZnBhOTFjSkhuMlE1VTgwQ1VQY25EamNzR29TbXAzY0JKbS03dw?oc=5"
+      },
+      {
+        "title": "Plant-associated fungi co-opt ancient antimicrobials for host manipulation",
+        "publisher": "Science | AAAS",
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBxRFFrM1B3QTNzOHhUVlNqVTZ2TlhxRHRTY2ZmUmszV2F0MDY3VVMzbkFPckVvUmp5R1RDa0J2c0V2b1pLZFJ6RmRldWlJNnR3LXpCYkdSWnhJX0dFRlFV?oc=5"
+      }
+    ],
     "Archaeology": [
       {
-        "title": "Trump says US to 'guide' stranded ships through Strait of Hormuz",
+        "title": "Deadly China plane crash was caused by fuel cut-off, says report",
         "publisher": "BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE0xaHI2TXJQei03d1VvTWh1cEtvVTZoUWNOR1RKbjdUS1hjc3RhZC0tSmhMSHhrRmFJT0xyUnBQeGYyRWZkWEJNd3JSZTJHU3hoMVE4N0E2YU1Mdw?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1OUmQwNU9kb3RUTTY2NjJyM0hYSE1ydTQ3c0g1S3UyckFfWkg3SjlyMU9LbndkT1gtS2hhWllIUWRCMUdTNnRWT1VkanlxM0VPbm4zX3dQaUQtdw?oc=5"
       },
       {
-        "title": "Hantavirus: What we know about the Atlantic cruise ship outbreak",
+        "title": "Dolly Parton cancels Las Vegas residency over health issues",
         "publisher": "BBC",
-        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE8zWWNSSE1ySENvRVJRT0hwdHlvUW5qU3NYZE9RbE0tTTB4eHhGRmI2dkpHdmhGa0ZfMXhnYVh3T0VlNzJVX196cUtlT1RMZnBhNmNVUVFLYVFIUQ?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5sYUttUEVSX0d4Z0RwdzBTNlNuV2FTLUpYQ2h0MUV1QlVVZWsweDVidFlBcjZBZnBhOTFjSkhuMlE1VTgwQ1VQY25EamNzR29TbXAzY0JKbS03dw?oc=5"
       },
       {
-        "title": "Necking of the active Turkana Rift Zone and the priming of eastern Africa for continental breakup",
+        "title": "Climate-driven depopulation and adaptation realities in America\u2019s coastal ground zero",
         "publisher": "Nature",
-        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBiOUQ3WFN6SkZLaHFweUhMNnJRb25NekQ0MGpkNHZiSDJBeFVGZjBKM1B1VTlhZnJ2QWhRUlhrdzh4VG5NOEV6YW1TWk1KSzZWWGdNRS1wYU83WC1yY2dz?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1sbW9TeHktWXpXS2p1amg4aHVKMTBPUlNUU2ltTXJaSGZQaEpmTGtLV0pxeTRSVXk1cWMtaXRqd05wYi1vUzlaaGlfWklETDRYSno3MWJmZmZ1UlZRaVNz?oc=5"
       }
     ],
     "Tools You Can Use": [
       {
-        "title": "deepseek-ai/awesome-deepseek-agent",
-        "publisher": "GitHub",
-        "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9OdTdJLUNuSWFRYUprTWFHcnNMV1Q1aS1qTmhGNkRnRkI1d2h3SC0wRjh1WG53MFRhQ0J4WnVBUFJzdWtnOUJwSlMwOTl0MHRLdl9uODV6T0hLNWp3UmlZNGZrRQ?oc=5"
-      },
-      {
-        "title": "SuperMind: Business that Runs Itself",
+        "title": "Mindra: Agent Teams You Can Actually Delegate To",
         "publisher": "Product Hunt",
-        "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1jbEhZQlMwYnU1dFdMOEY5Nl84ZXAyR3ZWZnNWN210OGowTmJ2Rl9mMzF5ZlVlTndiMEV0VVJfS2xDNzdVc2NfSW1JZjNkOGVzdTJXcnB5QnBUUnc1?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5DVkFxbEJpUEZVNEE0OVJ0dzVLbV9PWWlDMWtnTFg3M3hMLUhpMW9yb0VnUDRwQkwzTm5vaHAwVXFVNWFwZS01WHB0YTY5dTk0WjJQQjVB?oc=5"
       },
       {
-        "title": "[2604.21816] Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows",
+        "title": "Beyond State Machines: Executing Network Procedures with Agentic Tool-Calling Sequences",
         "publisher": "arXiv",
-        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1qZERteXo4QXI4bUliWmlDdVp2RzZaZlRuVmdSdGpmOGNVMkhzZmV4b2haR09CVjEwWklycUZ6Vzd4b3JNblJZ?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5laGd5WE9CSWxTaUxxcVcwNFJkRGM5SlhMYTBUMEZkMTBRdUZKYjlUY3d3LWZGX2R3M3F0R2pXdGp2aHM0V2I0?oc=5"
+      },
+      {
+        "title": "garylab/MakeMoneyWithAI: A list of open-source AI projects you can use to generate income easily.",
+        "publisher": "GitHub",
+        "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE40ekc1Z2dOb0c2Z3lJc1o3VjB5Y3NJZlAybnpxSDJ3UzBkNGcxRjZmTHFqbWhVdGwwbjNnWF9mQzVReklqSTUydmJUSTQtWC1QT1ozYg?oc=5"
       }
     ],
     "Entertainment": [
       {
-        "title": "Netflix\u2019s New Releases Coming in May 2026",
+        "title": "A driver plows into people in a shopping area in Germany, killing 2",
+        "publisher": "AP News",
+        "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQdTNDYjNLRFZNNWtEaS1WdHZUZGdwcFhvb3EwVU5DNEJBXy1RMzJJc0FKSlpXT295ZzhnSUpYVERZemctc1dwYmhubDc0WTY1SU85YXA0NFRlOXQ1ZG15XzYwU3FNcmtOUV8wNGNhNENCOWw2OWg2bUFva2RmUWgyWmw0dk1QNUdGdE41dm5OdnpyVFFiNDRFRmlR?oc=5"
+      },
+      {
+        "title": "New 'Longlegs' Movie Set for 2028 Release Date",
         "publisher": "The Hollywood Reporter",
-        "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQTWRtTldnODJYYkpOaF9pZE9JZFRkMXEtUENtbEd4M0VvZXVmUFhxWnFhRXE2SDVveTJBbE9GeldONTVTU3VMajhrVm4tY3E1dnZtVnlaOFlEd0JTS2EzRXgtUld1RTVqRW1CUElIRWE0T2NoemEzcFhpRHphaW44N2Z2SVA3QklWeDNjSkpRUXNXQl9XSlZacS1hdzA?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSlBNNC1Hdi0wZ2paNXFtaVNwQk9hMk9JQ1ItQWZhcVJ3Z0FQU0VqWGpxdHFTNW5vZWl3Q1FTeEUwLWlKNFRQWlJLX1FkS3lHN1ZLQWlJc2VqRW5ZY0pGaDZyQ0JhRnNXcHF1U01PS2ludXduLWk1aXZhUXJSWm4tZlFLQ0dIX3BwZXh0eUhXT0VHNjBMWjhTYkJ3aw?oc=5"
       },
       {
-        "title": "What\u2019s Coming to Tubi in May 2026",
-        "publisher": "Variety",
-        "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5nWFNNZlZtNkw3V2tQNVNCbGFTYzdIYUxFUVdxLXdGQ1FvdnJvdmdlakFOcVVYTUs0MGo4NFRZbDhwWWFzQXZVN3ZjVlhMQTFPUnRiNHN6YV85VDd2QW52eTRPbUhQUXdaUF96SDF0aUdnV2dPamtPSVUybw?oc=5"
-      },
-      {
-        "title": "Jeanine Pirro says evidence shows suspect shot officer at White House press dinner",
+        "title": "At least 13 hurt in shooting at Oklahoma campground party",
         "publisher": "The Guardian",
-        "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNOGdsVW8xQi1JWWlNVTdvZXIyR0dkeDZLa1E4dGpzbnJrajBsdVl1aHZKS1BfWjBaaWFqc3FfeVh6U2FSODRTaGtIRGpkX0pzVklobHVFdGF0dG5PX05mc0NwUmNzY2R3ZFUwQ3dXZTR1S0ttMDhGb1dCNHVHTzZoemI4Zkoxcmp4U0l3b3d6UG9ZUWxlX291cWwydw?oc=5"
+        "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPWmNBc0k4Tk1WdUNBcnlKUjAwdXU4M1FsM04zLTBsZFFnUWc3MU8xbF9nbHFPdHZyZHZId0tnXzVkUURpNndaSURMN3hTU2ZXdG5PZFhldlYwSDUwMGptamRaZ2REMEs1eHZVdlNJMFg1YTBnX2lKZ3NrREZRd2wxZVR3SQ?oc=5"
       }
     ],
     "Travel": [
@@ -746,14 +746,14 @@
         "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQLWh0eVkwVGl5dmdNanZUUldXbExDb29wdzBlRWVOckVqWENRREZiaFJvYmRkNUtQd1JPR0JkVDJDejFXSXR6bXh3eGZKRjdEVFNCZ0t5QWZMS1Zvam45Uk45YU9WaHMxTXFNeTg3bGx1SEozS0dDTmJXU0lGb29CS2dhUDRFanFEeHA4V2RtQ05Kbm9YWnBxOGdxYXBKQzlPUVkzRA?oc=5"
       },
       {
-        "title": "21 best places to visit in September, according to the travel editors",
-        "publisher": "CN Traveller",
-        "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9iZC1iQzh4bVNvVVRSX3BXWjhSTUVNZ2xMZjZnZFdlS2djTG45a0wxTF9Ca2xXTjRLeTFHU1Y4dGI3OVRRN3lKNkR2WGFxTi1ZWnRhMXFzWFRNQ3NaNGhiMmJHX0x3dFlVc2ctNVFGMUFKeFMyd21IQlpuN0tIN0U?oc=5"
-      },
-      {
         "title": "11 of the best places to visit in the US",
         "publisher": "The Times",
         "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUHhNYkhBRElFVUl4U1ZySWtENlhpbjlra0dxQjl5bHl1bkZzNjRXWTBIRGlPLWV4ZzZrRVVMS05oTm1vaVRzZG56ZkV4eU1GRTNzSVhwT25yeHBGclBPVDcxR2tRcE9ock9pYWdmSDBaVy13eGZ4cEZrQ0NFdnFUaFNPazhtdzBKdGI2YkEzR3haems0dWhTT0k4WkItYTYyUFBlWWRjNV9iNDdUR1VJZzhtbW8wbVU?oc=5"
+      },
+      {
+        "title": "The 10 best places to visit in May",
+        "publisher": "The Points Guy",
+        "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE80SzRncm5VYnk0NzJwamdKZ3lrVEFHZDZGbUFaNDNiSjdHT3lyZmJ0RS1DZmRaN0o5VHhqOEl1NHdIbUhhcUItcnd4b3ZxbDRJQ1h5bHNQV2tpRXNxN3A1WVFWVEp5cmFMOUFZakExX01TM1E?oc=5"
       }
     ]
   },
@@ -848,9 +848,9 @@
             ],
             "matched_entry_count": 9,
             "matched_titles": [
-              "The exotic particles that could finally break the Standard Model",
-              "Squeezing, trisqueezing and quadsqueezing in a hybrid oscillator\u2013spin system",
-              "Resonant chiral dressing by amplitude fluctuations in a ferroaxial electronic crystal"
+              "Atmospheric warming contributions from airborne microplastics and nanoplastics",
+              "Detection of an atmosphere on a trans-Neptunian object beyond Pluto",
+              "The exotic particles that could finally break the Standard Model"
             ],
             "matching_queries": [
               "site:nature.com physics OR quantum OR relativity OR proton radius",
@@ -990,8 +990,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Trump\u2019s mass firing just dealt another blow to American science",
-              "10 Breakthrough Technologies 2026"
+              "Inexpensive seafloor-hopping submersibles could stoke deep-sea science\u2014and mining",
+              "Trump\u2019s mass firing just dealt another blow to American science"
             ],
             "matching_queries": [
               "(science OR scientists OR physics OR quantum) site:technologyreview.com"
@@ -1037,8 +1037,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Why the Ideal Magnet Remains Out of Reach",
-              "Engineering Collisions: How NYU Is Remaking Health Research"
+              "With $1 Cyberattacks on the Rise, Durable Defenses Pay Off",
+              "Why the Ideal Magnet Remains Out of Reach"
             ],
             "matching_queries": [
               "(science OR scientists OR physics OR quantum) site:spectrum.ieee.org"
@@ -1175,6 +1175,32 @@
         },
         {
           "cluster_id": 2,
+          "lead_title": "Detection of an atmosphere on a trans-Neptunian object beyond Pluto",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Detection of an atmosphere on a trans-Neptunian object beyond Pluto"
+          ]
+        },
+        {
+          "cluster_id": 3,
+          "lead_title": "Atmospheric warming contributions from airborne microplastics and nanoplastics",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Atmospheric warming contributions from airborne microplastics and nanoplastics"
+          ]
+        },
+        {
+          "cluster_id": 4,
           "lead_title": "Charge-dependent spectral softenings of primary cosmic rays below the knee",
           "lead_source": "Nature",
           "support_count": 1,
@@ -1187,20 +1213,7 @@
           ]
         },
         {
-          "cluster_id": 3,
-          "lead_title": "Optical nanoscopy of spatiotemporal metal stripping cooperativity at single-ion and subparticle resolution",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Optical nanoscopy of spatiotemporal metal stripping cooperativity at single-ion and subparticle resolution"
-          ]
-        },
-        {
-          "cluster_id": 4,
+          "cluster_id": 5,
           "lead_title": "Synthesis of monodisperse InSb colloidal quantum dots by monomer concentration control for short-wave infrared photodetectors",
           "lead_source": "Nature",
           "support_count": 1,
@@ -1210,19 +1223,6 @@
           ],
           "member_titles": [
             "Synthesis of monodisperse InSb colloidal quantum dots by monomer concentration control for short-wave infrared photodetectors"
-          ]
-        },
-        {
-          "cluster_id": 5,
-          "lead_title": "Single-photon superabsorption in CsPbBr",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Single-photon superabsorption in CsPbBr"
           ]
         },
         {
@@ -1240,6 +1240,19 @@
         },
         {
           "cluster_id": 7,
+          "lead_title": "Exploring the behavior of a strung computational Stradivarius violin - npj Acoustics",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Exploring the behavior of a strung computational Stradivarius violin - npj Acoustics"
+          ]
+        },
+        {
+          "cluster_id": 8,
           "lead_title": "Scaling and self-similarity in the formation of the embryonic epigenome",
           "lead_source": "Nature",
           "support_count": 1,
@@ -1250,19 +1263,6 @@
           "member_titles": [
             "Scaling and self-similarity in the formation of the embryonic epigenome"
           ]
-        },
-        {
-          "cluster_id": 8,
-          "lead_title": "RETRACTED ARTICLE: The effect of ChatGPT on students\u2019 learning performance, learning perception, and higher-order thinking: insights from a meta-analysis",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "RETRACTED ARTICLE: The effect of ChatGPT on students\u2019 learning performance, learning perception, and higher-order thinking: insights from a meta-analysis"
-          ]
         }
       ]
     },
@@ -1270,7 +1270,7 @@
       "status": "ok",
       "query_count": 6,
       "failed_queries": 0,
-      "entry_count": 21,
+      "entry_count": 20,
       "newsletter_entry_count": 0,
       "queries": [
         {
@@ -1351,7 +1351,7 @@
             "matched_titles": [
               "\u2018World models\u2019 are AI\u2019s latest sensation: what are they and what can they do?",
               "To hire good scientists, look at their peer-reviewing records",
-              "Towards end-to-end automation of AI research"
+              "\u2018The job description is changing\u2019: mathematician Terence Tao on the rise of AI"
             ],
             "matching_queries": [
               "site:nature.com AI for science research"
@@ -1439,8 +1439,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Darkness can travel faster than light",
-              "Coffee with a splash of physics: how to make the most out of your brew"
+              "AI could help human scientists pick promising research topics",
+              "Darkness can travel faster than light"
             ],
             "matching_queries": [
               "(paper OR study OR preprint OR experiment) site:physicsworld.com"
@@ -1468,10 +1468,10 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 10,
+            "matched_entry_count": 9,
             "matched_titles": [
               "Probe of Generic Quantum Contextuality and Nonlocal Resources for Qubits",
-              "Fundamental Physics, Existential Risks and Human Futures",
+              "A Cosmological Uncertainty Relation and Late-Universe Acceleration",
               "1 Introduction"
             ],
             "matching_queries": [
@@ -1801,7 +1801,7 @@
         },
         {
           "cluster_id": 4,
-          "lead_title": "Fundamental Physics, Existential Risks and Human Futures",
+          "lead_title": "A Cosmological Uncertainty Relation and Late-Universe Acceleration",
           "lead_source": "arXiv",
           "support_count": 1,
           "member_count": 1,
@@ -1809,7 +1809,7 @@
             "arXiv"
           ],
           "member_titles": [
-            "Fundamental Physics, Existential Risks and Human Futures"
+            "A Cosmological Uncertainty Relation and Late-Universe Acceleration"
           ]
         },
         {
@@ -1959,10 +1959,10 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 3,
+            "matched_entry_count": 4,
             "matched_titles": [
               "US urges nations to back \u2018trade over aid\u2019 plan as UN warns against privatizing assistance",
-              "An underwater bus in Havana becomes the ride that matters during Cuba\u2019s fuel crisis",
+              "Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows",
               "2 Mexican Navy ships laden with humanitarian aid dock in Cuba as US blockade sparks energy crisis"
             ],
             "matching_queries": [
@@ -2130,8 +2130,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "China is seeking self-sufficiency in police dogs",
-              "India\u2019s weak currency reflects deeper problems than the Iran war"
+              "China thinks America is declining but still uniquely dangerous",
+              "Friedrich Merz\u2019s ill-timed tussle with Donald Trump"
             ],
             "matching_queries": [
               "(war OR conflict OR europe OR china) site:economist.com"
@@ -2161,8 +2161,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Lebanon: Conflict Intensity, 2 March - 20 April 2026",
-              "Darfur's survivors of a war #3YearsTooLong"
+              "Lebanon: Conflict Intensity, 2 March - 30 April 2026",
+              "Mozambique: 2026 Humanitarian Response (Conflict), as 31 March 2026 [EN/PT]"
             ],
             "matching_queries": [
               "(war OR conflict OR europe OR china) site:unocha.org"
@@ -2259,8 +2259,9 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 1,
+            "matched_entry_count": 2,
             "matched_titles": [
+              "Daily News 04 / 05 / 2026",
               "Daily News 28 / 04 / 2026"
             ],
             "matching_queries": [
@@ -2341,42 +2342,17 @@
           "lead_title": "World Economic Outlook, April 2026: Global Economy in the Shadow of War",
           "lead_source": "International Monetary Fund | IMF",
           "support_count": 1,
-          "member_count": 1,
+          "member_count": 2,
           "sources": [
             "International Monetary Fund | IMF"
           ],
           "member_titles": [
-            "World Economic Outlook, April 2026: Global Economy in the Shadow of War"
+            "World Economic Outlook, April 2026: Global Economy in the Shadow of War",
+            "World Economic Outlook, October 2025; Global Economy in Flux, Prospects Remain Dim"
           ]
         },
         {
           "cluster_id": 3,
-          "lead_title": "War in the Middle East Challenges Global Financial Stability",
-          "lead_source": "International Monetary Fund | IMF",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "International Monetary Fund | IMF"
-          ],
-          "member_titles": [
-            "War in the Middle East Challenges Global Financial Stability"
-          ]
-        },
-        {
-          "cluster_id": 4,
-          "lead_title": "Immediately Restore Freedom of Navigation through Strait of Hormuz, Speakers Urge in Security Council Condemning Critical Waterway\u2019s Use as \u2018Bargaining Chip\u2019 | UN Meetings Coverage and Press Releases",
-          "lead_source": "Welcome to the United Nations",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Welcome to the United Nations"
-          ],
-          "member_titles": [
-            "Immediately Restore Freedom of Navigation through Strait of Hormuz, Speakers Urge in Security Council Condemning Critical Waterway\u2019s Use as \u2018Bargaining Chip\u2019 | UN Meetings Coverage and Press Releases"
-          ]
-        },
-        {
-          "cluster_id": 5,
           "lead_title": "Geopolitics Is Corroding Globalization",
           "lead_source": "International Monetary Fund | IMF",
           "support_count": 1,
@@ -2389,33 +2365,22 @@
           ]
         },
         {
-          "cluster_id": 6,
-          "lead_title": "The Global Risks Report 2026",
-          "lead_source": "The World Economic Forum",
-          "support_count": 1,
-          "member_count": 1,
+          "cluster_id": 4,
+          "lead_title": "Global economic outlook worsens amid trade conflict and policy uncertainty, United Nations Report says",
+          "lead_source": "Welcome to the United Nations",
+          "support_count": 2,
+          "member_count": 2,
           "sources": [
-            "The World Economic Forum"
+            "The World Economic Forum",
+            "Welcome to the United Nations"
           ],
           "member_titles": [
+            "Global economic outlook worsens amid trade conflict and policy uncertainty, United Nations Report says",
             "The Global Risks Report 2026"
           ]
         },
         {
-          "cluster_id": 7,
-          "lead_title": "An underwater bus in Havana becomes the ride that matters during Cuba\u2019s fuel crisis",
-          "lead_source": "AP News",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "AP News"
-          ],
-          "member_titles": [
-            "An underwater bus in Havana becomes the ride that matters during Cuba\u2019s fuel crisis"
-          ]
-        },
-        {
-          "cluster_id": 8,
+          "cluster_id": 5,
           "lead_title": "US urges nations to back \u2018trade over aid\u2019 plan as UN warns against privatizing assistance",
           "lead_source": "AP News",
           "support_count": 1,
@@ -2425,6 +2390,45 @@
           ],
           "member_titles": [
             "US urges nations to back \u2018trade over aid\u2019 plan as UN warns against privatizing assistance"
+          ]
+        },
+        {
+          "cluster_id": 6,
+          "lead_title": "2 Mexican Navy ships laden with humanitarian aid dock in Cuba as US blockade sparks energy crisis",
+          "lead_source": "AP News",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "AP News"
+          ],
+          "member_titles": [
+            "2 Mexican Navy ships laden with humanitarian aid dock in Cuba as US blockade sparks energy crisis"
+          ]
+        },
+        {
+          "cluster_id": 7,
+          "lead_title": "Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows",
+          "lead_source": "AP News",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "AP News"
+          ],
+          "member_titles": [
+            "Aid groups crippled by foreign aid cuts plead for funds as Middle East humanitarian crisis grows"
+          ]
+        },
+        {
+          "cluster_id": 8,
+          "lead_title": "Top diplomats from G7 countries meet in Canada as trade tensions rise with Trump",
+          "lead_source": "AP News",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "AP News"
+          ],
+          "member_titles": [
+            "Top diplomats from G7 countries meet in Canada as trade tensions rise with Trump"
           ]
         }
       ]
@@ -2706,7 +2710,7 @@
             "matched_entry_count": 2,
             "matched_titles": [
               "What Can We Gain by Losing Infinity?",
-              "A New Type of Neuroplasticity Rewires the Brain After a Single Experience"
+              "Physicists Discover the Most Complex Forms of Ice Yet"
             ],
             "matching_queries": [
               "site:quantamagazine.org"
@@ -2757,7 +2761,7 @@
         },
         {
           "cluster_id": 4,
-          "lead_title": "A New Type of Neuroplasticity Rewires the Brain After a Single Experience",
+          "lead_title": "Physicists Discover the Most Complex Forms of Ice Yet",
           "lead_source": "Quanta Magazine",
           "support_count": 1,
           "member_count": 1,
@@ -2765,7 +2769,7 @@
             "Quanta Magazine"
           ],
           "member_titles": [
-            "A New Type of Neuroplasticity Rewires the Brain After a Single Experience"
+            "Physicists Discover the Most Complex Forms of Ice Yet"
           ]
         }
       ]
@@ -2994,19 +2998,6 @@
       "story_clusters": [
         {
           "cluster_id": 1,
-          "lead_title": "Gut microbiome\u2013driven colorectal cancer via immune, metabolic, neural, and endocrine axes reprogramming",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Gut microbiome\u2013driven colorectal cancer via immune, metabolic, neural, and endocrine axes reprogramming"
-          ]
-        },
-        {
-          "cluster_id": 2,
           "lead_title": "Insights into human adaptation from ancient DNA",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3019,7 +3010,7 @@
           ]
         },
         {
-          "cluster_id": 3,
+          "cluster_id": 2,
           "lead_title": "Unravelling bacterial complexity at high resolution with single-cell transcriptomics",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3032,7 +3023,7 @@
           ]
         },
         {
-          "cluster_id": 4,
+          "cluster_id": 3,
           "lead_title": "Gut microbiota\u2013mediated lipid accumulation as a driver of evolutionary adaptation to blue light toxicity in Drosophila",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3045,7 +3036,7 @@
           ]
         },
         {
-          "cluster_id": 5,
+          "cluster_id": 4,
           "lead_title": "Gut microbiome community structure correlates with different behavioral phenotypes in the Belyaev Farm-Fox Experiment",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3055,6 +3046,19 @@
           ],
           "member_titles": [
             "Gut microbiome community structure correlates with different behavioral phenotypes in the Belyaev Farm-Fox Experiment"
+          ]
+        },
+        {
+          "cluster_id": 5,
+          "lead_title": "Identification of antimicrobial peptides from ancient gut microbiomes",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Identification of antimicrobial peptides from ancient gut microbiomes"
           ]
         }
       ]
@@ -3281,32 +3285,6 @@
       "story_clusters": [
         {
           "cluster_id": 1,
-          "lead_title": "Topological turning points across the human lifespan",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Topological turning points across the human lifespan"
-          ]
-        },
-        {
-          "cluster_id": 2,
-          "lead_title": "Nonergodicity and Simpson\u2019s paradox in neurocognitive dynamics of cognitive control",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Nonergodicity and Simpson\u2019s paradox in neurocognitive dynamics of cognitive control"
-          ]
-        },
-        {
-          "cluster_id": 3,
           "lead_title": "Topic explorer",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3319,7 +3297,7 @@
           ]
         },
         {
-          "cluster_id": 4,
+          "cluster_id": 2,
           "lead_title": "RETRACTED ARTICLE: The effect of ChatGPT on students\u2019 learning performance, learning perception, and higher-order thinking: insights from a meta-analysis",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3332,7 +3310,7 @@
           ]
         },
         {
-          "cluster_id": 5,
+          "cluster_id": 3,
           "lead_title": "Categorization is \u2018baked\u2019 into the brain",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3342,6 +3320,32 @@
           ],
           "member_titles": [
             "Categorization is \u2018baked\u2019 into the brain"
+          ]
+        },
+        {
+          "cluster_id": 4,
+          "lead_title": "Cognition",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Cognition"
+          ]
+        },
+        {
+          "cluster_id": 5,
+          "lead_title": "Cognitive Neuroscience",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Cognitive Neuroscience"
           ]
         }
       ]
@@ -3597,19 +3601,6 @@
         },
         {
           "cluster_id": 2,
-          "lead_title": "Underrepresentation of children in public medical imaging datasets",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Underrepresentation of children in public medical imaging datasets"
-          ]
-        },
-        {
-          "cluster_id": 3,
           "lead_title": "Reduced symptom reporting quality during human\u2013chatbot versus human\u2013physician interactions",
           "lead_source": "Nature",
           "support_count": 1,
@@ -3619,6 +3610,20 @@
           ],
           "member_titles": [
             "Reduced symptom reporting quality during human\u2013chatbot versus human\u2013physician interactions"
+          ]
+        },
+        {
+          "cluster_id": 3,
+          "lead_title": "Breast cancer",
+          "lead_source": "World Health Organization (WHO)",
+          "support_count": 1,
+          "member_count": 2,
+          "sources": [
+            "World Health Organization (WHO)"
+          ],
+          "member_titles": [
+            "Breast cancer",
+            "Cancer"
           ]
         },
         {
@@ -3632,19 +3637,6 @@
           ],
           "member_titles": [
             "Towards generalizable AI in medicine via Generalist\u2013Specialist Collaboration"
-          ]
-        },
-        {
-          "cluster_id": 5,
-          "lead_title": "Breast cancer",
-          "lead_source": "World Health Organization (WHO)",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "World Health Organization (WHO)"
-          ],
-          "member_titles": [
-            "Breast cancer"
           ]
         }
       ]
@@ -3853,8 +3845,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Banks seek to offload risk to avoid \u2018choking\u2019 on data centre debt",
-              "Trump administration cites national security to widen clampdown on wind farms"
+              "At 100, Route 66 still ties the US and the world together",
+              "Vladimir Putin hunkers down for fear of assassination"
             ],
             "matching_queries": [
               "site:ft.com"
@@ -3918,7 +3910,7 @@
         },
         {
           "cluster_id": 5,
-          "lead_title": "Human-animal interactions and relations",
+          "lead_title": "Advancing applied behavioral science: the GAP framework",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -3926,12 +3918,12 @@
             "Nature"
           ],
           "member_titles": [
-            "Human-animal interactions and relations"
+            "Advancing applied behavioral science: the GAP framework"
           ]
         },
         {
           "cluster_id": 6,
-          "lead_title": "Trump administration cites national security to widen clampdown on wind farms",
+          "lead_title": "At 100, Route 66 still ties the US and the world together",
           "lead_source": "Financial Times",
           "support_count": 1,
           "member_count": 1,
@@ -3939,12 +3931,12 @@
             "Financial Times"
           ],
           "member_titles": [
-            "Trump administration cites national security to widen clampdown on wind farms"
+            "At 100, Route 66 still ties the US and the world together"
           ]
         },
         {
           "cluster_id": 7,
-          "lead_title": "Banks seek to offload risk to avoid \u2018choking\u2019 on data centre debt",
+          "lead_title": "Vladimir Putin hunkers down for fear of assassination",
           "lead_source": "Financial Times",
           "support_count": 1,
           "member_count": 1,
@@ -3952,7 +3944,7 @@
             "Financial Times"
           ],
           "member_titles": [
-            "Banks seek to offload risk to avoid \u2018choking\u2019 on data centre debt"
+            "Vladimir Putin hunkers down for fear of assassination"
           ]
         }
       ]
@@ -3961,7 +3953,7 @@
       "status": "ok",
       "query_count": 8,
       "failed_queries": 0,
-      "entry_count": 24,
+      "entry_count": 25,
       "newsletter_entry_count": 4,
       "queries": [
         {
@@ -3974,7 +3966,7 @@
           "query": "chips space energy infrastructure manufacturing site:morningbrew.com OR site:join1440.com",
           "kind": "configured",
           "status": "ok",
-          "entry_count": 3
+          "entry_count": 4
         },
         {
           "query": "(technology OR chip OR chips OR semiconductor) site:spectrum.ieee.org",
@@ -4038,9 +4030,9 @@
             ],
             "matched_entry_count": 4,
             "matched_titles": [
-              "Laser Doppler vibrometry",
-              "Constructing gene co-functional and co-regulatory networks from public transcriptomes using condition-specific ensemble co-expression",
-              "A quantum-coherent photon\u2013emitter interface in the original telecom band"
+              "Autonomous microfluidic experimentation for exploring reaction interference and synthesizing double perovskite nanoplatelets",
+              "Wood that bonds itself via homologous adhesion through cellulose reconstitution",
+              "Environmental coherence framework for multi-sensor remote sensing: water hyacinth assessment in Lake Tana"
             ],
             "matching_queries": [
               "technology infrastructure computing materials site:nature.com OR site:technologyreview.com"
@@ -4112,9 +4104,10 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 2,
+            "matched_entry_count": 3,
             "matched_titles": [
               "More time",
+              "Code red",
               "Supermarket sweep"
             ],
             "matching_queries": [
@@ -4145,7 +4138,7 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Chips Sense Free Radicals With Speed",
+              "Video Friday: Figure, 1X Ramp Up Humanoid Robot Production",
               "The Chip That Made Hardware Rewriteable"
             ],
             "matching_queries": [
@@ -4174,8 +4167,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Semafor launches Silicon Valley & The World",
-              "Exclusive / PsiQuantum adds Intel\u2019s Lip-Bu Tan to board"
+              "Exclusive / C-suite exodus at Boston Dynamics",
+              "Semafor launches Silicon Valley & The World"
             ],
             "matching_queries": [
               "(technology OR chip OR chips OR semiconductor) site:semafor.com"
@@ -4290,7 +4283,7 @@
       "story_clusters": [
         {
           "cluster_id": 1,
-          "lead_title": "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA",
+          "lead_title": "Autonomous microfluidic experimentation for exploring reaction interference and synthesizing double perovskite nanoplatelets",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -4298,12 +4291,12 @@
             "Nature"
           ],
           "member_titles": [
-            "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA"
+            "Autonomous microfluidic experimentation for exploring reaction interference and synthesizing double perovskite nanoplatelets"
           ]
         },
         {
           "cluster_id": 2,
-          "lead_title": "A quantum-coherent photon\u2013emitter interface in the original telecom band",
+          "lead_title": "Environmental coherence framework for multi-sensor remote sensing: water hyacinth assessment in Lake Tana",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -4311,12 +4304,12 @@
             "Nature"
           ],
           "member_titles": [
-            "A quantum-coherent photon\u2013emitter interface in the original telecom band"
+            "Environmental coherence framework for multi-sensor remote sensing: water hyacinth assessment in Lake Tana"
           ]
         },
         {
           "cluster_id": 3,
-          "lead_title": "Constructing gene co-functional and co-regulatory networks from public transcriptomes using condition-specific ensemble co-expression",
+          "lead_title": "A digital archive reveals how a funding agency cooperated with academics to support the nascent field of genomics",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -4324,12 +4317,12 @@
             "Nature"
           ],
           "member_titles": [
-            "Constructing gene co-functional and co-regulatory networks from public transcriptomes using condition-specific ensemble co-expression"
+            "A digital archive reveals how a funding agency cooperated with academics to support the nascent field of genomics"
           ]
         },
         {
           "cluster_id": 4,
-          "lead_title": "Laser Doppler vibrometry",
+          "lead_title": "Wood that bonds itself via homologous adhesion through cellulose reconstitution",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -4337,7 +4330,7 @@
             "Nature"
           ],
           "member_titles": [
-            "Laser Doppler vibrometry"
+            "Wood that bonds itself via homologous adhesion through cellulose reconstitution"
           ]
         },
         {
@@ -4383,15 +4376,15 @@
         },
         {
           "cluster_id": 8,
-          "lead_title": "The Chip That Made Hardware Rewriteable",
-          "lead_source": "IEEE Spectrum",
+          "lead_title": "Code red",
+          "lead_source": "Morning Brew",
           "support_count": 1,
           "member_count": 1,
           "sources": [
-            "IEEE Spectrum"
+            "Morning Brew"
           ],
           "member_titles": [
-            "The Chip That Made Hardware Rewriteable"
+            "Code red"
           ]
         }
       ]
@@ -4400,7 +4393,7 @@
       "status": "ok",
       "query_count": 2,
       "failed_queries": 0,
-      "entry_count": 7,
+      "entry_count": 6,
       "newsletter_entry_count": 0,
       "queries": [
         {
@@ -4443,8 +4436,8 @@
             "matched_entry_count": 4,
             "matched_titles": [
               "DAIMON Robotics Wants to Give Robot Hands a Sense of Touch",
-              "AI Processing of Earth Images Can Now Run in Space",
-              "The Chip That Made Hardware Rewriteable"
+              "iRobot Founder Wants to Put a Robotic Familiar Into Your Home",
+              "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible"
             ],
             "matching_queries": [
               "site:spectrum.ieee.org"
@@ -4612,17 +4605,15 @@
         },
         {
           "cluster_id": 2,
-          "lead_title": "Embodied AI for Security: Robotic Agents in Surveillance, Disaster Response, and Cyber-Physical Defense",
-          "lead_source": "ieeexplore.ieee.org",
-          "support_count": 2,
-          "member_count": 2,
+          "lead_title": "iRobot Founder Wants to Put a Robotic Familiar Into Your Home",
+          "lead_source": "IEEE Spectrum",
+          "support_count": 1,
+          "member_count": 1,
           "sources": [
-            "Nature",
-            "ieeexplore.ieee.org"
+            "IEEE Spectrum"
           ],
           "member_titles": [
-            "Embodied AI for Security: Robotic Agents in Surveillance, Disaster Response, and Cyber-Physical Defense",
-            "From embodied intelligence to physical AI"
+            "iRobot Founder Wants to Put a Robotic Familiar Into Your Home"
           ]
         },
         {
@@ -4630,12 +4621,13 @@
           "lead_title": "How \u2018embodied intelligence\u2019 makes robots seem more human",
           "lead_source": "Nature",
           "support_count": 1,
-          "member_count": 1,
+          "member_count": 2,
           "sources": [
             "Nature"
           ],
           "member_titles": [
-            "How \u2018embodied intelligence\u2019 makes robots seem more human"
+            "How \u2018embodied intelligence\u2019 makes robots seem more human",
+            "From embodied intelligence to physical AI"
           ]
         },
         {
@@ -4653,7 +4645,7 @@
         },
         {
           "cluster_id": 5,
-          "lead_title": "AI Processing of Earth Images Can Now Run in Space",
+          "lead_title": "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible",
           "lead_source": "IEEE Spectrum",
           "support_count": 1,
           "member_count": 1,
@@ -4661,20 +4653,7 @@
             "IEEE Spectrum"
           ],
           "member_titles": [
-            "AI Processing of Earth Images Can Now Run in Space"
-          ]
-        },
-        {
-          "cluster_id": 6,
-          "lead_title": "The Chip That Made Hardware Rewriteable",
-          "lead_source": "IEEE Spectrum",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "IEEE Spectrum"
-          ],
-          "member_titles": [
-            "The Chip That Made Hardware Rewriteable"
+            "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible"
           ]
         }
       ]
@@ -4808,7 +4787,7 @@
             "matched_entry_count": 2,
             "matched_titles": [
               "AI co-clinician: researching the path toward AI-augmented care",
-              "Announcing our partnership with the Republic of Korea"
+              "Google DeepMind and Korea Partner to Accelerate Scientific Discovery"
             ],
             "matching_queries": [
               "(ai OR artificial intelligence OR model OR models) site:deepmind.google",
@@ -4917,9 +4896,9 @@
             ],
             "matched_entry_count": 5,
             "matched_titles": [
-              "microsoft/semantic-kernel: Integrate cutting-edge LLM technology quickly and easily into your apps",
               "rohitg00/awesome-openclaw",
-              "Feature Request: Support AGENTS.md. \u00b7 Issue #6235 \u00b7 anthropics/claude-code"
+              "Feature Request: Support AGENTS.md. \u00b7 Issue #6235 \u00b7 anthropics/claude-code",
+              "Build software better, together"
             ],
             "matching_queries": [
               "AI agents tool use interoperability site:openai.com OR site:nature.com OR site:github.com"
@@ -5031,8 +5010,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Elon Musk admits xAI distilled OpenAI models",
-              "Exclusive / House committees probe Cursor parent, Airbnb over Chinese AI"
+              "Exclusive / House committees probe Cursor parent, Airbnb over Chinese AI",
+              "Debatable: Universal basic income"
             ],
             "matching_queries": [
               "(ai OR artificial intelligence OR model OR models) site:semafor.com"
@@ -5047,7 +5026,7 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "All the evidence revealed so far in Musk v. Altman",
+              "Elon Musk confirms xAI used OpenAI\u2019s models to train Grok",
               "The more young people use AI, the more they hate it"
             ],
             "matching_queries": [
@@ -5080,8 +5059,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Better Hardware Could Turn Zeros into AI Heroes",
-              "Can Biologists Rewrite the Genome\u2019s Spaghetti Code?"
+              "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible",
+              "Claude Mythos Preview Requires New Ways to Keep Code Secure"
             ],
             "matching_queries": [
               "(ai OR artificial intelligence OR model OR models) site:spectrum.ieee.org"
@@ -5132,19 +5111,6 @@
         },
         {
           "cluster_id": 4,
-          "lead_title": "microsoft/semantic-kernel: Integrate cutting-edge LLM technology quickly and easily into your apps",
-          "lead_source": "GitHub",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "GitHub"
-          ],
-          "member_titles": [
-            "microsoft/semantic-kernel: Integrate cutting-edge LLM technology quickly and easily into your apps"
-          ]
-        },
-        {
-          "cluster_id": 5,
           "lead_title": "rohitg00/awesome-openclaw",
           "lead_source": "GitHub",
           "support_count": 1,
@@ -5154,6 +5120,19 @@
           ],
           "member_titles": [
             "rohitg00/awesome-openclaw"
+          ]
+        },
+        {
+          "cluster_id": 5,
+          "lead_title": "Build software better, together",
+          "lead_source": "GitHub",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "GitHub"
+          ],
+          "member_titles": [
+            "Build software better, together"
           ]
         },
         {
@@ -5449,8 +5428,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "With $1 Cyberattacks on the Rise, Durable Defenses Pay Off",
-              "Power Buffer Protects Grid From Data Centers\u2019 Wild Load Swings"
+              "Perfectly Aligning AI\u2019s Values With Humanity\u2019s Is Impossible",
+              "This Roboticist-Turned-Teacher Built a Life-Size Replica of ENIAC"
             ],
             "matching_queries": [
               "(engineering OR manufacturing OR grid OR reactor) site:spectrum.ieee.org"
@@ -5477,6 +5456,19 @@
       "story_clusters": [
         {
           "cluster_id": 1,
+          "lead_title": "Wood that bonds itself via homologous adhesion through cellulose reconstitution",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Wood that bonds itself via homologous adhesion through cellulose reconstitution"
+          ]
+        },
+        {
+          "cluster_id": 2,
           "lead_title": "Spatial Aware Collaborative Representation for Classifying Roads, Buildings, And Construction Materials In Hyperspectral Images",
           "lead_source": "ieeexplore.ieee.org",
           "support_count": 1,
@@ -5489,7 +5481,7 @@
           ]
         },
         {
-          "cluster_id": 2,
+          "cluster_id": 3,
           "lead_title": "Construction Engineering",
           "lead_source": "Nature",
           "support_count": 1,
@@ -5502,7 +5494,7 @@
           ]
         },
         {
-          "cluster_id": 3,
+          "cluster_id": 4,
           "lead_title": "Timely deployment of best-in-class technologies to enable development and decarbonise construction",
           "lead_source": "Nature",
           "support_count": 1,
@@ -5515,7 +5507,7 @@
           ]
         },
         {
-          "cluster_id": 4,
+          "cluster_id": 5,
           "lead_title": "Civil Engineering",
           "lead_source": "Nature",
           "support_count": 1,
@@ -5528,33 +5520,7 @@
           ]
         },
         {
-          "cluster_id": 5,
-          "lead_title": "Structural Engineering",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Structural Engineering"
-          ]
-        },
-        {
           "cluster_id": 6,
-          "lead_title": "NASA Unveils Initiatives to Achieve America\u2019s National Space Policy",
-          "lead_source": "NASA (.gov)",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "NASA (.gov)"
-          ],
-          "member_titles": [
-            "NASA Unveils Initiatives to Achieve America\u2019s National Space Policy"
-          ]
-        },
-        {
-          "cluster_id": 7,
           "lead_title": "Data Access Viewer (DAV)",
           "lead_source": "nasa power (.gov)",
           "support_count": 1,
@@ -5564,6 +5530,19 @@
           ],
           "member_titles": [
             "Data Access Viewer (DAV)"
+          ]
+        },
+        {
+          "cluster_id": 7,
+          "lead_title": "Artemis II Multimedia: Crew Photos, Videos and Mission Highlights",
+          "lead_source": "NASA (.gov)",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "NASA (.gov)"
+          ],
+          "member_titles": [
+            "Artemis II Multimedia: Crew Photos, Videos and Mission Highlights"
           ]
         },
         {
@@ -5634,9 +5613,9 @@
             ],
             "matched_entry_count": 5,
             "matched_titles": [
+              "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life",
               "What Can We Gain by Losing Infinity?",
-              "Why Math\u2019s Final Axiom Proved So Controversial",
-              "A Powerful New \u2018QR Code\u2019 Untangles Math\u2019s Knottiest Knots"
+              "Why Math\u2019s Final Axiom Proved So Controversial"
             ],
             "matching_queries": [
               "mathematics foundations infinity site:quantamagazine.org"
@@ -5768,8 +5747,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "The weirdness of quantum contextuality is not a bug \u2013 it\u2019s a feature",
-              "Coffee with a splash of physics: how to make the most out of your brew"
+              "Evidence for a 'forbidden range' of black hole masses emerges in gravitational wave observations",
+              "Trading places: meet the physicists-turned-analysts who are driving the frontiers of finance"
             ],
             "matching_queries": [
               "site:physicsworld.com"
@@ -5874,7 +5853,7 @@
         },
         {
           "cluster_id": 5,
-          "lead_title": "A Powerful New \u2018QR Code\u2019 Untangles Math\u2019s Knottiest Knots",
+          "lead_title": "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life",
           "lead_source": "Quanta Magazine",
           "support_count": 1,
           "member_count": 1,
@@ -5882,12 +5861,12 @@
             "Quanta Magazine"
           ],
           "member_titles": [
-            "A Powerful New \u2018QR Code\u2019 Untangles Math\u2019s Knottiest Knots"
+            "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life"
           ]
         },
         {
           "cluster_id": 6,
-          "lead_title": "The weirdness of quantum contextuality is not a bug \u2013 it\u2019s a feature",
+          "lead_title": "Trading places: meet the physicists-turned-analysts who are driving the frontiers of finance",
           "lead_source": "Physics World",
           "support_count": 1,
           "member_count": 1,
@@ -5895,12 +5874,12 @@
             "Physics World"
           ],
           "member_titles": [
-            "The weirdness of quantum contextuality is not a bug \u2013 it\u2019s a feature"
+            "Trading places: meet the physicists-turned-analysts who are driving the frontiers of finance"
           ]
         },
         {
           "cluster_id": 7,
-          "lead_title": "Coffee with a splash of physics: how to make the most out of your brew",
+          "lead_title": "Evidence for a 'forbidden range' of black hole masses emerges in gravitational wave observations",
           "lead_source": "Physics World",
           "support_count": 1,
           "member_count": 1,
@@ -5908,12 +5887,12 @@
             "Physics World"
           ],
           "member_titles": [
-            "Coffee with a splash of physics: how to make the most out of your brew"
+            "Evidence for a 'forbidden range' of black hole masses emerges in gravitational wave observations"
           ]
         },
         {
           "cluster_id": 8,
-          "lead_title": "How are Physicists Feeling About AI?",
+          "lead_title": "Quantum Error Correction Faces Another Hurdle",
           "lead_source": "American Physical Society",
           "support_count": 1,
           "member_count": 1,
@@ -5921,7 +5900,7 @@
             "American Physical Society"
           ],
           "member_titles": [
-            "How are Physicists Feeling About AI?"
+            "Quantum Error Correction Faces Another Hurdle"
           ]
         }
       ]
@@ -5966,14 +5945,14 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 1,
-            "matched_titles": [
-              "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life"
-            ],
+            "matched_entry_count": 0,
+            "matched_titles": [],
             "matching_queries": [
               "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org"
             ],
-            "notes": []
+            "notes": [
+              "Source was checked but did not surface section candidates in this run."
+            ]
           },
           {
             "source": "Nature",
@@ -5981,14 +5960,14 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 1,
-            "matched_titles": [
-              "Topic explorer"
-            ],
+            "matched_entry_count": 0,
+            "matched_titles": [],
             "matching_queries": [
               "historical discoveries archives science history site:quantamagazine.org OR site:nature.com OR site:science.org"
             ],
-            "notes": []
+            "notes": [
+              "Source was checked but did not surface section candidates in this run."
+            ]
           },
           {
             "source": "Science",
@@ -6116,6 +6095,32 @@
       "story_clusters": [
         {
           "cluster_id": 1,
+          "lead_title": "Ancient regulatory evolution shapes individual language abilities in present-day humans",
+          "lead_source": "Science | AAAS",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Science | AAAS"
+          ],
+          "member_titles": [
+            "Ancient regulatory evolution shapes individual language abilities in present-day humans"
+          ]
+        },
+        {
+          "cluster_id": 2,
+          "lead_title": "Earliest octopuses were giant top predators in Cretaceous oceans",
+          "lead_source": "Science | AAAS",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Science | AAAS"
+          ],
+          "member_titles": [
+            "Earliest octopuses were giant top predators in Cretaceous oceans"
+          ]
+        },
+        {
+          "cluster_id": 3,
           "lead_title": "Physics-based models outperform AI weather forecasts of record-breaking extremes",
           "lead_source": "Science | AAAS",
           "support_count": 1,
@@ -6128,34 +6133,8 @@
           ]
         },
         {
-          "cluster_id": 2,
-          "lead_title": "Topic explorer",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Topic explorer"
-          ]
-        },
-        {
-          "cluster_id": 3,
-          "lead_title": "Performance of a large language model on the reasoning tasks of a physician",
-          "lead_source": "Science | AAAS",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Science | AAAS"
-          ],
-          "member_titles": [
-            "Performance of a large language model on the reasoning tasks of a physician"
-          ]
-        },
-        {
           "cluster_id": 4,
-          "lead_title": "The rise and fall of the world\u2019s greatest marine biodiversity hotspot",
+          "lead_title": "Plant-associated fungi co-opt ancient antimicrobials for host manipulation",
           "lead_source": "Science | AAAS",
           "support_count": 1,
           "member_count": 1,
@@ -6163,25 +6142,25 @@
             "Science | AAAS"
           ],
           "member_titles": [
-            "The rise and fall of the world\u2019s greatest marine biodiversity hotspot"
+            "Plant-associated fungi co-opt ancient antimicrobials for host manipulation"
           ]
         },
         {
           "cluster_id": 5,
-          "lead_title": "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life",
-          "lead_source": "Quanta Magazine",
+          "lead_title": "A tale of two coasts: Unveiling US Gulf and Atlantic coastal cities at high flood risk",
+          "lead_source": "Science | AAAS",
           "support_count": 1,
           "member_count": 1,
           "sources": [
-            "Quanta Magazine"
+            "Science | AAAS"
           ],
           "member_titles": [
-            "A Treasure Trove of Cambrian Fossils Rewrites the Story of Early Life"
+            "A tale of two coasts: Unveiling US Gulf and Atlantic coastal cities at high flood risk"
           ]
         },
         {
           "cluster_id": 6,
-          "lead_title": "Hantavirus: What we know about the Atlantic cruise ship outbreak",
+          "lead_title": "Dolly Parton cancels Las Vegas residency over health issues",
           "lead_source": "BBC",
           "support_count": 1,
           "member_count": 1,
@@ -6189,12 +6168,12 @@
             "BBC"
           ],
           "member_titles": [
-            "Hantavirus: What we know about the Atlantic cruise ship outbreak"
+            "Dolly Parton cancels Las Vegas residency over health issues"
           ]
         },
         {
           "cluster_id": 7,
-          "lead_title": "Trump says US to 'guide' stranded ships through Strait of Hormuz",
+          "lead_title": "Deadly China plane crash was caused by fuel cut-off, says report",
           "lead_source": "BBC",
           "support_count": 1,
           "member_count": 1,
@@ -6202,7 +6181,7 @@
             "BBC"
           ],
           "member_titles": [
-            "Trump says US to 'guide' stranded ships through Strait of Hormuz"
+            "Deadly China plane crash was caused by fuel cut-off, says report"
           ]
         }
       ]
@@ -6277,9 +6256,9 @@
             ],
             "matched_entry_count": 5,
             "matched_titles": [
-              "Necking of the active Turkana Rift Zone and the priming of eastern Africa for continental breakup",
-              "How DNA in dirt is shaking up the study of human origins",
-              "Ancient DNA reconstruction of Late Holocene ecosystems within the Carpathian Basin from paleo-meanders and archaeological deposits"
+              "Climate-driven depopulation and adaptation realities in America\u2019s coastal ground zero",
+              "Ancient DNA reveals pervasive directional selection across West Eurasia",
+              "How DNA in dirt is shaking up the study of human origins"
             ],
             "matching_queries": [
               "archaeology early humans sediment ancient site:nature.com OR site:scientificamerican.com"
@@ -6412,7 +6391,7 @@
       "story_clusters": [
         {
           "cluster_id": 1,
-          "lead_title": "Necking of the active Turkana Rift Zone and the priming of eastern Africa for continental breakup",
+          "lead_title": "Ancient DNA reveals pervasive directional selection across West Eurasia",
           "lead_source": "Nature",
           "support_count": 1,
           "member_count": 1,
@@ -6420,11 +6399,24 @@
             "Nature"
           ],
           "member_titles": [
-            "Necking of the active Turkana Rift Zone and the priming of eastern Africa for continental breakup"
+            "Ancient DNA reveals pervasive directional selection across West Eurasia"
           ]
         },
         {
           "cluster_id": 2,
+          "lead_title": "Climate-driven depopulation and adaptation realities in America\u2019s coastal ground zero",
+          "lead_source": "Nature",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Nature"
+          ],
+          "member_titles": [
+            "Climate-driven depopulation and adaptation realities in America\u2019s coastal ground zero"
+          ]
+        },
+        {
+          "cluster_id": 3,
           "lead_title": "How DNA in dirt is shaking up the study of human origins",
           "lead_source": "Nature",
           "support_count": 1,
@@ -6437,7 +6429,7 @@
           ]
         },
         {
-          "cluster_id": 3,
+          "cluster_id": 4,
           "lead_title": "Ancient DNA reconstruction of Late Holocene ecosystems within the Carpathian Basin from paleo-meanders and archaeological deposits",
           "lead_source": "Nature",
           "support_count": 1,
@@ -6450,7 +6442,7 @@
           ]
         },
         {
-          "cluster_id": 4,
+          "cluster_id": 5,
           "lead_title": "Hominins on Sulawesi during the Early Pleistocene",
           "lead_source": "Nature",
           "support_count": 1,
@@ -6463,21 +6455,8 @@
           ]
         },
         {
-          "cluster_id": 5,
-          "lead_title": "Hominin glacial-stage occupation 712,000 to 424,000 years ago at Fordwich Pit, Old Park (Canterbury, UK)",
-          "lead_source": "Nature",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Nature"
-          ],
-          "member_titles": [
-            "Hominin glacial-stage occupation 712,000 to 424,000 years ago at Fordwich Pit, Old Park (Canterbury, UK)"
-          ]
-        },
-        {
           "cluster_id": 6,
-          "lead_title": "Hantavirus: What we know about the Atlantic cruise ship outbreak",
+          "lead_title": "Dolly Parton cancels Las Vegas residency over health issues",
           "lead_source": "BBC",
           "support_count": 1,
           "member_count": 1,
@@ -6485,12 +6464,12 @@
             "BBC"
           ],
           "member_titles": [
-            "Hantavirus: What we know about the Atlantic cruise ship outbreak"
+            "Dolly Parton cancels Las Vegas residency over health issues"
           ]
         },
         {
           "cluster_id": 7,
-          "lead_title": "Trump says US to 'guide' stranded ships through Strait of Hormuz",
+          "lead_title": "Deadly China plane crash was caused by fuel cut-off, says report",
           "lead_source": "BBC",
           "support_count": 1,
           "member_count": 1,
@@ -6498,7 +6477,7 @@
             "BBC"
           ],
           "member_titles": [
-            "Trump says US to 'guide' stranded ships through Strait of Hormuz"
+            "Deadly China plane crash was caused by fuel cut-off, says report"
           ]
         }
       ]
@@ -6553,8 +6532,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "[2604.21816] Tool Attention Is All You Need: Dynamic Tool Gating and Lazy Schema Loading for Eliminating the MCP/Tools Tax in Scalable Agentic Workflows",
-              "[2604.15082] Autonomous Evolution of EDA Tools: Multi-Agent Self-Evolved ABC"
+              "Beyond State Machines: Executing Network Procedures with Agentic Tool-Calling Sequences",
+              "[2604.19821] JTPRO: A Joint Tool-Prompt Reflective Optimization Framework for Language Agents"
             ],
             "matching_queries": [
               "(tool OR tools OR api OR sdk) site:arxiv.org"
@@ -6582,14 +6561,14 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 0,
-            "matched_titles": [],
+            "matched_entry_count": 1,
+            "matched_titles": [
+              "Agents SDK | OpenAI API"
+            ],
             "matching_queries": [
               "developer AI tool API agent code site:github.com OR site:openai.com OR site:modal.com OR site:replicate.com OR site:vercel.com"
             ],
-            "notes": [
-              "Source was checked but did not surface section candidates in this run."
-            ]
+            "notes": []
           },
           {
             "source": "GitHub",
@@ -6597,11 +6576,11 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 8,
+            "matched_entry_count": 7,
             "matched_titles": [
+              "garylab/MakeMoneyWithAI: A list of open-source AI projects you can use to generate income easily.",
               "deepseek-ai/awesome-deepseek-agent",
-              "aaif-goose/goose",
-              "caramaschiHG/awesome-ai-agents-2026"
+              "aaif-goose/goose"
             ],
             "matching_queries": [
               "AI tools product launch workflow site:producthunt.com OR site:theresanaiforthat.com OR site:futuretools.io OR site:huggingface.co OR site:github.com",
@@ -6740,7 +6719,7 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "SuperMind: Business that Runs Itself",
+              "Mindra: Agent Teams You Can Actually Delegate To",
               "Orange Slice | Automate any sales task with AI"
             ],
             "matching_queries": [
@@ -6862,7 +6841,7 @@
         },
         {
           "cluster_id": 4,
-          "lead_title": "Claude Code Skills & Plugins \u2014 Agent Skills for Every Coding Tool",
+          "lead_title": "coreyhaines31/marketingskills",
           "lead_source": "GitHub",
           "support_count": 1,
           "member_count": 1,
@@ -6870,12 +6849,12 @@
             "GitHub"
           ],
           "member_titles": [
-            "Claude Code Skills & Plugins \u2014 Agent Skills for Every Coding Tool"
+            "coreyhaines31/marketingskills"
           ]
         },
         {
           "cluster_id": 5,
-          "lead_title": "SuperMind: Business that Runs Itself",
+          "lead_title": "Mindra: Agent Teams You Can Actually Delegate To",
           "lead_source": "Product Hunt",
           "support_count": 1,
           "member_count": 1,
@@ -6883,11 +6862,24 @@
             "Product Hunt"
           ],
           "member_titles": [
-            "SuperMind: Business that Runs Itself"
+            "Mindra: Agent Teams You Can Actually Delegate To"
           ]
         },
         {
           "cluster_id": 6,
+          "lead_title": "Agents SDK | OpenAI API",
+          "lead_source": "OpenAI Developers",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "OpenAI Developers"
+          ],
+          "member_titles": [
+            "Agents SDK | OpenAI API"
+          ]
+        },
+        {
+          "cluster_id": 7,
           "lead_title": "aaif-goose/goose",
           "lead_source": "GitHub",
           "support_count": 1,
@@ -6897,20 +6889,6 @@
           ],
           "member_titles": [
             "aaif-goose/goose"
-          ]
-        },
-        {
-          "cluster_id": 7,
-          "lead_title": "heilcheng/awesome-agent-skills: Tutorials, Guides and Agent Skills Directories",
-          "lead_source": "GitHub",
-          "support_count": 1,
-          "member_count": 2,
-          "sources": [
-            "GitHub"
-          ],
-          "member_titles": [
-            "heilcheng/awesome-agent-skills: Tutorials, Guides and Agent Skills Directories",
-            "deepseek-ai/awesome-deepseek-agent"
           ]
         },
         {
@@ -6987,15 +6965,14 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 2,
-            "matched_titles": [
-              "Weekend Box Office: GOAT Comes From Behind to Take Down Wuthering Heights",
-              "Crime 101 (2026)"
-            ],
+            "matched_entry_count": 0,
+            "matched_titles": [],
             "matching_queries": [
               "hot entertainment releases reviews box office streaming games site:metacritic.com OR site:rottentomatoes.com OR site:imdb.com OR site:pcgamer.com OR site:ign.com"
             ],
-            "notes": []
+            "notes": [
+              "Source was checked but did not surface section candidates in this run."
+            ]
           },
           {
             "source": "Goodreads",
@@ -7031,9 +7008,10 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 1,
+            "matched_entry_count": 2,
             "matched_titles": [
-              "What\u2019s Coming to Tubi in May 2026"
+              "What\u2019s Coming to Tubi in May 2026",
+              "The 53 Most Anticipated New and Returning TV Shows Coming in 2026"
             ],
             "matching_queries": [
               "upcoming movies TV books games releases site:variety.com OR site:hollywoodreporter.com OR site:deadline.com OR site:publishersweekly.com OR site:polygon.com OR site:eurogamer.net"
@@ -7046,11 +7024,11 @@
             "access_modes": [
               "listed-no-fetch-path"
             ],
-            "matched_entry_count": 4,
+            "matched_entry_count": 3,
             "matched_titles": [
-              "Netflix\u2019s New Releases Coming in May 2026",
-              "Greta Gerwig\u2019s \u2018Narnia\u2019 Moves to 2027 with Wide Theatrical Release From Netflix",
-              "Prime Video to Host \u201cObsessed Fest\u201d Fan Event in June, Shares First Looks of Upcoming YA Screen Adaptations (Exclusive)"
+              "New 'Longlegs' Movie Set for 2028 Release Date",
+              "Prime Video to Host \u201cObsessed Fest\u201d Fan Event in June, Shares First Looks of Upcoming YA Screen Adaptations (Exclusive)",
+              "HBO\u2019s \u2018Harry Potter\u2019 Trailer Reveals New Cast and Surprise Christmas Premiere Date"
             ],
             "matching_queries": [],
             "notes": [
@@ -7145,8 +7123,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Shakira thrills a crowd of 2 million with free concert on Brazil\u2019s Copacabana beach",
-              "Trump says US will reduce number of troops in Germany 'a lot further' than withdrawal of 5,000"
+              "A driver plows into people in a shopping area in Germany, killing 2",
+              "Ukraine hits key Russian oil-loading port and 3 \u2018shadow fleet\u2019 tankers"
             ],
             "matching_queries": [
               "site:apnews.com"
@@ -7260,8 +7238,10 @@
             "access_modes": [
               "query-discovery"
             ],
-            "matched_entry_count": 1,
+            "matched_entry_count": 3,
             "matched_titles": [
+              "New Website for Zach Cregger\u2019s \u2018Resident Evil\u2019 Reveals the Official Logo",
+              "Youth (2026) \u2b50 7.0 | Comedy, Family, Romance",
               "Your Heart Will Be Broken (2026) \u2b50 4.5 | Drama, Romance"
             ],
             "matching_queries": [
@@ -7292,8 +7272,8 @@
             ],
             "matched_entry_count": 2,
             "matched_titles": [
-              "Jeanine Pirro says evidence shows suspect shot officer at White House press dinner",
-              "Republicans appear split on idea of clemency for Ghislaine Maxwell"
+              "At least 13 hurt in shooting at Oklahoma campground party",
+              "US supreme court temporarily restores access to mail-order abortion pills"
             ],
             "matching_queries": [
               "site:theguardian.com"
@@ -7344,21 +7324,32 @@
       "story_clusters": [
         {
           "cluster_id": 1,
-          "lead_title": "Netflix\u2019s New Releases Coming in May 2026",
-          "lead_source": "The Hollywood Reporter",
-          "support_count": 2,
-          "member_count": 2,
+          "lead_title": "The 53 Most Anticipated New and Returning TV Shows Coming in 2026",
+          "lead_source": "Variety",
+          "support_count": 1,
+          "member_count": 1,
           "sources": [
-            "The Hollywood Reporter",
             "Variety"
           ],
           "member_titles": [
-            "Netflix\u2019s New Releases Coming in May 2026",
-            "What\u2019s Coming to Tubi in May 2026"
+            "The 53 Most Anticipated New and Returning TV Shows Coming in 2026"
           ]
         },
         {
           "cluster_id": 2,
+          "lead_title": "What\u2019s Coming to Tubi in May 2026",
+          "lead_source": "Variety",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "Variety"
+          ],
+          "member_titles": [
+            "What\u2019s Coming to Tubi in May 2026"
+          ]
+        },
+        {
+          "cluster_id": 3,
           "lead_title": "Prime Video to Host \u201cObsessed Fest\u201d Fan Event in June, Shares First Looks of Upcoming YA Screen Adaptations (Exclusive)",
           "lead_source": "The Hollywood Reporter",
           "support_count": 1,
@@ -7371,21 +7362,8 @@
           ]
         },
         {
-          "cluster_id": 3,
-          "lead_title": "Brandon Sanderson\u2019s Literary Fantasy Universe \u2018Cosmere\u2019 Picked Up by Apple TV (Exclusive)",
-          "lead_source": "The Hollywood Reporter",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "The Hollywood Reporter"
-          ],
-          "member_titles": [
-            "Brandon Sanderson\u2019s Literary Fantasy Universe \u2018Cosmere\u2019 Picked Up by Apple TV (Exclusive)"
-          ]
-        },
-        {
           "cluster_id": 4,
-          "lead_title": "Greta Gerwig\u2019s \u2018Narnia\u2019 Moves to 2027 with Wide Theatrical Release From Netflix",
+          "lead_title": "New 'Longlegs' Movie Set for 2028 Release Date",
           "lead_source": "The Hollywood Reporter",
           "support_count": 1,
           "member_count": 1,
@@ -7393,11 +7371,37 @@
             "The Hollywood Reporter"
           ],
           "member_titles": [
-            "Greta Gerwig\u2019s \u2018Narnia\u2019 Moves to 2027 with Wide Theatrical Release From Netflix"
+            "New 'Longlegs' Movie Set for 2028 Release Date"
           ]
         },
         {
           "cluster_id": 5,
+          "lead_title": "HBO\u2019s \u2018Harry Potter\u2019 Trailer Reveals New Cast and Surprise Christmas Premiere Date",
+          "lead_source": "The Hollywood Reporter",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "The Hollywood Reporter"
+          ],
+          "member_titles": [
+            "HBO\u2019s \u2018Harry Potter\u2019 Trailer Reveals New Cast and Surprise Christmas Premiere Date"
+          ]
+        },
+        {
+          "cluster_id": 6,
+          "lead_title": "Youth (2026) \u2b50 7.0 | Comedy, Family, Romance",
+          "lead_source": "IMDb",
+          "support_count": 1,
+          "member_count": 1,
+          "sources": [
+            "IMDb"
+          ],
+          "member_titles": [
+            "Youth (2026) \u2b50 7.0 | Comedy, Family, Romance"
+          ]
+        },
+        {
+          "cluster_id": 7,
           "lead_title": "Your Heart Will Be Broken (2026) \u2b50 4.5 | Drama, Romance",
           "lead_source": "IMDb",
           "support_count": 1,
@@ -7407,32 +7411,6 @@
           ],
           "member_titles": [
             "Your Heart Will Be Broken (2026) \u2b50 4.5 | Drama, Romance"
-          ]
-        },
-        {
-          "cluster_id": 6,
-          "lead_title": "Crime 101 (2026)",
-          "lead_source": "Rotten Tomatoes",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "Rotten Tomatoes"
-          ],
-          "member_titles": [
-            "Crime 101 (2026)"
-          ]
-        },
-        {
-          "cluster_id": 7,
-          "lead_title": "Valve on the Steam Machine delays: 'Obviously we're bummed that this is the state of things'",
-          "lead_source": "PC Gamer",
-          "support_count": 1,
-          "member_count": 1,
-          "sources": [
-            "PC Gamer"
-          ],
-          "member_titles": [
-            "Valve on the Steam Machine delays: 'Obviously we're bummed that this is the state of things'"
           ]
         },
         {
@@ -7634,29 +7612,29 @@
           "support_count": 4,
           "member_count": 4,
           "sources": [
-            "CN Traveller",
+            "Going",
             "The Points Guy",
             "The Times",
             "Travel + Leisure"
           ],
           "member_titles": [
             "29 Best Places in the U.S. for Solo Travelers to Visit",
-            "21 best places to visit in September, according to the travel editors",
+            "Best Places To Visit in May in the USA & Abroad (2026)",
             "11 of the best places to visit in the US",
             "The 10 best places to visit in May"
           ]
         },
         {
           "cluster_id": 2,
-          "lead_title": "The Best Places To Visit in Central America for Each Month of the Year",
-          "lead_source": "CentralAmerica.com",
+          "lead_title": "The Best Trips in January: Traveler Reviews to Inspire You",
+          "lead_source": "Wendy Perrin",
           "support_count": 1,
           "member_count": 1,
           "sources": [
-            "CentralAmerica.com"
+            "Wendy Perrin"
           ],
           "member_titles": [
-            "The Best Places To Visit in Central America for Each Month of the Year"
+            "The Best Trips in January: Traveler Reviews to Inspire You"
           ]
         }
       ]

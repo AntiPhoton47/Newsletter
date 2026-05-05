@@ -1,6 +1,6 @@
 # Frontier Threads
 
-## May 04, 2026
+## May 05, 2026
 
 ### The day's most interesting developments in science, technology, and ideas
 
@@ -28,33 +28,33 @@ Write a 2-4 sentence editorial overview of the day's main themes. Focus on what 
 
 ## Markets & Economy
 
-- **S&P 500 (SPY):** 720.65, up 0.94%.
-- **NASDAQ-100 (QQQ):** 674.18, up 1.55%.
-- **DOW (DIA):** 495.02, up 0.57%.
-- **Europe (VGK):** 87.15, up 0.11%.
-- **Japan (EWJ):** 88.30, up 1.12%.
-- **China (MCHI):** 57.65, down 0.28%.
-- **India (INDA):** 49.12, down 0.93%.
-- **China large-cap (FXI):** 36.81, down 0.14%.
-- **Bitcoin:** 80234.20, up 5.15%.
-- **Ethereum:** 2390.41, up 5.95%.
-- **Gold (GLD):** 423.18, down 2.32%.
-- **Oil proxy (USO):** 142.80, up 7.85%.
-- **Robinhood (HOOD):** 73.66, down 13.04%.
-- **Alphabet (GOOGL):** 385.69, up 11.99%.
-- **ARM Holdings (ARM):** 211.07, down 10.11%.
-- **Meta (META):** 608.75, down 9.82%.
+- **S&P 500 (SPY):** 718.01, up 0.40%.
+- **NASDAQ-100 (QQQ):** 672.88, up 1.30%.
+- **DOW (DIA):** 489.56, down 0.46%.
+- **Europe (VGK):** 85.51, down 1.20%.
+- **Japan (EWJ):** 88.12, up 0.50%.
+- **China (MCHI):** 57.30, up 0.32%.
+- **India (INDA):** 48.63, down 1.52%.
+- **China large-cap (FXI):** 36.55, up 0.27%.
+- **Bitcoin:** 80940.99, up 3.53%.
+- **Ethereum:** 2377.80, up 3.60%.
+- **Gold (GLD):** 414.71, down 3.53%.
+- **Oil proxy (USO):** 147.61, up 9.57%.
+- **Meta (META):** 610.41, down 10.05%.
+- **Micron (MU):** 576.45, up 9.89%.
+- **Alphabet (GOOGL):** 383.25, up 9.39%.
+- **Robinhood (HOOD):** 76.55, down 8.81%.
 - **US CPI (YoY):** 3.3% as of Mar. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/CPIAUCSL)
 - **US unemployment rate:** 4.3% as of Mar. 2026. Source: [BLS via FRED](https://fred.stlouisfed.org/series/UNRATE)
 - **Fed funds rate:** 3.64% as of Apr. 2026. Source: [Federal Reserve via FRED](https://fred.stlouisfed.org/series/FEDFUNDS)
-- **US 10-year Treasury:** 4.40% latest daily close on Apr. 30, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
+- **US 10-year Treasury:** 4.39% latest daily close on May. 01, 2026. Source: [Treasury via FRED](https://fred.stlouisfed.org/series/DGS10)
 - **Brent crude:** $113.89/barrel latest daily print on Apr. 27, 2026. Source: [EIA via FRED](https://fred.stlouisfed.org/series/DCOILBRENTEU)
 
 ### Upcoming Investment Opportunities
 
 Power and grid infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **Quanta Services**, **Eaton**, **Vertiv**, and **Siemens Energy** for evidence on transmission spend, cooling demand, and power-management budgets; the real question is whether electrification demand, energy costs, and grid constraints keep translating into durable earnings power rather than just short-term momentum.
 
-AI infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **NVIDIA**, **Broadcom**, **Micron**, and **AMD** for evidence on networking silicon, HBM supply, and advanced packaging; the real question is whether capex durability, pricing power, and supply bottlenecks keep translating into durable earnings power rather than just short-term momentum. Across any cluster, keep the regime in view: the 10-year Treasury is still around 4.40%; Brent is near $113.89; the Fed funds rate is 3.64%. That is why the right watchlist is one tied to constraint variables, not just recent momentum.
+AI infrastructure still looks worth watching because today's signals point there more clearly than the previous issue did. Watch **NVIDIA**, **Broadcom**, **Micron**, and **AMD** for evidence on networking silicon, HBM supply, and advanced packaging; the real question is whether capex durability, pricing power, and supply bottlenecks keep translating into durable earnings power rather than just short-term momentum. Across any cluster, keep the regime in view: the 10-year Treasury is still around 4.39%; Brent is near $113.89; the Fed funds rate is 3.64%. That is why the right watchlist is one tied to constraint variables, not just recent momentum.
 
 ## Need To Know
 
