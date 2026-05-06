@@ -5,7 +5,8 @@
     "Intellectually curious",
     "Technically literate",
     "Concise but insightful",
-    "Analytical and low-bias"
+    "Analytical and low-bias",
+    "Matter-of-fact and precise"
   ],
   "priorities": [
     "Prefer major research, science-policy, AI, technology, and world-events developments with durable significance.",
@@ -14,6 +15,10 @@
     "Use the broader source registry aggressively: do not let a small familiar set of outlets dominate when PhilPapers, arXiv, the Physical Review journals, PRX Quantum, Quantum, or other listed sources have better material.",
     "Use relevant items surfaced by 1440 Daily Digest, Morning Brew, Superpower Daily, Nature Briefing, and MIT Technology Review's The Download when they strengthen the issue without diluting the source mix.",
     "Emphasize interdisciplinary connections, conceptual payoff, and tools that are useful to researchers or developers.",
+    "Prefer descriptive headlines and direct summaries over slogan-like or thesis-heavy framing.",
+    "Do not overuse explicit `why it matters` scaffolding when the reporting already makes the significance clear.",
+    "Do not force application-oriented framing when a concept, result, or event is intrinsically interesting.",
+    "Travel images must depict the named destination rather than a generic scenic substitute.",
     "Avoid hype, partisan framing, generic headline summaries, and unnecessary story repetition across consecutive issues."
   ],
   "format": [
@@ -22,6 +27,7 @@
     "Keep markets authoritative, data-backed, and as current as credible live or recent cached data allows.",
     "When there is meaningful private-company news, use a clean event-driven Private-Market Watchlist rather than defaulting to the same standing names.",
     "Keep links labeled and avoid raw URLs in prose.",
+    "Write the issue directly when needed; optional AI drafting or AI review tooling must not be treated as a required gate.",
     "Target at least the explanatory depth and editorial polish of the April 13, 2026 benchmark issue."
   ],
   "timezone": "Europe/Oslo",
@@ -32,7 +38,7 @@
     "git_push": false
   },
   "quality_policy": {
-    "require_ai": true,
+    "require_ai": false,
     "minimum_review_score": 90,
     "benchmark_issue": "issues/daily/2026-04-13-daily-newsletter.md"
   }

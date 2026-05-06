@@ -22,6 +22,8 @@ The reader values:
 - interdisciplinary connections
 - research tools, datasets, platforms, and infrastructure
 - writing that is analytically clear and low on hype
+- matter-of-fact reporting and descriptive titles
+- summaries that trust the reader rather than constantly spelling out why something matters
 
 ## Core Selection Questions
 
@@ -73,6 +75,8 @@ The following biases should be applied when choosing between otherwise comparabl
 - culture-war framing
 - stories that are mostly attention-driven rather than insight-driven
 - repeated stories that add little beyond a previously covered version
+- formulaic `X matters because Y` framing that adds little beyond the headline
+- forced application framing when the underlying concept or event is already interesting on its own
 
 ### Consecutive-Issue Follow-Ups
 
@@ -110,11 +114,13 @@ The following biases should be applied when choosing between otherwise comparabl
 ### Need To Know
 - Reserve for the single most consequential or intellectually rich story in the issue.
 - Preference should go to stories with strong conceptual depth and broad relevance.
+- Write the section with direct, matter-of-fact authority rather than with thesis-heavy rhetorical scaffolding.
 
 ### Research Watch
 - Emphasize primary papers, formal advances, or major experimental results.
 - Strong fit for quantum foundations, quantum gravity, AI for science, mathematics, and new theoretical proposals.
 - For physics-heavy or mathematically dense sections, arXiv and the Physical Review family, PRX Quantum, Quantum, and similar primary venues should often outrank general-science coverage when they offer the stronger story.
+- Do not force an "application" angle onto intrinsically interesting results unless that angle materially improves the reader's understanding.
 
 ### World News
 - Include geopolitical, policy, conflict, trade, and humanitarian developments that materially shape research, technology, or global stability.
@@ -154,7 +160,7 @@ The following biases should be applied when choosing between otherwise comparabl
 - In `Entertainment`, favor upcoming or currently hot releases with dates, launch windows, or concrete signs of momentum; avoid filler prose about the general state of culture coverage.
 - Include books regularly when they are timely or when they connect clearly to the issue's science, technology, history, philosophy, or geopolitics themes.
 - Keep the prose reader-facing; do not mention the drafting process, section weakness, or chat context inside the issue itself.
-- Travel should rotate destinations across issues when possible and include a source-backed image.
+- Travel should rotate destinations across issues when possible and include a source-backed image that actually depicts the named destination.
 
 ## Main Story vs Short Take
 
@@ -174,7 +180,7 @@ Short takes must:
 
 - be different from the section's main entries
 - remain source-backed
-- stay concise while adding at least one concrete fact, implication, or reason the item matters
+- stay concise while adding at least one concrete fact or useful piece of context
 - avoid repeating the same recent newsletter angle unless there is a specific new development worth flagging
 
 ## Balancing an Issue

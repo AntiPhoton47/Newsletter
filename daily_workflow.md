@@ -19,7 +19,7 @@ For each section:
 - maintain a healthy mix of primary, specialist, and reference/discovery sources over time
 - do a top-level pass for major global events before settling section choices so important stories are not missed just because one source cluster was quiet
 - collect more candidates than you expect to publish
-- note the date, source, and a one-line reason the story might matter
+- note the date, source, and a one-line note on what the story concretely adds
 
 Target:
 
@@ -101,10 +101,12 @@ Follow the existing section structure and style.
 When drafting:
 
 - keep the intro high-level and thematic
+- prefer matter-of-fact framing over thesis-heavy scene-setting
 - make `Quick Hits` summarize the strongest sections, not random headlines
 - keep source lines explicit and labeled
 - avoid raw URLs in body copy
-- keep short takes concise, source-backed, and informative enough to add one concrete fact, implication, or reason the item matters
+- keep short takes concise, source-backed, and informative enough to add one concrete fact or piece of context beyond the headline
+- do not let optional AI drafting or review tools block writing; continue manually when they are unavailable
 - if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
 - add a `Private-Market Watchlist` subsection only when there is genuine private-company news worth covering, and rotate companies based on actual developments instead of using standing favorites
@@ -116,7 +118,9 @@ When drafting:
 - add a `Breaking News` subsection to `World News` when there are genuinely fast-moving developments that benefit from rapid, source-labeled treatment
 - use `Breaking News` for `1-3` items sourced primarily from fast, reputable outlets or direct institutions such as AP, Reuters, BBC, Bloomberg, Financial Times, UN bodies, the European Commission, or NATO
 - make `Tools You Can Use` actionable by linking directly to actual tools, products, repos, or APIs whenever possible
-- give `Travel` a different destination from the previous issue when possible and include one image
+- give `Travel` a different destination from the previous issue when possible and include one image that actually shows the named destination
+- prefer descriptive titles and summaries over formulaic `why it matters` phrasing
+- do not force application framing when the core idea, result, or event is already intrinsically interesting
 - keep issue prose reader-facing and avoid meta comments about the writing process
 
 ## 6. Verify Section Quality
@@ -138,7 +142,9 @@ Before rendering, confirm:
 - any `Breaking News` items are truly time-sensitive, clearly labeled, and sourced conservatively enough to avoid rumor-chasing
 - tools links point to actual usable destinations rather than mostly commentary pages
 - entertainment and travel remain concise and current
-- travel includes an image that renders correctly
+- travel includes an image that renders correctly and matches the destination named in the copy
+- prose stays matter-of-fact and avoids repetitive `X matters because Y` scaffolding
+- explanations add clarity instead of mechanically restating significance or application
 - the issue still feels curated rather than merely exhaustive
 
 ## 7. Render Preview
@@ -166,6 +172,7 @@ Check:
 - factual precision
 - section balance
 - tone
+- descriptive, non-formulaic titles
 - absence of unnecessary political or social bias
 - readability
 - no obvious dead weight

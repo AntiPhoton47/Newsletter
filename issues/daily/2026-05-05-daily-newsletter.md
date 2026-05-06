@@ -535,7 +535,9 @@ That is exactly the tradeoff many serious users want right now. The field is mov
 
 ### Yosemite in May is the right kind of shoulder-season pilgrimage
 
-![Yosemite Valley](https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80)
+![Yosemite Valley](https://upload.wikimedia.org/wikipedia/commons/1/13/Tunnel_View%2C_Yosemite_Valley%2C_Yosemite_NP_-_Diliff.jpg)
+
+*Image: Yosemite Valley from Tunnel View, via Wikimedia Commons / David Iliff.*
 
 **Yosemite National Park, California**
 

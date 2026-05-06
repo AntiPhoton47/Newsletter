@@ -4,27 +4,27 @@
 
 ### The day's most interesting developments in science, technology, and ideas
 
-Write a 2-4 sentence editorial overview of the day's main themes. Focus on what connects the strongest stories rather than listing headlines.
+Write a 2-4 sentence editorial overview of the day's main themes. Focus on what connects the strongest stories rather than listing headlines. Prefer matter-of-fact synthesis over grandiose framing.
 
 ## Quick Hits
 
-- **Markets & Economy:** One-sentence summary.
-- **Need To Know:** One-sentence summary.
-- **Research Watch:** One-sentence summary.
-- **World News:** One-sentence summary.
-- **Philosophy:** One-sentence summary.
-- **Biology:** One-sentence summary.
-- **Psychology and Neuroscience:** One-sentence summary.
-- **Health and Medicine:** One-sentence summary.
-- **Sociology and Anthropology:** One-sentence summary.
-- **Technology:** One-sentence summary.
-- **Robotics:** One-sentence summary.
-- **AI:** One-sentence summary.
-- **Engineering:** One-sentence summary.
-- **Mathematics:** One-sentence summary.
-- **Historical Discoveries:** One-sentence summary.
-- **Archaeology:** One-sentence summary.
-- **Tools You Can Use:** One-sentence summary.
+- **Markets & Economy:** One-sentence matter-of-fact summary.
+- **Need To Know:** One-sentence matter-of-fact summary.
+- **Research Watch:** One-sentence matter-of-fact summary.
+- **World News:** One-sentence matter-of-fact summary.
+- **Philosophy:** One-sentence matter-of-fact summary.
+- **Biology:** One-sentence matter-of-fact summary.
+- **Psychology and Neuroscience:** One-sentence matter-of-fact summary.
+- **Health and Medicine:** One-sentence matter-of-fact summary.
+- **Sociology and Anthropology:** One-sentence matter-of-fact summary.
+- **Technology:** One-sentence matter-of-fact summary.
+- **Robotics:** One-sentence matter-of-fact summary.
+- **AI:** One-sentence matter-of-fact summary.
+- **Engineering:** One-sentence matter-of-fact summary.
+- **Mathematics:** One-sentence matter-of-fact summary.
+- **Historical Discoveries:** One-sentence matter-of-fact summary.
+- **Archaeology:** One-sentence matter-of-fact summary.
+- **Tools You Can Use:** One-sentence matter-of-fact summary.
 
 ## Markets & Economy
 
@@ -62,8 +62,8 @@ Prefer a thesis + catalyst + risk frame over a static list of favorite names.
 
 ### Private-Market Watchlist
 
-- **Private company name:** One concise bullet on why it matters now, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
-- **Private company name:** One concise bullet on why it matters now, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
+- **Private company name:** One concise bullet on what changed, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
+- **Private company name:** One concise bullet on what changed, tied to a real financing, valuation, IPO, tender, governance, strategic, or regulatory development. Source: [Source label](https://example.com)
 
 Use only when there is genuine private-company news worth covering. Keep it clean, specific, and event-driven. Do not default to the same standing names every issue.
 
@@ -74,13 +74,7 @@ Use only when there is genuine private-company news worth covering. Keep it clea
 **Source:** Source name
 
 Write 2-4 short paragraphs.
-
-**Why it matters**
-- Point one.
-- Point two.
-- Point three.
-
-**Key idea:** One sentence.
+Prefer descriptive titles and direct reporting. Explain significance only where it adds real clarity; do not force a separate `why it matters` block.
 
 **Link:** [Read at Source](https://example.com)
 
@@ -91,12 +85,7 @@ Write 2-4 short paragraphs.
 **Source:** Source name
 
 Write 2-3 short paragraphs.
-
-**Why it matters**
-- Point one.
-- Point two.
-
-**Key idea:** One sentence.
+Prefer descriptive titles and direct reporting. Explain significance only where it adds real clarity; do not force a separate `why it matters` block.
 
 **Link:** [Read at Source](https://example.com)
 
@@ -105,20 +94,15 @@ Write 2-3 short paragraphs.
 **Source:** Source name
 
 Write 2-3 short paragraphs.
-
-**Why it matters**
-- Point one.
-- Point two.
-
-**Key idea:** One sentence.
+Prefer descriptive titles and direct reporting. Explain significance only where it adds real clarity; do not force a separate `why it matters` block.
 
 **Link:** [Read at Source](https://example.com)
 
 ### Short Takes
 
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
 
 ## World News
 
@@ -140,17 +124,17 @@ Write 2-3 short paragraphs.
 
 ### Breaking News
 
-- **Fast-moving development:** One or two sentences on what changed today, why it matters, and what remains uncertain. [Source](https://example.com)
-- **Fast-moving development:** One or two sentences on what changed today, why it matters, and what remains uncertain. [Source](https://example.com)
+- **Fast-moving development:** One or two sentences on what changed today and what remains uncertain. [Source](https://example.com)
+- **Fast-moving development:** One or two sentences on what changed today and what remains uncertain. [Source](https://example.com)
 
 ### Short Takes
 
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise Europe-focused item with one concrete fact or implication. [Source](https://example.com)
-- Concise Europe-focused item with one concrete fact or implication. [Source](https://example.com)
-- Concise additional globally relevant item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise Europe-focused item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise Europe-focused item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise additional globally relevant item with one concrete fact or useful piece of context. [Source](https://example.com)
 
 ## Philosophy
 
@@ -172,8 +156,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
 
 ## Biology
 
@@ -195,8 +179,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
 
 ## Psychology and Neuroscience
 
@@ -218,8 +202,8 @@ Write 1 paragraph.
 
 ### Short Takes
 
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
-- Concise distinct item with one concrete fact or implication. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
+- Concise distinct item with one concrete fact or useful piece of context. [Source](https://example.com)
 
 ## Health and Medicine
 
@@ -461,12 +445,12 @@ Keep this section concrete, current, and reader-facing. Do not write vague overv
 
 ### What Looks Worth Your Attention
 
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
-- **Book title:** release or publication window. One-sentence why it matters now and how it connects to the issue's themes. [Source](https://example.com)
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
-- **Title / Event:** release or event date/window. One-sentence why it matters now. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence concrete summary of what it is and why it is timely. [Source](https://example.com)
+- **Book title:** release or publication window. One-sentence concrete summary of what it is and how it connects to the issue's themes. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence concrete summary of what it is and why it is timely. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence concrete summary of what it is and why it is timely. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence concrete summary of what it is and why it is timely. [Source](https://example.com)
+- **Title / Event:** release or event date/window. One-sentence concrete summary of what it is and why it is timely. [Source](https://example.com)
 
 ## Travel
 
@@ -474,7 +458,7 @@ Keep this section concrete, current, and reader-facing. Do not write vague overv
 
 ![Alt text for destination image](https://example.com/image.jpg)
 
-Choose a destination that is different from the previous issue when possible. Include one image and one short paragraph that explains why it is worth considering right now. [Source](https://example.com)
+Choose a destination that is different from the previous issue when possible. Include one image that actually depicts the named destination and one short paragraph that describes the place in a matter-of-fact way. [Source](https://example.com)
 
 ## Idea Of The Day
 
