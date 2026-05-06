@@ -73,10 +73,9 @@ def parse_sources_by_section(text: str) -> dict[str, list[str]]:
 
 
 def load_candidate_snapshot(issue_date: dt.date) -> dict[str, list[dict[str, str]]]:
-    path = CANDIDATES_DIR / f"{issue_date.isoformat()}.json"
-    if not path.exists():
+    payload = load_candidate_payload(issue_date)
+    if not payload:
         return {}
-    payload = json.loads(path.read_text(encoding="utf-8"))
     snapshot: dict[str, list[dict[str, str]]] = {}
     for section, entries in payload.get("sections", {}).items():
         if not isinstance(entries, list):
@@ -98,14 +97,87 @@ def load_candidate_snapshot(issue_date: dt.date) -> dict[str, list[dict[str, str
 
 
 def load_candidate_fetch_report(issue_date: dt.date) -> dict[str, dict[str, object]]:
-    path = CANDIDATES_DIR / f"{issue_date.isoformat()}.json"
-    if not path.exists():
+    payload = load_candidate_payload(issue_date)
+    if not payload:
         return {}
-    payload = json.loads(path.read_text(encoding="utf-8"))
     fetch_sections = payload.get("fetch", {}).get("sections", {})
     if not isinstance(fetch_sections, dict):
         return {}
     return {str(section): report for section, report in fetch_sections.items() if isinstance(report, dict)}
+
+
+def load_candidate_payload(issue_date: dt.date) -> dict[str, object]:
+    path = CANDIDATES_DIR / f"{issue_date.isoformat()}.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        return {}
+    return payload
+
+
+def detect_systemic_candidate_fetch_failure(payload: dict[str, object]) -> str | None:
+    fetch_meta = payload.get("fetch", {})
+    if not isinstance(fetch_meta, dict):
+        return None
+
+    summary = fetch_meta.get("summary", {})
+    if not isinstance(summary, dict):
+        return None
+
+    total_queries = int(summary.get("total_queries", 0) or 0)
+    failed_queries = int(summary.get("failed_queries", 0) or 0)
+    sections_with_entries = int(summary.get("sections_with_entries", 0) or 0)
+    total_entries = int(summary.get("total_entries", 0) or 0)
+    checked_sources = int(summary.get("checked_sources", 0) or 0)
+    newsletter_entries = int(summary.get("newsletter_entries", 0) or 0)
+
+    if total_queries <= 0:
+        return None
+    if failed_queries != total_queries:
+        return None
+    if sections_with_entries > 0 or total_entries > 0 or checked_sources > 0 or newsletter_entries > 0:
+        return None
+
+    fetch_sections = fetch_meta.get("sections", {})
+    if not isinstance(fetch_sections, dict):
+        return (
+            "Candidate fetch failed for every configured query and produced zero section entries; "
+            "check network access before rerunning prepare."
+        )
+
+    sample_errors: list[str] = []
+    for section_report in fetch_sections.values():
+        if not isinstance(section_report, dict):
+            continue
+        queries = section_report.get("queries", [])
+        if not isinstance(queries, list):
+            continue
+        for query_report in queries:
+            if not isinstance(query_report, dict):
+                continue
+            error = str(query_report.get("error", "")).strip()
+            if error:
+                sample_errors.append(error)
+        if len(sample_errors) >= 2:
+            break
+
+    detail = f" Example error: {sample_errors[0]}" if sample_errors else ""
+    return (
+        "Candidate fetch failed for every configured query and produced zero section entries; "
+        f"check network access before rerunning prepare.{detail}"
+    )
+
+
+def cleanup_prepare_artifacts(issue_date: dt.date) -> None:
+    for path in (
+        PACKETS_DIR / f"{issue_date.isoformat()}.md",
+        PACKETS_DIR / f"{issue_date.isoformat()}.json",
+        PACKETS_DIR / f"{issue_date.isoformat()}-issue-scaffold.md",
+        NOTES_DIR / f"{issue_date.isoformat()}.md",
+    ):
+        if path.exists():
+            path.unlink()
 
 
 def benchmark_stats(text: str) -> dict[str, object]:
@@ -291,8 +363,13 @@ def main() -> None:
 
     sources_by_section = parse_sources_by_section(SOURCES_PATH.read_text(encoding="utf-8"))
     section_queries = json.loads(SECTION_QUERIES_PATH.read_text(encoding="utf-8"))
+    candidate_payload = load_candidate_payload(issue_date)
     candidate_snapshot = load_candidate_snapshot(issue_date)
     fetch_report = load_candidate_fetch_report(issue_date)
+    fatal_fetch_error = detect_systemic_candidate_fetch_failure(candidate_payload)
+    if fatal_fetch_error:
+        cleanup_prepare_artifacts(issue_date)
+        raise SystemExit(f"Prepare failed for {issue_date.isoformat()}: {fatal_fetch_error}")
     current_benchmark_path = benchmark_path()
     benchmark = benchmark_stats(current_benchmark_path.read_text(encoding="utf-8"))
 
