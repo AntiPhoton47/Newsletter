@@ -63,6 +63,52 @@ Body text here.
         self.assertIn("- Image URL:", scaffold)
         self.assertIn("- Image URL (optional):", scaffold)
 
+    def test_detect_systemic_candidate_fetch_failure_flags_total_outage(self) -> None:
+        payload = {
+            "fetch": {
+                "summary": {
+                    "total_queries": 12,
+                    "failed_queries": 12,
+                    "sections_with_entries": 0,
+                    "total_entries": 0,
+                    "checked_sources": 0,
+                    "newsletter_entries": 0,
+                },
+                "sections": {
+                    "Need To Know": {
+                        "queries": [
+                            {
+                                "status": "failed",
+                                "error": "attempt 1 default: <urlopen error [Errno 8] nodename nor servname provided, or not known>",
+                            }
+                        ]
+                    }
+                },
+            }
+        }
+
+        message = pep.detect_systemic_candidate_fetch_failure(payload)
+        self.assertIsNotNone(message)
+        self.assertIn("Candidate fetch failed for every configured query", message)
+        self.assertIn("nodename nor servname provided", message)
+
+    def test_detect_systemic_candidate_fetch_failure_ignores_thin_but_nonzero_run(self) -> None:
+        payload = {
+            "fetch": {
+                "summary": {
+                    "total_queries": 12,
+                    "failed_queries": 9,
+                    "sections_with_entries": 2,
+                    "total_entries": 5,
+                    "checked_sources": 3,
+                    "newsletter_entries": 1,
+                },
+                "sections": {},
+            }
+        }
+
+        self.assertIsNone(pep.detect_systemic_candidate_fetch_failure(payload))
+
 
 if __name__ == "__main__":
     unittest.main()
