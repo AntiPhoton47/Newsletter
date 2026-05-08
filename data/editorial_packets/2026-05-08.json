@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-08",
+  "display_date": "May 08, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-05-08-daily-newsletter.md",
+  "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-04-13-daily-newsletter.md",
+  "prepare": {
+    "status": "failed",
+    "candidate_file": "/Users/munga/PycharmProjects/Newsletter/data/candidates/2026-05-08.json",
+    "failure_summary": "All 71 configured candidate queries failed with DNS resolution errors and produced zero entries."
+  },
+  "manual_research": {
+    "status": "completed",
+    "method": "direct web research against primary and listed sources",
+    "research_notes": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-05-08.md"
+  },
+  "outputs": {
+    "issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-05-08-daily-newsletter.md",
+    "preview_html": "/Users/munga/PycharmProjects/Newsletter/output/2026-05-08-daily-newsletter.html",
+    "review": "/Users/munga/PycharmProjects/Newsletter/data/reviews/2026-05-08.json",
+    "ai_review": "/Users/munga/PycharmProjects/Newsletter/data/ai_reviews/2026-05-08.json"
+  }
+}
