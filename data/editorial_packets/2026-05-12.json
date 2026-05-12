@@ -1,0 +1,41 @@
+{
+  "date": "2026-05-12",
+  "display_date": "May 12, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-05-12-daily-newsletter.md",
+  "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-04-13-daily-newsletter.md",
+  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-05-12-issue-scaffold.md",
+  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-05-12.md",
+  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-05-12 --git-commit --git-push",
+  "candidate_snapshot": {},
+  "fetch_report": {},
+  "benchmark": {
+    "word_count": 8041,
+    "source_count": 31,
+    "link_count": 34,
+    "section_word_counts": {
+      "April 13, 2026": 96,
+      "Quick Hits": 468,
+      "Markets & Economy": 579,
+      "Need To Know": 284,
+      "Research Watch": 538,
+      "World News": 1127,
+      "Philosophy": 370,
+      "Biology": 328,
+      "Psychology and Neuroscience": 314,
+      "Health and Medicine": 366,
+      "Sociology and Anthropology": 354,
+      "Technology": 366,
+      "Robotics": 330,
+      "AI": 478,
+      "Engineering": 323,
+      "Mathematics": 345,
+      "Historical Discoveries": 311,
+      "Archaeology": 331,
+      "Tools You Can Use": 237,
+      "Entertainment": 182,
+      "Travel": 118,
+      "Idea Of The Day": 127
+    }
+  },
+  "fetch_warning": "automated candidate search failed for all queries in this environment; do direct source research manually."
+}
