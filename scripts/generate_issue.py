@@ -12,6 +12,11 @@ import urllib.request
 import urllib.parse
 from pathlib import Path
 
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional dependency in some environments
+    certifi = None
+
 from fetch_candidates import decode_google_news_link, enrich_entries
 from issue_clock import resolve_issue_date
 
@@ -160,8 +165,12 @@ def source_label(link: str, publisher: str = "") -> str:
 
 def fetch_url(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
     try:
-        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
+        if verified_context is None:
+            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
+                return response.read()
+        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT, context=verified_context) as response:
             return response.read()
     except Exception:
         insecure_context = ssl._create_unverified_context()
@@ -505,9 +514,14 @@ def select_company_movers(
 
 def fetch_fred_rows(series_id: str) -> list[tuple[str, str]]:
     url = FRED_SERIES_URL.format(series_id=urllib.parse.quote(series_id))
+    verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
     try:
-        with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT) as response:
-            content = response.read().decode("utf-8")
+        if verified_context is None:
+            with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT) as response:
+                content = response.read().decode("utf-8")
+        else:
+            with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT, context=verified_context) as response:
+                content = response.read().decode("utf-8")
     except Exception:
         insecure_context = ssl._create_unverified_context()
         with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT, context=insecure_context) as response:

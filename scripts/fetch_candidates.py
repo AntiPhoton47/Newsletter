@@ -15,6 +15,11 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional dependency in some environments
+    certifi = None
+
 from issue_clock import resolve_issue_date
 
 
@@ -480,14 +485,15 @@ def fetch_bytes(
     attempts: int = MAX_FETCH_ATTEMPTS,
 ) -> bytes:
     request = urllib.request.Request(url, data=data, headers=headers or REQUEST_HEADERS)
+    verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
     insecure_context = ssl._create_unverified_context()
     errors: list[str] = []
     content: bytes | None = None
 
     for attempt in range(1, attempts + 1):
-        for label, context in (("default", None), ("insecure", insecure_context)):
+        for label, context in (("verified", verified_context), ("default", None), ("insecure", insecure_context)):
             try:
-                if context is None:
+                if label == "default":
                     with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
                         content = response.read()
                 else:

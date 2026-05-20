@@ -9,6 +9,11 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional dependency in some environments
+    certifi = None
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ENV_PATH = ROOT / ".env"
@@ -84,8 +89,12 @@ def _request(url: str, payload: dict) -> dict:
         },
         method="POST",
     )
+    verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
     try:
-        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
+        if verified_context is None:
+            with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
+                return json.loads(response.read().decode("utf-8"))
+        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT, context=verified_context) as response:
             return json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         body = exc.read().decode("utf-8", errors="replace")
