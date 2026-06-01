@@ -1,0 +1,234 @@
+{
+  "date": "2026-06-01",
+  "generated_at": "2026-06-01T05:08:44.193567+00:00",
+  "quotes": {
+    "S&P 500 (SPY)": {
+      "symbol": "spy.us",
+      "price": "756.48",
+      "move": "up 1.85%",
+      "price_value": 756.48,
+      "move_pct": 1.8526497199482967,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "NASDAQ-100 (QQQ)": {
+      "symbol": "qqq.us",
+      "price": "738.31",
+      "move": "up 3.33%",
+      "price_value": 738.31,
+      "move_pct": 3.3309540804187425,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "DOW (DIA)": {
+      "symbol": "dia.us",
+      "price": "510.78",
+      "move": "up 1.52%",
+      "price_value": 510.78,
+      "move_pct": 1.524517501142883,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Europe (VGK)": {
+      "symbol": "vgk.us",
+      "price": "89.01",
+      "move": "up 0.28%",
+      "price_value": 89.01,
+      "move_pct": 0.2816584046867958,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Japan (EWJ)": {
+      "symbol": "ewj.us",
+      "price": "92.96",
+      "move": "up 1.74%",
+      "price_value": 92.96,
+      "move_pct": 1.7401773010834947,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "China (MCHI)": {
+      "symbol": "mchi.us",
+      "price": "55.10",
+      "move": "down 1.54%",
+      "price_value": 55.1,
+      "move_pct": 1.5368120085775543,
+      "direction": "down",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "India (INDA)": {
+      "symbol": "inda.us",
+      "price": "48.56",
+      "move": "up 1.10%",
+      "price_value": 48.56,
+      "move_pct": 1.103476993545703,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "China large-cap (FXI)": {
+      "symbol": "fxi.us",
+      "price": "35.05",
+      "move": "down 2.34%",
+      "price_value": 35.05,
+      "move_pct": 2.3404848147116284,
+      "direction": "down",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Bitcoin": {
+      "symbol": "btcusd",
+      "price": "73410.29",
+      "move": "down 0.17%",
+      "price_value": 73410.29,
+      "move_pct": 0.17170371932707404,
+      "direction": "down",
+      "as_of": "2026-06-01",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Ethereum": {
+      "symbol": "ethusd",
+      "price": "1997.58",
+      "move": "down 0.50%",
+      "price_value": 1997.58,
+      "move_pct": 0.4967590639090088,
+      "direction": "down",
+      "as_of": "2026-06-01",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Gold (GLD)": {
+      "symbol": "gld.us",
+      "price": "417.12",
+      "move": "up 0.03%",
+      "price_value": 417.12,
+      "move_pct": 0.031175807573322008,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Oil proxy (USO)": {
+      "symbol": "uso.us",
+      "price": "129.09",
+      "move": "down 9.44%",
+      "price_value": 129.09,
+      "move_pct": 9.43594780412515,
+      "direction": "down",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Snowflake (SNOW)": {
+      "symbol": "snow.us",
+      "price": "255.55",
+      "move": "up 54.37%",
+      "price_value": 255.55,
+      "move_pct": 54.37356530143773,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Micron (MU)": {
+      "symbol": "mu.us",
+      "price": "971.00",
+      "move": "up 27.41%",
+      "price_value": 971.0,
+      "move_pct": 27.41110090539299,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "ServiceNow (NOW)": {
+      "symbol": "now.us",
+      "price": "124.37",
+      "move": "up 24.76%",
+      "price_value": 124.37,
+      "move_pct": 24.756745912328224,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Robinhood (HOOD)": {
+      "symbol": "hood.us",
+      "price": "94.30",
+      "move": "up 24.21%",
+      "price_value": 94.3,
+      "move_pct": 24.20969441517386,
+      "direction": "up",
+      "as_of": "2026-05-29",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    }
+  },
+  "macro": {
+    "US CPI (YoY)": {
+      "label": "US CPI (YoY)",
+      "kind": "yoy",
+      "value": 3.9470269087042764,
+      "as_of": "2026-04-01",
+      "source": "BLS via FRED",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "US unemployment rate": {
+      "label": "US unemployment rate",
+      "kind": "value_1",
+      "value": 4.3,
+      "as_of": "2026-04-01",
+      "source": "BLS via FRED",
+      "url": "https://fred.stlouisfed.org/series/UNRATE",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Fed funds rate": {
+      "label": "Fed funds rate",
+      "kind": "value_2",
+      "value": 3.64,
+      "as_of": "2026-04-01",
+      "source": "Federal Reserve via FRED",
+      "url": "https://fred.stlouisfed.org/series/FEDFUNDS",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "US 10-year Treasury": {
+      "label": "US 10-year Treasury",
+      "kind": "daily_2",
+      "value": 4.45,
+      "as_of": "2026-05-28",
+      "source": "Treasury via FRED",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    },
+    "Brent crude": {
+      "label": "Brent crude",
+      "kind": "oil_2",
+      "value": 102.75,
+      "as_of": "2026-05-26",
+      "source": "EIA via FRED",
+      "url": "https://fred.stlouisfed.org/series/DCOILBRENTEU",
+      "origin": "live",
+      "captured_on": "2026-06-01"
+    }
+  }
+}
