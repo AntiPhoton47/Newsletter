@@ -4,10 +4,10 @@ Work in `/Users/munga/PycharmProjects/Newsletter`.
 
 This task needs live network access against the linked GitHub repository for this project so source research, market checks, and publishing can complete normally.
 
-Your job is to produce today's `Frontier Threads` issue, rebuild the site artifacts, and push the result directly to `main` only if the issue meets the April 13, 2026 quality bar.
+Your job is to produce today's `Frontier Threads` issue, rebuild the site artifacts, and push the result directly to `main` only if the issue meets the June 2, 2026 quality bar.
 
 Use these repo references before changing anything:
-- `issues/daily/2026-04-13-daily-newsletter.md` as the benchmark issue
+- `issues/daily/2026-06-02-daily-newsletter.md` as the benchmark issue
 - `daily_workflow.md`
 - `daily_issue_template.md`
 - `selection_criteria.md`
@@ -24,7 +24,7 @@ Required workflow:
    - `data/editorial_packets/YYYY-MM-DD.json`
    - `data/editorial_packets/YYYY-MM-DD-issue-scaffold.md`
    - `data/research_notes/YYYY-MM-DD.md`
-3. Use the packet, `sources.md`, `selection_criteria.md`, `daily_workflow.md`, `daily_issue_template.md`, and the April 13 benchmark as the editorial operating system for the run.
+3. Use the packet, `sources.md`, `selection_criteria.md`, `daily_workflow.md`, `daily_issue_template.md`, and the June 2 benchmark as the editorial operating system for the run.
 4. Search the listed sources directly on the web. Prefer underlying publisher and institution pages over Google wrapper pages, and use the candidate snapshot only as a discovery aid rather than the final source of truth.
 5. Before drafting, do a top-level triage pass for globally significant events. If there are major developments in conflicts, space missions, frontier AI/security, markets, geopolitics, or science that fit the reader, they should usually appear somewhere in the issue rather than being missed because they were absent from one section's candidate snapshot.
 6. Enforce source-mix discipline actively rather than passively. Do not lean too hard on a small familiar cluster of outlets when stronger or more relevant sources from `sources.md` are available. In particular:
@@ -33,9 +33,9 @@ Required workflow:
    - use 1440, Morning Brew, Superpower Daily, Nature Briefing, and The Download as supplements and discovery aids, not as the section backbone
 7. Capture useful notes in `data/research_notes/YYYY-MM-DD.md`, then write the working draft directly to `issues/daily/YYYY-MM-DD-daily-newsletter.md`.
 8. Draft the issue yourself from the packet and live source reporting. Optional repo AI tools may assist, but they are never required and must not block drafting, review, or publication when unavailable.
-9. Run the `humanizer` skill against the full newsletter draft before review and publish. Use the April 13 benchmark issue as the writing sample for rhythm, specificity, and editorial finish. Preserve meaning, facts, source labels, links, section structure, and technical register. Do not invent details, citations, anecdotes, or quotes. The goal is sharper, more natural prose, not looser sourcing or style drift.
+9. Run the `humanizer` skill against the full newsletter draft before review and publish. Use the June 2 benchmark issue as the writing sample for rhythm, specificity, source diversity, natural titles, and editorial finish. Preserve meaning, facts, source labels, links, section structure, and technical register. Do not invent details, citations, anecdotes, or quotes. The goal is sharper, more natural prose, not looser sourcing or style drift.
 10. After the humanizer pass, do a direct editorial audit for anything that still sounds generic, inflated, repetitive, or AI-patterned, then fix it in the issue file.
-11. Use the April 13 issue as the reference for structure, explanatory density, section balance, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
+11. Use the June 2 issue as the reference for structure, explanatory density, section balance, source diversity, headline voice, tone, and editorial finish. Matching headings is not enough; the issue should feel equally curated and equally readable.
 12. This automation requires live network access for direct source research, fresher market data, and `git push`. If a fetch, market refresh, or publish step fails, report the concrete failing step instead of generic runner-misconfiguration language.
 13. Do not allow title-only sections, repeated feed text, unlabeled sources, raw URLs in prose, generic filler, obvious placeholders, or sections that merely restate headlines without explanation.
 14. Preserve the authoritative `Markets & Economy` section from the scaffold or the generated data unless you are correcting an obvious formatting issue, but replace the company lines with 2-4 notable companies chosen for that day rather than reusing a fixed set.
@@ -58,7 +58,7 @@ Git requirements:
 Definition of done:
 - today's issue exists in `issues/daily/YYYY-MM-DD-daily-newsletter.md`
 - the HTML preview and Jekyll site artifacts are refreshed
-- the final issue is at least as coherent and useful as the April 13 benchmark
+- the final issue is at least as coherent, sourced, human, and useful as the June 2 benchmark
 - changes are committed and pushed to `main`
 
 Failure policy:
