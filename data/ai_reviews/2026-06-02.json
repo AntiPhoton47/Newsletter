@@ -1,7 +1,7 @@
 {
   "passed": true,
   "ready_to_send": true,
-  "overall_score": 91,
+  "overall_score": 93,
   "summary": "Local fallback review used because the AI provider token is not configured.",
   "strengths": [
     "Rule-based review passed without placeholder or feed-wrapper failures.",
