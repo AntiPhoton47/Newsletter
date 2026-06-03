@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-03",
+  "display_date": "June 03, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-06-03-daily-newsletter.md",
+  "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-06-02-daily-newsletter.md",
+  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-06-03-issue-scaffold.md",
+  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-06-03.md",
+  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-06-03 --git-commit --git-push",
+  "fetch_warning": "prepare was started first, but today's candidate fetch stalled before packet artifacts were written; this manual packet preserves the required run context and market fallback dates."
+}
+
