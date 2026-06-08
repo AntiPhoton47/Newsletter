@@ -45,6 +45,29 @@ MAIN_ENTRY_PATTERN = re.compile(
     r"(?ms)^### (?P<title>[^\n]+)\n\n\*\*Source:\*\* (?P<source>[^\n]+)\n\n(?P<body>.+?)(?=\n\n\*\*Link:\*\*|\n\n### |\n\n## |\Z)"
 )
 QUICK_HITS_PATTERN = re.compile(r"(?ms)^## Quick Hits\n(?P<body>.*?)(?=^## |\Z)")
+SECTION_HEADING_PATTERN = re.compile(r"(?m)^## (?P<section>[^\n]+)$")
+REQUIRED_SECTIONS = [
+    "Markets & Economy",
+    "Need To Know",
+    "Research Watch",
+    "World News",
+    "Philosophy",
+    "Biology",
+    "Psychology and Neuroscience",
+    "Health and Medicine",
+    "Sociology and Anthropology",
+    "Technology",
+    "Robotics",
+    "AI",
+    "Engineering",
+    "Mathematics",
+    "Historical Discoveries",
+    "Archaeology",
+    "Tools You Can Use",
+    "Entertainment",
+    "Travel",
+    "Idea Of The Day",
+]
 
 
 def normalize_compact(text: str) -> str:
@@ -79,6 +102,14 @@ def find_thin_main_entries(text: str) -> list[str]:
     return findings
 
 
+def find_missing_required_sections(text: str) -> list[str]:
+    present_sections = {
+        match.group("section").strip()
+        for match in SECTION_HEADING_PATTERN.finditer(text)
+    }
+    return [section for section in REQUIRED_SECTIONS if section not in present_sections]
+
+
 def review_text(text: str) -> dict[str, object]:
     findings: list[str] = []
     lines = text.splitlines()
@@ -98,6 +129,10 @@ def review_text(text: str) -> dict[str, object]:
     section_count = sum(1 for line in lines if line.startswith("## ")) - 1
     if section_count < 10:
         findings.append("Issue has too few sections")
+
+    missing_sections = find_missing_required_sections(text)
+    for section in missing_sections:
+        findings.append(f"Missing required section: {section}")
 
     findings.extend(find_thin_main_entries(text))
 
