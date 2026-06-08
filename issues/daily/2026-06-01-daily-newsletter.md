@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## June 01, 2026
+## June 1, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Sequence problems
 
 Today's issue is about sequence problems. In astrophysics, the striking result is a giant black hole that seems to have formed before the galaxy around it fully assembled. In mathematics, biology, and AI, the stronger work is also about hidden ordering: which structures come first, which constraints are real, and which systems only become visible once the measurement or tooling catches up.
 
@@ -485,7 +485,7 @@ Qwen Code is worth a look if you want another serious terminal-native coding-age
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Books, screens, and games worth your time
 
 - **Summer 2026 board games and TTRPGs:** Polygon's seasonal preview is a good scan if you want something concrete outside the usual screen pipeline; tabletop remains one of the cleaner places to see design ideas emerge without blockbuster budgets attached. [Source](https://www.polygon.com/most-anticipated-board-games-ttrpgs-summer-2026/)
 - **2026 TV premiere calendar:** Deadline's updated premiere guide is useful because it separates the genuinely imminent from the endlessly announced, and right now that sort of filtering matters more than one more "everything coming this year" list. [Source](https://deadline.com/feature/2026-tv-premiere-dates-1236391902/)
@@ -495,7 +495,7 @@ Qwen Code is worth a look if you want another serious terminal-native coding-age
 
 ## Travel
 
-### Cool Place To Visit
+### Lassen Volcanic National Park before summer gridlock
 
 ![Lassen Volcanic National Park](https://commons.wikimedia.org/wiki/Special:FilePath/Lassen_Volcanic_National_Park_LAVO3300.jpg)
 

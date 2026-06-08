@@ -2,7 +2,7 @@
 
 ## May 19, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Intelligence leaving the lab and colliding with real bottlenecks
 
 Today’s issue is about intelligence leaving the lab and colliding with real bottlenecks. In AI, the interesting questions are no longer just whether models can do impressive things, but where they hit governance, biosecurity, labor, privacy, and grid constraints. In science and mathematics, the stronger stories have a similar shape: cleaner windows onto neutrino mass, clearer evidence of literature contamination, and deeper accounts of why some hard problems stay hard. Even the geopolitical stories fit the pattern, because alliances and deterrence are becoming logistics problems that spill directly into markets, energy, and industrial planning.
 
@@ -484,7 +484,7 @@ The `pi` repo is worth a click because it packages several things people usually
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Books, screens, and games worth your time
 
 - **Brandon Sanderson’s Cosmere:** active adaptation cycle. The Apple TV pickup is one of the bigger recent fantasy-rights moves because it spans a genuine book universe, not a one-off property. [Source](https://www.hollywoodreporter.com/tv/tv-news/brandon-sanderson-cosmere-apple-tv-1236117291/)
 - **Dead Meat’s game push:** newly announced. Polygon’s piece on the YouTube horror brand moving into games is worth a look if you care about creator-to-studio pipeline shifts. [Source](https://www.polygon.com/dead-meat-games-james-a-janisse-zoran-gvojic/)

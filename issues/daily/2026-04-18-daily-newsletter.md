@@ -2,7 +2,7 @@
 
 ## April 18, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems being forced to prove themselves under contact with reality
 
 Today's issue is about systems being forced to prove themselves under contact with reality. Physics is tightening one of the cleanest tests of the Standard Model, cosmology is checking gravity across galaxy-scale distances, and medicine is learning that AI becomes socially consequential long before it becomes clinically trustworthy. The same pattern runs through geopolitics and markets: when constraints harden, the useful question is no longer what a system can do in principle, but what still holds when logistics, institutions, and error bars push back.
 
@@ -467,7 +467,7 @@ If you are building agentic workflows in production, AgentKit is worth direct in
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### A few things worth your time this week
 
 The sharpest entertainment pick today is the Hampstead revival of **Michael Frayn's _Copenhagen_**, partly because Physics World's interview with Frayn is a reminder that very little science-themed art has aged as well. The play still does something rare: it turns uncertainty, ethics, history, and physics into live dramatic tension without flattening any of them. **Source:** Physics World. **Link:** [Read at Physics World](https://physicsworld.com/michael-frayn-on-copenhagen-when-i-wrote-it-i-didnt-think-it-would-even-be-staged/)
 

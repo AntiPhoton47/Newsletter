@@ -2,7 +2,7 @@
 
 ## May 29, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Hidden substrate becoming the main story
 
 Today's issue is about hidden substrate becoming the main story. In biology, a billion-structure protein atlas matters because it turns a diffuse search space into something engineers and scientists can actually navigate. In quantum information, the strongest work is no longer just about isolated demonstrations, but about whether fragile effects can survive the scheduling, scaling, and measurement constraints that real systems impose.
 
@@ -500,7 +500,7 @@ The [Agents SDK](https://openai.github.io/openai-agents-python/) is one of the c
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Screen and page picks worth tracking
 
 - **The Testaments:** Hulu has finally begun showing the shape of its sequel to *The Handmaid's Tale*, which makes this one of the clearer big-TV titles to watch on the 2026 slate. [Source](https://variety.com/2026/tv/news/the-testaments-release-date-cast-hulu-1236286527/)
 - **Baywatch reboot:** Fox is reviving *Baywatch* for the 2026-27 season, which could be either disposable nostalgia or a surprisingly revealing read on how broadcast TV wants to package familiar IP again. [Source](https://variety.com/2026/tv/news/baywatch-reboot-fox-1236354824/)
@@ -511,7 +511,7 @@ The [Agents SDK](https://openai.github.io/openai-agents-python/) is one of the c
 
 ## Travel
 
-### Cool Place To Visit
+### Channel Islands National Park, while California is still quiet
 
 ![Channel Islands National Park](https://commons.wikimedia.org/wiki/Special:FilePath/Channel%20Islands%20National%20Park%20CHIS8063.jpg)
 

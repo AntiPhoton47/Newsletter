@@ -2,7 +2,7 @@
 
 ## April 25, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems leaving the era of elegant prototypes and entering the era of operational constraint
 
 Today's issue is about systems leaving the era of elegant prototypes and entering the era of operational constraint. Self-driving labs, AI evaluation, embodied models, and scientific software are all being forced to answer the same harder question: not whether they can do something impressive once, but whether they can do it repeatably, safely, and at scale. The same logic now governs geopolitics and markets, where energy routes, sanctions design, data access, and compute financing are becoming the real infrastructure of power.
 

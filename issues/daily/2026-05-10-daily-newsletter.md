@@ -2,7 +2,7 @@
 
 ## May 10, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Institutions discovering where their real bottlenecks are
 
 Today's issue is about institutions discovering where their real bottlenecks are. Grant systems, scientific publishing, shipping lanes, chip manufacturing, and robotics all look different once the constraint shifts from invention to screening, coordination, and trust. The strongest stories are the ones in which a field is no longer asking whether a capability exists, but whether the surrounding systems can absorb it without breaking.
 
@@ -518,7 +518,7 @@ The open-source “mission control for Hermes agent” project surfaced through 
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Books, screens, and games worth your time
 
 - **`Star City` is the most obvious watchlist item for this readership:** Apple’s *For All Mankind* spinoff premieres on **May 29, 2026**, and the premise, a Soviet-side retelling of the space race, looks strong enough to matter beyond franchise completionism. [Source](https://www.apple.com/tv-pr/news/2026/02/apple-tv-unveils-a-first-look-at-star-city-the-gripping-new-space-race-drama-set-in-the-world-of-for-all-mankind-from-award-winning-creators-ben-nedivi-matt-wolpert-and-ronald-d-moore/)
 - **May’s PC slate is finally crowded enough to feel like a real release month:** PC Gamer’s roundup puts **Forza Horizon 6**, **Subnautica 2**, and several early-access indies in the same window, which should make the second half of the month unusually busy. [Source](https://www.pcgamer.com/games/pc-game-release-dates-may-2026/)

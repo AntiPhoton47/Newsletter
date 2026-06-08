@@ -2,7 +2,7 @@
 
 ## May 27, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems becoming modular enough to matter
 
 Today's issue is about systems becoming modular enough to matter. Quantum information is starting to move between separated registers instead of living inside single-device demos, clinical AI is being judged on whether it can reason through real multimodal workflows, and Europe is increasingly treating drones and preparedness as standing industrial questions rather than emergency fixes. Even the strongest history and archaeology stories fit that pattern: better methods are turning old material into operational evidence rather than decorative curiosity.
 
@@ -468,7 +468,7 @@ That matters because prestige economies are easy to romanticize and hard to map.
 
 ## Entertainment
 
-### What looks worth your attention
+### A few things worth your time this week
 
 - **The Impossible Factory:** Josh Dean's new science-and-technology title looks like a strong fit if you want a book about how ambitious systems get built under real-world friction rather than in abstract innovation mythology. [Source](https://www.penguinrandomhouse.com/books/new-releases-science-technology/)
 - **007 First Light:** IO Interactive's Bond origin story lands today, and it looks like one of the cleaner big-budget bets of the month because the studio's strengths in stealth, improvisation, and controlled chaos actually suit the material. [Source](https://www.gamespot.com/gallery/the-biggest-new-game-releases-of-may-2026/2900-7667/)

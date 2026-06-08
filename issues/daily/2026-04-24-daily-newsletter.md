@@ -2,7 +2,7 @@
 
 ## April 24, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Reconstruction under constraint
 
 Today's issue is about reconstruction under constraint. AI systems are starting to recover turbulent flows, cognitive patterns, and chip designs from sparse or indirect signals, while science keeps finding that hidden structure in soils, microbiomes, and ancient genomes is more actionable than it first appeared. The same theme shows up in geopolitics and markets: shipping lanes, semiconductor economics, and alliance systems all now hinge on who can infer, coordinate, and adapt under incomplete information.
 

@@ -2,7 +2,7 @@
 
 ## March 31, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems becoming real enough to test
 
 Today’s issue is about systems becoming real enough to test. In physics and computing, the most interesting signal is that simulation, factoring, and entanglement work are moving from elegant theory toward more disciplined demonstrations and infrastructure choices. In AI and software tooling, the same pattern appears in agent frameworks, interoperability protocols, and research automation: the question is no longer whether the concepts are imaginable, but whether they can be made reliable, legible, and useful in serious workflows. The macro backdrop sharpens that point. War, energy, shipping, and financing conditions still set the practical boundary conditions for technical ambition.
 

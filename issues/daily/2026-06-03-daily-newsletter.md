@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## June 03, 2026
+## June 3, 2026
 
-### Science, technology, markets, and the wider world
+### Systems moving closer to the edge of real use
 
 Today's issue is about systems moving closer to the edge of real use. NASA is now running a geospatial foundation model in orbit instead of treating AI as something that only touches data after it lands. Mathematicians and nonlinear-dynamics researchers are putting more work behind the claim that machine-assisted reasoning can become part of serious research rather than a glossy demo.
 

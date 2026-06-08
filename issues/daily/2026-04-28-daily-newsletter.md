@@ -2,7 +2,7 @@
 
 ## April 28, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Interfaces becoming operational
 
 Today's issue is about interfaces becoming operational. In biology, generative modeling is moving from general AI rhetoric into domain-specific workflow design. In geopolitics, the most important signal is not a fresh slogan about de-escalation but whether chokepoints, shipping, and alliance finance can actually be reopened under pressure. And across robotics, quantum networking, mathematics, and archaeology, the underlying story is the same: progress looks more credible when elegant abstractions survive contact with real materials, real infrastructure, and real evidence.
 

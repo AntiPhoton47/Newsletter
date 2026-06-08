@@ -126,7 +126,7 @@ layout: default
     <div class="masthead">
       <p class="eyebrow">Frontier Threads</p>
       <h1>{{ page.title }}</h1>
-      <p>Science, technology, policy, and ideas worth your attention on {{ page.display_date }}.</p>
+      <p>{{ page.summary }}</p>
       <div class="issue-meta-bar">
         <span class="meta-pill">{{ page.display_date }}</span>
         <span class="meta-pill">{{ page.display_time }}</span>
@@ -2129,16 +2129,73 @@ def yaml_escape(value: str) -> str:
     return value.replace("\\", "\\\\").replace('"', '\\"')
 
 
-THEME_KEYWORDS: list[tuple[str, str, tuple[str, ...]]] = [
-    ("Quantum Foundations", "Physics", ("quantum", "contextuality", "loop quantum", "quantum gravity", "relativity", "spacetime")),
-    ("AI Research", "AI & Computing", ("ai", "language model", "llm", "agent", "machine learning", "deep learning", "openai")),
-    ("Research Tools", "AI & Computing", ("tool", "dataset", "api", "framework", "open-source", "mcp", "workflow", "infrastructure")),
-    ("Markets", "Markets & Economy", ("market", "stocks", "treasury", "inflation", "fed", "economy", "gdp", "cpi", "bitcoin", "oil")),
-    ("World Affairs", "World Affairs", ("geopolitic", "conflict", "diplom", "trade", "united nations", "humanitarian", "security")),
-    ("Biomedicine", "Life Sciences", ("biology", "medicine", "health", "neuroscience", "brain", "aging", "clinical", "genome")),
-    ("Engineering", "Technology & Engineering", ("engineering", "robotics", "materials", "semiconductor", "grid", "infrastructure", "manufacturing")),
-    ("Mathematics", "Mathematics & Ideas", ("mathematics", "math", "theorem", "proof", "infinity", "geometry")),
-    ("Philosophy", "Mathematics & Ideas", ("philosophy", "epistemology", "truth", "consciousness", "knowledge")),
+GENERIC_H3_HEADINGS = {
+    "short takes",
+    "breaking news",
+    "upcoming investment opportunities",
+    "private-market watchlist",
+    "what looks worth your attention",
+    "what looks worth watching and reading next",
+    "what looks worth your attention",
+    "what looks worth your attention",
+    "books, games, and screens",
+    "a few concrete things worth tracking this week",
+}
+
+GENERIC_SUMMARY_PREFIXES = (
+    "this issue was generated from the configured source pipeline",
+    "science, technology, markets, and the wider world",
+    "the day's most interesting developments in science, technology, and ideas",
+)
+
+SECTION_WEIGHTS = {
+    "Quick Hits": 1,
+    "Markets & Economy": 2,
+    "Need To Know": 5,
+    "Research Watch": 4,
+    "World News": 4,
+    "Philosophy": 2,
+    "Biology": 3,
+    "Psychology and Neuroscience": 3,
+    "Health and Medicine": 3,
+    "Sociology and Anthropology": 2,
+    "Technology": 3,
+    "Robotics": 3,
+    "AI": 3,
+    "Engineering": 3,
+    "Mathematics": 2,
+    "Historical Discoveries": 3,
+    "Archaeology": 3,
+    "Tools You Can Use": 3,
+    "Entertainment": 1,
+    "Travel": 1,
+    "Idea Of The Day": 1,
+}
+
+TOPIC_RULES: list[dict[str, object]] = [
+    {"tag": "Quantum hardware", "category": "Quantum & Physics", "keywords": ("quantum computing", "spin qubits", "fault-tolerant", "quantum gates", "quantum measurement", "dynamic circuits", "jiuzhang", "trapped-ion", "modular quantum", "quantum hardware", "shor threshold", "quantum security")},
+    {"tag": "Quantum contextuality", "category": "Quantum & Physics", "keywords": ("contextuality", "nonlocality", "kochen-specker", "contextual")},
+    {"tag": "Quantum networks", "category": "Quantum & Physics", "keywords": ("quantum networking", "quantum network", "telecom-band", "quantum emitters", "quantum interfaces", "network integration", "repeater")},
+    {"tag": "Quantum gravity", "category": "Quantum & Physics", "keywords": ("loop quantum gravity", "quantum gravity", "de sitter", "effective spacetime", "cosmology")},
+    {"tag": "Particle physics", "category": "Quantum & Physics", "keywords": ("standard model", "w boson", "atomic hydrogen", "antihydrogen", "hyperfine", "meson", "attosecond")},
+    {"tag": "Space telescopes", "category": "Space & Earth Science", "keywords": ("webb", "interstellar comet", "little red dot", "black hole", "galaxy", "nasa", "orbit", "astronomy", "geospatial foundation model")},
+    {"tag": "Climate and Earth systems", "category": "Space & Earth Science", "keywords": ("ice core", "climate", "el nino", "tipping points", "antarctic", "geospatial", "volcanic")},
+    {"tag": "AI agents and workflows", "category": "AI Systems", "keywords": ("agent", "agents", "agentic", "copilot", "workflow", "mcp", "openai agents sdk", "connected apps", "tool use")},
+    {"tag": "AI evaluation", "category": "AI Systems", "keywords": ("evaluation", "benchmark", "leaderboard", "fake citations", "citation hallucinations", "measure", "trust layer", "benchmark theater")},
+    {"tag": "AI for science", "category": "AI Systems", "keywords": ("ai scientist", "self-driving lab", "design tool", "structure determination", "alphafold", "generative biology", "scientific workflows", "research workflow")},
+    {"tag": "Scientific software", "category": "Computing & Software", "keywords": ("scientific software", "sdk", "framework", "developer", "open-source", "api", "tooling", "software")},
+    {"tag": "Robotics and embodied AI", "category": "Computing & Software", "keywords": ("robotics", "robot", "embodied ai", "ros", "operating system framework")},
+    {"tag": "Biosecurity", "category": "Life Sciences & Medicine", "keywords": ("biosecurity", "genome-writing", "biological", "pathogen")},
+    {"tag": "Medical AI", "category": "Life Sciences & Medicine", "keywords": ("medical ai", "diagnosis", "clinician-ai", "clinical", "rare disease", "obesity medicine")},
+    {"tag": "Biology and aging", "category": "Life Sciences & Medicine", "keywords": ("aging", "multi-omics", "protein universe", "protein structure", "genome", "biology")},
+    {"tag": "Neuroscience and cognition", "category": "Neuroscience & Cognition", "keywords": ("neuroscience", "brain", "cognition", "consciousness", "neural", "octopus", "attention", "stable cognition")},
+    {"tag": "Energy and infrastructure", "category": "Industry & Infrastructure", "keywords": ("fusion", "grid", "energy", "infrastructure", "power", "compute", "semiconductor", "manufacturing")},
+    {"tag": "Markets and macro", "category": "Markets & Industry", "keywords": ("imf", "world economic outlook", "global growth", "market", "inflation", "fed", "treasury", "macro")},
+    {"tag": "Middle East security", "category": "Geopolitics & Security", "keywords": ("iran", "hormuz", "lebanon", "gulf", "ceasefire", "maritime", "shipping", "strait of hormuz")},
+    {"tag": "Ukraine and Europe", "category": "Geopolitics & Security", "keywords": ("ukraine", "kyiv", "nato", "brussels", "europe", "european", "defence", "drone war")},
+    {"tag": "Trade and industrial policy", "category": "Geopolitics & Security", "keywords": ("tariffs", "trade policy", "export control", "industrial policy", "supply chain", "security turn", "procurement")},
+    {"tag": "Archaeogenetics", "category": "History & Archaeology", "keywords": ("ancient dna", "archaeology", "genomic", "bogota", "pleistocene", "human persistence", "historical discoveries")},
+    {"tag": "Mathematics and philosophy", "category": "Mathematics & Ideas", "keywords": ("mathematics", "proof", "theorem", "infinity", "philosophy", "truth", "epistemology")},
 ]
 
 
@@ -2183,12 +2240,14 @@ def clean_summary(lines: list[str]) -> str:
         stripped = line.strip()
         if not stripped:
             continue
-        if stripped.startswith("#") or stripped.startswith("## "):
+        if stripped.startswith("#"):
             continue
-        if stripped.startswith("### ") and "The day's" in stripped:
+        if stripped.startswith("- "):
+            continue
+        if stripped.lower().startswith(GENERIC_SUMMARY_PREFIXES):
             continue
         return stripped
-    return "Daily newsletter covering science, technology, world affairs, and ideas."
+    return ""
 
 
 def estimate_reading_time(text: str) -> int:
@@ -2196,28 +2255,148 @@ def estimate_reading_time(text: str) -> int:
     return max(1, (words + 219) // 220)
 
 
-def detect_themes(text: str) -> list[tuple[str, str, int]]:
-    normalized = text.lower()
+def normalize_text(value: str) -> str:
+    return re.sub(r"\s+", " ", value.lower()).strip()
+
+
+def parse_sections(markdown_text: str) -> list[dict[str, object]]:
+    sections: list[dict[str, object]] = []
+    pattern = re.compile(r"^##\s+([^\n]+)\n(.*?)(?=^##\s+[^\n]+\n|\Z)", flags=re.MULTILINE | re.DOTALL)
+    for match in pattern.finditer(markdown_text):
+        name = match.group(1).strip()
+        body = match.group(2).strip()
+        if re.fullmatch(r"[A-Za-z]+ \d{1,2}, \d{4}", name) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", name):
+            continue
+        headings = [heading.strip() for heading in re.findall(r"^###\s+(.+)$", body, flags=re.MULTILINE)]
+        bullets = [bullet.strip() for bullet in re.findall(r"^- \*\*(.+?)\*\*", body, flags=re.MULTILINE)]
+        sections.append(
+            {
+                "name": name,
+                "body": body,
+                "headings": headings,
+                "bullets": bullets,
+                "normalized": normalize_text(" ".join([name, body, *headings, *bullets])),
+            }
+        )
+    return sections
+
+
+def first_story_heading(sections: list[dict[str, object]], preferred_sections: tuple[str, ...]) -> str:
+    for preferred in preferred_sections:
+        for section in sections:
+            if section["name"] != preferred:
+                continue
+            for heading in section["headings"]:
+                if normalize_text(heading) in GENERIC_H3_HEADINGS:
+                    continue
+                return heading
+    return ""
+
+
+def humanize_issue_title(title: str) -> str:
+    cleaned = re.sub(r"\s+", " ", title).strip().strip(".")
+    if " | " in cleaned and len(cleaned) > 85:
+        cleaned = cleaned.split(" | ", 1)[0].strip()
+    for delimiter in (";", ":", " - "):
+        if len(cleaned) > 90 and delimiter in cleaned:
+            cleaned = cleaned.split(delimiter, 1)[0].strip()
+    if len(cleaned) > 96:
+        cleaned = cleaned[:93].rstrip() + "..."
+    return cleaned or "Daily briefing"
+
+
+def fallback_summary_from_sections(sections: list[dict[str, object]]) -> str:
+    lead = humanize_issue_title(first_story_heading(sections, ("Need To Know", "Research Watch", "World News")))
+    research = humanize_issue_title(first_story_heading(sections, ("Research Watch", "Technology", "AI")))
+    world = humanize_issue_title(first_story_heading(sections, ("World News", "Markets & Economy")))
+    parts = [part for part in (lead, research, world) if part]
+    if not parts:
+        return "Daily newsletter covering science, technology, world affairs, and ideas."
+    if len(parts) == 1:
+        return f"{parts[0]} leads today's issue."
+    if len(parts) == 2:
+        return f"{parts[0]} leads, followed by {parts[1].lower()}."
+    return f"{parts[0]} leads, with {parts[1].lower()} and {parts[2].lower()} across the rest of the issue."
+
+
+def score_topics(sections: list[dict[str, object]]) -> list[tuple[str, str, int]]:
+    focus_section_limits = {
+        "Need To Know": 1,
+        "Research Watch": 2,
+        "World News": 2,
+    }
+    focus_parts: list[tuple[str, str]] = []
+    for section in sections:
+        limit = focus_section_limits.get(str(section["name"]), 0)
+        if not limit:
+            continue
+        filtered_headings = [
+            heading
+            for heading in section["headings"]
+            if normalize_text(heading) not in GENERIC_H3_HEADINGS
+        ]
+        for heading in filtered_headings[:limit]:
+            focus_parts.append((str(section["name"]), normalize_text(f"{section['name']} {heading}")))
+    if not focus_parts:
+        focus_parts = [(str(section["name"]), str(section["normalized"])) for section in sections]
+
     scored: list[tuple[str, str, int]] = []
-    for label, category, keywords in THEME_KEYWORDS:
-        score = sum(normalized.count(keyword) for keyword in keywords)
-        if score > 0:
-            scored.append((label, category, score))
+    for rule in TOPIC_RULES:
+        score = 0
+        for section_name, normalized in focus_parts:
+            weight = SECTION_WEIGHTS.get(section_name, 1)
+            for keyword in rule["keywords"]:
+                count = normalized.count(str(keyword).lower())
+                if count:
+                    score += count * weight
+        if score:
+            scored.append((str(rule["tag"]), str(rule["category"]), score))
     return sorted(scored, key=lambda item: (-item[2], item[0]))
 
 
-def issue_title_from_themes(themes: list[tuple[str, str, int]], summary: str) -> str:
-    labels = [label for label, _, _ in themes[:3]]
-    if labels:
-        if len(labels) == 1:
-            return labels[0]
-        if len(labels) == 2:
-            return f"{labels[0]} and {labels[1]}"
-        return f"{labels[0]}, {labels[1]}, and {labels[2]}"
-    sentence = summary.split(".")[0].strip()
-    if len(sentence) > 70:
-        sentence = sentence[:67].rstrip() + "..."
-    return sentence or "Daily Briefing"
+def derive_tags_and_categories(sections: list[dict[str, object]]) -> tuple[list[str], list[str]]:
+    topics = score_topics(sections)
+    tags = [tag for tag, _, _ in topics[:6]]
+    category_counts = Counter()
+    for _, category, score in topics:
+        category_counts[category] += score
+    lead_tags: list[str] = []
+    lead_categories: list[str] = []
+    lead_heading = normalize_text(first_story_heading(sections, ("Need To Know",)))
+    if lead_heading:
+        for rule in TOPIC_RULES:
+            if any(lead_heading.count(str(keyword).lower()) for keyword in rule["keywords"]):
+                tag = str(rule["tag"])
+                category = str(rule["category"])
+                if tag not in lead_tags:
+                    lead_tags.append(tag)
+                if category not in lead_categories:
+                    lead_categories.append(category)
+    tags = lead_tags + [tag for tag in tags if tag not in lead_tags]
+    tags = tags[:6]
+    categories = lead_categories + [category for category, _ in category_counts.most_common(3) if category not in lead_categories]
+    categories = categories[:3]
+    if not categories:
+        categories = ["Science & Technology"]
+    if not tags and categories:
+        tags = [categories[0]]
+    return tags, categories
+
+
+def strip_issue_scaffold(markdown_text: str) -> str:
+    lines = markdown_text.splitlines()
+    trimmed = list(lines)
+    if trimmed and trimmed[0].strip() == "# Frontier Threads":
+        trimmed = trimmed[1:]
+    while trimmed and not trimmed[0].strip():
+        trimmed = trimmed[1:]
+    if trimmed and re.fullmatch(r"##\s+.+", trimmed[0].strip()):
+        trimmed = trimmed[1:]
+    while trimmed and not trimmed[0].strip():
+        trimmed = trimmed[1:]
+    if trimmed and re.fullmatch(r"###\s+.+", trimmed[0].strip()):
+        trimmed = trimmed[1:]
+    return "\n".join(trimmed).lstrip()
 
 
 def format_display_time(timestamp: dt.datetime) -> str:
@@ -2245,28 +2424,19 @@ def build_search_text(markdown_text: str, headings: list[str], tags: list[str], 
 
 
 def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, sender) -> dict[str, str]:
-    lines = markdown_text.splitlines()
-    summary = clean_summary(lines)
+    sections = parse_sections(markdown_text)
+    intro_match = re.search(r"^###\s+[^\n]+\n(.*?)(?=^## Quick Hits)", markdown_text, flags=re.MULTILINE | re.DOTALL)
+    intro_lines = intro_match.group(1).splitlines() if intro_match else markdown_text.splitlines()
+    summary = clean_summary(intro_lines) or fallback_summary_from_sections(sections)
     headings = headings_from_markdown(markdown_text)
-    plain = plain_text(markdown_text)
-    themes = detect_themes(plain)
-    tags = [label for label, _, _ in themes[:6]]
-    categories = []
-    for _, category, _ in themes:
-        if category not in categories:
-            categories.append(category)
-        if len(categories) == 3:
-            break
-    if not categories:
-        categories = ["Science & Technology"]
+    tags, categories = derive_tags_and_categories(sections)
     search_text = build_search_text(markdown_text, headings, tags, categories)
-    themes = detect_themes(search_text)
-    title = issue_title_from_themes(themes, summary)
+    title = humanize_issue_title(first_story_heading(sections, ("Need To Know", "Research Watch", "World News", "Technology", "AI")) or summary.split(".")[0].strip())
     published_at = dt.datetime.fromtimestamp(issue_path.stat().st_mtime)
     display_date = issue_date.strftime("%B %d, %Y")
     display_time = published_at.strftime("%I:%M %p").lstrip("0")
     reading_time = estimate_reading_time(search_text)
-    content_html = sender.blocks_to_html(sender.markdown_to_blocks(markdown_text))
+    content_html = sender.blocks_to_html(sender.markdown_to_blocks(strip_issue_scaffold(markdown_text)))
     return {
         "title": title,
         "display_date": display_date,

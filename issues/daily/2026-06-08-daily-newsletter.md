@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## June 08, 2026
+## June 8, 2026
 
-### Science, technology, markets, and the wider world
+### Bottlenecks becoming measurable
 
 This issue is about bottlenecks becoming measurable. Webb is not just finding another early-universe oddity. It is getting direct kinematic evidence that a black hole in a Little Red Dot was already carrying most of the mass before a normal-looking host galaxy had time to catch up.
 

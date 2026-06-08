@@ -2,7 +2,7 @@
 
 ## May 18, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems becoming harder to bluff
 
 Today’s issue is about systems becoming harder to bluff. A 1.2-million-year Antarctic ice core gives climate science a much longer baseline for testing causal stories about temperature and carbon dioxide. In geopolitics and markets, the Iran ceasefire has become less a diplomatic fact than a continuously repriced contingency, with oil, bonds, and risk sentiment all reacting to the possibility that one more deadline could snap. In AI, the same pattern shows up in a different register: the field is being forced out of product theater and into questions about cyber risk, fake scholarship, institutional trust, and how agents actually behave in open environments.
 

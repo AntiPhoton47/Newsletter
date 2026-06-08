@@ -2,7 +2,7 @@
 
 ## May 13, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Institutional bottlenecks getting exposed
 
 Today's issue is about institutional bottlenecks getting exposed. AI is no longer just producing impressive outputs; it is starting to stress grant systems, peer review, and scientific training. Quantum research, meanwhile, looks strongest where networking, memory, and reconfigurable hardware move from elegant proposals toward components someone could plausibly plan around. The geopolitical and market stories fit the same pattern: trade, sanctions, defence budgets, and energy chokepoints are increasingly being handled as operating systems rather than as one-off headlines.
 

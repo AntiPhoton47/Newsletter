@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## April 09, 2026
+## April 9, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Verification coming back into fashion
 
 Today's issue is about verification coming back into fashion. The strongest stories are not generic capability stories but cases in which institutions are being forced to check whether elegant claims survive contact with measurement, deployment, and geopolitics: the W boson settles back toward the standard model, Artemis II turns international cooperation into hardware reality, chipmaking bottlenecks are being attacked with very physical engineering, and AI policy is moving from abstract risk talk toward labor, infrastructure, and governance questions. Even the older-looking science and archaeology pieces fit the pattern. Better maps, better fossils, and better residue work matter because they narrow the gap between narrative and evidence.
 
@@ -516,7 +516,7 @@ LeRobot is one of the most useful current entry points into open robotics. It gi
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Books, screens, and games worth your time
 
 - **XO, Kitty Season 3:** Released April 2. It is not subtle television, but it is currently live, globally legible, and exactly the sort of returning show that becomes ambient conversation because it ships into spring at the right moment. [Source](https://www.netflix.com/tudum/articles/xo-kitty-season-3-news-cast-release-date)
 - **The Super Mario Galaxy Movie:** Morning Brew flagged the holiday-weekend box-office surge for a reason; this looks like one of the few spring releases that has already crossed from release note to broad cultural event. [Source](https://www.morningbrew.com/issues/superintelligence-cheatsheet)

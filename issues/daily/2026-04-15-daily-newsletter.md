@@ -2,7 +2,7 @@
 
 ## April 15, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Reality testing
 
 Today's issue is about reality testing. AI can rent a storefront, scan for vulnerabilities, and help push mathematics forward, but the sharper stories all ask what happens when these systems meet friction: hard tasks, hard institutions, hard supply chains, or hard evidence. The same pattern runs through markets, geopolitics, and science. The most consequential work now is not proving that something is possible in principle, but showing how it behaves when the world pushes back.
 
@@ -500,7 +500,7 @@ Google DeepMind is now exposing a robotics-focused embodied-reasoning model thro
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### A few things worth your time this week
 
 The most obviously current entertainment pick is the first trailer for **The Hunger Games: Sunrise on the Reaping**, which finally turns one of the bigger young-adult franchise revivals into something concrete. The real reason to care is not franchise maintenance by itself. It is that studios are once again leaning on worlds with enough political and visual structure to carry renewed attention rather than only nostalgia. **Source:** Deadline. **Link:** [Read at Deadline](https://deadline.com/2026/04/the-hunger-games-sunrise-on-the-reaping-trailer-1236858961/)
 

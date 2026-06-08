@@ -2,7 +2,7 @@
 
 ## April 30, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Hidden assumptions becoming operational constraints
 
 Today's issue is about hidden assumptions becoming operational constraints. Quantum computing suddenly matters less as a futuristic abstraction than as a timetable for cryptography migration; AI looks less like a single capability race and more like a problem of evidence, data lineage, and safety scaffolding; and Europe's geopolitical file is being rewritten through energy costs, shipping chokepoints, and procurement mechanics rather than speeches. Even the historical and archaeological stories fit the pattern: once better tools expose the buried structure of a system, the story changes from vague possibility to practical consequence.
 

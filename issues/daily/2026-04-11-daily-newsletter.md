@@ -2,7 +2,7 @@
 
 ## April 11, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Hidden systems becoming legible
 
 Today’s issue is about hidden systems becoming legible. The strongest stories are not flashy breakthroughs so much as better ways of seeing what was already shaping outcomes: satellite night-light data that turns human activity into a volatility map, finance mechanisms that turn European security rhetoric into procurement reality, and AI tooling that is shifting from chat to governed execution. Across science, policy, and engineering, the advantage now goes to institutions that can instrument complex systems well enough to act before lagging indicators catch up.
 
@@ -488,7 +488,7 @@ The `openai-agents-python` framework is still one of the cleaner places to look 
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### A few things worth your time this week
 
 - **The Growth Story of the 21st Century:** Nature’s review makes Nicholas Stern’s book sound timely for exactly the right reason: it treats climate action as an economic redesign problem, not just an emissions morality play. [Source](https://www.nature.com/articles/d41586-026-01026-5.pdf)
 - **Transcendence for Beginners:** Released April 7. Clare Carlisle’s new book looks like a strong fit for readers who want philosophy with literary texture rather than generic self-help metaphysics. [Source](https://www.kirkusreviews.com/book-reviews/clare-carlisle/transcendence-for-beginners/)

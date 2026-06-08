@@ -2,7 +2,7 @@
 
 ## May 26, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Verification replacing novelty as the hard problem
 
 Today's issue is about verification replacing novelty as the hard problem. AI is getting more interesting where it can write research software, find real security flaws, or survive clinical-trial design rather than merely produce impressive outputs. The same shift shows up elsewhere: quantum computing looks better when architectures reduce wiring friction, geopolitics matters most where access to ports and energy corridors is negotiated operationally, and archaeology keeps advancing when genetics and pathogen recovery turn old materials into new evidence.
 
@@ -487,7 +487,7 @@ Google's agent starter pack is still one of the clearer examples of how to treat
 
 ## Entertainment
 
-### What looks worth your attention
+### Screen and page picks worth tracking
 
 - **The Broken Machine:** Edward Jones-Imhotep's new history of technological breakdown looks like a strong thematic fit for this newsletter because it treats failure as a way of understanding modern systems, not just as their interruption. [Source](https://www.penguinrandomhouse.com/books/814342/the-broken-machine-by-edward-jones-imhotep/)
 - **The Mandalorian and Grogu:** Variety Australia's box-office note is a useful reminder that big-franchise gravity still matters when a film can open at the top of the market on debut. [Source](https://au.variety.com/2026/film/news/australian-box-office-may-25th-36939/)

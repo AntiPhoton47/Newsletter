@@ -2,7 +2,7 @@
 
 ## May 24, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems staying useful while their internals keep shifting
 
 Today's issue is about systems staying useful while their internals keep shifting. Neuroscience is finding that stable behavior can emerge from moving neural codes rather than fixed units; AI vendors are discovering that product value now depends as much on tool reach and interface quality as on model fluency; and geopolitics keeps turning abstract strategy into logistics, procurement, and energy-route management. The common pattern is that operational durability now matters more than clean theory or launch-day spectacle.
 
@@ -501,7 +501,7 @@ The `modelcontextprotocol/servers` repository is still one of the cleaner ways t
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### A few things worth your time this week
 
 - **If you want one current adaptation signal, `Verity` is the cleanest:** Variety reports it opened at No. 1 domestically, which makes Colleen Hoover's broader screen pipeline harder to ignore whether or not you like the source material. [Source](https://variety.com/2026/film/box-office/verity-box-office-number-one-final-destination-bloodlines-1236412044/)
 - **The newly announced `Bloodborne` movie is worth watching less for franchise exhaustion than for the test it poses:** can a deliberately opaque game world survive translation without getting explained to death? [Source](https://variety.com/2026/film/news/bloodborne-movie-1236412357/)

@@ -2,7 +2,7 @@
 
 ## May 20, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Systems becoming legible only when they run into constraints
 
 Today’s issue is about systems becoming legible only when they run into constraints. AI in science looks more impressive and more limited at the same time; geopolitics is increasingly expressed through aircraft orders, energy exposure, and alliance choreography; and several of the strongest research stories are really about extracting signal from messy environments rather than pretending the mess has disappeared. The common thread is not raw capability. It is what survives contact with institutions, infrastructure, and reality.
 
@@ -484,7 +484,7 @@ If you want to understand where generative video tooling is actually heading, De
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### Screen and page picks worth tracking
 
 - **Avatar: Fire and Ash remains worth tracking mainly as a franchise-timing story:** release-window clarity matters when studios are trying to keep blockbuster worlds legible across theatrical and streaming cycles. [Source](https://www.ign.com/articles/avatar-fire-and-ash-streaming-release-date)
 - **Time Out’s 2026 U.S. festival coverage is useful if you want something lighter that still rewards planning:** music calendars remain one of the better excuses for short, intentional travel. [Source](https://www.timeout.com/usa/music/21-best-music-festivals-in-the-us)

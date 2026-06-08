@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 09, 2026
+## May 9, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### What happens when a system meets its real bottleneck
 
 Today's issue is about what happens when a system meets its real bottleneck. Attention is not simply collapsing; it is being fragmented by environments optimized for switching. Medical AI looks less limited by benchmark scores than by how humans actually talk to it. Across geopolitics, archaeology, and mathematics, the same pattern shows up again: progress starts to look serious when the question shifts from whether something is possible to how it behaves under pressure.
 
@@ -482,7 +482,7 @@ ProgramBench is not a production tool in the same sense as the other two, but it
 
 ## Entertainment
 
-### What Looks Worth Your Attention
+### A few things worth your time this week
 
 - **The AI Illusion: Why Machines Aren’t Creative:** Luc Julia’s spring science title is still an easy recommendation for readers who want a sharper anti-hype argument than most AI debate currently offers. [Source](https://www.publishersweekly.com/pw/print/20251208/99239-spring-2026-fiction-nonfiction-preview-science.html)
 - **AWP 2026 Takes On AI:** Publishers Weekly’s conference coverage is a good cultural marker for how quickly generative AI has become an argument about writing, editing, and artistic legitimacy rather than only about software. [Source](https://www.publishersweekly.com/pw/by-topic/industry-news/trade-shows-events/article/99902-awp-2026-takes-on-ai.html)

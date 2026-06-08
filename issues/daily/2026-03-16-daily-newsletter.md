@@ -1,10 +1,10 @@
 # Frontier Threads
 
-## 2026-03-16
+## March 16, 2026
 
-### The day's most interesting developments in science, technology, and ideas
+### Universal dynamics and microwave control of programmable resonant electro-optic frequency combs
 
-This issue was generated from the configured source pipeline and is intended as a strong first draft for daily review.
+Today's issue leans toward quantum control, macro strain, and early agent tooling. The individual items are varied, but the useful through-line is coordination: getting laboratory systems under tighter control, making sense of a more uneven global economy, and turning AI frameworks into something that can plug into real workflows.
 
 ## Quick Hits
 
@@ -315,34 +315,34 @@ Build your MCP server – Apps SDK  OpenAI Developers
 
 ## Entertainment
 
-### Movies
+### A few March releases worth tracking
 
 - **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
 - **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
-### Books
+#### Books
 
 - **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
 - **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
-### TV Shows
+#### TV Shows
 
 - **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
 - **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
-### Video Games
+#### Video Games
 
 - **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
 - **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
-### Concerts
+#### Concerts
 
 - **What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More:** What To Watch This Weekend: New Shows And Movies To Stream On Netflix, Hulu, Prime Video, Apple TV And More  Forbes
 - **Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books:** Prime Video Unveils the First 'Off Campus' Teaser Featuring a Steamy Fan-Favorite Scene From the Books  Marie Claire
 
 ## Travel
 
-### Cool Place To Visit
+### Remote-work cities that still feel livable
 
 **I’ve Been a Digital Nomad for Over 7 Years—These Are My 5 Favorite Remote Work Destinations**
 
@@ -350,6 +350,6 @@ I’ve Been a Digital Nomad for Over 7 Years—These Are My 5 Favorite Remote Wo
 
 ## Idea Of The Day
 
-### Concept to explain
+### Quantum foundations beyond the slogan
 
 Use today's strongest conceptual thread, for example from **Quantum foundations for quantum technologies in the International Year of Quantum (2025)**, and explain it clearly in 1-2 paragraphs. [Source](https://arxiv.org/)
