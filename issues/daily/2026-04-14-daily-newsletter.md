@@ -2,7 +2,7 @@
 
 ## April 14, 2026
 
-### Capability crossing into governance
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about capability crossing into governance. The biggest stories are not abstract claims about what frontier systems, states, or labs might do someday, but concrete examples of thresholds being crossed now: Anthropic is withholding a model because it can surface real vulnerabilities at industrial scale, the United States is turning maritime coercion into an oil-and-inflation problem again, Europe is converting solidarity with Ukraine into procurement machinery, and science keeps moving from spectacle toward instrumentation, evaluation, and build systems. Even the lighter sections fit the same pattern. Whether the subject is mathematical proof, medieval manuscripts, or travel, the value is in systems that become more legible when somebody finally learns how to read the hidden layer.
 
@@ -478,7 +478,7 @@ Not every useful tool has to be new. `apriltag_ros` remains a dependable way to 
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 Bethesda's decision to bring **Starfield** to PS5 on April 7 alongside the paid **Terran Armada** expansion and the free **Free Lanes** update makes it newly relevant even if you skipped the first wave of conversation in 2023. The real reason to care is not platform-war trivia. It is that a big-budget science-fiction game with mixed early reception is being treated like a long-lived world that can still be substantially reconfigured through content, systems, and hardware support. That is a better cultural model than the disposable-launch mindset that still dominates too much entertainment tech. **Source:** The Verge. **Link:** [Read at The Verge](https://www.theverge.com/entertainment/895304/starfield-ps5-launch-date-story-expansion)
 

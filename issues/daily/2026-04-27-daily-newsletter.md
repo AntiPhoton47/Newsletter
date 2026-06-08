@@ -2,7 +2,7 @@
 
 ## April 27, 2026
 
-### Feedback loops getting real
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about feedback loops getting real. AI is being judged less by spectacle than by whether its evaluations predict deployment behavior, whether its agents can survive contact with scientific workflows, and whether its physical embodiments can act under millisecond constraints instead of only describing the world elegantly. The same pattern is visible elsewhere: Europe is turning support for Ukraine into industrial and financing machinery, chipmaking is being pushed by the brute force of AI demand, and biology is becoming more designable where massive models start to compress deep structure into usable tools.
 

@@ -2,7 +2,7 @@
 
 ## May 12, 2026
 
-### Systems becoming reorganizable
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems becoming reorganizable. In quantum hardware, biology, and AI, the interesting advances are less about one-off performance records than about architectures that can be rewired, audited, or steered under changing conditions. The geopolitical and market stories fit the same pattern: Europe is hardening sanctions, courts are reasserting constraints on tariff improvisation, and capital still rewards the firms that sit nearest real bottlenecks rather than soft narratives.
 

@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 1, 2026
+## May 01, 2026
 
-### Second-order effects becoming the real story
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about second-order effects becoming the real story. AI is no longer only a model-capability race; it is becoming a question of data lineage, hidden behavioral transfer, and whether institutions can tell what they are training on. Europe is no longer only debating security in declarative terms; it is translating the war next door into procurement, startup pipelines, and balance-sheet commitments. Even the science sections fit that pattern. The most important advances now are the ones that make the buried structure of a system visible enough that people have to govern it rather than merely admire it.
 
@@ -524,7 +524,7 @@ The Papers hub remains a strong discovery surface for fast-moving robotics and e
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **`Mammal Origins` looks like the right science-documentary pick if you want a visually legible answer to the question of how tiny, stressed creatures made the long transition toward mammalian life.** [Source](https://www.imdb.com/title/tt35912432/)
 - **`Tin Castle` looks worth watching if you want a documentary about Silicon Valley ambition framed less as startup glamour than as a study in money, influence, and the architectures people build around themselves.** [Source](https://www.imdb.com/title/tt24008408/)

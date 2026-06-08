@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## June 4, 2026
+## June 04, 2026
 
-### Today's issue is less about spectacle than about sharper measurement and tighter interfaces
+### Science, technology, markets, and the wider world
 
 Today's issue is less about spectacle than about sharper measurement and tighter interfaces. Antihydrogen spectroscopy is getting precise enough to narrow familiar escape routes in fundamental physics. AI and robotics stories look better when they stop promising autonomy in the abstract and start dealing with verification, supervision, power, and workflow boundaries.
 

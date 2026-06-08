@@ -2,7 +2,7 @@
 
 ## May 25, 2026
 
-### Interfaces becoming the real battleground
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about interfaces becoming the real battleground. In research, AI is becoming useful where it can propose experiments, write software, and fit into existing scientific norms rather than merely impress on benchmarks. In geopolitics and industry, the important stories are about chokepoints: shipping lanes, chip fabrication paths, power-hungry compute, and the training and institutional systems needed to turn capability into durable leverage.
 
@@ -533,7 +533,7 @@ Picrew's awesome-agent-harness repository is useful because it aggregates the op
 
 ## Entertainment
 
-### Screen and page picks worth tracking
+### What looks worth your attention
 
 - **A World Appears:** Michael Pollan's new consciousness book looks like a good fit for readers who want a broad, serious account of mind that does not collapse into either mysticism or reductive neuroscience. [Source](https://www.penguinrandomhouseretail.com/book/?isbn=9798217294534)
 - **Traversal:** Maria Popova's latest book still looks like one of the cleaner bridges between science, biography, and the search for meaning. [Source](https://books.google.com/books/about/Traversal.html?id=AVKHEQAAQBAJ)

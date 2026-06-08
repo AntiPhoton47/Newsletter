@@ -25,10 +25,10 @@ permalink: /
   <h2>Start anywhere in the archive</h2>
   <p>Look up topics, papers, researchers, companies, technologies, regions, and recurring themes across past editions.</p>
   <div class="quick-filter-group">
-    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-label">Popular topics</div>
     <div class="quick-filter-bar">
-      {% for tag in features.top_tags limit: 8 %}
-      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% for tag in features.top_tags limit: 24 %}
+      <a class="filter-chip filter-chip--link" href="{{ tag.url | relative_url }}">{{ tag.name }} <span>{{ tag.count }}</span></a>
       {% endfor %}
     </div>
   </div>

@@ -2,7 +2,7 @@
 
 ## April 1, 2026
 
-### Specialization under pressure
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue is about specialization under pressure. In chemistry, biology, and AI, the strongest stories are not generic scale stories but examples of systems becoming more useful when they are broken into specialized components, tied back to real-world validation, or embedded in a clearer workflow. The same logic runs through world affairs and infrastructure. Growth, research, and deployment all still depend on whether institutions can keep energy, trade, memory, and verification constraints from becoming the true bottlenecks.
 
@@ -481,7 +481,7 @@ Notion MCP turns a common documentation surface into something an agent can quer
 
 ## Entertainment
 
-### Screen and page picks worth tracking
+### What Looks Worth Your Attention
 
 - **Avatar: Fire and Ash:** The current heat here is simple: it is now on premium VOD for $19.99 after a $1.5 billion global box-office run, and IGN notes there is still no Disney+ date, so the home-release window is the immediate story. [Source: IGN](https://www.ign.com/articles/avatar-fire-and-ash-is-now-available-to-watch-at-home)
 - **New Lord of the Rings film in development:** Variety reports Stephen Colbert and his son are developing a new movie set in the franchise, which is exactly the kind of IP-expansion signal fantasy fans and studio-watchers will want on their radar. [Source: Variety](https://variety.com/2026/film/news/lord-of-the-rings-movie-stephen-colbert-warner-bros-1236698684/)

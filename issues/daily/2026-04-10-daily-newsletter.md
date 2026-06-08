@@ -2,7 +2,7 @@
 
 ## April 10, 2026
 
-### Systems that only become useful when they can be trusted under pressure
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue is about systems that only become useful when they can be trusted under pressure. Quantum networking, AI evaluation, tissue engineering, social-science replication, and Europe’s security posture are all moving from promise toward operational tests. The common question is no longer whether a field can produce a striking demo or a persuasive theory, but whether it can survive contact with scale, adversaries, infrastructure, and institutional reality.
 
@@ -445,7 +445,7 @@ LeRobot remains one of the best entry points into open robotics because it offer
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **The Paradox of the Organism:** Nature’s review makes this book sound like exactly the right kind of frontier reading for this issue: evolutionary biology and philosophy used to think clearly about cooperation, conflict, and what a living system actually is. [Source](https://www.nature.com/articles/d41586-026-00970-6)
 - **PRAGMATA:** Releases April 17. A lunar research-station action game with an explicit hacking mechanic is at least trying to do science-fiction texture rather than generic post-apocalypse mood. [Source](https://www.nintendo.com/us/store/products/pragmata-switch-2/)

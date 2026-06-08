@@ -2,7 +2,7 @@
 
 ## March 30, 2026
 
-### Verification under pressure
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue is about verification under pressure. In physics, the most interesting signal is not just that quantum systems are getting stronger, but that they are being checked against experiment with more discipline. In AI and software infrastructure, the story is similar: research automation and agent tooling are moving forward, but the real question is whether they become reliable enough to trust in serious workflows. The macro backdrop points in the same direction, with war, supply strain, and tighter financing reminding us that technical progress still depends on institutions, logistics, and evidence rather than narrative alone.
 
@@ -454,29 +454,29 @@ That shifts effort toward higher-value work: deciding what tools an agent should
 
 ## Entertainment
 
-### A few March releases worth tracking
+### Movies
 
 - April’s cinema slate looks strongest where franchise familiarity is paired with clear audience demand rather than novelty for its own sake. [Source: ODEON](https://www.odeoncinemas.ie/)
 
-#### Books
+### Books
 
 - The most useful book list today is the 2026 adaptation pipeline, because it says as much about studio risk tolerance as it does about publishing. [Source: Deadline](https://deadline.com/)
 
-#### TV Shows
+### TV Shows
 
 - Prime Video’s `Off Campus` teaser is a reminder that adaptation economics still reward built-in fandoms above almost everything else. [Source: Marie Claire](https://www.marieclaire.com/)
 
-#### Video Games
+### Video Games
 
 - If you want one lighter recommendation bucket, year-ahead “escape picks” still work best when they mix books, games, and television instead of pretending those audiences are separate. [Source: New Scientist](https://www.newscientist.com/)
 
-#### Concerts
+### Concerts
 
 - No especially strong, source-backed concert item stood out in the current feed set, so this section is intentionally left brief rather than padded.
 
 ## Travel
 
-### Affordable Europe without the summer crush
+### Cool Place To Visit
 
 Affordable Europe is still the strongest current travel angle because the advice is concrete: shoulder-season timing, secondary cities, and destinations that can absorb visitors without feeling overrun. For this issue, the useful signal is practical rather than aspirational.
 

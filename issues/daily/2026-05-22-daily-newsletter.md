@@ -2,7 +2,7 @@
 
 ## May 22, 2026
 
-### Trust and constraint becoming visible inside systems that used to look mostly generative
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about trust and constraint becoming visible inside systems that used to look mostly generative. arXiv is starting to police fabricated citations because the research pipeline cannot absorb synthetic sloppiness indefinitely; war is showing up in macro forecasts, munitions allocation, and alliance behavior at the same time; and several of the best science stories are really about turning hard-to-see structure into something legible enough to use. The common thread is that mature systems do not fail only at the frontier. They fail at the interfaces, norms, and bottlenecks that sit underneath the headline capability.
 
@@ -530,7 +530,7 @@ Microsoft's `semantic-kernel` remains worth keeping on hand because it is one of
 
 ## Entertainment
 
-### Books, screens, and games worth your time
+### What Looks Worth Your Attention
 
 - **Frank Beddor's *The Looking Glass Wars* has become a good cross-format bet again:** Variety reports a summer game adaptation is on the way while musical and TV plans also move forward, which makes now a sensible moment to read or revisit the books before the cleaner, stranger parts of the world get sanded down for adaptation. [Source](https://variety.com/2026/gaming/news/looking-glass-wars-video-game-musical-tv-series-frank-beddor-1236754871/)
 - **If you want one practical watchlist for the adaptation pipeline, Deadline's roundup of TV shows based on books coming in 2026 is still one of the better quick scans:** it is a useful way to decide which source novels are worth getting to before their screen versions dominate the conversation. [Source](https://deadline.com/feature/tv-shows-based-on-books-coming-out-in-2026-1236731382/)

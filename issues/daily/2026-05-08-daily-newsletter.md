@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 8, 2026
+## May 08, 2026
 
-### Systems becoming operational in a more literal sense
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems becoming operational in a more literal sense. Quantum hardware is getting less static, voice AI is being packaged for real-time action instead of novelty, and even geopolitics is being driven less by speeches than by shipping lanes, drone capacity, and electrical infrastructure. The strongest stories are the ones in which an elegant idea has finally become an interface problem, a scaling problem, or a coordination problem.
 
@@ -506,7 +506,7 @@ This is a strong enterprise-flavored contrast to the more developer-first agent 
 
 ## Entertainment
 
-### Books, screens, and games worth your time
+### What Looks Worth Your Attention
 
 - **Grand Theft Auto 6:** May 26 release. Whether or not you plan to play it, Rockstar’s return to Vice City is the most important calendar event in games this month simply because it will reorganize attention across the whole industry. [Source](https://www.polygon.com/23952805/gta-6-grand-theft-auto-leaks-release-date-trailer)
 - **Verity:** May 15 theatrical release. The Anne Hathaway, Dakota Johnson, and Josh Hartnett adaptation is a concrete case of publishing’s current thriller-to-screen pipeline, which keeps feeding streaming and theatrical slates alike. [Source](https://au.variety.com/2025/film/news/verity-colleen-hoover-release-date-anne-hathaway-21162/)

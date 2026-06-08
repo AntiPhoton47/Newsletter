@@ -2,7 +2,7 @@
 
 ## April 13, 2026
 
-### Systems crossing from elegant possibility into operational reality
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems crossing from elegant possibility into operational reality. Quantum information is becoming less artisanal and more infrastructural, photonics is starting to bridge chips and the physical world cleanly enough to matter, and AI is increasingly being judged by whether it integrates with institutions, workflows, and social constraints instead of merely posting new benchmark scores. Even the geopolitical and historical pieces fit that pattern. The most important developments now are the ones that convert abstract capacity into durable leverage under real-world friction.
 
@@ -529,7 +529,7 @@ This pairing is worth watching if you care about the unglamorous infrastructure 
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **Traversal:** Nature's review makes Maria Popova's book sound like unusually serious entertainment for this readership: a cross-disciplinary meditation on meaning, curiosity, and intellectual ambition rather than a soft self-help substitute for philosophy. [Source](https://www.nature.com/articles/d41586-026-00473-4.pdf)
 - **A World Appears:** Michael Pollan's new consciousness book looks like a strong fit if you want a reader-facing account of one of science's oldest hard problems without treating neural theory as a settled matter. [Source](https://www.nature.com/articles/d41586-026-00448-5)

@@ -2,7 +2,7 @@
 
 ## April 12, 2026
 
-### Security margins shrinking across very different systems
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue is about security margins shrinking across very different systems. Quantum computing is edging closer to the threshold where long-lived cryptographic assumptions start to look less comfortably distant, frontier AI labs are explicitly gating offensive cyber capability into defensive programs, and even apparently old-fashioned domains such as archives, fossils, and archaeology are being remade by better instrumentation. The common thread is that the most valuable work is no longer just discovering new things. It is discovering them fast enough, cleanly enough, and with enough institutional discipline to act before someone else forces the issue.
 
@@ -489,7 +489,7 @@ This workflow is worth attention if you care about the unglamorous part of physi
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **Tools of the Scribe:** Nature’s review makes this book sound like more than media history; it is really about how writing systems and writing tools shape cognition, which makes it an unusually good fit for a week obsessed with notation, interfaces, and authorship. [Source](https://www.nature.com/articles/d41586-026-00245-0.pdf)
 - **The Paradox of the Organism:** Nature’s review suggests a strong pick for readers who want a biology book that doubles as philosophy of systems, asking what counts as an organism when coordination and conflict coexist at every scale. [Source](https://www.nature.com/articles/d41586-026-00970-6)

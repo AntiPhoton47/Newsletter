@@ -2,7 +2,7 @@
 
 ## May 28, 2026
 
-### Systems that are becoming harder to explain with simple "host and parasite" or "model and benchmark" stories
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems that are becoming harder to explain with simple "host and parasite" or "model and benchmark" stories. In astronomy, a black hole now seems to have assembled before the galaxy that should have contained it. In quantum information, photonic machines and repeater networks are moving from single-lab elegance toward scales that look more infrastructural. In politics and markets, the same pattern shows up in reverse: the Iran file matters less as one discrete conflict than as a stress test for shipping routes, stockpiles, coalition politics, and the institutions that have to keep functioning around it.
 
@@ -476,7 +476,7 @@ That matters because resilience, construction logic, and material constraint are
 
 ## Entertainment
 
-### A few things worth your time this week
+### What looks worth your attention
 
 - **The Impossible Factory:** Josh Dean's new science-and-technology book still looks like one of the stronger fits for this readership because it is about how ambitious systems get built under real-world friction rather than in innovation mythology. [Source](https://www.penguinrandomhouse.com/books/new-releases-science-technology/)
 - **007 First Light:** GameSpot's May release roundup makes this look like one of the cleaner big-budget releases of the moment, largely because IO Interactive's strengths in stealth and improvisation match the material unusually well. [Source](https://www.gamespot.com/gallery/the-biggest-new-game-releases-of-may-2026/2900-7667/)

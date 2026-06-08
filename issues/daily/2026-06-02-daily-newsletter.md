@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## June 2, 2026
+## June 02, 2026
 
-### Webb's new look at 3I/ATLAS
+### Science, technology, markets, and the wider world
 
 Webb's new look at 3I/ATLAS is the natural lead today. The comet was already rare: it came from outside the Solar System. Now it has a chemical signature to match, with methane in its outgassing and a stronger hint that it formed in a different kind of planetary nursery.
 

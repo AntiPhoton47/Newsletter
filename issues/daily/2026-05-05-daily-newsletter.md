@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 5, 2026
+## May 05, 2026
 
-### Hidden structure becoming operational
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about hidden structure becoming operational. The strongest stories are the ones that stop treating institutions, measurement error, tacit coordination, and interface quality as background conditions and start treating them as the real object of work. That pattern shows up everywhere at once: in science governance after the NSF advisory-board purge, in physics where even a "fundamental constant" remains unsettled, in medicine where AI has to earn trust inside messy workflows, and in geopolitics where ceasefires, supply routes, and industrial throughput matter more than declarations. The frontier is getting less romantic and more infrastructural, which is exactly why it is getting more interesting.
 
@@ -523,7 +523,7 @@ That is exactly the tradeoff many serious users want right now. The field is mov
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **"Longlegs" already getting a 2028 release-date marker is a decent proxy for how confident studios remain in horror as a franchise engine even in a messy release environment.** [Source](https://www.hollywoodreporter.com/)
 - **Prime Video's June "Obsessed Fest" fan event looks like the kind of IP bundling experiment worth watching if you care about how streamers turn attention into live-community infrastructure.** [Source](https://www.hollywoodreporter.com/)

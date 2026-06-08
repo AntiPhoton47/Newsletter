@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## April 3, 2026
+## April 03, 2026
 
-### Systems that are becoming operational
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems that are becoming operational. The strongest stories are not just about new capabilities, but about what happens when a field tries to turn those capabilities into dependable infrastructure: genome models that must survive biological reality, agent systems that must leave audit trails, defense policies that must become procurement, and research programs that have to prove they are robust across time, institutions, and environments. Even the historical and archaeological stories point the same way. Better maps of dogs, fish, fossils, and rituals matter because they turn scattered evidence into a clearer picture of how complex systems actually formed.
 
@@ -504,7 +504,7 @@ LeRobot is one of the most useful current entry points into open robotics. It gi
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **XO, Kitty Season 3:** Released April 2. It is not subtle television, but it is currently live, globally legible, and exactly the sort of returning show that becomes ambient conversation because it ships into spring at the right moment. [Source](https://www.netflix.com/tudum/articles/xo-kitty-season-3-news-cast-release-date)
 - **Man on Fire:** Arrives April 30. The adaptation has enough cast weight and built-in recognition to justify watching the rollout now rather than the week it drops. [Source](https://www.netflix.com/tudum/articles/man-on-fire-tv-series-adaptation)

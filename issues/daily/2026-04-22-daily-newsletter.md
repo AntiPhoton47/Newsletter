@@ -2,7 +2,7 @@
 
 ## April 22, 2026
 
-### A shift from technical promise to institutional proof
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about a shift from technical promise to institutional proof. Quantum computing, agent tooling, precision medicine, and even archaeology all look strongest when they stop advertising possibility and start demonstrating repeatable leverage under constraints. The recurring question is no longer whether a system can do something impressive once, but whether it can be trusted enough to reorganize research, infrastructure, and decision-making around it.
 

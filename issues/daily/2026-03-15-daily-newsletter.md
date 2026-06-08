@@ -2,7 +2,7 @@
 
 ## March 15, 2026
 
-### Changes in precision, verification, and research capacity
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue centers on changes in precision, verification, and research capacity. In atomic physics, new spectroscopy results reduce uncertainty in one of the field’s cleanest testbeds. In AI, the most interesting developments are moving from fluent output toward retrieval-backed research workflows. In policy and macroeconomics, the important signal is that funding, rates, and institutional capacity continue to shape the pace of science as much as any single headline result.
 
@@ -635,35 +635,35 @@ For this audience, the key point is not just search convenience. Tools like this
 
 ## Entertainment
 
-### A few March releases worth tracking
+### Movies
 
 - **Project Hail Mary** opens on March 20 with Ryan Gosling in the lead, making it one of the month's biggest science-fiction releases. It is the clearest March entry for readers who want a technically flavored studio film. [Source](https://editorial.rottentomatoes.com/article/most-anticipated-movies-of-march-2026/)
 - **Hoppers** arrives March 6 as Pixar's latest feature, built around a girl who transfers her consciousness into a robotic beaver body to communicate with animals. It looks like one of the month's major family releases. [Source](https://editorial.rottentomatoes.com/article/most-anticipated-movies-of-march-2026/)
 - **The Bride!** lands March 6, with Maggie Gyllenhaal reworking the Frankenstein myth in a 1930s Chicago setting starring Jessie Buckley and Christian Bale. It stands out as one of March's more auteur-driven genre releases. [Source](https://editorial.rottentomatoes.com/article/most-anticipated-movies-of-march-2026/)
 - **Peaky Blinders: The Immortal Man** also releases March 6, extending the television franchise into feature form with Cillian Murphy returning as Tommy Shelby. It is one of the month's clearest examples of prestige TV spilling into the film slate. [Source](https://editorial.rottentomatoes.com/article/most-anticipated-movies-of-march-2026/)
 
-#### Books
+### Books
 
 - **Westward Women** by Alice Martin is out March 10 and pairs literary fiction with a speculative premise in which women are compelled to head west by a strange infection. It looks like one of the more unusual spring fiction releases. [Source](https://parade.com/books/best-book-releases-march-2026)
 - **Judy Blume: A Life** by Mark Oppenheimer also releases March 10, offering a full-scale biography built from letters, papers, and interviews. It should be one of the month's more visible nonfiction releases. [Source](https://parade.com/books/best-book-releases-march-2026)
 - **Innamorata** by Ava Reid arrives March 17 with a gothic fantasy setup involving necromancy, court intrigue, and a forbidden library. It looks positioned for readers who want darker fantasy rather than lighter romantasy. [Source](https://parade.com/books/best-book-releases-march-2026)
 - **One Word, Six Letters** by Adib Khorram, also out March 17, follows two teenage boys navigating shame, identity, and a public slur incident. It is one of the more notable March young-adult releases. [Source](https://parade.com/books/best-book-releases-march-2026)
 
-#### TV Shows
+### TV Shows
 
 - **Marshals** premieres March 1 on CBS and is one of the clearer broadcast-TV launches of the month. It is a reminder that network dramas are still trying to hold space against streaming-heavy calendars. [Source](https://www.tomsguide.com/news/new-tv-shows)
 - **Young Sherlock** debuts March 4 on Prime Video, adding another franchise-adjacent literary reinterpretation to the spring streaming slate. It looks like one of the month's bigger genre premieres. [Source](https://www.tomsguide.com/news/new-tv-shows)
 - **The Madison** arrives March 14 on Paramount+, continuing the run of major franchise-related television launches. It is one of the most visible mid-March streaming premieres. [Source](https://www.tomsguide.com/news/new-tv-shows)
 - **Imperfect Women** premieres March 18 on Apple TV+ with Elisabeth Moss, Kerry Washington, and Kate Mara. It looks like one of the month's most prestige-oriented new dramas. [Source](https://apnews.com/article/ce3e3214f2d61c0e0c0a4bbd0f7b73bf)
 
-#### Video Games
+### Video Games
 
 - **Marathon** launches March 5, bringing Bungie's revived sci-fi shooter into what is shaping up to be one of the year's busier early release windows. It is one of the month's biggest multiplayer debuts. [Source](https://www.pcgamer.com/games/pc-game-release-dates-march-2026/)
 - **Slay the Spire 2** enters early access on March 6, giving one of the defining deckbuilders of the last decade a sequel with co-op support at launch. It should be one of March's strongest strategy releases. [Source](https://www.pcgamer.com/games/pc-game-release-dates-march-2026/)
 - **Fatal Frame 2: Crimson Butterfly Remake** arrives March 12, continuing the strong run of horror remakes and reissues across PC and console. For survival-horror players, it is one of the month's key nostalgia-driven launches. [Source](https://www.pcgamer.com/games/pc-game-release-dates-march-2026/)
 - **Crimson Desert** and the PC version of **Death Stranding 2** both land on March 19, making that week one of the most crowded points in the spring release calendar. Together they give March a stronger AAA center of gravity than January or February. [Source](https://www.pcgamer.com/games/pc-game-release-dates-march-2026/)
 
-#### Concerts
+### Concerts
 
 - **Coachella 2026** runs April 10-12 and April 17-19 with Sabrina Carpenter, Justin Bieber, and Karol G headlining. It remains one of the clearest indicators of where mainstream festival programming is heading this year. [Source](https://apnews.com/article/coachella-2026-lineup-justin-bieber-sabrina-carpenter-1462e271d788e52d277089b2645a87f1)
 - **The Guess Who** are planning their first official U.S. tour in more than two decades later this year, turning a classic-rock reunion into one of the month's more surprising live-music stories. It shows how much touring strength legacy acts can still command. [Source](https://apnews.com/article/ce158d7ca625dc0d03e543eb10da053d)
@@ -671,7 +671,7 @@ For this audience, the key point is not just search convenience. Tools like this
 
 ## Travel
 
-### Gran Canaria, before the spring rush
+### Cool Place To Visit
 
 ![Maspalomas dunes and coastline on Gran Canaria](https://www.hellocanaryislands.com/sites/default/files/styles/masonry_image/public/block-images/2020-12/PH919-Maspalomas.jpg?itok=gs1uOy39)
 

@@ -2,7 +2,7 @@
 
 ## April 29, 2026
 
-### Systems becoming legible enough to govern
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about systems becoming legible enough to govern. The strongest stories are not the ones with the loudest headline, but the ones that convert blurry capability into something measurable: AI evaluation that predicts transfer instead of merely ranking models, quantum devices that start fitting telecom infrastructure, medical AI that is finally being asked to prove clinical value, and geopolitical corridors that are being judged through mines, shipping insurance, and bypass infrastructure rather than speeches alone. Across science, technology, and world affairs, 2026 keeps rewarding people who can turn abstraction into operational discipline.
 

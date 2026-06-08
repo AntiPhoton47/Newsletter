@@ -2,7 +2,7 @@
 
 ## May 21, 2026
 
-### Middle layers becoming visible
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about middle layers becoming visible. The strongest stories are not really about end products or headlines, but about the systems that sit in between: the ice core that extends the climate baseline, the shipping lane that turns a regional conflict into a world-economic one, the software layer that slows research, the grid queue that shapes AI infrastructure, and the hidden labor that trains supposedly seamless models. A lot of important 2026 news looks like this now. The decisive action is happening in interfaces, bottlenecks, and background machinery that used to be easier to ignore.
 
@@ -480,7 +480,7 @@ Anthropic's `claude-for-legal` repo is a good example of where narrow workflow p
 
 ## Entertainment
 
-### Books, screens, and games worth your time
+### What Looks Worth Your Attention
 
 - **Rebecca Yarros' *Fourth Wing* keeps extending its cultural half-life:** Amazon has now ordered the TV series, which makes it a good moment either to catch up on the books or to prepare for another adaptation cycle that will almost certainly flatten some of the fantasy world's stranger edges. [Source](https://variety.com/2026/tv/news/fourth-wing-tv-series-amazon-ordered-1236744978/)
 - **Dead Meat's move into games is a nice example of horror-media expansion that actually fits the brand:** YouTube empires rarely carry cleanly into interactive media, which is part of why this one is interesting. [Source](https://www.polygon.com/dead-meat-games-james-a-janisse-zoran-gvojic/)

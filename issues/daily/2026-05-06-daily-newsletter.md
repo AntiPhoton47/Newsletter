@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 6, 2026
+## May 06, 2026
 
-### How hidden structure becomes legible only when systems are stressed hard enough
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about how hidden structure becomes legible only when systems are stressed hard enough. That pattern shows up in very different places at once: in octopus intelligence, where a radically different brain architecture still converges on real problem-solving; in geopolitics, where ports, drones, and supply chains matter more than speeches; and in AI, where the important questions are shifting from model novelty to workflow fit, governance, and interface quality. The best stories today are the ones that make an underlying mechanism easier to see.
 

@@ -2,7 +2,7 @@
 
 ## April 2, 2026
 
-### Systems that become more useful when they stay anchored to evidence rather than drifting into abstraction
+### The day's most interesting developments in science, technology, and ideas
 
 Today’s issue is about systems that become more useful when they stay anchored to evidence rather than drifting into abstraction. In structural biology, the strongest AI story is not another model replacing experiment, but a model acting as a disciplined prior inside measurement-heavy workflows. The same pressure shows up in research governance, medicine, and geopolitics: whether the system is a citation graph, a diagnostic assistant, or a migration policy, the real question is whether it survives contact with verification, institutional limits, and real-world constraints.
 
@@ -472,7 +472,7 @@ Packaging reusable skills is often more valuable than adding one more model wrap
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 - **IGN Women's Favorite Movies and Shows Made by Women to Watch This Month:** IGN Women's Favorite Movies and Shows Made by Women to Watch This Month  IGN [Source: IGN](https://www.ign.com/articles/ign-womens-favorite-movies-and-shows-made-by-women)
 - **Netflix’s New Releases Coming in April 2026:** Netflix’s New Releases Coming in April 2026  The Hollywood Reporter [Source: The Hollywood Reporter](https://www.hollywoodreporter.com/tv/tv-news/netflix-april-2026-new-releases-movies-tv-1236553397/)

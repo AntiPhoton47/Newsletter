@@ -184,10 +184,10 @@ permalink: /
   <h2>Start anywhere in the archive</h2>
   <p>Look up topics, papers, researchers, companies, technologies, regions, and recurring themes across past editions.</p>
   <div class="quick-filter-group">
-    <div class="quick-filter-label">Popular tags</div>
+    <div class="quick-filter-label">Popular topics</div>
     <div class="quick-filter-bar">
-      {% for tag in features.top_tags limit: 8 %}
-      <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
+      {% for tag in features.top_tags limit: 24 %}
+      <a class="filter-chip filter-chip--link" href="{{ tag.url | relative_url }}">{{ tag.name }} <span>{{ tag.count }}</span></a>
       {% endfor %}
     </div>
   </div>
@@ -949,6 +949,9 @@ a:hover { text-decoration: underline; }
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
+}
+.filter-chip--link {
+  text-decoration: none;
 }
 .filter-chip span {
   color: var(--muted);
@@ -2198,6 +2201,41 @@ TOPIC_RULES: list[dict[str, object]] = [
     {"tag": "Mathematics and philosophy", "category": "Mathematics & Ideas", "keywords": ("mathematics", "proof", "theorem", "infinity", "philosophy", "truth", "epistemology")},
 ]
 
+SPECIFIC_TAG_RULES: list[tuple[str, tuple[str, ...]]] = [
+    ("JWST", ("webb", "jwst")),
+    ("Interstellar objects", ("interstellar comet", "3i/atlas", "interstellar visitor")),
+    ("Early black holes", ("little red dot", "early-universe black hole", "black hole")),
+    ("Quantum simulations", ("quantum simulation", "quantum simulations")),
+    ("Spin qubits", ("spin qubits", "mobile spin qubits")),
+    ("Quantum error correction", ("fault-tolerant", "error correction", "shor threshold")),
+    ("Hydrogen spectroscopy", ("atomic hydrogen", "antihydrogen", "hyperfine")),
+    ("Quantum gates", ("quantum gates", "remote quantum gates")),
+    ("Quantum emitters", ("quantum emitters", "telecom-band")),
+    ("Quantum networking", ("quantum networking", "quantum network", "quantum interfaces", "repeater")),
+    ("Quantum contextuality", ("contextuality", "kcbs inequality", "kochen-specker")),
+    ("Loop quantum gravity", ("loop quantum gravity", "effective spacetime", "de sitter")),
+    ("Particle-physics precision", ("w boson", "standard model", "meson", "attosecond")),
+    ("AI scientists", ("ai scientist", "self-driving lab", "scientific production model")),
+    ("Agent frameworks", ("agents sdk", "agentic", "agent framework", "mcp", "tool use")),
+    ("AI benchmarks", ("benchmark", "benchmark theater", "leaderboard", "evaluation")),
+    ("Citation integrity", ("fake citations", "citation hallucinations", "trust layer")),
+    ("Medical AI", ("medical ai", "clinician-ai", "rare disease", "diagnosis")),
+    ("Biosecurity", ("biosecurity", "pathogen", "genome-writing")),
+    ("Protein biology", ("protein universe", "protein structure", "alphafold")),
+    ("Aging biology", ("aging", "multi-omics")),
+    ("Neural systems", ("brain", "neuroscience", "cognition", "attention", "octopus")),
+    ("Climate records", ("ice core", "antarctic", "climate baseline")),
+    ("Earth observation", ("geospatial foundation model", "earth observation", "orbit")),
+    ("Energy grids", ("grid", "fusion", "power", "data-center cooling", "electrification")),
+    ("Chip controls", ("export control", "nvidia", "chip-control", "chip controls")),
+    ("Middle East shipping", ("hormuz", "shipping", "maritime", "gulf", "lebanon")),
+    ("Ukraine war", ("ukraine", "kyiv", "drone war", "nato")),
+    ("Ancient DNA", ("ancient dna", "genomic", "bogota", "chincha")),
+    ("Roman roads", ("roman road", "roman roads")),
+    ("Interference experiments", ("quantum interference", "matter-wave")),
+    ("Generative biology", ("generative biology", "flow matching")),
+]
+
 
 def slugify(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
@@ -2354,12 +2392,48 @@ def score_topics(sections: list[dict[str, object]]) -> list[tuple[str, str, int]
     return sorted(scored, key=lambda item: (-item[2], item[0]))
 
 
+def score_specific_tags(sections: list[dict[str, object]]) -> list[str]:
+    focus_section_limits = {
+        "Need To Know": 1,
+        "Research Watch": 2,
+        "World News": 2,
+        "Technology": 1,
+        "AI": 1,
+        "Biology": 1,
+        "Health and Medicine": 1,
+        "Historical Discoveries": 1,
+        "Archaeology": 1,
+        "Tools You Can Use": 1,
+    }
+    focus_texts: list[str] = []
+    for section in sections:
+        limit = focus_section_limits.get(str(section["name"]), 0)
+        if not limit:
+            continue
+        filtered_headings = [
+            heading
+            for heading in section["headings"]
+            if normalize_text(heading) not in GENERIC_H3_HEADINGS
+        ]
+        for heading in filtered_headings[:limit]:
+            focus_texts.append(normalize_text(f"{section['name']} {heading}"))
+    combined_text = " ".join(focus_texts)
+    scored: list[tuple[str, int]] = []
+    for tag, keywords in SPECIFIC_TAG_RULES:
+        score = sum(combined_text.count(keyword.lower()) for keyword in keywords)
+        if score:
+            scored.append((tag, score))
+    scored.sort(key=lambda item: (-item[1], item[0]))
+    return [tag for tag, _ in scored]
+
+
 def derive_tags_and_categories(sections: list[dict[str, object]]) -> tuple[list[str], list[str]]:
     topics = score_topics(sections)
-    tags = [tag for tag, _, _ in topics[:6]]
+    tags = [tag for tag, _, _ in topics[:8]]
     category_counts = Counter()
     for _, category, score in topics:
         category_counts[category] += score
+    specific_tags = score_specific_tags(sections)
     lead_tags: list[str] = []
     lead_categories: list[str] = []
     lead_heading = normalize_text(first_story_heading(sections, ("Need To Know",)))
@@ -2372,8 +2446,8 @@ def derive_tags_and_categories(sections: list[dict[str, object]]) -> tuple[list[
                     lead_tags.append(tag)
                 if category not in lead_categories:
                     lead_categories.append(category)
-    tags = lead_tags + [tag for tag in tags if tag not in lead_tags]
-    tags = tags[:6]
+    tags = specific_tags + lead_tags + [tag for tag in tags if tag not in specific_tags and tag not in lead_tags]
+    tags = tags[:10]
     categories = lead_categories + [category for category, _ in category_counts.most_common(3) if category not in lead_categories]
     categories = categories[:3]
     if not categories:
@@ -2650,7 +2724,7 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
             "count": count,
             "url": build_filter_url(tag=tag, sort="relevance"),
         }
-        for tag, count in tag_counts.most_common(12)
+        for tag, count in tag_counts.most_common(30)
     ]
     category_counts = Counter(category for entry in issue_entries for category in entry["categories"])
     top_categories = [
@@ -2669,7 +2743,7 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
             "url": tag["url"],
             "primary_category": "Topic",
         }
-        for tag in top_tags[:4]
+        for tag in top_tags[:6]
     ]
 
     year_counts = Counter(entry["issue_date"][:4] for entry in issue_entries)

@@ -1,8 +1,8 @@
 # Frontier Threads
 
-## May 4, 2026
+## May 04, 2026
 
-### Validation replacing spectacle
+### The day's most interesting developments in science, technology, and ideas
 
 Today's issue is about validation replacing spectacle. Across medical AI, quantum computing, robotics, space engineering, and geopolitics, the strongest stories are no longer the ones that merely prove something can be done in principle. They are the ones that show whether a system can survive contact with evidence, institutions, infrastructure, and long timelines. That is a healthier phase. It is also a more demanding one, because the bottleneck has shifted from imagination to proof.
 
@@ -552,7 +552,7 @@ TiPToP is useful for anyone interested in modular robot planning systems that mi
 
 ## Entertainment
 
-### A few things worth your time this week
+### What Looks Worth Your Attention
 
 If you want one reading cluster rather than a scattered media list this week, Quanta's ongoing foundations-of-math package is the strongest place to spend time. It has the right mix of historical recovery, current controversy, and conceptual clarity, especially if the rest of this issue leaves you wanting a more reflective complement to the AI-and-infrastructure theme. Maria Popova's *Traversal*, as discussed in Nature, also still looks like a good book to keep nearby if you want something less topical and more orienting. [Source](https://www.quantamagazine.org/the-evolving-foundations-of-math-20260225/) and [Source](https://www.nature.com/articles/d41586-026-00473-4.pdf)
 
