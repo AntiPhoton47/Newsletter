@@ -2457,7 +2457,25 @@ def derive_tags_and_categories(sections: list[dict[str, object]]) -> tuple[list[
     return tags, categories
 
 
+def extract_intro_markdown(markdown_text: str) -> str:
+    match = re.search(
+        r"^# Frontier Threads\s*\n\s*## [^\n]+\n\s*\n### [^\n]+\n(?P<intro>.*?)(?=^## Quick Hits)",
+        markdown_text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    if match:
+        return match.group("intro").strip()
+    return ""
+
+
 def strip_issue_scaffold(markdown_text: str) -> str:
+    intro_match = re.search(
+        r"^# Frontier Threads\s*\n\s*## [^\n]+\n\s*\n### [^\n]+\n.*?(?=^## Quick Hits)",
+        markdown_text,
+        flags=re.MULTILINE | re.DOTALL,
+    )
+    if intro_match:
+        return markdown_text[intro_match.end() :].lstrip()
     lines = markdown_text.splitlines()
     trimmed = list(lines)
     if trimmed and trimmed[0].strip() == "# Frontier Threads":
@@ -2499,8 +2517,8 @@ def build_search_text(markdown_text: str, headings: list[str], tags: list[str], 
 
 def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, sender) -> dict[str, str]:
     sections = parse_sections(markdown_text)
-    intro_match = re.search(r"^###\s+[^\n]+\n(.*?)(?=^## Quick Hits)", markdown_text, flags=re.MULTILINE | re.DOTALL)
-    intro_lines = intro_match.group(1).splitlines() if intro_match else markdown_text.splitlines()
+    intro_markdown = extract_intro_markdown(markdown_text)
+    intro_lines = intro_markdown.splitlines() if intro_markdown else markdown_text.splitlines()
     summary = clean_summary(intro_lines) or fallback_summary_from_sections(sections)
     headings = headings_from_markdown(markdown_text)
     tags, categories = derive_tags_and_categories(sections)
@@ -2510,6 +2528,14 @@ def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, 
     display_date = issue_date.strftime("%B %d, %Y")
     display_time = published_at.strftime("%I:%M %p").lstrip("0")
     reading_time = estimate_reading_time(search_text)
+    intro_html = ""
+    if intro_markdown:
+        intro_html = (
+            '<div class="section-card issue-summary-card">\n'
+            '<h2 class="section-title">Issue Summary</h2>\n'
+            f'{sender.blocks_to_html(sender.markdown_to_blocks(intro_markdown))}\n'
+            '</div>\n'
+        )
     content_html = sender.blocks_to_html(sender.markdown_to_blocks(strip_issue_scaffold(markdown_text)))
     return {
         "title": title,
@@ -2520,6 +2546,7 @@ def extract_metadata(markdown_text: str, issue_date: dt.date, issue_path: Path, 
         "published_label": issue_published_label(issue_date, display_time),
         "reading_time": str(reading_time),
         "summary": summary,
+        "intro_html": intro_html,
         "content_html": content_html,
         "search_text": search_text,
         "headings": headings,
@@ -2547,6 +2574,7 @@ def issue_document(entry: dict[str, str]) -> str:
         f'summary: "{yaml_escape(entry["summary"])}"\n'
         f'permalink: "{entry["url"]}"\n'
         "---\n"
+        f'{entry["intro_html"]}'
         f'{entry["content_html"]}\n'
     )
 

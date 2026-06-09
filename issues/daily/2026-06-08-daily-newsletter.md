@@ -134,6 +134,12 @@ That makes Moldova a useful case study for what European geopolitical language m
 
 **Link:** [Read at the European Commission](https://enlargement.ec.europa.eu/news/eu-moldova-investment-conference-announces-eu641-million-strategic-investments-2026-06-04_en)
 
+### Breaking News
+
+- **NATO held its first NATO-Ukraine Council meeting inside Kyiv, which is the clearest current signal that alliance support is being staged as core business rather than an exceptional side file.** [NATO](https://www.nato.int/en/news-and-events/articles/news/2026/06/03/north-atlantic-council-visits-ukraine)
+- **Brussels is now saying the EU-China trade relationship is not sustainable without a tougher combined security-and-trade response, which is materially sharper than the older de-risking formula.** [European Commission](https://ec.europa.eu/commission/presscorner/api/files/document/print/en/read_26_1201/READ_26_1201_EN.pdf)
+- **The EU-Moldova conference attached up to €641 million to enlargement-era infrastructure, digital, and agriculture projects, which is far more concrete than another accession speech.** [European Commission](https://enlargement.ec.europa.eu/news/eu-moldova-investment-conference-announces-eu641-million-strategic-investments-2026-06-04_en)
+
 ### Short Takes
 
 - **The EU-Moldova Investment Conference announced up to €641 million in strategic investments, which is the sort of medium-scale European state-building move that matters more than another speech about neighborhood resilience.** [European Commission](https://enlargement.ec.europa.eu/about-us/press-releases_en)
@@ -278,6 +284,11 @@ That gap is more than a family-life detail. It is an early signal about where sc
 
 **Link:** [Read at Pew Research Center](https://www.pewresearch.org/internet/2026/02/24/how-teens-use-and-view-ai/) and [Pew's parent-focused breakdown](https://www.pewresearch.org/?p=288220)
 
+### Short Takes
+
+- **Pew's March synthesis suggests concern about AI has stayed sticky even as exposure rises, which undercuts the easy assumption that familiarity alone will solve trust.** [Pew Research Center](https://www.pewresearch.org/short-reads/2026/03/12/key-findings-about-how-americans-view-artificial-intelligence/)
+- **The parent-teen gap matters because household rules and school norms are likely to become the first durable governance layer for mainstream AI use.** [Pew Research Center](https://www.pewresearch.org/?p=288220)
+
 ## Technology
 
 ### Europe finally bundled its semiconductor, cloud, AI, and open-source problem
@@ -397,6 +408,11 @@ The harder question is whether that unification holds up outside curated demos. 
 
 **Link:** [Read at Hugging Face](https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai)
 
+### Short Takes
+
+- **Reachy Mini's local stack matters mostly because it cuts latency and privacy friction at the same time, which is usually what decides whether a social robot stays in daily use.** [Hugging Face](https://huggingface.co/blog/local-reachy-mini-conversation)
+- **Cosmos 3 is more useful as an architecture signal than a demo reel: the central bet is that shared physical priors will beat stitched-together perception-and-control stacks.** [Hugging Face](https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai)
+
 ## Mathematics
 
 ### Formal mathematics is moving from one-shot proving to agentic search
@@ -418,6 +434,11 @@ The string-diagrams thesis is a strong mathematics companion piece because it sh
 That is exactly the kind of mathematical tool this readership should keep an eye on. Some abstractions matter because they compress proofs. Others matter because they let people move between disciplines without translating the whole problem from scratch every time.
 
 **Link:** [Read at arXiv](https://arxiv.org/abs/2605.11417)
+
+### Short Takes
+
+- **LEAP's real contribution is the tight loop with Lean, not just another headline formal-math benchmark score.** [arXiv](https://arxiv.org/abs/2606.03303)
+- **String diagrams are worth tracking because they reduce translation costs across fields that usually rebuild compositional reasoning by hand.** [arXiv](https://arxiv.org/abs/2605.11417)
 
 ## Historical Discoveries
 
@@ -441,6 +462,11 @@ That may sound narrow, but it opens a better route into prehistoric material use
 
 **Link:** [Read at Scientific Reports](https://www.nature.com/articles/s41598-026-46761-x)
 
+### Short Takes
+
+- **The ancient-DNA study is most important as a tempo result: recent human evolution now looks historically busy rather than largely settled.** [Nature](https://www.nature.com/articles/d41586-026-01204-5)
+- **The Hohle Fels ivory work hints that worked materials can become population evidence too, not only cultural evidence.** [Scientific Reports](https://www.nature.com/articles/s41598-026-46761-x)
+
 ## Archaeology
 
 ### A new Upper Paleolithic dataset makes northern Europe easier to compare at scale
@@ -462,6 +488,11 @@ The Carmel-coast iron-blooms study is a strong archaeology item because it chall
 This is the kind of result that improves archaeology rather than merely adding one more object to the record. Trade systems become clearer when finds force a change in what people think was worth transporting, processing, or storing in the first place.
 
 **Link:** [Read at npj Heritage Science](https://www.nature.com/articles/s40494-026-02409-7)
+
+### Short Takes
+
+- **EUPPAD should make northern-European Upper Paleolithic arguments less dependent on one-site storytelling and more comparable across climate and technocomplex boundaries.** [Scientific Data](https://www.nature.com/articles/s41597-026-07586-5)
+- **The Carmel blooms matter because they reopen the older question of what Mediterranean traders bothered to move by sea in raw form rather than only as finished goods.** [npj Heritage Science](https://www.nature.com/articles/s40494-026-02409-7)
 
 ## Tools You Can Use
 

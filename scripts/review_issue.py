@@ -68,6 +68,26 @@ REQUIRED_SECTIONS = [
     "Travel",
     "Idea Of The Day",
 ]
+SHORT_TAKES_REQUIRED_SECTIONS = [
+    "Research Watch",
+    "World News",
+    "Philosophy",
+    "Biology",
+    "Psychology and Neuroscience",
+    "Health and Medicine",
+    "Sociology and Anthropology",
+    "Technology",
+    "Robotics",
+    "AI",
+    "Engineering",
+    "Mathematics",
+    "Historical Discoveries",
+    "Archaeology",
+    "Tools You Can Use",
+]
+BREAKING_NEWS_REQUIRED_SECTIONS = [
+    "World News",
+]
 
 
 def normalize_compact(text: str) -> str:
@@ -110,6 +130,19 @@ def find_missing_required_sections(text: str) -> list[str]:
     return [section for section in REQUIRED_SECTIONS if section not in present_sections]
 
 
+def find_missing_required_subsections(text: str) -> list[str]:
+    findings: list[str] = []
+    for section in SHORT_TAKES_REQUIRED_SECTIONS:
+        match = re.search(rf"(?ms)^## {re.escape(section)}\n(?P<body>.*?)(?=^## |\Z)", text)
+        if match and "### Short Takes" not in match.group("body"):
+            findings.append(f"Missing Short Takes subsection in: {section}")
+    for section in BREAKING_NEWS_REQUIRED_SECTIONS:
+        match = re.search(rf"(?ms)^## {re.escape(section)}\n(?P<body>.*?)(?=^## |\Z)", text)
+        if match and "### Breaking News" not in match.group("body"):
+            findings.append(f"Missing Breaking News subsection in: {section}")
+    return findings
+
+
 def review_text(text: str) -> dict[str, object]:
     findings: list[str] = []
     lines = text.splitlines()
@@ -133,6 +166,8 @@ def review_text(text: str) -> dict[str, object]:
     missing_sections = find_missing_required_sections(text)
     for section in missing_sections:
         findings.append(f"Missing required section: {section}")
+
+    findings.extend(find_missing_required_subsections(text))
 
     findings.extend(find_thin_main_entries(text))
 
