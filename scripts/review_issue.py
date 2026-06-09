@@ -88,6 +88,8 @@ SHORT_TAKES_REQUIRED_SECTIONS = [
 BREAKING_NEWS_REQUIRED_SECTIONS = [
     "World News",
 ]
+MIN_SHORT_TAKES_ITEMS = 3
+MIN_BREAKING_NEWS_ITEMS = 5
 
 
 def normalize_compact(text: str) -> str:
@@ -134,12 +136,32 @@ def find_missing_required_subsections(text: str) -> list[str]:
     findings: list[str] = []
     for section in SHORT_TAKES_REQUIRED_SECTIONS:
         match = re.search(rf"(?ms)^## {re.escape(section)}\n(?P<body>.*?)(?=^## |\Z)", text)
-        if match and "### Short Takes" not in match.group("body"):
+        if not match:
+            continue
+        body = match.group("body")
+        short_takes_match = re.search(r"(?ms)^### Short Takes\n(?P<body>.*?)(?=^### |\Z)", body)
+        if not short_takes_match:
             findings.append(f"Missing Short Takes subsection in: {section}")
+            continue
+        short_takes_count = sum(1 for line in short_takes_match.group("body").splitlines() if line.startswith("- "))
+        if short_takes_count < MIN_SHORT_TAKES_ITEMS:
+            findings.append(
+                f"Short Takes has too few items in {section}: {short_takes_count} < {MIN_SHORT_TAKES_ITEMS}"
+            )
     for section in BREAKING_NEWS_REQUIRED_SECTIONS:
         match = re.search(rf"(?ms)^## {re.escape(section)}\n(?P<body>.*?)(?=^## |\Z)", text)
-        if match and "### Breaking News" not in match.group("body"):
+        if not match:
+            continue
+        body = match.group("body")
+        breaking_news_match = re.search(r"(?ms)^### Breaking News\n(?P<body>.*?)(?=^### |\Z)", body)
+        if not breaking_news_match:
             findings.append(f"Missing Breaking News subsection in: {section}")
+            continue
+        breaking_news_count = sum(1 for line in breaking_news_match.group("body").splitlines() if line.startswith("- "))
+        if breaking_news_count < MIN_BREAKING_NEWS_ITEMS:
+            findings.append(
+                f"Breaking News has too few items in {section}: {breaking_news_count} < {MIN_BREAKING_NEWS_ITEMS}"
+            )
     return findings
 
 

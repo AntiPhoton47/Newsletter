@@ -16,7 +16,7 @@ permalink: /archive/
   <div class="quick-filter-group">
     <div class="quick-filter-label">Browse by tag</div>
     <div class="quick-filter-bar">
-      {% for tag in features.top_tags limit: 10 %}
+      {% for tag in features.archive_tags %}
       <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
       {% endfor %}
     </div>

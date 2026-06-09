@@ -54,22 +54,24 @@ SECTION_ORDER = [
 ]
 
 LAST_THREE = {"Entertainment", "Travel", "Idea Of The Day"}
+MIN_SHORT_TAKES_COUNT = 3
+MIN_BREAKING_NEWS_COUNT = 5
 DEFAULT_SECTION_COUNTS = {
     "Need To Know": (1, 0),
-    "Research Watch": (2, 2),
-    "World News": (3, 6),
-    "Philosophy": (1, 2),
-    "Biology": (1, 2),
-    "Psychology and Neuroscience": (1, 2),
-    "Health and Medicine": (1, 2),
-    "Sociology and Anthropology": (1, 2),
-    "Technology": (1, 2),
-    "Robotics": (1, 2),
-    "AI": (1, 2),
-    "Engineering": (1, 2),
-    "Mathematics": (1, 2),
-    "Historical Discoveries": (1, 2),
-    "Archaeology": (1, 2),
+    "Research Watch": (2, 3),
+    "World News": (3, 3),
+    "Philosophy": (1, 3),
+    "Biology": (1, 3),
+    "Psychology and Neuroscience": (1, 3),
+    "Health and Medicine": (1, 3),
+    "Sociology and Anthropology": (1, 3),
+    "Technology": (1, 3),
+    "Robotics": (1, 3),
+    "AI": (1, 3),
+    "Engineering": (1, 3),
+    "Mathematics": (1, 3),
+    "Historical Discoveries": (1, 3),
+    "Archaeology": (1, 3),
     "Tools You Can Use": (3, 4),
     "Entertainment": (0, 0),
     "Travel": (0, 0),
@@ -1016,6 +1018,23 @@ def build_short_takes(entries: list[dict]) -> list[str]:
     return lines
 
 
+def build_breaking_news(entries: list[dict]) -> list[str]:
+    if not entries:
+        return []
+    lines = ["### Breaking News", ""]
+    for entry in entries:
+        title = clean_title(entry["title"])
+        summary = summarize(entry.get("summary") or "", 140)
+        publisher = entry.get("publisher", "")
+        source = source_label(entry.get("link", ""), publisher)
+        link = preferred_link(entry.get("link", ""), publisher)
+        tail = f" [{source}]({link})" if link else ""
+        text = f"- **{title}:** {summary}{tail}" if summary else f"- **{title}.**{tail}"
+        lines.append(text)
+    lines.append("")
+    return lines
+
+
 def build_tools_section(
     entries: list[dict],
     *,
@@ -1088,23 +1107,46 @@ def build_generic_section(
     lines = [f"## {section}", ""]
     local_used_keys = used_keys if used_keys is not None else set()
     available_entries = [entry for entry in entries if entry_key(entry) not in local_used_keys]
-    if not available_entries and sections is not None:
-        available_entries = collect_candidate_pool(section, sections, local_used_keys, include_self=False)
+    main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
+    required_total = main_count + short_count
+    if section == "World News":
+        required_total += MIN_BREAKING_NEWS_COUNT
+    if sections is not None and len(available_entries) < required_total:
+        fallback_pool = collect_candidate_pool(
+            section,
+            sections,
+            local_used_keys,
+            include_self=False,
+            limit=max(required_total - len(available_entries), 0) + 6,
+        )
+        seen_keys = {entry_key(entry) for entry in available_entries}
+        for entry in fallback_pool:
+            key = entry_key(entry)
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            available_entries.append(entry)
     if not available_entries:
         lines.append("Insufficient sourced material for this section today.")
         lines.append("")
         return lines
-    main_count, short_count = DEFAULT_SECTION_COUNTS.get(section, (1, 2))
     ranked_entries = sorted(available_entries, key=summary_quality, reverse=True)
     main_entries = ranked_entries[:main_count]
     enrich_entries(main_entries)
     main_keys = {entry_key(entry) for entry in main_entries}
-    short_pool = [entry for entry in available_entries if entry_key(entry) not in main_keys]
-    short_entries = short_pool[:short_count]
-    for entry in [*main_entries, *short_entries]:
+    remaining_entries = [entry for entry in ranked_entries if entry_key(entry) not in main_keys]
+    breaking_entries: list[dict] = []
+    if section == "World News":
+        breaking_entries = remaining_entries[:MIN_BREAKING_NEWS_COUNT]
+        breaking_keys = {entry_key(entry) for entry in breaking_entries}
+        remaining_entries = [entry for entry in remaining_entries if entry_key(entry) not in breaking_keys]
+    short_entries = remaining_entries[:short_count]
+    for entry in [*main_entries, *breaking_entries, *short_entries]:
         local_used_keys.add(entry_key(entry))
     for entry in main_entries:
         lines.extend(build_main_entry(entry))
+    if breaking_entries:
+        lines.extend(build_breaking_news(breaking_entries))
     lines.extend(build_short_takes(short_entries))
     return lines
 

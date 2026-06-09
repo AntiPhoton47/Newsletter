@@ -347,7 +347,7 @@ permalink: /archive/
   <div class="quick-filter-group">
     <div class="quick-filter-label">Browse by tag</div>
     <div class="quick-filter-bar">
-      {% for tag in features.top_tags limit: 10 %}
+      {% for tag in features.archive_tags %}
       <button type="button" class="filter-chip" data-search-tag="{{ tag.name }}">{{ tag.name }} <span>{{ tag.count }}</span></button>
       {% endfor %}
     </div>
@@ -2746,14 +2746,16 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
         seen_dates.add(entry["issue_date"])
 
     tag_counts = Counter(tag for entry in issue_entries for tag in entry["tags"])
-    top_tags = [
+    ordered_tags = sorted(tag_counts.items(), key=lambda item: (-item[1], item[0].lower()))
+    archive_tags = [
         {
             "name": tag,
             "count": count,
             "url": build_filter_url(tag=tag, sort="relevance"),
         }
-        for tag, count in tag_counts.most_common(30)
+        for tag, count in ordered_tags
     ]
+    top_tags = archive_tags[:30]
     category_counts = Counter(category for entry in issue_entries for category in entry["categories"])
     top_categories = [
         {
@@ -2805,6 +2807,7 @@ def build_site_features(entries: list[dict[str, str]], curations: dict[str, obje
         "featured_issues": featured_issues,
         "recent_issues": issue_entries[:8],
         "top_tags": top_tags,
+        "archive_tags": archive_tags,
         "top_categories": top_categories,
         "discovery_topics": discovery_topics,
         "archive_years": archive_years,

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-09T04:19+00:00",
+  "generated_at": "2026-06-09T04:29+00:00",
   "issue_count": 49,
   "latest_issue": {
     "title": "Earth may have sourced life's key elements closer to home",
@@ -1442,14 +1442,19 @@
       "url": "/search/?tag=Energy%20and%20infrastructure&sort=relevance"
     },
     {
+      "name": "AI benchmarks",
+      "count": 11,
+      "url": "/search/?tag=AI%20benchmarks&sort=relevance"
+    },
+    {
       "name": "Quantum contextuality",
       "count": 11,
       "url": "/search/?tag=Quantum%20contextuality&sort=relevance"
     },
     {
-      "name": "AI benchmarks",
-      "count": 11,
-      "url": "/search/?tag=AI%20benchmarks&sort=relevance"
+      "name": "Markets and macro",
+      "count": 9,
+      "url": "/search/?tag=Markets%20and%20macro&sort=relevance"
     },
     {
       "name": "Neural systems",
@@ -1462,19 +1467,14 @@
       "url": "/search/?tag=Quantum%20networks&sort=relevance"
     },
     {
-      "name": "Markets and macro",
-      "count": 9,
-      "url": "/search/?tag=Markets%20and%20macro&sort=relevance"
+      "name": "AI agents and workflows",
+      "count": 8,
+      "url": "/search/?tag=AI%20agents%20and%20workflows&sort=relevance"
     },
     {
       "name": "Particle physics",
       "count": 8,
       "url": "/search/?tag=Particle%20physics&sort=relevance"
-    },
-    {
-      "name": "AI agents and workflows",
-      "count": 8,
-      "url": "/search/?tag=AI%20agents%20and%20workflows&sort=relevance"
     },
     {
       "name": "Quantum networking",
@@ -1487,14 +1487,14 @@
       "url": "/search/?tag=Trade%20and%20industrial%20policy&sort=relevance"
     },
     {
-      "name": "AI scientists",
-      "count": 6,
-      "url": "/search/?tag=AI%20scientists&sort=relevance"
-    },
-    {
       "name": "AI for science",
       "count": 6,
       "url": "/search/?tag=AI%20for%20science&sort=relevance"
+    },
+    {
+      "name": "AI scientists",
+      "count": 6,
+      "url": "/search/?tag=AI%20scientists&sort=relevance"
     },
     {
       "name": "Particle-physics precision",
@@ -1502,24 +1502,9 @@
       "url": "/search/?tag=Particle-physics%20precision&sort=relevance"
     },
     {
-      "name": "Space telescopes",
-      "count": 5,
-      "url": "/search/?tag=Space%20telescopes&sort=relevance"
-    },
-    {
       "name": "Climate and Earth systems",
       "count": 5,
       "url": "/search/?tag=Climate%20and%20Earth%20systems&sort=relevance"
-    },
-    {
-      "name": "Spin qubits",
-      "count": 5,
-      "url": "/search/?tag=Spin%20qubits&sort=relevance"
-    },
-    {
-      "name": "Quantum gravity",
-      "count": 5,
-      "url": "/search/?tag=Quantum%20gravity&sort=relevance"
     },
     {
       "name": "Energy grids",
@@ -1527,9 +1512,181 @@
       "url": "/search/?tag=Energy%20grids&sort=relevance"
     },
     {
-      "name": "Hydrogen spectroscopy",
+      "name": "Quantum gravity",
+      "count": 5,
+      "url": "/search/?tag=Quantum%20gravity&sort=relevance"
+    },
+    {
+      "name": "Space telescopes",
+      "count": 5,
+      "url": "/search/?tag=Space%20telescopes&sort=relevance"
+    },
+    {
+      "name": "Spin qubits",
+      "count": 5,
+      "url": "/search/?tag=Spin%20qubits&sort=relevance"
+    },
+    {
+      "name": "Aging biology",
       "count": 4,
-      "url": "/search/?tag=Hydrogen%20spectroscopy&sort=relevance"
+      "url": "/search/?tag=Aging%20biology&sort=relevance"
+    },
+    {
+      "name": "Biosecurity",
+      "count": 4,
+      "url": "/search/?tag=Biosecurity&sort=relevance"
+    },
+    {
+      "name": "Chip controls",
+      "count": 4,
+      "url": "/search/?tag=Chip%20controls&sort=relevance"
+    }
+  ],
+  "archive_tags": [
+    {
+      "name": "Middle East security",
+      "count": 31,
+      "url": "/search/?tag=Middle%20East%20security&sort=relevance"
+    },
+    {
+      "name": "Ukraine and Europe",
+      "count": 22,
+      "url": "/search/?tag=Ukraine%20and%20Europe&sort=relevance"
+    },
+    {
+      "name": "Middle East shipping",
+      "count": 20,
+      "url": "/search/?tag=Middle%20East%20shipping&sort=relevance"
+    },
+    {
+      "name": "Agent frameworks",
+      "count": 18,
+      "url": "/search/?tag=Agent%20frameworks&sort=relevance"
+    },
+    {
+      "name": "Medical AI",
+      "count": 17,
+      "url": "/search/?tag=Medical%20AI&sort=relevance"
+    },
+    {
+      "name": "Quantum hardware",
+      "count": 16,
+      "url": "/search/?tag=Quantum%20hardware&sort=relevance"
+    },
+    {
+      "name": "AI evaluation",
+      "count": 14,
+      "url": "/search/?tag=AI%20evaluation&sort=relevance"
+    },
+    {
+      "name": "Ancient DNA",
+      "count": 14,
+      "url": "/search/?tag=Ancient%20DNA&sort=relevance"
+    },
+    {
+      "name": "Ukraine war",
+      "count": 13,
+      "url": "/search/?tag=Ukraine%20war&sort=relevance"
+    },
+    {
+      "name": "Energy and infrastructure",
+      "count": 12,
+      "url": "/search/?tag=Energy%20and%20infrastructure&sort=relevance"
+    },
+    {
+      "name": "AI benchmarks",
+      "count": 11,
+      "url": "/search/?tag=AI%20benchmarks&sort=relevance"
+    },
+    {
+      "name": "Quantum contextuality",
+      "count": 11,
+      "url": "/search/?tag=Quantum%20contextuality&sort=relevance"
+    },
+    {
+      "name": "Markets and macro",
+      "count": 9,
+      "url": "/search/?tag=Markets%20and%20macro&sort=relevance"
+    },
+    {
+      "name": "Neural systems",
+      "count": 9,
+      "url": "/search/?tag=Neural%20systems&sort=relevance"
+    },
+    {
+      "name": "Quantum networks",
+      "count": 9,
+      "url": "/search/?tag=Quantum%20networks&sort=relevance"
+    },
+    {
+      "name": "AI agents and workflows",
+      "count": 8,
+      "url": "/search/?tag=AI%20agents%20and%20workflows&sort=relevance"
+    },
+    {
+      "name": "Particle physics",
+      "count": 8,
+      "url": "/search/?tag=Particle%20physics&sort=relevance"
+    },
+    {
+      "name": "Quantum networking",
+      "count": 7,
+      "url": "/search/?tag=Quantum%20networking&sort=relevance"
+    },
+    {
+      "name": "Trade and industrial policy",
+      "count": 7,
+      "url": "/search/?tag=Trade%20and%20industrial%20policy&sort=relevance"
+    },
+    {
+      "name": "AI for science",
+      "count": 6,
+      "url": "/search/?tag=AI%20for%20science&sort=relevance"
+    },
+    {
+      "name": "AI scientists",
+      "count": 6,
+      "url": "/search/?tag=AI%20scientists&sort=relevance"
+    },
+    {
+      "name": "Particle-physics precision",
+      "count": 6,
+      "url": "/search/?tag=Particle-physics%20precision&sort=relevance"
+    },
+    {
+      "name": "Climate and Earth systems",
+      "count": 5,
+      "url": "/search/?tag=Climate%20and%20Earth%20systems&sort=relevance"
+    },
+    {
+      "name": "Energy grids",
+      "count": 5,
+      "url": "/search/?tag=Energy%20grids&sort=relevance"
+    },
+    {
+      "name": "Quantum gravity",
+      "count": 5,
+      "url": "/search/?tag=Quantum%20gravity&sort=relevance"
+    },
+    {
+      "name": "Space telescopes",
+      "count": 5,
+      "url": "/search/?tag=Space%20telescopes&sort=relevance"
+    },
+    {
+      "name": "Spin qubits",
+      "count": 5,
+      "url": "/search/?tag=Spin%20qubits&sort=relevance"
+    },
+    {
+      "name": "Aging biology",
+      "count": 4,
+      "url": "/search/?tag=Aging%20biology&sort=relevance"
+    },
+    {
+      "name": "Biosecurity",
+      "count": 4,
+      "url": "/search/?tag=Biosecurity&sort=relevance"
     },
     {
       "name": "Chip controls",
@@ -1537,9 +1694,109 @@
       "url": "/search/?tag=Chip%20controls&sort=relevance"
     },
     {
+      "name": "Citation integrity",
+      "count": 4,
+      "url": "/search/?tag=Citation%20integrity&sort=relevance"
+    },
+    {
+      "name": "Hydrogen spectroscopy",
+      "count": 4,
+      "url": "/search/?tag=Hydrogen%20spectroscopy&sort=relevance"
+    },
+    {
       "name": "Neuroscience and cognition",
       "count": 4,
       "url": "/search/?tag=Neuroscience%20and%20cognition&sort=relevance"
+    },
+    {
+      "name": "Biology and aging",
+      "count": 3,
+      "url": "/search/?tag=Biology%20and%20aging&sort=relevance"
+    },
+    {
+      "name": "Climate records",
+      "count": 3,
+      "url": "/search/?tag=Climate%20records&sort=relevance"
+    },
+    {
+      "name": "Early black holes",
+      "count": 3,
+      "url": "/search/?tag=Early%20black%20holes&sort=relevance"
+    },
+    {
+      "name": "JWST",
+      "count": 3,
+      "url": "/search/?tag=JWST&sort=relevance"
+    },
+    {
+      "name": "Loop quantum gravity",
+      "count": 3,
+      "url": "/search/?tag=Loop%20quantum%20gravity&sort=relevance"
+    },
+    {
+      "name": "Quantum emitters",
+      "count": 3,
+      "url": "/search/?tag=Quantum%20emitters&sort=relevance"
+    },
+    {
+      "name": "Quantum error correction",
+      "count": 3,
+      "url": "/search/?tag=Quantum%20error%20correction&sort=relevance"
+    },
+    {
+      "name": "Quantum gates",
+      "count": 3,
+      "url": "/search/?tag=Quantum%20gates&sort=relevance"
+    },
+    {
+      "name": "Quantum simulations",
+      "count": 3,
+      "url": "/search/?tag=Quantum%20simulations&sort=relevance"
+    },
+    {
+      "name": "Protein biology",
+      "count": 2,
+      "url": "/search/?tag=Protein%20biology&sort=relevance"
+    },
+    {
+      "name": "Robotics and embodied AI",
+      "count": 2,
+      "url": "/search/?tag=Robotics%20and%20embodied%20AI&sort=relevance"
+    },
+    {
+      "name": "Roman roads",
+      "count": 2,
+      "url": "/search/?tag=Roman%20roads&sort=relevance"
+    },
+    {
+      "name": "Scientific software",
+      "count": 2,
+      "url": "/search/?tag=Scientific%20software&sort=relevance"
+    },
+    {
+      "name": "Earth observation",
+      "count": 1,
+      "url": "/search/?tag=Earth%20observation&sort=relevance"
+    },
+    {
+      "name": "Generative biology",
+      "count": 1,
+      "url": "/search/?tag=Generative%20biology&sort=relevance"
+    },
+    {
+      "name": "Interference experiments",
+      "count": 1,
+      "url": "/search/?tag=Interference%20experiments&sort=relevance"
+    },
+    {
+      "name": "Interstellar objects",
+      "count": 1,
+      "url": "/search/?tag=Interstellar%20objects&sort=relevance"
+    },
+    {
+      "name": "Mathematics and philosophy",
+      "count": 1,
+      "url": "/search/?tag=Mathematics%20and%20philosophy&sort=relevance"
     }
   ],
   "top_categories": [
