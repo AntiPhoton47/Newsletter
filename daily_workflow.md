@@ -106,6 +106,7 @@ When drafting:
 - keep source lines explicit and labeled
 - avoid raw URLs in body copy
 - keep short takes concise, source-backed, and informative enough to add one concrete fact or piece of context beyond the headline
+- remove stock AI sentence frames instead of merely trimming them; hard no-go examples include `That matters because`, `The point is`, `The real question is`, `The important part is`, `This is the kind of`, `is useful because`, `is interesting because`, `The better ...`, `The stronger ...`, and `is a reminder that`
 - do not let optional AI drafting or review tools block writing; continue manually when they are unavailable
 - if you revisit a story from the previous issue, make the new value explicit rather than lightly rephrasing the earlier copy
 - choose `2-4` notable company movers for `Markets & Economy` based on the day's action rather than a fixed ticker list
@@ -144,6 +145,7 @@ Before rendering, confirm:
 - entertainment and travel remain concise and current
 - travel includes an image that renders correctly and matches the destination named in the copy
 - prose stays matter-of-fact and avoids repetitive `X matters because Y` scaffolding
+- prose does not rely on evaluative hand-holding such as `is useful because`, `The point is`, or generic comparative coaching like `The better` / `The stronger`
 - explanations add clarity instead of mechanically restating significance or application
 - the issue still feels curated rather than merely exhaustive
 
@@ -176,6 +178,7 @@ Check:
 - absence of unnecessary political or social bias
 - readability
 - no obvious dead weight
+- no surviving AI-pattern phrasing from the humanizer checklist
 
 Questions to ask:
 

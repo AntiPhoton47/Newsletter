@@ -76,6 +76,7 @@ The following biases should be applied when choosing between otherwise comparabl
 - stories that are mostly attention-driven rather than insight-driven
 - repeated stories that add little beyond a previously covered version
 - formulaic `X matters because Y` framing that adds little beyond the headline
+- stock AI framing such as `The point is`, `The real question is`, `The important part is`, `This is the kind of`, `is useful because`, `is interesting because`, `The better ...`, `The stronger ...`, or `is a reminder that`
 - forced application framing when the underlying concept or event is already interesting on its own
 
 ### Consecutive-Issue Follow-Ups

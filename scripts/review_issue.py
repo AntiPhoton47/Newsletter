@@ -30,6 +30,21 @@ BAD_PATTERNS = [
     r"This issue was generated from the configured source pipeline and is intended as a strong first draft for daily review\.",
 ]
 
+AI_STYLE_PATTERNS = [
+    ("Formulaic significance scaffold", r"\b(?:That|This) matters because\b"),
+    ("Formulaic summary scaffold", r"\bThe point is\b"),
+    ("Formulaic summary scaffold", r"\bThe real question is\b"),
+    ("Formulaic summary scaffold", r"\bThe important part is\b"),
+    ("Formulaic summary scaffold", r"\bThis is the kind of\b"),
+    ("Meta-evaluative framing", r"\bis (?:useful|interesting|important|valuable) because\b"),
+    ("Meta-evaluative framing", r"\b(?:analysis|coverage|essay|feature|overview|paper|piece|report|story) is (?:useful|interesting|important|valuable)\b"),
+    ("Comparative hand-holding", r"\bThe better\b"),
+    ("Comparative hand-holding", r"\bThe stronger\b"),
+    ("Generic reminder framing", r"\bis a reminder that\b"),
+    ("Generic watchlist framing", r"\bworth watching because\b"),
+    ("Generic escalation framing", r"\bbecomes more (?:useful|interesting|honest|serious)\b"),
+]
+
 LOW_VALUE_TITLE_PATTERNS = [
     r"^Correction:",
     r"\bjob with\b",
@@ -165,6 +180,20 @@ def find_missing_required_subsections(text: str) -> list[str]:
     return findings
 
 
+def find_ai_style_patterns(text: str) -> list[str]:
+    findings: list[str] = []
+    for label, pattern in AI_STYLE_PATTERNS:
+        regex = re.compile(pattern, flags=re.IGNORECASE)
+        for match in regex.finditer(text):
+            start = text.rfind("\n", 0, match.start()) + 1
+            end = text.find("\n", match.end())
+            if end == -1:
+                end = len(text)
+            snippet = " ".join(text[start:end].strip().split())
+            findings.append(f"{label}: {snippet}")
+    return findings
+
+
 def review_text(text: str) -> dict[str, object]:
     findings: list[str] = []
     lines = text.splitlines()
@@ -192,6 +221,7 @@ def review_text(text: str) -> dict[str, object]:
     findings.extend(find_missing_required_subsections(text))
 
     findings.extend(find_thin_main_entries(text))
+    findings.extend(find_ai_style_patterns(text))
 
     passed = len(findings) == 0
     return {

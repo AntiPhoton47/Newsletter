@@ -5,6 +5,7 @@
 ### The day's most interesting developments in science, technology, and ideas
 
 Write a 2-4 sentence editorial overview of the day's main themes. Focus on what connects the strongest stories rather than listing headlines. Prefer matter-of-fact synthesis over grandiose framing.
+Avoid stock AI pivots such as `The point is`, `That matters because`, `The real question is`, and `The important part is`.
 
 ## Quick Hits
 
@@ -75,6 +76,7 @@ Use only when there is genuine private-company news worth covering. Keep it clea
 
 Write 2-4 short paragraphs.
 Prefer descriptive titles and direct reporting. Explain significance only where it adds real clarity; do not force a separate `why it matters` block.
+Do not lean on meta-evaluative scaffolds like `is useful because` or `is interesting because`.
 
 **Link:** [Read at Source](https://example.com)
 
@@ -86,6 +88,7 @@ Prefer descriptive titles and direct reporting. Explain significance only where 
 
 Write 2-3 short paragraphs.
 Prefer descriptive titles and direct reporting. Explain significance only where it adds real clarity; do not force a separate `why it matters` block.
+Do not lean on meta-evaluative scaffolds like `is useful because` or `is interesting because`.
 
 **Link:** [Read at Source](https://example.com)
 
