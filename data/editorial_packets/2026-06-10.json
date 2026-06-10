@@ -1,0 +1,29 @@
+{
+  "date": "2026-06-10",
+  "display_date": "June 10, 2026",
+  "issue_path": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-06-10-daily-newsletter.md",
+  "benchmark_issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-06-02-daily-newsletter.md",
+  "scaffold_path": "/Users/munga/PycharmProjects/Newsletter/data/editorial_packets/2026-06-10-issue-scaffold.md",
+  "notes_path": "/Users/munga/PycharmProjects/Newsletter/data/research_notes/2026-06-10.md",
+  "publish_command": "python3 scripts/newsletter_command.py publish --date 2026-06-10 --git-commit --git-push",
+  "benchmark": {
+    "word_count": 6665,
+    "source_count": 34,
+    "link_count": 35
+  },
+  "fetch_warning": "Candidate fetch failed for every configured query and produced zero section entries; shell error was 'nodename nor servname provided, or not known'. Direct web research and cached market data were used instead.",
+  "selected_stories": {
+    "Need To Know": [
+      "NASA names Artemis III crew for a 2027 Earth-orbit systems test of the lunar stack"
+    ],
+    "Research Watch": [
+      "First Proof benchmark for research-level mathematics",
+      "Linear-optical test of quantum contextuality with sequential measurements"
+    ],
+    "World News": [
+      "Congo Ebola outbreak rises above 100 deaths",
+      "European leaders push air-defense capacity for Ukraine",
+      "Israel and Iran pause after direct fire"
+    ]
+  }
+}
