@@ -61,8 +61,9 @@ The second cluster is software that large companies treat as operating equipment
 
 ### Private-Market Watchlist
 
-- **SpaceX IPO planning:** AP reports that investors are already treating the expected SpaceX listing as the year's biggest equity event, with talk of roughly $75 billion raised. The signal is not just enthusiasm for one company. It is the size of private capital still waiting for a very large issue. Source: [AP News](https://apnews.com/article/47f9fecd934706362104cd92514122fe)
-- **Mistral's industrial turn:** Bloomberg reports that Mistral has signed Airbus and BMW as it pushes into manufacturing use cases. That tells us more than another consumer chatbot announcement would. It tests whether a European model company can become part of factory and enterprise workflow rather than remain a national-tech talking point. Source: [Bloomberg](https://www.bloomberg.com/news/articles/2026-05-28/mistral-signs-airbus-and-bmw-as-it-brings-ai-to-manufacturing)
+**SpaceX IPO planning:** AP reports that investors already see the expected SpaceX listing as the year's dominant equity event, with talk of roughly $75 billion raised. The number to watch is not only the valuation. It is the amount of private money still waiting for a single, giant exit. After the spring selloff, a deal that size would also test whether public investors still have patience for one more vast growth story priced on ambition as much as cash flow. Source: [AP News](https://apnews.com/article/47f9fecd934706362104cd92514122fe)
+
+**Mistral's industrial turn:** Bloomberg reports that Mistral has signed Airbus and BMW as it pushes into manufacturing work. That puts the company in a harder test than consumer chatbot traffic. Factory contracts ask whether a European model firm can hold up inside procurement, workflow, and operations. They also test something simpler: whether plant managers and large engineering teams will keep paying for the product after the pilot phase ends. If those deployments stick, Mistral starts to look less like a continental prestige project and more like an industrial software supplier with a real customer base. Source: [Bloomberg](https://www.bloomberg.com/news/articles/2026-05-28/mistral-signs-airbus-and-bmw-as-it-brings-ai-to-manufacturing)
 
 ## Need To Know
 
@@ -102,9 +103,9 @@ If matter and antimatter obey the same deep rules, the claim has to survive incr
 
 ### Short Takes
 
-- **A simpler linear-optical contextuality setup pushes a famously slippery idea back toward ordinary experimental replication:** it gives other labs a cleaner way to test the claim rather than merely admire it. [Source](https://arxiv.org/abs/2605.18112)
-- **APS's shell-model retrospective is worth reading for its history of conceptual compromise:** productive theories often survive not by winning every argument but by continuing to work while the interpretation shifts around them. [Source](https://physics.aps.org/articles/v19/s76)
-- **AI-driven formal proof search is beginning to look like infrastructure rather than spectacle:** the new arXiv result on open Erdos problems and OEIS conjectures makes the workflow itself hard to dismiss. [Source](https://arxiv.org/abs/2605.22763)
+- **A leaner linear-optical contextuality setup lowers the replication barrier for other labs and makes the claim easier to test independently.** [Source](https://arxiv.org/abs/2605.18112)
+- **APS's shell-model retrospective shows how nuclear theory stayed useful by absorbing new data without pretending its assumptions were settled.** [Source](https://physics.aps.org/articles/v19/s76)
+- **The new proof-search paper matters for its workflow as much as its results on Erdos problems and OEIS conjectures:** search proposes, formal verification checks, and another team can inspect the chain instead of taking a headline on faith. [Source](https://arxiv.org/abs/2605.22763)
 
 ## World News
 
@@ -138,12 +139,12 @@ The European External Action Service was built for a looser era. The question no
 
 ### Short Takes
 
-- **The June 9 FT preview of the EU's next seven-year budget shows digital sovereignty and cloud dependence moving into spending design itself, not arriving later as an afterthought.** [Source](https://www.ft.com/content/4e9b2c0f-f979-40b6-82c2-360fe68ee7a2)
-- **Brussels' drone and eastern-flank initiatives continue to turn strategic autonomy from a slogan into a procurement architecture.** [Source](https://europa.eu/newsroom/ecpc-failover/pdf/ip-26-812_en.pdf)
-- **OCHA's Gaza material still points to logistics as one of the central variables of the crisis, which is why conditions remain structurally bad even when diplomatic attention moves elsewhere.** [Source](https://www.ochaopt.org/)
-- **Europe's foreign-policy argument is now inseparable from budget design because the bloc is trying to fund security, industrial resilience, and external action through the same framework.** [Source](https://www.ft.com/content/2760ba1d-9505-4ef1-8503-d0f5ad3da00c)
-- **AP's market story on Iran is also a macro story:** when ceasefire headlines move oil and Asian equities in the same session, geopolitical timing becomes ordinary portfolio risk. [Source](https://apnews.com/article/47f9fecd934706362104cd92514122fe)
-- **The counter-drone plan matters beyond aviation because it treats airspace interference as a recurring urban and transport-management problem.** [Source](https://transport.ec.europa.eu/news-events/news/commission-adopts-action-plan-counter-drone-threats-2026-05-27_en)
+- **The June 9 FT preview puts cloud sovereignty inside the EU's seven-year budget fight, where priorities start to harden into line items and procurement rules.** [Source](https://www.ft.com/content/4e9b2c0f-f979-40b6-82c2-360fe68ee7a2)
+- **Brussels is turning eastern-flank defense and drone policy into procurement files, not speeches.** [Source](https://europa.eu/newsroom/ecpc-failover/pdf/ip-26-812_en.pdf)
+- **OCHA's Gaza updates keep returning to the same choke points: convoy movement, fuel, access, and civilian protection.** [Source](https://www.ochaopt.org/)
+- **The next EU budget is becoming a fight over one shared pot for security, industrial resilience, and foreign policy.** [Source](https://www.ft.com/content/2760ba1d-9505-4ef1-8503-d0f5ad3da00c)
+- **The Iran talks moved oil and Asian equities in the same session, which tells you how fast geopolitical headlines now hit portfolios and risk models.** [Source](https://apnews.com/article/47f9fecd934706362104cd92514122fe)
+- **The counter-drone plan treats airspace interference as a recurring transport and urban-security problem, not a one-off aviation scare.** [Source](https://transport.ec.europa.eu/news-events/news/commission-adopts-action-plan-counter-drone-threats-2026-05-27_en)
 
 ## Philosophy
 
@@ -169,9 +170,9 @@ That is enough. In fact it is more than enough. At a moment when people leap fro
 
 ### Short Takes
 
-- **IAI TV's conversation on AI and the mysteries of reality is at its best when it resists treating model competence as metaphysical evidence.** [Source](https://iai.tv/video/ai-and-the-mysteries-of-reality)
-- **The "controlled hallucination" metaphor has done useful work and then, in many hands, too much work. IAI TV's critique is a healthy correction.** [Source](https://iai.tv/articles/reality-is-not-a-controlled-hallucination-auid-3517)
-- **James Ladyman and Susan Schneider's discussion of whether reality has a fundamental basis brings welcome restraint to a moment full of final-language fantasies.** [Source](https://iai.tv/video/there-is-no-fundamental-basis-to-reality-with-james-ladyman-and-susan-schneider)
+- **IAI TV's conversation stays grounded by asking what model competence can show about reality, and what it cannot.** [Source](https://iai.tv/video/ai-and-the-mysteries-of-reality)
+- **The critique of "controlled hallucination" argues that a useful metaphor in perception science becomes misleading when people stretch it into a theory of reality.** [Source](https://iai.tv/articles/reality-is-not-a-controlled-hallucination-auid-3517)
+- **James Ladyman and Susan Schneider press an old question in present tense: does physics describe a bedrock level, or only better and worse models?** [Source](https://iai.tv/video/there-is-no-fundamental-basis-to-reality-with-james-ladyman-and-susan-schneider)
 
 ## Biology
 
@@ -197,9 +198,9 @@ Once fungi move from background biodiversity to infrastructure, the surrounding 
 
 ### Short Takes
 
-- **Nature's lipidomics roadmap reads like a field deciding it wants to become a platform discipline rather than a cataloging exercise.** [Source](https://www.nature.com/articles/s41467-026-73797-4)
-- **The SynCell Asia Initiative paper matters less as a promise of artificial life than as evidence that synthetic-cell research is finally trying to standardize itself.** [Source](https://www.nature.com/articles/s41587-026-03153-w)
-- **The Drosophila blue-light result is strongest where it refuses to isolate physiology from microbiota and treats the phenotype as a coupled system instead.** [Source](https://www.nature.com/articles/s42003-025-08348-6)
+- **Nature's lipidomics roadmap is a standards document as much as a science one, with a push for shared methods, references, and cross-lab comparability.** [Source](https://www.nature.com/articles/s41467-026-73797-4)
+- **The SynCell Asia Initiative reads like a field building common infrastructure before it claims bigger philosophical victories.** [Source](https://www.nature.com/articles/s41587-026-03153-w)
+- **The Drosophila blue-light study ties the phenotype to microbiota state as well as light exposure, which makes the result harder and more interesting.** [Source](https://www.nature.com/articles/s42003-025-08348-6)
 
 ## Psychology and Neuroscience
 
@@ -225,9 +226,9 @@ That is a cleaner fit with experience. Animals and people do not update from rew
 
 ### Short Takes
 
-- **Nature Index's cognitive-control overview is most convincing when it treats executive function as a shifting network problem rather than a single-region command center.** [Source](https://www.nature.com/nature-index/topics/l4/cognitive-control-mechanisms-in-human-brain-networks)
-- **Its companion piece on functional connectivity and cognitive aging makes the same move in a different register: aging becomes clearer once network reconfiguration, not just decline, is the object.** [Source](https://www.nature.com/nature-index/topics/l4/functional-connectivity-and-cognitive-aging)
-- **Scientific American's piece on depression scales and highly intelligent people is a good methods warning:** measurement tools do not always travel cleanly across different cognitive profiles. [Source](https://www.scientificamerican.com/article/depression-scales-may-not-work-the-same-for-highly-intelligent-people/)
+- **Nature Index's cognitive-control overview treats executive function as a network problem, not a single command center in the brain.** [Source](https://www.nature.com/nature-index/topics/l4/cognitive-control-mechanisms-in-human-brain-networks)
+- **Its companion piece on cognitive aging follows shifts in connectivity, which gives you more than a flat story of decline.** [Source](https://www.nature.com/nature-index/topics/l4/functional-connectivity-and-cognitive-aging)
+- **Scientific American's piece on depression scales warns that a standard questionnaire can measure different things in different cognitive populations.** [Source](https://www.scientificamerican.com/article/depression-scales-may-not-work-the-same-for-highly-intelligent-people/)
 
 ## Health and Medicine
 
@@ -253,9 +254,9 @@ That matters in medicine because medicine does not pay only for correct output. 
 
 ### Short Takes
 
-- **WHO and CDC's Bundibugyo Ebola notices still read first as systems documents:** surveillance, transport, border control, and treatment capacity remain the core of the story. [Source](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON605)
-- **STAT's reporting on Utah's suspended AI-doctor pilot shows where deployment will actually be fought over:** licensing, supervision, and evidentiary thresholds. [Source](https://www.statnews.com/2026/05/11/ai-doctors-licenses-utah-doctronic-pilot/)
-- **Nature Briefing's wearable-robot item is exactly the sort of narrow clinical advance worth paying attention to:** not because it promises everything, but because it helps a specific group of patients do something hard. [Source](https://www.nature.com/articles/d41586-026-01656-9)
+- **WHO and CDC's Bundibugyo Ebola notices read like outbreak control documents, with the emphasis on surveillance, transport, borders, and care capacity.** [Source](https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON605)
+- **Utah's suspended AI-doctor pilot puts the hard questions where they belong: licensing, supervision, and evidence.** [Source](https://www.statnews.com/2026/05/11/ai-doctors-licenses-utah-doctronic-pilot/)
+- **Nature Briefing's wearable-robot item stays narrow in the right way: one assistive task, one patient group, one concrete gain.** [Source](https://www.nature.com/articles/d41586-026-01656-9)
 
 ## Sociology and Anthropology
 
@@ -281,9 +282,9 @@ The payoff is not simplicity. It is legibility. The past becomes easier to read 
 
 ### Short Takes
 
-- **Nature's social-dynamics overview on eating behavior keeps appetite inside peers, norms, and local settings rather than recasting it as sheer willpower.** [Source](https://www.nature.com/nature-index/topics/l4/social-dynamics-of-eating-behavior)
-- **The human-animal relations collection is worth browsing because it treats cross-species life as structured social space, not sentimental side material.** [Source](https://www.nature.com/collections/jhfgcbejig)
-- **Anxiety about AI is no longer a novelty-poll artifact:** it now looks like a stable social fact that has to be read alongside adoption. [Source](https://www.nature.com/articles/s42256-026-01248-2)
+- **Nature's eating-behavior overview keeps appetite inside peers, norms, and local cues instead of turning every choice into willpower.** [Source](https://www.nature.com/nature-index/topics/l4/social-dynamics-of-eating-behavior)
+- **The human-animal relations collection treats cross-species life as organized social space, with rules, labor, and cohabitation.** [Source](https://www.nature.com/collections/jhfgcbejig)
+- **Anxiety about AI now looks less like a novelty response and more like a standing feature of adoption.** [Source](https://www.nature.com/articles/s42256-026-01248-2)
 
 ## Technology
 
@@ -309,9 +310,9 @@ That is what mature technology reporting should linger on. Not the clean demo, b
 
 ### Short Takes
 
-- **The SK Hynix memory story still captures one of the central facts of this cycle:** scarcity inside the hardware stack is doing more explanatory work than broad AI enthusiasm. [Source](https://www.bloomberg.com/news/articles/2026-05-29/top-tech-fund-plans-to-buy-sk-hynix-in-bet-on-memory-chip-crunch)
-- **Rare-earth rivalry is becoming an IP and industrial-security story as well as a mining story.** [Source](https://www.ft.com/content/f50d27ea-9307-4ff2-8ee1-aca0bf72d068?syn-25a6b1a6=1)
-- **Nvidia's edge-compute push is notable not because it flatters the desktop, but because local inference changes latency and privacy constraints in practical ways.** [Source](https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date)
+- **The SK Hynix story keeps coming back to the same choke point: high-bandwidth memory still sets terms for much of the AI hardware trade.** [Source](https://www.bloomberg.com/news/articles/2026-05-29/top-tech-fund-plans-to-buy-sk-hynix-in-bet-on-memory-chip-crunch)
+- **Rare-earth rivalry now runs through patents, processing know-how, and industrial-security files, not only mines.** [Source](https://www.ft.com/content/f50d27ea-9307-4ff2-8ee1-aca0bf72d068?syn-25a6b1a6=1)
+- **Nvidia's edge-compute push matters where local inference changes latency, bandwidth, and data-handling constraints on the device itself.** [Source](https://www.theverge.com/tech/940589/nvidia-rtx-spark-n1-n1x-laptop-desktop-pc-cpu-gpu-ai-release-date)
 
 ## Robotics
 
@@ -337,9 +338,9 @@ That is why older design lineages remain worth revisiting. They remind us that i
 
 ### Short Takes
 
-- **Human interfaces remain the practical frontier in physical AI because occupied hands and partial attention are normal conditions, not edge cases.** [Source](https://spectrum.ieee.org/wetour-robotics-physical-ai-human-interfaces)
-- **Assistive robotics stays one of the clearest deployment domains because small capability gains can translate into obvious human value.** [Source](https://www.nature.com/articles/d41586-026-01656-9)
-- **Open-source AI for robots remains one of the more credible leverage points in the field because it shortens the iteration loop where embodiment still dominates the cost.** [Source](https://spectrum.ieee.org/open-source-ai-robots)
+- **Human interfaces remain a live robotics problem because users often have occupied hands, split attention, or both.** [Source](https://spectrum.ieee.org/wetour-robotics-physical-ai-human-interfaces)
+- **Assistive robotics is still one of the clearest deployment domains: a small gain in reliability can change a daily task.** [Source](https://www.nature.com/articles/d41586-026-01656-9)
+- **Open-source robotics AI shortens the loop between code, test, and hardware, which is where much of the cost still sits.** [Source](https://spectrum.ieee.org/open-source-ai-robots)
 
 ## AI
 
@@ -365,9 +366,9 @@ That turns the design problem from size to upkeep. Models begin to look less lik
 
 ### Short Takes
 
-- **Mistral signing Airbus and BMW is a stronger deployment signal than another consumer demo because factory work is harder to fake than app-store momentum.** [Source](https://www.bloomberg.com/news/articles/2026-05-28/mistral-signs-airbus-and-bmw-as-it-brings-ai-to-manufacturing)
-- **Open-source robotics AI remains one of the field's more serious fronts because embodied systems benefit immediately from shared tools and shorter iteration loops.** [Source](https://spectrum.ieee.org/open-source-ai-robots)
-- **Semafor's reporting on companies reassessing aggressive AI spending lands where hype meets arithmetic: the finance department.** [Source](https://www.semafor.com/article/05/28/2026/companies-evaluate-aggressive-ai-spending-as-costs-pile-up)
+- **Mistral signing Airbus and BMW is a real deployment signal because factory work tests uptime, workflow fit, and procurement discipline.** [Source](https://www.bloomberg.com/news/articles/2026-05-28/mistral-signs-airbus-and-bmw-as-it-brings-ai-to-manufacturing)
+- **Open-source robotics AI remains one of the serious fronts in the field because shared tools pay off fast in embodied systems.** [Source](https://spectrum.ieee.org/open-source-ai-robots)
+- **Semafor's reporting on AI spending shows where the argument turns hard: finance teams want to know which projects earn their keep.** [Source](https://www.semafor.com/article/05/28/2026/companies-evaluate-aggressive-ai-spending-as-costs-pile-up)
 
 ## Engineering
 
@@ -393,9 +394,9 @@ That is the unglamorous truth beneath a great deal of climate analytics. The mod
 
 ### Short Takes
 
-- **Nature Water's new hydrology principles point toward a basic shift in framing:** heavily managed water systems can no longer be treated as lightly disturbed natural baselines. [Source](https://www.nature.com/articles/s44221-026-00657-2)
-- **JPL's MoonFall concept keeps lunar engineering grounded in mobility and sensing rather than settlement fantasy.** [Source](https://www.jpl.nasa.gov/news/moonfall-nasas-lunar-drone-mission)
-- **Power and climate infrastructure keep returning to the same lesson:** inspect the coordination and measurement layer before assuming the central problem is generation. [Source](https://www.esa.int/ESA_Multimedia/Images/2026/05/Hot_surfaces_during_Europe_s_heatwave_seen_by_Sentinel-3)
+- **Nature Water's hydrology principles start from a plain fact: dams, canals, pumping, and diversion are part of the system now.** [Source](https://www.nature.com/articles/s44221-026-00657-2)
+- **JPL's MoonFall concept keeps lunar engineering focused on terrain, sensing, and mobility.** [Source](https://www.jpl.nasa.gov/news/moonfall-nasas-lunar-drone-mission)
+- **Power and climate infrastructure keep forcing the same check first: measure the system well before you guess at the bottleneck.** [Source](https://www.esa.int/ESA_Multimedia/Images/2026/05/Hot_surfaces_during_Europe_s_heatwave_seen_by_Sentinel-3)
 
 ## Mathematics
 
@@ -421,9 +422,9 @@ That is why the recent Erdos-related results matter. They do not end the argumen
 
 ### Short Takes
 
-- **Quanta's ultrafinitism feature is worth keeping nearby if you want a precise sense of how debates about infinity become debates about mathematical existence itself.** [Source](https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/)
-- **Formal proof systems are now part of the mathematical environment, not a sealed subculture. That change is likely to outlast the current hype cycle.** [Source](https://arxiv.org/abs/2605.22763)
-- **The strongest AI-and-math stories keep collapsing into questions of method, which is usually a sign that the subject has become real work.** [Source](https://physicsworld.com/a/ai-led-solutions-of-erdos-problems-spark-debate-over-the-future-of-mathematics/)
+- **Quanta's ultrafinitism feature shows what happens when you reject completed infinity and force mathematics back onto finite construction.** [Source](https://www.quantamagazine.org/what-can-we-gain-by-losing-infinity-20260429/)
+- **Formal proof systems now sit inside ordinary mathematical workflow, not off to the side as a specialist hobby.** [Source](https://arxiv.org/abs/2605.22763)
+- **The strongest AI-and-math stories now turn on method: who conjectures, who searches, and what counts as proof.** [Source](https://physicsworld.com/a/ai-led-solutions-of-erdos-problems-spark-debate-over-the-future-of-mathematics/)
 
 ## Historical Discoveries
 
@@ -449,9 +450,9 @@ The best fossils do that. They narrow time, place, and possibility all at once.
 
 ### Short Takes
 
-- **The ancient-selection result matters methodologically as well as historically because ancient DNA is now recovering directions and rates of change, not just population relationships.** [Source](https://www.nature.com/articles/s41586-026-10358-1)
-- **Current deep-history work is at its best when it turns fossils and genomes into mechanism rather than spectacle.** [Source](https://www.nature.com/articles/d44151-026-00075-z)
-- **Across the field, better clocks are turning sprawling timelines into more explicit causal sequences.** [Source](https://www.nature.com/articles/d41586-026-01204-5)
+- **The ancient-selection result shows that dated genomes can recover direction and rate, not only ancestry.** [Source](https://www.nature.com/articles/s41586-026-10358-1)
+- **Deep-history work gets stronger when fossils and genomes explain transitions instead of merely decorating them.** [Source](https://www.nature.com/articles/d44151-026-00075-z)
+- **Better clocks are shortening the distance between event and cause across deep history.** [Source](https://www.nature.com/articles/d41586-026-01204-5)
 
 ## Archaeology
 
@@ -477,9 +478,9 @@ That shift matters because archaeology becomes more explanatory when people, ter
 
 ### Short Takes
 
-- **Pacific-coast DNA work reinforces a broader point for archaeology:** kinship and mobility often become most legible when they are recovered together. [Source](https://www.nature.com/articles/s41467-026-72216-y)
-- **Sediment and environmental DNA are making absence less decisive, which is a larger methodological change than it first sounds.** [Source](https://www.nature.com/articles/d41586-026-00879-0)
-- **The field keeps moving from object recovery toward system recovery, and that shift is visible almost everywhere in the strongest new work.** [Source](https://www.nature.com/articles/s41598-026-35509-2)
+- **The Pacific-coast DNA study recovers family ties and long-distance movement from the same burial context.** [Source](https://www.nature.com/articles/s41467-026-72216-y)
+- **Sediment and environmental DNA let archaeologists recover presence from layers that hold little or no diagnostic bone.** [Source](https://www.nature.com/articles/d41586-026-00879-0)
+- **The strongest archaeology papers now rebuild systems: people, terrain, water, plants, and movement in one frame.** [Source](https://www.nature.com/articles/s41598-026-35509-2)
 
 ## Tools You Can Use
 
@@ -497,9 +498,9 @@ AGNT.Hub is worth a look if what you need is an operating layer for always-on ag
 
 ### Short Takes
 
-- **Qwen Code remains one of the more serious terminal-native coding-agent options in the open stack.** [Source](https://github.com/QwenLM/qwen-code)
-- **SciAtlas is a strong literature-navigation tool because it treats scientific corpora as graph structure rather than flat search results.** [Source](https://arxiv.org/abs/2605.22878)
-- **PromptLayer still earns its keep where tracing, latency, and spend matter more than one more orchestration wrapper.** [Source](https://www.promptlayer.com/)
+- **Qwen Code keeps the agent loop in the terminal, where code, diffs, and execution stay visible at once.** [Source](https://github.com/QwenLM/qwen-code)
+- **SciAtlas navigates the literature as a graph of papers and links, not a flat list of keyword hits.** [Source](https://arxiv.org/abs/2605.22878)
+- **PromptLayer is still most useful when you need prompt traces, latency data, and spend in one place.** [Source](https://www.promptlayer.com/)
 
 ## Entertainment
 

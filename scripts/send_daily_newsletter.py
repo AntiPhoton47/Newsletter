@@ -171,6 +171,7 @@ def blocks_to_html(blocks: Iterable[tuple[str, str | list[str]]]) -> str:
     card_open = False
     current_section = ""
     investment_card_open = False
+    market_widget_rendered = False
     for kind, value in blocks:
         if kind == "h1":
             if investment_card_open:
@@ -187,6 +188,7 @@ def blocks_to_html(blocks: Iterable[tuple[str, str | list[str]]]) -> str:
             if card_open:
                 parts.append("</div>")
             current_section = str(value).strip().lower()
+            market_widget_rendered = False
             section_slug = re.sub(r"[^a-z0-9]+", "-", current_section).strip("-")
             parts.append(f'<div class="section-card section-card--{section_slug}">')
             card_open = True
@@ -223,7 +225,7 @@ def blocks_to_html(blocks: Iterable[tuple[str, str | list[str]]]) -> str:
                 '</figure>'
             )
         elif kind == "ul":
-            if current_section in {"markets & economy", "markets and economy"}:
+            if current_section in {"markets & economy", "markets and economy"} and not market_widget_rendered:
                 market_items = list(value)[:16]  # type: ignore[arg-type]
                 econ_items = list(value)[16:]  # type: ignore[arg-type]
                 market_cards = "".join(market_card_html(item) for item in market_items)
@@ -243,6 +245,7 @@ def blocks_to_html(blocks: Iterable[tuple[str, str | list[str]]]) -> str:
                     '</div>'
                     '</div>'
                 )
+                market_widget_rendered = True
             elif current_section in {"quick brew", "quick takes"}:
                 cards = "".join(
                     f'<div class="brief-card">{render_inline(item)}</div>'
