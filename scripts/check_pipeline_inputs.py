@@ -128,11 +128,10 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
     }
 
 
-def summarize_market_health() -> dict[str, object]:
+def summarize_market_health(issue_date: dt.date) -> dict[str, object]:
     from generate_issue import build_markets_section  # Imported lazily to keep this module lightweight in tests.
-    from issue_clock import resolve_issue_date
 
-    _lines, failures = build_markets_section(resolve_issue_date(None), allow_placeholders=False)
+    _lines, failures = build_markets_section(issue_date, allow_placeholders=False)
     quote_failures = list(failures["quotes"])
     macro_failures = list(failures["macro"])
     available_quotes = len(MARKET_TICKERS) - len(quote_failures)
@@ -229,7 +228,7 @@ def main() -> None:
 
     candidates = load_candidates(issue_date)
     candidate_report = summarize_candidate_health(candidates)
-    market_report = summarize_market_health()
+    market_report = summarize_market_health(issue_date)
     findings = [*candidate_report["findings"], *market_report["findings"]]
 
     if findings and not candidate_report["rescue_ready"]:

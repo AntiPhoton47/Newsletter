@@ -1,0 +1,39 @@
+{
+  "passed": false,
+  "ready_to_send": false,
+  "overall_score": 0,
+  "summary": "AI review skipped because pipeline preflight checks failed before issue generation.",
+  "strengths": [],
+  "findings": [
+    {
+      "severity": "high",
+      "section": "Pipeline preflight",
+      "issue": "Core section coverage below minimum: Need To Know (0/1), Research Watch (0/2), World News (0/2), AI (0/1), Tools You Can Use (0/1)",
+      "recommendation": "Restore source and market data coverage, then rerun the pipeline."
+    },
+    {
+      "severity": "high",
+      "section": "Pipeline preflight",
+      "issue": "Too few populated non-optional sections: 0/10",
+      "recommendation": "Restore source and market data coverage, then rerun the pipeline."
+    },
+    {
+      "severity": "high",
+      "section": "Pipeline preflight",
+      "issue": "Too few total non-optional candidates: 0/30",
+      "recommendation": "Restore source and market data coverage, then rerun the pipeline."
+    },
+    {
+      "severity": "high",
+      "section": "Pipeline preflight",
+      "issue": "Too many failed source queries: 71/3",
+      "recommendation": "Restore source and market data coverage, then rerun the pipeline."
+    }
+  ],
+  "bias_assessment": "Not evaluated because no publication-ready draft was generated.",
+  "recommended_action": "Fix upstream input availability before rerunning publication automation.",
+  "date": "2026-06-12",
+  "issue": "/Users/munga/PycharmProjects/Newsletter/issues/daily/2026-06-12-daily-newsletter.md",
+  "model": "skipped-preflight",
+  "minimum_score": 85
+}

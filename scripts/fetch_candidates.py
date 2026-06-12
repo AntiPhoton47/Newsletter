@@ -9,6 +9,7 @@ import html
 import json
 import re
 import ssl
+import subprocess
 import time
 import urllib.parse
 import urllib.request
@@ -28,6 +29,7 @@ CONFIG_PATH = ROOT / "config" / "section_queries.json"
 SOURCES_PATH = ROOT / "sources.md"
 DATA_DIR = ROOT / "data" / "candidates"
 REQUEST_TIMEOUT = 8
+REQUEST_MAX_TIME = 20
 MAX_FETCH_ATTEMPTS = 3
 MAX_ENTRY_AGE_DAYS = 365
 ENRICH_TOP_ENTRIES_PER_SECTION = 5
@@ -508,6 +510,33 @@ def fetch_bytes(
             time.sleep(attempt)
 
     if content is None:
+        curl_cmd = [
+            "curl",
+            "--fail",
+            "--silent",
+            "--show-error",
+            "--location",
+            "--connect-timeout",
+            str(REQUEST_TIMEOUT),
+            "--max-time",
+            str(REQUEST_MAX_TIME),
+            "--user-agent",
+            REQUEST_HEADERS["User-Agent"],
+        ]
+        request_headers = headers or REQUEST_HEADERS
+        for key, value in request_headers.items():
+            if key.lower() == "user-agent":
+                continue
+            curl_cmd.extend(["--header", f"{key}: {value}"])
+        if data is not None:
+            curl_cmd.extend(["--data-binary", "@-"])
+        curl_cmd.append(url)
+        curl_result = subprocess.run(curl_cmd, input=data, capture_output=True, check=False)
+        if curl_result.returncode == 0:
+            return curl_result.stdout
+
+        curl_error = curl_result.stderr.decode("utf-8", errors="replace").strip() or f"curl exit {curl_result.returncode}"
+        errors.append(f"curl: {curl_error}")
         unique_errors = list(dict.fromkeys(errors))
         raise RuntimeError("; ".join(unique_errors) or f"failed to fetch {url}")
 

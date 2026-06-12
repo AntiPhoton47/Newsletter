@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import concurrent.futures as cf
 import csv
 import datetime as dt
 import json
 import re
 import ssl
+import subprocess
 import urllib.request
 import urllib.parse
 from pathlib import Path
@@ -26,6 +28,8 @@ CANDIDATES_DIR = ROOT / "data" / "candidates"
 ISSUES_DIR = ROOT / "issues" / "daily"
 MARKET_SNAPSHOTS_DIR = ROOT / "data" / "market_snapshots"
 REQUEST_TIMEOUT = 8
+REQUEST_MAX_TIME = 20
+QUOTE_FETCH_WORKERS = 16
 QUOTE_CACHE_MAX_AGE_DAYS = 7
 MACRO_CACHE_MAX_AGE_DAYS = 31
 
@@ -168,16 +172,43 @@ def source_label(link: str, publisher: str = "") -> str:
 def fetch_url(url: str) -> bytes:
     request = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
+    errors: list[str] = []
     try:
         if verified_context is None:
             with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT) as response:
                 return response.read()
         with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT, context=verified_context) as response:
             return response.read()
-    except Exception:
+    except Exception as exc:
+        errors.append(f"verified/default urllib: {exc}")
+    try:
         insecure_context = ssl._create_unverified_context()
         with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT, context=insecure_context) as response:
             return response.read()
+    except Exception as exc:
+        errors.append(f"insecure urllib: {exc}")
+
+    curl_cmd = [
+        "curl",
+        "--fail",
+        "--silent",
+        "--show-error",
+        "--location",
+        "--connect-timeout",
+        str(REQUEST_TIMEOUT),
+        "--max-time",
+        str(REQUEST_MAX_TIME),
+        "--user-agent",
+        "Mozilla/5.0",
+        url,
+    ]
+    curl_result = subprocess.run(curl_cmd, capture_output=True, check=False)
+    if curl_result.returncode == 0:
+        return curl_result.stdout
+
+    curl_error = curl_result.stderr.decode("utf-8", errors="replace").strip() or f"curl exit {curl_result.returncode}"
+    errors.append(f"curl: {curl_error}")
+    raise RuntimeError("; ".join(errors))
 
 
 def preferred_link(link: str, publisher: str = "") -> str:
@@ -375,6 +406,16 @@ def market_snapshot_path(issue_date: dt.date) -> Path:
     return MARKET_SNAPSHOTS_DIR / f"{issue_date.isoformat()}.json"
 
 
+def load_market_snapshot(issue_date: dt.date) -> dict | None:
+    path = market_snapshot_path(issue_date)
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
 def load_latest_market_snapshot(issue_date: dt.date) -> dict | None:
     if not MARKET_SNAPSHOTS_DIR.exists():
         return None
@@ -479,22 +520,17 @@ def select_company_movers(
     max_count: int = 4,
 ) -> tuple[list[tuple[str, str, str]], list[str], dict[str, dict[str, object]]]:
     current_issue_date = issue_date or resolve_issue_date(None)
+    exact_snapshot = load_market_snapshot(current_issue_date)
     cached_snapshot = load_latest_market_snapshot(current_issue_date)
     movers: list[tuple[str, str, str, float]] = []
     failures: list[str] = []
-    selected_entries: dict[str, dict[str, object]] = {}
+    selected_entries = resolve_quote_entries(COMPANY_MOVER_POOL, current_issue_date, cached_snapshot, exact_snapshot)
 
-    for label, symbol in COMPANY_MOVER_POOL:
-        snapshot = fetch_yahoo_quote_snapshot(symbol)
-        if snapshot is None and cached_snapshot:
-            cached_entry = cached_snapshot.get("quotes", {}).get(label)
-            if isinstance(cached_entry, dict) and days_between(current_issue_date, str(cached_entry.get("captured_on", ""))) <= QUOTE_CACHE_MAX_AGE_DAYS:
-                snapshot = {**cached_entry, "origin": "cache"}
-
+    for label, _symbol in COMPANY_MOVER_POOL:
+        snapshot = selected_entries.get(label)
         if snapshot is None:
             failures.append(label)
             continue
-        selected_entries[label] = snapshot
         move_pct = float(snapshot.get("move_pct", 0.0))
         movers.append((label, str(snapshot["price"]), str(snapshot["move"]), move_pct))
 
@@ -516,18 +552,7 @@ def select_company_movers(
 
 def fetch_fred_rows(series_id: str) -> list[tuple[str, str]]:
     url = FRED_SERIES_URL.format(series_id=urllib.parse.quote(series_id))
-    verified_context = ssl.create_default_context(cafile=certifi.where()) if certifi else None
-    try:
-        if verified_context is None:
-            with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT) as response:
-                content = response.read().decode("utf-8")
-        else:
-            with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT, context=verified_context) as response:
-                content = response.read().decode("utf-8")
-    except Exception:
-        insecure_context = ssl._create_unverified_context()
-        with urllib.request.urlopen(url, timeout=REQUEST_TIMEOUT, context=insecure_context) as response:
-            content = response.read().decode("utf-8")
+    content = fetch_url(url).decode("utf-8", errors="replace")
     reader = csv.DictReader(content.splitlines())
     rows: list[tuple[str, str]] = []
     if not reader.fieldnames or len(reader.fieldnames) < 2:
@@ -653,6 +678,7 @@ def build_macro_lines(
     issue_date: dt.date | None = None,
 ) -> tuple[list[str], list[str], dict[str, float | None], dict[str, dict[str, object]]]:
     current_issue_date = issue_date or resolve_issue_date(None)
+    exact_snapshot = load_market_snapshot(current_issue_date)
     cached_snapshot = load_latest_market_snapshot(current_issue_date)
     lines: list[str] = []
     failures: list[str] = []
@@ -667,21 +693,26 @@ def build_macro_lines(
 
     for label, config in MACRO_SERIES.items():
         entry: dict[str, object] | None = None
+        if exact_snapshot:
+            maybe_entry = exact_snapshot.get("macro", {}).get(label)
+            if isinstance(maybe_entry, dict):
+                entry = maybe_entry
         try:
-            if config["kind"] == "yoy":
-                as_of, value = latest_fred_yoy(str(config["series_id"]))
-            else:
-                as_of, value = latest_fred_value(str(config["series_id"]))
-            entry = {
-                "label": label,
-                "kind": config["kind"],
-                "value": value,
-                "as_of": as_of,
-                "source": config["source_live"],
-                "url": config["url"],
-                "origin": "live",
-                "captured_on": current_issue_date.isoformat(),
-            }
+            if entry is None:
+                if config["kind"] == "yoy":
+                    as_of, value = latest_fred_yoy(str(config["series_id"]))
+                else:
+                    as_of, value = latest_fred_value(str(config["series_id"]))
+                entry = {
+                    "label": label,
+                    "kind": config["kind"],
+                    "value": value,
+                    "as_of": as_of,
+                    "source": config["source_live"],
+                    "url": config["url"],
+                    "origin": "live",
+                    "captured_on": current_issue_date.isoformat(),
+                }
         except Exception:
             cached_entry = None
             if cached_snapshot:
@@ -690,7 +721,7 @@ def build_macro_lines(
                     cached_entry = {**maybe_entry, "origin": "cache"}
             if cached_entry is not None:
                 entry = cached_entry
-            else:
+            elif entry is None:
                 failures.append(label)
                 continue
 
@@ -896,19 +927,15 @@ def build_markets_section(issue_date: dt.date, allow_placeholders: bool = True) 
         "macro": [],
     }
     lines = ["## Markets & Economy", ""]
+    exact_snapshot = load_market_snapshot(issue_date)
     cached_snapshot = load_latest_market_snapshot(issue_date)
     quote_snapshot: dict[str, dict[str, float | None | str]] = {}
-    quote_entries: dict[str, dict[str, object]] = {}
-    for label, symbol in CORE_MARKET_TICKERS:
-        entry = fetch_yahoo_quote_snapshot(symbol)
-        if entry is None and cached_snapshot:
-            maybe_entry = cached_snapshot.get("quotes", {}).get(label)
-            if isinstance(maybe_entry, dict) and days_between(issue_date, str(maybe_entry.get("captured_on", ""))) <= QUOTE_CACHE_MAX_AGE_DAYS:
-                entry = {**maybe_entry, "origin": "cache"}
+    quote_entries = resolve_quote_entries(CORE_MARKET_TICKERS, issue_date, cached_snapshot, exact_snapshot)
+    for label, _symbol in CORE_MARKET_TICKERS:
+        entry = quote_entries.get(label)
         if entry is None:
             failures["quotes"].append(label)
             continue
-        quote_entries[label] = entry
         quote_snapshot[label] = {
             "price": parse_numeric(str(entry["price"])),
             "move": str(entry["move"]),
@@ -949,6 +976,44 @@ def build_markets_section(issue_date: dt.date, allow_placeholders: bool = True) 
     )
     lines.extend(["", *build_investment_opportunities(issue_date, company_movers, macro_metrics, quote_snapshot)])
     return lines, failures
+
+
+def resolve_quote_entries(
+    ticker_pairs: list[tuple[str, str]],
+    issue_date: dt.date,
+    cached_snapshot: dict | None,
+    exact_snapshot: dict | None = None,
+) -> dict[str, dict[str, object]]:
+    resolved: dict[str, dict[str, object]] = {}
+    remaining_pairs: list[tuple[str, str]] = []
+
+    for label, symbol in ticker_pairs:
+        if exact_snapshot:
+            maybe_entry = exact_snapshot.get("quotes", {}).get(label)
+            if isinstance(maybe_entry, dict):
+                resolved[label] = maybe_entry
+                continue
+        remaining_pairs.append((label, symbol))
+
+    def resolve_one(label: str, symbol: str) -> tuple[str, dict[str, object] | None]:
+        snapshot = fetch_yahoo_quote_snapshot(symbol)
+        if snapshot is None and cached_snapshot:
+            maybe_entry = cached_snapshot.get("quotes", {}).get(label)
+            if isinstance(maybe_entry, dict) and days_between(issue_date, str(maybe_entry.get("captured_on", ""))) <= QUOTE_CACHE_MAX_AGE_DAYS:
+                snapshot = {**maybe_entry, "origin": "cache"}
+        return label, snapshot
+
+    if not remaining_pairs:
+        return resolved
+
+    with cf.ThreadPoolExecutor(max_workers=min(QUOTE_FETCH_WORKERS, max(1, len(remaining_pairs)))) as executor:
+        futures = [executor.submit(resolve_one, label, symbol) for label, symbol in remaining_pairs]
+        for future in cf.as_completed(futures):
+            label, snapshot = future.result()
+            if snapshot is not None:
+                resolved[label] = snapshot
+
+    return resolved
 
 
 def build_main_entry(entry: dict) -> list[str]:

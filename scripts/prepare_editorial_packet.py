@@ -23,6 +23,7 @@ CANDIDATES_DIR = ROOT / "data" / "candidates"
 PACKETS_DIR = ROOT / "data" / "editorial_packets"
 NOTES_DIR = ROOT / "data" / "research_notes"
 ISSUES_DIR = ROOT / "issues" / "daily"
+PACKET_FALLBACK_MAX_AGE_DAYS = 3
 
 
 def display_date(issue_date: dt.date) -> str:
@@ -74,6 +75,10 @@ def parse_sources_by_section(text: str) -> dict[str, list[str]]:
 
 def load_candidate_snapshot(issue_date: dt.date) -> dict[str, list[dict[str, str]]]:
     payload = load_candidate_payload(issue_date)
+    return candidate_snapshot_from_payload(payload)
+
+
+def candidate_snapshot_from_payload(payload: dict[str, object]) -> dict[str, list[dict[str, str]]]:
     if not payload:
         return {}
     snapshot: dict[str, list[dict[str, str]]] = {}
@@ -98,6 +103,10 @@ def load_candidate_snapshot(issue_date: dt.date) -> dict[str, list[dict[str, str
 
 def load_candidate_fetch_report(issue_date: dt.date) -> dict[str, dict[str, object]]:
     payload = load_candidate_payload(issue_date)
+    return candidate_fetch_report_from_payload(payload)
+
+
+def candidate_fetch_report_from_payload(payload: dict[str, object]) -> dict[str, dict[str, object]]:
     if not payload:
         return {}
     fetch_sections = payload.get("fetch", {}).get("sections", {})
@@ -114,6 +123,38 @@ def load_candidate_payload(issue_date: dt.date) -> dict[str, object]:
     if not isinstance(payload, dict):
         return {}
     return payload
+
+
+def payload_total_entries(payload: dict[str, object]) -> int:
+    summary = payload.get("fetch", {}).get("summary", {})
+    if isinstance(summary, dict):
+        try:
+            return int(summary.get("total_entries", 0) or 0)
+        except Exception:
+            return 0
+    return 0
+
+
+def load_recent_candidate_fallback(issue_date: dt.date) -> tuple[dict[str, object], str | None]:
+    if not CANDIDATES_DIR.exists():
+        return {}, None
+    candidate_paths = sorted(
+        path for path in CANDIDATES_DIR.glob("*.json") if path.stem < issue_date.isoformat()
+    )
+    for path in reversed(candidate_paths):
+        try:
+            fallback_date = dt.date.fromisoformat(path.stem)
+        except ValueError:
+            continue
+        if (issue_date - fallback_date).days > PACKET_FALLBACK_MAX_AGE_DAYS:
+            break
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if isinstance(payload, dict) and payload_total_entries(payload) > 0:
+            return payload, fallback_date.isoformat()
+    return {}, None
 
 
 def detect_systemic_candidate_fetch_failure(payload: dict[str, object]) -> str | None:
@@ -364,12 +405,15 @@ def main() -> None:
     sources_by_section = parse_sources_by_section(SOURCES_PATH.read_text(encoding="utf-8"))
     section_queries = json.loads(SECTION_QUERIES_PATH.read_text(encoding="utf-8"))
     candidate_payload = load_candidate_payload(issue_date)
-    candidate_snapshot = load_candidate_snapshot(issue_date)
-    fetch_report = load_candidate_fetch_report(issue_date)
+    candidate_snapshot = candidate_snapshot_from_payload(candidate_payload)
+    fetch_report = candidate_fetch_report_from_payload(candidate_payload)
     fatal_fetch_error = detect_systemic_candidate_fetch_failure(candidate_payload)
-    if fatal_fetch_error:
-        cleanup_prepare_artifacts(issue_date)
-        raise SystemExit(f"Prepare failed for {issue_date.isoformat()}: {fatal_fetch_error}")
+    fallback_payload: dict[str, object] = {}
+    fallback_date: str | None = None
+    if fatal_fetch_error and not candidate_snapshot:
+        fallback_payload, fallback_date = load_recent_candidate_fallback(issue_date)
+        if fallback_payload:
+            candidate_snapshot = candidate_snapshot_from_payload(fallback_payload)
     current_benchmark_path = benchmark_path()
     benchmark = benchmark_stats(current_benchmark_path.read_text(encoding="utf-8"))
 
@@ -396,8 +440,18 @@ def main() -> None:
         scaffold_path,
         notes_path,
     )
+    warnings: list[str] = []
+    if fatal_fetch_error:
+        warning = fatal_fetch_error
+        if fallback_date:
+            warning += f" Using candidate snapshot fallback from {fallback_date} for packet context."
+        else:
+            warning += " Packet and scaffold were still generated so the run can continue in manual rescue mode."
+        warnings.append(warning)
     if fetch_error:
-        packet_markdown += f"\nFetch warning: {fetch_error}\n"
+        warnings.append(fetch_error)
+    for warning in warnings:
+        packet_markdown += f"\nFetch warning: {warning}\n"
     packet_md_path.write_text(packet_markdown, encoding="utf-8")
     packet_json_path.write_text(
         json.dumps(
@@ -415,6 +469,9 @@ def main() -> None:
                 "fetch_report": fetch_report,
                 "benchmark": benchmark,
                 "fetch_warning": fetch_error,
+                "fatal_fetch_warning": fatal_fetch_error,
+                "fallback_snapshot_from": fallback_date,
+                "rescue_mode": bool(fatal_fetch_error),
             },
             indent=2,
         ),
