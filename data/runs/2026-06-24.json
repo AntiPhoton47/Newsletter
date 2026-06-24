@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-24",
+  "command": "newsletter_command:prepare",
+  "argv": [
+    "scripts/newsletter_command.py",
+    "prepare"
+  ],
+  "strict_publish": false,
+  "status": "passed",
+  "started_at": "2026-06-24T04:02:06.371885+00:00",
+  "completed_at": "2026-06-24T04:04:35.175833+00:00",
+  "git_sha": "bcfdae4d1166ffc1e3530fdf81450e4f1c5d3a66",
+  "stages": [
+    {
+      "name": "prepare_editorial_packet",
+      "command": [
+        "python3",
+        "scripts/prepare_editorial_packet.py",
+        "--date",
+        "2026-06-24",
+        "--overwrite"
+      ],
+      "started_at": "2026-06-24T04:02:06.387621+00:00",
+      "completed_at": "2026-06-24T04:04:35.171140+00:00",
+      "duration_seconds": 148.782,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    }
+  ],
+  "publish": {
+    "send_email": false,
+    "git_commit": false,
+    "git_push": false
+  },
+  "failure_reason": "",
+  "candidate_summary": {
+    "summary": {
+      "total_queries": 71,
+      "failed_queries": 0,
+      "source_probe_queries": 42,
+      "sections_with_entries": 18,
+      "total_entries": 241,
+      "newsletter_entries": 18,
+      "listed_sources": 334,
+      "checked_sources": 117
+    },
+    "total_entries": 241,
+    "direct_entries": 18,
+    "direct_entry_ratio": 0.0747,
+    "google_wrapper_links": 223,
+    "google_wrapper_ratio": 0.9253,
+    "duplicate_clusters": []
+  },
+  "market_summary": {
+    "present": true,
+    "quote_count": 16,
+    "macro_count": 5,
+    "max_quote_age_days": 0,
+    "max_macro_age_days": 22
+  },
+  "reviews": {
+    "rule_review": {},
+    "ai_review": {}
+  },
+  "editorial_diff": {}
+}
