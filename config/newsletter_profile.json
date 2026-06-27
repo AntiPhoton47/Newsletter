@@ -28,7 +28,8 @@
     "When there is meaningful private-company news, use a clean event-driven Private-Market Watchlist rather than defaulting to the same standing names.",
     "Keep links labeled and avoid raw URLs in prose.",
     "Write the issue directly when needed; optional AI drafting or AI review tooling must not be treated as a required gate.",
-    "Target at least the explanatory depth, source diversity, human voice, and editorial polish of the June 2, 2026 benchmark issue."
+    "Apply the Frontier Threads journalist skill as the primary house-style guide for draft and rewrite passes.",
+    "Target at least the explanatory depth, source diversity, human voice, and editorial polish of the June 12, 2026 benchmark issue."
   ],
   "timezone": "Europe/Oslo",
   "automation_defaults": {
@@ -40,6 +41,6 @@
   "quality_policy": {
     "require_ai": false,
     "minimum_review_score": 90,
-    "benchmark_issue": "issues/daily/2026-06-02-daily-newsletter.md"
+    "benchmark_issue": "issues/daily/2026-06-12-daily-newsletter.md"
   }
 }

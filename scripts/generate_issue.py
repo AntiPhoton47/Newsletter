@@ -120,6 +120,99 @@ def clean_title(title: str) -> str:
     return title
 
 
+TITLE_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "announces",
+    "at",
+    "after",
+    "as",
+    "by",
+    "for",
+    "from",
+    "in",
+    "into",
+    "new",
+    "now",
+    "of",
+    "on",
+    "or",
+    "over",
+    "the",
+    "to",
+    "update",
+    "with",
+}
+
+
+def title_tokens(text: str) -> set[str]:
+    cleaned = re.sub(r"[^a-z0-9]+", " ", clean_title(text).lower())
+    return {
+        token
+        for token in cleaned.split()
+        if len(token) > 2 and token not in TITLE_STOPWORDS
+    }
+
+
+def titles_overlap(title_a: str, title_b: str) -> bool:
+    key_a = lead_story_key(title_a)
+    key_b = lead_story_key(title_b)
+    if key_a and key_a == key_b:
+        return True
+
+    tokens_a = title_tokens(title_a)
+    tokens_b = title_tokens(title_b)
+    if not tokens_a or not tokens_b:
+        return False
+
+    overlap = len(tokens_a & tokens_b)
+    return overlap >= 3 or (overlap / min(len(tokens_a), len(tokens_b))) >= 0.75
+
+
+def strip_title_echo(title: str, summary: str) -> str:
+    cleaned_title = clean_title(title)
+    cleaned_summary = re.sub(r"\s+", " ", summary).strip()
+    if not cleaned_title or not cleaned_summary:
+        return cleaned_summary
+
+    stripped = re.sub(
+        rf"^{re.escape(cleaned_title)}(?:\s*[:\-;,]\s*|\s+)",
+        "",
+        cleaned_summary,
+        flags=re.IGNORECASE,
+    ).strip()
+    if stripped and stripped[0].islower():
+        stripped = stripped[0].upper() + stripped[1:]
+    return stripped or cleaned_summary
+
+
+def short_take_summary(entry: dict, limit: int = 180) -> str:
+    summary = summarize(entry.get("summary") or "", limit)
+    return strip_title_echo(str(entry.get("title", "")), summary)
+
+
+def select_distinct_entries(
+    entries: list[dict],
+    *,
+    blocked_titles: list[str] | None = None,
+    limit: int,
+) -> list[dict]:
+    selected: list[dict] = []
+    seen_titles = list(blocked_titles or [])
+
+    for entry in entries:
+        title = clean_title(str(entry.get("title", "")))
+        if any(titles_overlap(title, existing) for existing in seen_titles):
+            continue
+        selected.append(entry)
+        seen_titles.append(title)
+        if len(selected) >= limit:
+            break
+
+    return selected
+
+
 def summarize(text: str, limit: int = 220) -> str:
     text = re.sub(r"\s+", " ", text).strip()
     text = re.sub(r"\s*&nbsp;\s*", " ", text)
@@ -1072,7 +1165,7 @@ def build_short_takes(entries: list[dict]) -> list[str]:
     lines = ["### Short Takes", ""]
     for entry in entries:
         title = clean_title(entry["title"])
-        summary = summarize(entry.get("summary") or "", 140)
+        summary = short_take_summary(entry, 180)
         publisher = entry.get("publisher", "")
         source = source_label(entry.get("link", ""), publisher)
         link = preferred_link(entry.get("link", ""), publisher)
@@ -1089,7 +1182,7 @@ def build_breaking_news(entries: list[dict]) -> list[str]:
     lines = ["### Breaking News", ""]
     for entry in entries:
         title = clean_title(entry["title"])
-        summary = summarize(entry.get("summary") or "", 140)
+        summary = short_take_summary(entry, 160)
         publisher = entry.get("publisher", "")
         source = source_label(entry.get("link", ""), publisher)
         link = preferred_link(entry.get("link", ""), publisher)
@@ -1182,7 +1275,7 @@ def build_generic_section(
             sections,
             local_used_keys,
             include_self=False,
-            limit=max(required_total - len(available_entries), 0) + 6,
+            limit=max(required_total - len(available_entries), 0) + 12,
         )
         seen_keys = {entry_key(entry) for entry in available_entries}
         for entry in fallback_pool:
@@ -1205,7 +1298,11 @@ def build_generic_section(
         breaking_entries = remaining_entries[:MIN_BREAKING_NEWS_COUNT]
         breaking_keys = {entry_key(entry) for entry in breaking_entries}
         remaining_entries = [entry for entry in remaining_entries if entry_key(entry) not in breaking_keys]
-    short_entries = remaining_entries[:short_count]
+    short_entries = select_distinct_entries(
+        remaining_entries,
+        blocked_titles=[clean_title(str(entry.get("title", ""))) for entry in main_entries],
+        limit=short_count,
+    )
     for entry in [*main_entries, *breaking_entries, *short_entries]:
         local_used_keys.add(entry_key(entry))
     for entry in main_entries:

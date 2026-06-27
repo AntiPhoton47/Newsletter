@@ -9,7 +9,7 @@ import os
 from pathlib import Path
 
 from issue_clock import resolve_issue_date
-from openai_pipeline import ai_enabled, call_openai_json, review_min_score, review_model
+from openai_pipeline import ai_enabled, call_openai_json, require_ai, review_min_score, review_model
 from review_issue import review_text
 
 
@@ -120,7 +120,7 @@ def validate_report(report: dict) -> dict:
 
 
 def build_local_fallback_report(issue_date: dt.date, issue_text: str, benchmark_issue: str) -> dict:
-    rule_report = review_text(issue_text)
+    rule_report = review_text(issue_text, issue_date)
     issue_word_count = len(issue_text.split())
     benchmark_word_count = len(benchmark_issue.split()) if benchmark_issue.strip() else 0
     source_count = issue_text.count("**Source:**")
@@ -195,6 +195,30 @@ def build_local_fallback_report(issue_date: dt.date, issue_text: str, benchmark_
     }
 
 
+def build_ai_required_failure_report(issue_date: dt.date, issue_path: Path) -> dict:
+    return {
+        "passed": False,
+        "ready_to_send": False,
+        "overall_score": 0,
+        "summary": "AI review was required for this run, but the AI provider token is not configured or NEWSLETTER_USE_AI is disabled.",
+        "strengths": [],
+        "findings": [
+            {
+                "severity": "high",
+                "section": "AI review gate",
+                "issue": "AI review is required, but no AI review could run.",
+                "recommendation": "Configure NEWSLETTER_AI_API_TOKEN and keep NEWSLETTER_USE_AI enabled before publishing.",
+            }
+        ],
+        "bias_assessment": "Not evaluated because the AI review gate did not run.",
+        "recommended_action": "Stop publication and rerun after AI review is available.",
+        "date": issue_date.isoformat(),
+        "issue": str(issue_path),
+        "model": "skipped-ai-required",
+        "minimum_score": review_min_score(),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run an AI editorial review on a generated issue.")
     parser.add_argument("--date", help="Issue date in YYYY-MM-DD format. Defaults to today.")
@@ -221,6 +245,8 @@ def main() -> None:
         report["issue"] = str(issue_path)
         report["model"] = review_model()
         report["minimum_score"] = review_min_score()
+    elif require_ai():
+        report = build_ai_required_failure_report(issue_date, issue_path)
     else:
         report = build_local_fallback_report(issue_date, issue_text, benchmark_issue)
         report["issue"] = str(issue_path)

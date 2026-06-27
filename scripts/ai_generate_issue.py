@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 from issue_clock import resolve_issue_date
-from openai_pipeline import ai_enabled, call_openai_text, draft_model
+from openai_pipeline import ai_enabled, call_openai_text, draft_model, require_ai
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,6 +141,8 @@ Editorial requirements:
 - Remove repetition, generic phrasing, and low-signal feed wording.
 - Keep Quick Hits as one concise summary bullet for each section except the last three sections.
 - Keep Short Takes distinct from main entries within the same section.
+- Make every Short Take add one concrete fact, number, timing detail, institutional move, experimental result, or practical implication beyond the headline.
+- Do not use Short Takes for lighter rewrites of the section's main article.
 - Do not show raw bare URLs in prose.
 - Keep source links as labeled Markdown links.
 - Preserve the date `{issue_date.isoformat()}`.
@@ -186,6 +188,8 @@ def main() -> None:
     args = parser.parse_args()
 
     if not ai_enabled():
+        if require_ai():
+            raise SystemExit("AI drafting required but NEWSLETTER_AI_API_TOKEN is not configured or NEWSLETTER_USE_AI is disabled.")
         print("AI drafting skipped: NEWSLETTER_AI_API_TOKEN or NEWSLETTER_USE_AI not set.")
         return
 

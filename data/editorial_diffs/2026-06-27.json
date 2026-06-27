@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-27",
+  "issue_path": "/private/tmp/newsletter-publish-KskQje/repo/issues/daily/2026-06-27-daily-newsletter.md",
+  "generated_at": "2026-06-27T19:17:26.751628+00:00",
+  "issue": {
+    "word_count": 5656,
+    "source_count": 29,
+    "link_count": 94,
+    "section_count": 22,
+    "quick_hits_count": 16,
+    "section_word_counts": {
+      "June 27, 2026": 138,
+      "Quick Hits": 294,
+      "Markets & Economy": 325,
+      "Need To Know": 131,
+      "Research Watch": 296,
+      "World News": 478,
+      "Philosophy": 323,
+      "Biology": 300,
+      "Psychology and Neuroscience": 273,
+      "Health and Medicine": 275,
+      "Sociology and Anthropology": 291,
+      "Technology": 313,
+      "Robotics": 275,
+      "AI": 283,
+      "Engineering": 284,
+      "Mathematics": 300,
+      "Historical Discoveries": 242,
+      "Archaeology": 247,
+      "Tools You Can Use": 173,
+      "Entertainment": 104,
+      "Travel": 133,
+      "Idea Of The Day": 109
+    },
+    "missing_required_sections": [],
+    "top_sources": [
+      {
+        "source": "Nature",
+        "count": 4
+      },
+      {
+        "source": "Quanta Magazine",
+        "count": 3
+      },
+      {
+        "source": "Nature Briefing",
+        "count": 2
+      },
+      {
+        "source": "Nature Index",
+        "count": 2
+      },
+      {
+        "source": "MIT Technology Review",
+        "count": 2
+      },
+      {
+        "source": "IEEE Xplore",
+        "count": 2
+      },
+      {
+        "source": "Science",
+        "count": 2
+      },
+      {
+        "source": "APS Physics",
+        "count": 1
+      }
+    ],
+    "top_source_share": 0.1379,
+    "main_titles": [
+      "The day's most interesting developments in science, technology, and ideas",
+      "Nuclear clocks are moving precision timekeeping deeper into the atom",
+      "Curved surfaces are giving spin waves a new control knob",
+      "Wigner's Friend keeps escaping the foundations ghetto",
+      "Europe is discovering the diplomatic price of deportation politics",
+      "The Strait of Hormuz is back to being a managed choke point",
+      "If spacetime bends because quantum states carry \"magic,\" philosophy has to keep up",
+      "AI debates get better once they stop pretending the ontology is settled",
+      "Microbial multicellularity keeps paying in chemistry",
+      "Early-onset cancer risk is starting to look like an aging story, not only a screening story",
+      "Sentence-level language science is getting close to real-time thought structure",
+      "Cognitive control looks less like a command center and more like a network problem",
+      "Medical AI is entering the phase where readiness matters more than promise",
+      "Disease-management AI is moving from one-off answers to ongoing care",
+      "Eating behavior stays social long before it becomes political",
+      "Human-animal relations are still one of the clearest mirrors of social order",
+      "Qualcomm wants the phone to inherit the data center's architecture",
+      "Heat and chipmaking are landing in the same technology conversation",
+      "Embodied AI still has to prove itself in clutter, not only on clean floors",
+      "Surgical robotics is becoming an embodied-intelligence problem",
+      "OpenAI's new restrictions make the product boundary itself the story",
+      "Anthropic's split release makes the cyber question impossible to ignore",
+      "Battery-backed air conditioning could turn cooling load into grid support",
+      "NASA's new collaboration slate is a procurement signal for moon-and-Mars infrastructure",
+      "Ultrafinitism keeps forcing mathematicians to say what infinity is doing for them",
+      "Foundations work looks livelier when it stops pretending the ground floor was finished decades ago",
+      "Flowering plants prepared key reproductive moves before the extinction event usually gets the applause",
+      "The earliest octopuses were not small curiosities hiding in the margins",
+      "Controlled fire may have entered human life earlier than many standard narratives allow",
+      "DNA in dirt keeps widening the archive of human origins",
+      "12britz/awesome-free-models",
+      "earendil-works/pi",
+      "aaif-goose/goose",
+      "What looks active this week",
+      "Oslo at full summer light",
+      "Control keeps migrating toward the bottleneck"
+    ]
+  },
+  "benchmark": {
+    "word_count": 5837,
+    "source_count": 29,
+    "link_count": 99,
+    "section_count": 22,
+    "quick_hits_count": 16,
+    "section_word_counts": {
+      "June 12, 2026": 193,
+      "Quick Hits": 331,
+      "Markets & Economy": 592,
+      "Need To Know": 183,
+      "Research Watch": 332,
+      "World News": 518,
+      "Philosophy": 321,
+      "Biology": 281,
+      "Psychology and Neuroscience": 287,
+      "Health and Medicine": 293,
+      "Sociology and Anthropology": 248,
+      "Technology": 254,
+      "Robotics": 239,
+      "AI": 296,
+      "Engineering": 226,
+      "Mathematics": 260,
+      "Historical Discoveries": 222,
+      "Archaeology": 214,
+      "Tools You Can Use": 170,
+      "Entertainment": 131,
+      "Travel": 70,
+      "Idea Of The Day": 107
+    },
+    "missing_required_sections": [],
+    "top_sources": [
+      {
+        "source": "Nature",
+        "count": 6
+      },
+      {
+        "source": "arXiv",
+        "count": 3
+      },
+      {
+        "source": "Financial Times",
+        "count": 2
+      },
+      {
+        "source": "Quanta Magazine",
+        "count": 2
+      },
+      {
+        "source": "Nature Communications",
+        "count": 2
+      },
+      {
+        "source": "Nature Human Behaviour",
+        "count": 2
+      },
+      {
+        "source": "IEEE Spectrum",
+        "count": 2
+      },
+      {
+        "source": "Nature Briefing",
+        "count": 1
+      }
+    ],
+    "top_source_share": 0.2069,
+    "main_titles": [
+      "The day's most interesting developments in science, technology, and ideas",
+      "Human-embryo base editing is no longer a distant policy debate",
+      "Quantum reference fields push linearized gravity toward an operational language",
+      "Antihydrogen spectroscopy keeps CPT symmetry on a laboratory footing",
+      "Iran war diplomacy is moving markets before it settles the war",
+      "Europe is debating whether its diplomatic service still matches the world it faces",
+      "AI still needs critics who understand the technical practice from the inside",
+      "Godel still matters most where he forces precision",
+      "Industrial microbiomes still evolve while engineers are trying to use them",
+      "Soil fungi belong in the infrastructure layer of ecology",
+      "Human-AI interaction is becoming part of the social environment that shapes the self",
+      "Reward learning looks thinner when memory is treated as an afterthought",
+      "PMOS is a better name because the disease was always bigger than the ovaries",
+      "Medical training still needs a theory of what AI should not do",
+      "Norm clustering still explains more than individual opinion when a practice is socially enforced",
+      "Ancient DNA on the Pacific coast is recovering kinship and mobility together",
+      "Europe's tech-sovereignty package is becoming a procurement argument",
+      "Anti-spoofing telemetry is becoming ordinary navigation infrastructure",
+      "Retrofit economics are still where a lot of real automation happens",
+      "Dexterity is still an embodiment problem before it is a software problem",
+      "Anthropic has learned that hidden guardrails are still product decisions",
+      "Language models may need maintenance cycles, not only larger context windows",
+      "Europe is learning what abundance stress looks like in electricity markets",
+      "Climate intelligence still begins with hardware",
+      "Foundations work is back in public view because mathematicians are rebuilding from lower levels",
+      "AI's Erdos successes are forcing a better workflow question",
+      "Ancient genomes are making recent human evolution look faster, not slower",
+      "Whale evolution keeps getting cleaner when the fossil lands in the right slot",
+      "Sediment DNA is widening the archive beyond lucky bones",
+      "Whole environments are becoming archaeological objects",
+      "awesome-free-models",
+      "claude-code-video-toolkit",
+      "AGNT.Hub",
+      "A few things worth pulling up this week",
+      "Lassen before peak summer traffic",
+      "Naming lag"
+    ]
+  },
+  "benchmark_comparison": {
+    "benchmark_issue": "/private/tmp/newsletter-publish-KskQje/repo/issues/daily/2026-06-12-daily-newsletter.md",
+    "word_count_ratio": 0.969,
+    "source_count_ratio": 1.0,
+    "link_count_ratio": 0.9495,
+    "section_count_delta": 0,
+    "quick_hits_delta": 0
+  },
+  "previous_issue_comparison": {
+    "previous_issue": "/private/tmp/newsletter-publish-KskQje/repo/issues/daily/2026-06-26-daily-newsletter.md",
+    "repeated_main_titles": []
+  },
+  "banned_phrase_hits": []
+}

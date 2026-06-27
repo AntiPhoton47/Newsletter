@@ -8,7 +8,7 @@ from pathlib import Path
 
 from generate_issue import MARKET_TICKERS, build_macro_lines
 from issue_clock import resolve_issue_date
-from openai_pipeline import review_min_score
+from openai_pipeline import review_min_score, strict_publish
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +34,11 @@ MIN_AVAILABLE_MACRO_LINES = 4
 RESCUE_MIN_NON_OPTIONAL_SECTIONS_WITH_ENTRIES = 5
 RESCUE_MIN_TOTAL_ENTRIES = 12
 RESCUE_MIN_CORE_SECTIONS_WITH_ENTRIES = 3
+MIN_CHECKED_SOURCE_COVERAGE_RATIO = 0.30
+MIN_DIRECT_SOURCE_ENTRIES = 10
+MAX_GOOGLE_WRAPPER_LINK_RATIO = 0.95
+MAX_HIGH_SUPPORT_DUPLICATE_CLUSTERS = 5
+HIGH_SUPPORT_DUPLICATE_CLUSTER_THRESHOLD = 5
 
 
 def issue_path_for(issue_date: dt.date) -> Path:
@@ -72,6 +77,9 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
 
     failed_queries: list[str] = []
     empty_queries: list[str] = []
+    listed_source_count = 0
+    checked_source_count = 0
+    high_support_duplicate_clusters: list[str] = []
     for section, section_meta in fetch_sections.items():
         queries = section_meta.get("queries", []) if isinstance(section_meta, dict) else []
         for query_meta in queries:
@@ -82,6 +90,39 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
                 failed_queries.append(f"{section}: {query}")
             elif status == "ok" and entry_count == 0:
                 empty_queries.append(f"{section}: {query}")
+        source_coverage = section_meta.get("source_coverage", {}) if isinstance(section_meta, dict) else {}
+        if isinstance(source_coverage, dict):
+            listed_source_count += int(source_coverage.get("listed_source_count", 0) or 0)
+            checked_source_count += int(source_coverage.get("checked_source_count", 0) or 0)
+        story_clusters = section_meta.get("story_clusters", []) if isinstance(section_meta, dict) else []
+        if isinstance(story_clusters, list):
+            for cluster in story_clusters:
+                if not isinstance(cluster, dict):
+                    continue
+                support_count = int(cluster.get("support_count", 0) or 0)
+                if support_count >= HIGH_SUPPORT_DUPLICATE_CLUSTER_THRESHOLD:
+                    high_support_duplicate_clusters.append(
+                        f"{section}: {cluster.get('lead_title', '')} ({support_count} sources)"
+                    )
+
+    entries = [
+        entry
+        for section_entries in sections.values()
+        if isinstance(section_entries, list)
+        for entry in section_entries
+        if isinstance(entry, dict)
+    ]
+    direct_source_entries = [
+        entry for entry in entries
+        if str(entry.get("source_type", "")) != "google-news-rss"
+    ]
+    google_wrapper_links = [
+        str(entry.get("link", ""))
+        for entry in entries
+        if "news.google.com" in str(entry.get("link", ""))
+    ]
+    source_coverage_ratio = checked_source_count / listed_source_count if listed_source_count else 0.0
+    google_wrapper_ratio = len(google_wrapper_links) / len(entries) if entries else 0.0
 
     findings: list[str] = []
     core_gaps: list[str] = []
@@ -102,6 +143,22 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
         findings.append(f"Too few total non-optional candidates: {total_entries}/{MIN_TOTAL_ENTRIES}")
     if len(failed_queries) > MAX_FAILED_QUERIES:
         findings.append(f"Too many failed source queries: {len(failed_queries)}/{MAX_FAILED_QUERIES}")
+    if listed_source_count and source_coverage_ratio < MIN_CHECKED_SOURCE_COVERAGE_RATIO:
+        findings.append(
+            f"Too little listed-source coverage: {checked_source_count}/{listed_source_count} checked"
+        )
+    if len(direct_source_entries) < MIN_DIRECT_SOURCE_ENTRIES:
+        findings.append(
+            f"Too few direct-source/newsletter candidates: {len(direct_source_entries)}/{MIN_DIRECT_SOURCE_ENTRIES}"
+        )
+    if entries and google_wrapper_ratio > MAX_GOOGLE_WRAPPER_LINK_RATIO:
+        findings.append(
+            f"Too many unresolved Google News wrapper candidate links: {len(google_wrapper_links)}/{len(entries)}"
+        )
+    if len(high_support_duplicate_clusters) > MAX_HIGH_SUPPORT_DUPLICATE_CLUSTERS:
+        findings.append(
+            f"Too many high-support duplicate story clusters: {len(high_support_duplicate_clusters)}/{MAX_HIGH_SUPPORT_DUPLICATE_CLUSTERS}"
+        )
 
     rescue_ready = (
         sections_with_entries >= RESCUE_MIN_NON_OPTIONAL_SECTIONS_WITH_ENTRIES
@@ -123,6 +180,15 @@ def summarize_candidate_health(payload: dict) -> dict[str, object]:
         "populated_core_sections": populated_core_sections,
         "failed_queries": failed_queries,
         "empty_queries": empty_queries,
+        "source_quality": {
+            "listed_source_count": listed_source_count,
+            "checked_source_count": checked_source_count,
+            "checked_source_coverage_ratio": round(source_coverage_ratio, 4),
+            "direct_source_entries": len(direct_source_entries),
+            "google_wrapper_links": len(google_wrapper_links),
+            "google_wrapper_link_ratio": round(google_wrapper_ratio, 4),
+            "high_support_duplicate_clusters": high_support_duplicate_clusters,
+        },
         "rescue_ready": rescue_ready,
         "hard_fail": hard_fail,
     }
@@ -231,10 +297,13 @@ def main() -> None:
     market_report = summarize_market_health(issue_date)
     findings = [*candidate_report["findings"], *market_report["findings"]]
 
-    if findings and not candidate_report["rescue_ready"]:
+    strict = strict_publish()
+    if findings and (strict or not candidate_report["rescue_ready"]):
         cleanup_placeholder_artifacts(issue_date)
         write_failure_reports(issue_date, findings, candidate_report, market_report)
         print(f"Preflight failed for {issue_date.isoformat()}")
+        if strict:
+            print("- Strict publish mode is enabled; rescue-mode continuation is disabled.")
         for finding in findings:
             print(f"- {finding}")
         raise SystemExit(1)

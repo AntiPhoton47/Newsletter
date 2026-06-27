@@ -7,8 +7,11 @@ import datetime as dt
 import json
 import os
 import subprocess
+import sys
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
+from pipeline_manifest import RunManifest
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,35 +26,6 @@ def load_profile(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def run(cmd: list[str], env: dict[str, str] | None = None) -> None:
-    merged_env = os.environ.copy()
-    if env:
-        merged_env.update(env)
-    subprocess.run(cmd, cwd=ROOT, check=True, env=merged_env)
-
-
-def try_push() -> bool:
-    result = subprocess.run(
-        ["git", "push"],
-        cwd=ROOT,
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode == 0:
-        if result.stdout.strip():
-            print(result.stdout.strip())
-        return True
-
-    stderr = result.stderr.strip()
-    stdout = result.stdout.strip()
-    detail = stderr or stdout or "unknown git push failure"
-    print("Git push failed after a successful newsletter build/commit.")
-    print(f"Push error: {detail}")
-    print("The issue artifacts and commit were kept locally so you can retry `git push` later.")
-    return False
-
-
 def default_issue_date(profile: dict) -> str:
     timezone_name = str(profile.get("timezone") or os.environ.get("NEWSLETTER_TIMEZONE") or os.environ.get("TZ") or "UTC")
     try:
@@ -61,7 +35,7 @@ def default_issue_date(profile: dict) -> str:
     return dt.datetime.now(dt.timezone.utc).astimezone(tzinfo).date().isoformat()
 
 
-def maybe_commit(issue_date: str, push: bool) -> None:
+def maybe_commit(issue_date: str, push: bool, manifest: RunManifest, env: dict[str, str]) -> None:
     status = subprocess.run(
         ["git", "status", "--porcelain"],
         cwd=ROOT,
@@ -73,10 +47,10 @@ def maybe_commit(issue_date: str, push: bool) -> None:
         print("No git changes to commit.")
         return
 
-    run(["git", "add", "issues/daily", "output", "site", "data", "scripts", "config", "README.md"])
-    run(["git", "commit", "-m", f"Update newsletter issue {issue_date}"])
+    manifest.run_stage("git_add", ["git", "add", "issues/daily", "output", "site", "data", "scripts", "config", "README.md"], env=env)
+    manifest.run_stage("git_commit", ["git", "commit", "-m", f"Update newsletter issue {issue_date}"], env=env)
     if push:
-        try_push()
+        manifest.run_stage("git_push", ["git", "push"], env=env)
 
 
 def build_env(profile_path: Path, profile: dict) -> dict[str, str]:
@@ -94,20 +68,34 @@ def build_env(profile_path: Path, profile: dict) -> dict[str, str]:
     return env
 
 
-def run_prepare(issue_date: str, overwrite: bool, env: dict[str, str]) -> None:
+def run_prepare(issue_date: str, overwrite: bool, env: dict[str, str], manifest: RunManifest) -> None:
     cmd = ["python3", "scripts/prepare_editorial_packet.py", "--date", issue_date]
     if overwrite:
         cmd.append("--overwrite")
-    run(cmd, env=env)
+    manifest.run_stage("prepare_editorial_packet", cmd, env=env)
 
 
-def run_publish(issue_date: str, send_email: bool, env: dict[str, str]) -> None:
-    run(["python3", "scripts/review_issue.py", "--date", issue_date], env=env)
-    run(["python3", "scripts/ai_review_issue.py", "--date", issue_date], env=env)
-    run(["python3", "scripts/send_daily_newsletter.py", "--date", issue_date, "--preview-html"], env=env)
-    run(["python3", "scripts/build_archive.py"], env=env)
+def run_publish(issue_date: str, send_email: bool, env: dict[str, str], manifest: RunManifest) -> None:
+    manifest.run_stage("editorial_diff", ["python3", "scripts/editorial_diff_report.py", "--date", issue_date], env=env)
+    manifest.run_stage("rule_review", ["python3", "scripts/review_issue.py", "--date", issue_date], env=env)
+    manifest.run_stage("ai_review", ["python3", "scripts/ai_review_issue.py", "--date", issue_date], env=env)
+    manifest.run_stage("preview_html", ["python3", "scripts/send_daily_newsletter.py", "--date", issue_date, "--preview-html"], env=env)
+    manifest.run_stage("build_archive", ["python3", "scripts/build_archive.py"], env=env)
     if send_email:
-        run(["python3", "scripts/send_daily_newsletter.py", "--date", issue_date], env=env)
+        manifest.run_stage("send_email", ["python3", "scripts/send_daily_newsletter.py", "--date", issue_date], env=env)
+
+
+def run_full_pipeline(issue_date: str, overwrite: bool, send_email: bool, env: dict[str, str], manifest: RunManifest) -> None:
+    fetch_cmd = ["python3", "scripts/fetch_candidates.py", "--date", issue_date]
+    preflight_cmd = ["python3", "scripts/check_pipeline_inputs.py", "--date", issue_date]
+    generate_cmd = ["python3", "scripts/generate_issue.py", "--date", issue_date]
+    if overwrite:
+        generate_cmd.append("--overwrite")
+    manifest.run_stage("fetch_candidates", fetch_cmd, env=env)
+    manifest.run_stage("preflight", preflight_cmd, env=env)
+    manifest.run_stage("generate_issue", generate_cmd, env=env)
+    manifest.run_stage("ai_generate_issue", ["python3", "scripts/ai_generate_issue.py", "--date", issue_date, "--overwrite"], env=env)
+    run_publish(issue_date, send_email=send_email, env=env, manifest=manifest)
 
 
 def main() -> None:
@@ -139,20 +127,32 @@ def main() -> None:
     else:
         issue_date = default_issue_date(profile)
     env = build_env(profile_path, profile)
-    if args.command == "prepare":
-        run_prepare(issue_date, overwrite=overwrite, env=env)
-    elif args.command == "publish":
-        run_publish(issue_date, send_email=send_email, env=env)
-    else:
-        cmd = ["python3", "scripts/run_daily_pipeline.py", "--date", issue_date]
-        if overwrite:
-            cmd.append("--overwrite")
-        if send_email:
-            cmd.append("--send")
-        run(cmd, env=env)
+    strict = send_email or git_commit or git_push or os.environ.get("CI", "").lower() == "true"
+    if strict:
+        env["NEWSLETTER_STRICT_PUBLISH"] = "true"
 
-    if git_commit:
-        maybe_commit(issue_date, push=git_push)
+    manifest = RunManifest(
+        dt.date.fromisoformat(issue_date),
+        command=f"newsletter_command:{args.command}",
+        argv=["scripts/newsletter_command.py", *sys.argv[1:]],
+        strict_publish=strict,
+    )
+    manifest.set_publish_options(send_email=send_email, git_commit=git_commit, git_push=git_push)
+
+    try:
+        if args.command == "prepare":
+            run_prepare(issue_date, overwrite=overwrite, env=env, manifest=manifest)
+        elif args.command == "publish":
+            run_publish(issue_date, send_email=send_email, env=env, manifest=manifest)
+        else:
+            run_full_pipeline(issue_date, overwrite=overwrite, send_email=send_email, env=env, manifest=manifest)
+
+        if git_commit:
+            maybe_commit(issue_date, push=git_push, manifest=manifest, env=env)
+    except Exception as exc:
+        manifest.finalize("failed", str(exc))
+        raise
+    manifest.finalize("passed")
 
     print("Remote newsletter command completed.")
 

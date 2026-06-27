@@ -50,6 +50,11 @@ def require_ai() -> bool:
     return env_flag("NEWSLETTER_REQUIRE_AI", default=False)
 
 
+def strict_publish() -> bool:
+    load_env_file()
+    return env_flag("NEWSLETTER_STRICT_PUBLISH", default=env_flag("CI", default=False))
+
+
 def review_min_score() -> int:
     load_env_file()
     raw = os.environ.get("NEWSLETTER_AI_REVIEW_MIN_SCORE", "85").strip()
