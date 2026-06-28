@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-28",
+  "issue_path": "/private/tmp/newsletter-publish-2026-06-28-v1W1vT/issues/daily/2026-06-28-daily-newsletter.md",
+  "generated_at": "2026-06-28T11:54:09.597594+00:00",
+  "issue": {
+    "word_count": 5793,
+    "source_count": 33,
+    "link_count": 100,
+    "section_count": 22,
+    "quick_hits_count": 16,
+    "section_word_counts": {
+      "June 28, 2026": 128,
+      "Quick Hits": 287,
+      "Markets & Economy": 500,
+      "Need To Know": 248,
+      "Research Watch": 354,
+      "World News": 482,
+      "Philosophy": 287,
+      "Biology": 271,
+      "Psychology and Neuroscience": 286,
+      "Health and Medicine": 248,
+      "Sociology and Anthropology": 236,
+      "Technology": 248,
+      "Robotics": 255,
+      "AI": 343,
+      "Engineering": 240,
+      "Mathematics": 237,
+      "Historical Discoveries": 222,
+      "Archaeology": 245,
+      "Tools You Can Use": 231,
+      "Entertainment": 179,
+      "Travel": 123,
+      "Idea Of The Day": 74
+    },
+    "missing_required_sections": [],
+    "top_sources": [
+      {
+        "source": "Quanta Magazine",
+        "count": 3
+      },
+      {
+        "source": "AP News",
+        "count": 2
+      },
+      {
+        "source": "Nature Medicine",
+        "count": 2
+      },
+      {
+        "source": "Nature",
+        "count": 2
+      },
+      {
+        "source": "MIT Technology Review",
+        "count": 2
+      },
+      {
+        "source": "Financial Times",
+        "count": 2
+      },
+      {
+        "source": "Science",
+        "count": 2
+      },
+      {
+        "source": "Product Hunt",
+        "count": 2
+      }
+    ],
+    "top_source_share": 0.0909,
+    "main_titles": [
+      "Where abstract systems hit operational limits",
+      "Swift Boost turns orbital servicing into an operational test",
+      "Curved magnetic films are becoming a control surface",
+      "Canonical quantum gravity gets a more familiar Hilbert-space option",
+      "Hormuz security is turning into a fleet, insurance, and command problem",
+      "Central Europe's heatwave has become a stress test for public systems",
+      "Spacetime stories get more serious when someone names the state variable",
+      "AI arguments improve once the ontology is left open",
+      "Microbial multicellularity looks like a chemistry engine",
+      "Plastic remediation gets closer to real consortia, not one miracle strain",
+      "Neural abstractions are starting to predict information gathering instead of only describing it",
+      "The exposome is becoming a better frame than one-risk-factor neuroscience",
+      "Health AI looks far less impressive once readiness becomes the metric",
+      "A real primary-care trial kept the generative-AI question honest",
+      "Eating behavior remains social before it becomes ideological",
+      "Human-animal relations keep forcing social theory out of the human-only frame",
+      "IBM's latest chip push is about keeping packaging and memory in the game",
+      "Qualcomm wants phone design to inherit more of the data-center logic",
+      "Embodied AI still proves itself in clutter, not on clean floors",
+      "DeepMind and Boston Dynamics are trying to make Spot reason, not only navigate",
+      "Government-vetted access is becoming part of the product",
+      "Compute scarcity is now steering model competition",
+      "Heat adaptation is becoming an engineering backlog, not a seasonal inconvenience",
+      "Small alpine lakes are turning into a larger flood-risk blind spot",
+      "Cantor's four-page shock still feels modern because it changed the scale of proof",
+      "The positive Grassmannian keeps turning structure into a method",
+      "Flowering plants diversified before the usual extinction-centered story allows",
+      "Giant Cretaceous octopuses push cephalopod history into stranger territory",
+      "Cave walls are starting to behave like genetic archives",
+      "Evidence for very early fire use keeps moving deeper into the Homo erectus period",
+      "Browser automation is getting closer to real operator work",
+      "Model routing is turning into an operations layer",
+      "Netflix's Annecy slate looks like an animation strategy, not a teaser dump",
+      "Apple's Cosmere deal is still one of the biggest live adaptation bets in fantasy",
+      "Ljubljana on foot and by river",
+      "The system breaks where the margin was assumed"
+    ]
+  },
+  "benchmark": {
+    "word_count": 5837,
+    "source_count": 29,
+    "link_count": 99,
+    "section_count": 22,
+    "quick_hits_count": 16,
+    "section_word_counts": {
+      "June 12, 2026": 193,
+      "Quick Hits": 331,
+      "Markets & Economy": 592,
+      "Need To Know": 183,
+      "Research Watch": 332,
+      "World News": 518,
+      "Philosophy": 321,
+      "Biology": 281,
+      "Psychology and Neuroscience": 287,
+      "Health and Medicine": 293,
+      "Sociology and Anthropology": 248,
+      "Technology": 254,
+      "Robotics": 239,
+      "AI": 296,
+      "Engineering": 226,
+      "Mathematics": 260,
+      "Historical Discoveries": 222,
+      "Archaeology": 214,
+      "Tools You Can Use": 170,
+      "Entertainment": 131,
+      "Travel": 70,
+      "Idea Of The Day": 107
+    },
+    "missing_required_sections": [],
+    "top_sources": [
+      {
+        "source": "Nature",
+        "count": 6
+      },
+      {
+        "source": "arXiv",
+        "count": 3
+      },
+      {
+        "source": "Financial Times",
+        "count": 2
+      },
+      {
+        "source": "Quanta Magazine",
+        "count": 2
+      },
+      {
+        "source": "Nature Communications",
+        "count": 2
+      },
+      {
+        "source": "Nature Human Behaviour",
+        "count": 2
+      },
+      {
+        "source": "IEEE Spectrum",
+        "count": 2
+      },
+      {
+        "source": "Nature Briefing",
+        "count": 1
+      }
+    ],
+    "top_source_share": 0.2069,
+    "main_titles": [
+      "The day's most interesting developments in science, technology, and ideas",
+      "Human-embryo base editing is no longer a distant policy debate",
+      "Quantum reference fields push linearized gravity toward an operational language",
+      "Antihydrogen spectroscopy keeps CPT symmetry on a laboratory footing",
+      "Iran war diplomacy is moving markets before it settles the war",
+      "Europe is debating whether its diplomatic service still matches the world it faces",
+      "AI still needs critics who understand the technical practice from the inside",
+      "Godel still matters most where he forces precision",
+      "Industrial microbiomes still evolve while engineers are trying to use them",
+      "Soil fungi belong in the infrastructure layer of ecology",
+      "Human-AI interaction is becoming part of the social environment that shapes the self",
+      "Reward learning looks thinner when memory is treated as an afterthought",
+      "PMOS is a better name because the disease was always bigger than the ovaries",
+      "Medical training still needs a theory of what AI should not do",
+      "Norm clustering still explains more than individual opinion when a practice is socially enforced",
+      "Ancient DNA on the Pacific coast is recovering kinship and mobility together",
+      "Europe's tech-sovereignty package is becoming a procurement argument",
+      "Anti-spoofing telemetry is becoming ordinary navigation infrastructure",
+      "Retrofit economics are still where a lot of real automation happens",
+      "Dexterity is still an embodiment problem before it is a software problem",
+      "Anthropic has learned that hidden guardrails are still product decisions",
+      "Language models may need maintenance cycles, not only larger context windows",
+      "Europe is learning what abundance stress looks like in electricity markets",
+      "Climate intelligence still begins with hardware",
+      "Foundations work is back in public view because mathematicians are rebuilding from lower levels",
+      "AI's Erdos successes are forcing a better workflow question",
+      "Ancient genomes are making recent human evolution look faster, not slower",
+      "Whale evolution keeps getting cleaner when the fossil lands in the right slot",
+      "Sediment DNA is widening the archive beyond lucky bones",
+      "Whole environments are becoming archaeological objects",
+      "awesome-free-models",
+      "claude-code-video-toolkit",
+      "AGNT.Hub",
+      "A few things worth pulling up this week",
+      "Lassen before peak summer traffic",
+      "Naming lag"
+    ]
+  },
+  "benchmark_comparison": {
+    "benchmark_issue": "/private/tmp/newsletter-publish-2026-06-28-v1W1vT/issues/daily/2026-06-12-daily-newsletter.md",
+    "word_count_ratio": 0.9925,
+    "source_count_ratio": 1.1379,
+    "link_count_ratio": 1.0101,
+    "section_count_delta": 0,
+    "quick_hits_delta": 0
+  },
+  "previous_issue_comparison": {
+    "previous_issue": "/private/tmp/newsletter-publish-2026-06-28-v1W1vT/issues/daily/2026-06-27-daily-newsletter.md",
+    "repeated_main_titles": []
+  },
+  "banned_phrase_hits": []
+}
