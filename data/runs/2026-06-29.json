@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-29",
+  "command": "newsletter_command:publish",
+  "argv": [
+    "scripts/newsletter_command.py",
+    "publish",
+    "--date",
+    "2026-06-29",
+    "--git-commit",
+    "--git-push"
+  ],
+  "strict_publish": true,
+  "status": "running",
+  "started_at": "2026-06-29T06:32:56.351853+00:00",
+  "completed_at": null,
+  "git_sha": "186991824ee1a1b3052377fbdf604d877fc50308",
+  "stages": [
+    {
+      "name": "editorial_diff",
+      "command": [
+        "python3",
+        "scripts/editorial_diff_report.py",
+        "--date",
+        "2026-06-29"
+      ],
+      "started_at": "2026-06-29T06:32:56.441531+00:00",
+      "completed_at": "2026-06-29T06:32:56.502809+00:00",
+      "duration_seconds": 0.061,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "rule_review",
+      "command": [
+        "python3",
+        "scripts/review_issue.py",
+        "--date",
+        "2026-06-29"
+      ],
+      "started_at": "2026-06-29T06:32:56.503621+00:00",
+      "completed_at": "2026-06-29T06:32:56.570424+00:00",
+      "duration_seconds": 0.067,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "ai_review",
+      "command": [
+        "python3",
+        "scripts/ai_review_issue.py",
+        "--date",
+        "2026-06-29"
+      ],
+      "started_at": "2026-06-29T06:32:56.571094+00:00",
+      "completed_at": "2026-06-29T06:32:56.693631+00:00",
+      "duration_seconds": 0.123,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "preview_html",
+      "command": [
+        "python3",
+        "scripts/send_daily_newsletter.py",
+        "--date",
+        "2026-06-29",
+        "--preview-html"
+      ],
+      "started_at": "2026-06-29T06:32:56.694340+00:00",
+      "completed_at": "2026-06-29T06:32:56.787040+00:00",
+      "duration_seconds": 0.093,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "build_archive",
+      "command": [
+        "python3",
+        "scripts/build_archive.py"
+      ],
+      "started_at": "2026-06-29T06:32:56.894696+00:00",
+      "completed_at": "2026-06-29T06:32:57.684542+00:00",
+      "duration_seconds": 0.79,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "git_add",
+      "command": [
+        "git",
+        "add",
+        "issues/daily",
+        "output",
+        "site",
+        "data",
+        "scripts",
+        "config",
+        "README.md"
+      ],
+      "started_at": "2026-06-29T06:32:57.727835+00:00",
+      "completed_at": null,
+      "duration_seconds": null,
+      "status": "running",
+      "returncode": null,
+      "error": ""
+    }
+  ],
+  "publish": {
+    "send_email": false,
+    "git_commit": true,
+    "git_push": true
+  },
+  "failure_reason": "",
+  "candidate_summary": {
+    "summary": {},
+    "total_entries": 0,
+    "direct_entries": 0,
+    "direct_entry_ratio": 0.0,
+    "google_wrapper_links": 0,
+    "google_wrapper_ratio": 0.0,
+    "duplicate_clusters": []
+  },
+  "market_summary": {
+    "present": false
+  },
+  "reviews": {
+    "rule_review": {
+      "passed": true,
+      "finding_count": 0
+    },
+    "ai_review": {
+      "passed": true,
+      "ready_to_send": true,
+      "overall_score": 95,
+      "model": "local-heuristic",
+      "minimum_score": 90,
+      "finding_count": 0
+    }
+  },
+  "editorial_diff": {
+    "word_count": 6054,
+    "source_count": 33,
+    "benchmark_word_ratio": 1.0372,
+    "benchmark_source_ratio": 1.1379,
+    "repeated_main_titles": [],
+    "banned_phrase_count": 0
+  }
+}
