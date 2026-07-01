@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "date": "2026-06-30",
+  "command": "newsletter_command:publish",
+  "argv": [
+    "scripts/newsletter_command.py",
+    "publish",
+    "--date",
+    "2026-06-30"
+  ],
+  "strict_publish": false,
+  "status": "passed",
+  "started_at": "2026-07-01T19:56:38.023295+00:00",
+  "completed_at": "2026-07-01T19:56:39.310050+00:00",
+  "git_sha": "1f03ca579a36cd0949372dd8d3166094ee99a5a7",
+  "stages": [
+    {
+      "name": "editorial_diff",
+      "command": [
+        "python3",
+        "scripts/editorial_diff_report.py",
+        "--date",
+        "2026-06-30"
+      ],
+      "started_at": "2026-07-01T19:56:38.046556+00:00",
+      "completed_at": "2026-07-01T19:56:38.114605+00:00",
+      "duration_seconds": 0.068,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "rule_review",
+      "command": [
+        "python3",
+        "scripts/review_issue.py",
+        "--date",
+        "2026-06-30"
+      ],
+      "started_at": "2026-07-01T19:56:38.115269+00:00",
+      "completed_at": "2026-07-01T19:56:38.192477+00:00",
+      "duration_seconds": 0.077,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "ai_review",
+      "command": [
+        "python3",
+        "scripts/ai_review_issue.py",
+        "--date",
+        "2026-06-30"
+      ],
+      "started_at": "2026-07-01T19:56:38.193163+00:00",
+      "completed_at": "2026-07-01T19:56:38.316692+00:00",
+      "duration_seconds": 0.124,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "preview_html",
+      "command": [
+        "python3",
+        "scripts/send_daily_newsletter.py",
+        "--date",
+        "2026-06-30",
+        "--preview-html"
+      ],
+      "started_at": "2026-07-01T19:56:38.317654+00:00",
+      "completed_at": "2026-07-01T19:56:38.392487+00:00",
+      "duration_seconds": 0.075,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    },
+    {
+      "name": "build_archive",
+      "command": [
+        "python3",
+        "scripts/build_archive.py"
+      ],
+      "started_at": "2026-07-01T19:56:38.393243+00:00",
+      "completed_at": "2026-07-01T19:56:39.309127+00:00",
+      "duration_seconds": 0.917,
+      "status": "passed",
+      "returncode": 0,
+      "error": ""
+    }
+  ],
+  "publish": {
+    "send_email": false,
+    "git_commit": false,
+    "git_push": false
+  },
+  "failure_reason": "",
+  "candidate_summary": {
+    "summary": {},
+    "total_entries": 0,
+    "direct_entries": 0,
+    "direct_entry_ratio": 0.0,
+    "google_wrapper_links": 0,
+    "google_wrapper_ratio": 0.0,
+    "duplicate_clusters": []
+  },
+  "market_summary": {
+    "present": false
+  },
+  "reviews": {
+    "rule_review": {
+      "passed": true,
+      "finding_count": 0
+    },
+    "ai_review": {
+      "passed": true,
+      "ready_to_send": true,
+      "overall_score": 95,
+      "model": "local-heuristic",
+      "minimum_score": 90,
+      "finding_count": 0
+    }
+  },
+  "editorial_diff": {
+    "word_count": 5882,
+    "source_count": 33,
+    "benchmark_word_ratio": 1.0077,
+    "benchmark_source_ratio": 1.1379,
+    "repeated_main_titles": [],
+    "banned_phrase_count": 0
+  }
+}
